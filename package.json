@@ -1,12 +1,12 @@
 {
-  "name": "gatsby-styled-components",
+  "name": "zatogrip",
   "private": true,
-  "description": "basic Gatsby starter with Styled Components & linters",
+  "description": "2022 Zatogrip page with SSG",
   "version": "1.0.0",
   "author": "Krzysztof Hankiewicz @kjhank <kjhank@gmail.com>",
   "dependencies": {
     "babel-plugin-styled-components": "^1.13.3",
-    "gatsby": "^4.0.2",
+    "gatsby": "^4.5.2",
     "gatsby-plugin-alias-imports": "^1.0.5",
     "gatsby-plugin-image": "^2.0.0",
     "gatsby-plugin-manifest": "^4.0.0",
@@ -22,8 +22,10 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-helmet": "^6.1.0",
+    "sanitize-html": "^2.6.1",
     "smoothscroll-polyfill": "^0.4.4",
-    "styled-components": "^5.3.3"
+    "styled-components": "^5.3.3",
+    "stylelint-config-recommended": "^6.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.15.8",
@@ -40,13 +42,13 @@
     "eslint-plugin-import": "^2.25.2",
     "eslint-plugin-jsx-a11y": "^6.4.1",
     "eslint-plugin-react": "^7.26.1",
-    "eslint-plugin-react-hooks": "^4.2.0",
+    "eslint-plugin-react-hooks": "^4.3.0",
     "husky": "^7.0.4",
     "lint-staged": "^11.2.6",
-    "stylelint": "^14.0.1",
-    "stylelint-config-standard": "^23.0.0",
+    "stylelint": "13.8.0",
+    "stylelint-config-standard": "20.0.0",
     "stylelint-config-styled-components": "^0.1.1",
-    "stylelint-order": "^5.0.0",
+    "stylelint-order": "4.1.0",
     "stylelint-processor-styled-components": "^1.10.0"
   },
   "husky": {
@@ -71,7 +73,8 @@
     "build": "gatsby build",
     "clean": "gatsby clean",
     "dev": "gatsby develop",
-    "lint": "eslint . && stylelint \"app/**/*.js\"",
+    "lint": "eslint . && stylelint \".src/**/*.js\"",
+    "lint:css": "stylelint \"./src/**/*.js\"",
     "nuke": "gatsby clean && rm -fr node_modules && yarn install",
     "serve": "gatsby serve",
     "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\"",
@@ -80,10 +83,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/kjhank/gatsby-styled-components"
+    "url": "https://github.com/kjhank/zatogrip"
   },
   "bugs": {
-    "url": "https://github.com/kjhank/gatsby-styled-components/issues"
+    "url": "https://github.com/kjhank/zatogrip/issues"
   },
   "packageManager": "yarn@3.1.0"
 }
