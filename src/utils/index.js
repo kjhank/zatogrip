@@ -1,15 +1,8 @@
-import GlobalStyle from './GlobalStyle';
-import {
-  mediaQueries,
+export { GlobalStyle } from './GlobalStyle';
+export {
   mfQueries,
+  queries,
 } from './rwd';
-import {
+export {
   isBrowser,
 } from './helpers';
-
-export {
-  GlobalStyle,
-  isBrowser,
-  mediaQueries,
-  mfQueries,
-};

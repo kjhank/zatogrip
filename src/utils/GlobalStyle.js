@@ -1,6 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 
-const GlobalStyle = createGlobalStyle`
+export const GlobalStyle = createGlobalStyle`
   html {
     overflow: auto;
     box-sizing: border-box;
@@ -119,10 +119,12 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body {
+    overflow: hidden;
     min-height: 100vh;
     scroll-behavior: smooth;
     text-rendering: optimizeSpeed;
-    font-family: 'Tahoma', sans-serif;
+    color: ${({ theme }) => theme.getColor('main')};
+    font-family: ${({ theme }) => theme.getFont()};
     line-height: 1.2;
   }
 
@@ -217,5 +219,3 @@ const GlobalStyle = createGlobalStyle`
     }
   }
 `;
-
-export default GlobalStyle;
