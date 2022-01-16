@@ -1,24 +1,22 @@
 import styled from 'styled-components';
 
-import { mediaQueries } from '@utils';
+import { queries } from '@utils/rwd';
 
-const Container = styled.div`
+export const Container = styled.div`
   position: relative;
-  max-width: 1440px;
+  width: min(80.729167vw, 1550px);
   height: 100%;
   margin: 0 auto;
 
-  @media ${mediaQueries.mediumLarge} {
-    max-width: 80vw;
+  @media ${queries.xl} {
+    width: 70vw; // TODO: adjust for min()
   }
 
-  @media ${mediaQueries.medium} {
-    max-width: 87vw;
+  @media ${queries.l} {
+    width: 85vw; // TODO: adjust for min()
   }
 
-  @media ${mediaQueries.xsmall} {
-    max-width: 90vw;
+  @media ${queries.s} {
+    width: 95vw; // TODO: adjust for min()
   }
 `;
-
-export default Container;

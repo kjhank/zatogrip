@@ -4675,13 +4675,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"big.js@npm:^3.1.3":
-  version: 3.2.0
-  resolution: "big.js@npm:3.2.0"
-  checksum: 299449e40555625a308f01d74378677036b2ec98b30aaa89794b3afbd4eaa104b7456a989affadfd7f630dc14b3f1df250de9bddc4a6fc664e60727887bb33e7
-  languageName: node
-  linkType: hard
-
 "big.js@npm:^5.2.2":
   version: 5.2.2
   resolution: "big.js@npm:5.2.2"
@@ -5143,24 +5136,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"caniuse-lite@npm:^1.0.0, caniuse-lite@npm:^1.0.30001125, caniuse-lite@npm:^1.0.30001164, caniuse-lite@npm:^1.0.30001219":
-  version: 1.0.30001245
-  resolution: "caniuse-lite@npm:1.0.30001245"
-  checksum: f4a9a49a5a004c71cf24ed22c5d5d190d2d21854d5fd61e2b17e1ba47509c24a073f951285912212573450917608e63c82b07c7c9b367839a8d7b84f7517fb91
-  languageName: node
-  linkType: hard
-
-"caniuse-lite@npm:^1.0.30001109, caniuse-lite@npm:^1.0.30001286, caniuse-lite@npm:^1.0.30001297":
+"caniuse-lite@npm:^1.0.0, caniuse-lite@npm:^1.0.30001109, caniuse-lite@npm:^1.0.30001125, caniuse-lite@npm:^1.0.30001164, caniuse-lite@npm:^1.0.30001219, caniuse-lite@npm:^1.0.30001271, caniuse-lite@npm:^1.0.30001286, caniuse-lite@npm:^1.0.30001297":
   version: 1.0.30001299
   resolution: "caniuse-lite@npm:1.0.30001299"
   checksum: c770f60ebf3e0cc8043ba4db0ebec12d7a595a6b50cb4437c3c5c55b04de9d2413f711f2828be761e8c37bb46b927a8abe6b199b8f0ffc1a34af0ebdee84be27
-  languageName: node
-  linkType: hard
-
-"caniuse-lite@npm:^1.0.30001271":
-  version: 1.0.30001272
-  resolution: "caniuse-lite@npm:1.0.30001272"
-  checksum: 5a08fc35ae298acef6846111634201bde7b4710fe0ccabb69ad5681115f77971265d9b6b5cd9bb976bc44d8d6ff0119cb28d9032753e063a2c70e1e30b630ad9
   languageName: node
   linkType: hard
 
@@ -6065,18 +6044,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"css@npm:2.2.4":
-  version: 2.2.4
-  resolution: "css@npm:2.2.4"
-  dependencies:
-    inherits: ^2.0.3
-    source-map: ^0.6.1
-    source-map-resolve: ^0.5.2
-    urix: ^0.1.0
-  checksum: a35d483c5ccc04bcde3b1e7393d58ad3eee1dd6956df0f152de38e46a17c0ee193c30eec6b1e59831ad0e74599385732000e95987fcc9cb2b16c6d951bae49e1
-  languageName: node
-  linkType: hard
-
 "cssesc@npm:^3.0.0":
   version: 3.0.0
   resolution: "cssesc@npm:3.0.0"
@@ -6744,13 +6711,6 @@ __metadata:
   version: 9.2.2
   resolution: "emoji-regex@npm:9.2.2"
   checksum: 8487182da74aabd810ac6d6f1994111dfc0e331b01271ae01ec1eb0ad7b5ecc2bbbbd2f053c05cb55a1ac30449527d819bbfbf0e3de1023db308cbcb47f86601
-  languageName: node
-  linkType: hard
-
-"emojis-list@npm:^2.0.0":
-  version: 2.1.0
-  resolution: "emojis-list@npm:2.1.0"
-  checksum: fb61fa6356dfcc9fbe6db8e334c29da365a34d3d82a915cb59621883d3023d804fd5edad5acd42b8eec016936e81d3b38e2faf921b32e073758374253afe1272
   languageName: node
   linkType: hard
 
@@ -8585,17 +8545,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"gatsby-plugin-react-svg@npm:^3.1.0":
-  version: 3.1.0
-  resolution: "gatsby-plugin-react-svg@npm:3.1.0"
-  dependencies:
-    svg-react-loader: ^0.4.6
-  peerDependencies:
-    gatsby: ^4.0.0 || ^3.0.0 || ^2.0.0
-  checksum: 70ef38d9ca1bb5125b42713be1f7dd903ecb164a1ac5984a960befa5b024f06b659864562126f7968bd5a346ddf1e86cacd1840f458364d8f99817337e56183a
-  languageName: node
-  linkType: hard
-
 "gatsby-plugin-sharp@npm:^4.0.1":
   version: 4.0.1
   resolution: "gatsby-plugin-sharp@npm:4.0.1"
@@ -8715,56 +8664,6 @@ __metadata:
   checksum: 4c50e01562b475e84af7d58dee395a6264c7d2af59b467a0616e8abee65d719f9f3ac354670a239ccad3b325dee5479491055c5bd4e5abb5c9b499534c065cc5
   languageName: node
   linkType: hard
-
-"gatsby-styled-components@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "gatsby-styled-components@workspace:."
-  dependencies:
-    "@babel/core": ^7.15.8
-    "@babel/eslint-parser": ^7.15.8
-    "@babel/eslint-plugin": ^7.14.5
-    "@babel/plugin-transform-runtime": ^7.15.8
-    "@babel/runtime": ^7.15.4
-    babel-eslint: ^10.1.0
-    babel-plugin-styled-components: ^1.13.3
-    eslint: ^8.1.0
-    eslint-config-airbnb: ^18.2.1
-    eslint-config-react-app: ^6.0.0
-    eslint-loader: ^4.0.2
-    eslint-plugin-flowtype: ^8.0.2
-    eslint-plugin-import: ^2.25.2
-    eslint-plugin-jsx-a11y: ^6.4.1
-    eslint-plugin-react: ^7.26.1
-    eslint-plugin-react-hooks: ^4.3.0
-    gatsby: ^4.5.2
-    gatsby-plugin-alias-imports: ^1.0.5
-    gatsby-plugin-image: ^2.0.0
-    gatsby-plugin-manifest: ^4.0.0
-    gatsby-plugin-offline: ^5.0.0
-    gatsby-plugin-react-helmet: ^5.0.0
-    gatsby-plugin-react-svg: ^3.1.0
-    gatsby-plugin-sharp: ^4.0.1
-    gatsby-plugin-styled-components: ^5.0.0
-    gatsby-source-filesystem: ^4.0.0
-    gatsby-transformer-sharp: ^4.0.0
-    husky: ^7.0.4
-    lint-staged: ^11.2.6
-    polished: ^4.1.3
-    prop-types: ^15.7.2
-    react: ^17.0.2
-    react-dom: ^17.0.2
-    react-helmet: ^6.1.0
-    sanitize-html: ^2.6.1
-    smoothscroll-polyfill: ^0.4.4
-    styled-components: ^5.3.3
-    stylelint: 13.8.0
-    stylelint-config-recommended: ^6.0.0
-    stylelint-config-standard: 20.0.0
-    stylelint-config-styled-components: ^0.1.1
-    stylelint-order: 4.1.0
-    stylelint-processor-styled-components: ^1.10.0
-  languageName: unknown
-  linkType: soft
 
 "gatsby-telemetry@npm:^3.0.0":
   version: 3.0.0
@@ -11036,15 +10935,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"json5@npm:^0.5.0":
-  version: 0.5.1
-  resolution: "json5@npm:0.5.1"
-  bin:
-    json5: lib/cli.js
-  checksum: 9b85bf06955b23eaa4b7328aa8892e3887e81ca731dd27af04a5f5f1458fbc5e1de57a24442e3272f8a888dd1abe1cb68eb693324035f6b3aeba4fcab7667d62
-  languageName: node
-  linkType: hard
-
 "json5@npm:^1.0.1":
   version: 1.0.1
   resolution: "json5@npm:1.0.1"
@@ -11303,17 +11193,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"loader-utils@npm:1.1.0":
-  version: 1.1.0
-  resolution: "loader-utils@npm:1.1.0"
-  dependencies:
-    big.js: ^3.1.3
-    emojis-list: ^2.0.0
-    json5: ^0.5.0
-  checksum: 576f543375101a07735be2d308edb509b87d36c25f7af35f2926bf5ed52781437d1900518709554713d4eab5dfd37150fe7dadd24be606bf4e802bf392ea9c86
-  languageName: node
-  linkType: hard
-
 "loader-utils@npm:2.0.0, loader-utils@npm:^2.0.0":
   version: 2.0.0
   resolution: "loader-utils@npm:2.0.0"
@@ -11503,7 +11382,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lodash@npm:^4.0.0, lodash@npm:^4.17.10, lodash@npm:^4.17.11, lodash@npm:^4.17.15, lodash@npm:^4.17.19, lodash@npm:^4.17.20, lodash@npm:^4.17.4":
+"lodash@npm:^4.17.10, lodash@npm:^4.17.11, lodash@npm:^4.17.15, lodash@npm:^4.17.19, lodash@npm:^4.17.20, lodash@npm:^4.17.4":
   version: 4.17.20
   resolution: "lodash@npm:4.17.20"
   checksum: b31afa09739b7292a88ec49ffdb2fcaeb41f690def010f7a067eeedffece32da6b6847bfe4d38a77e6f41778b9b2bca75eeab91209936518173271f0b69376ea
@@ -14246,13 +14125,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ramda@npm:0.21.0":
-  version: 0.21.0
-  resolution: "ramda@npm:0.21.0"
-  checksum: e08d63c12ed4bab70bfd700a843901d9fa340d1a88c50085a6ef0ecf25f528e5ac7c71848481270923491e7315a34301bb35905d45861cb13cc75b8ca05add32
-  languageName: node
-  linkType: hard
-
 "randombytes@npm:^2.1.0":
   version: 2.1.0
   resolution: "randombytes@npm:2.1.0"
@@ -14975,13 +14847,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rx@npm:4.1.0":
-  version: 4.1.0
-  resolution: "rx@npm:4.1.0"
-  checksum: 64edd278f2e32361bdbaa44bd503e2d1caf1331cece2db87852925b4f58f407563d879ce9df0ac2a593b4588c552437e18bbd53ea361f0b3f2f274a7a5cc4c21
-  languageName: node
-  linkType: hard
-
 "rxjs@npm:^6.6.0":
   version: 6.6.3
   resolution: "rxjs@npm:6.6.3"
@@ -15559,7 +15424,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"source-map-resolve@npm:^0.5.0, source-map-resolve@npm:^0.5.2":
+"source-map-resolve@npm:^0.5.0":
   version: 0.5.3
   resolution: "source-map-resolve@npm:0.5.3"
   dependencies:
@@ -16313,20 +16178,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"svg-react-loader@npm:^0.4.6":
-  version: 0.4.6
-  resolution: "svg-react-loader@npm:0.4.6"
-  dependencies:
-    css: 2.2.4
-    loader-utils: 1.1.0
-    ramda: 0.21.0
-    rx: 4.1.0
-    traverse: 0.6.6
-    xml2js: 0.4.17
-  checksum: a58d82773fcc3c45ee558a74f78f11926f46925d741025e1cb14a231db6f432871bbd266976fc894907ae862ce3fa418901623605afcc7fe4744304874e0d074
-  languageName: node
-  linkType: hard
-
 "svg-tags@npm:^1.0.0":
   version: 1.0.0
   resolution: "svg-tags@npm:1.0.0"
@@ -16674,13 +16525,6 @@ __metadata:
   version: 0.0.3
   resolution: "tr46@npm:0.0.3"
   checksum: 726321c5eaf41b5002e17ffbd1fb7245999a073e8979085dacd47c4b4e8068ff5777142fc6726d6ca1fd2ff16921b48788b87225cbc57c72636f6efa8efbffe3
-  languageName: node
-  linkType: hard
-
-"traverse@npm:0.6.6":
-  version: 0.6.6
-  resolution: "traverse@npm:0.6.6"
-  checksum: e2afa72f11efa9ba31ed763d2d9d2aa244612f22015d16c0ea3ba5f6ca8bf071de87f8108b721885cce06ea4a36ef4605d9228c67e431d9015ea4685cb364420
   languageName: node
   linkType: hard
 
@@ -17744,16 +17588,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"xml2js@npm:0.4.17":
-  version: 0.4.17
-  resolution: "xml2js@npm:0.4.17"
-  dependencies:
-    sax: ">=0.6.0"
-    xmlbuilder: ^4.1.0
-  checksum: c45e6c7f6566513453857967a036bc6c7c0c54925bc01f19ae50117139d32f30e3af4c6d5446c0020c67c57e51bb97dd56a62dffff50c90015877df1c62b8bb5
-  languageName: node
-  linkType: hard
-
 "xml2js@npm:^0.4.5":
   version: 0.4.23
   resolution: "xml2js@npm:0.4.23"
@@ -17761,15 +17595,6 @@ __metadata:
     sax: ">=0.6.0"
     xmlbuilder: ~11.0.0
   checksum: ca0cf2dfbf6deeaae878a891c8fbc0db6fd04398087084edf143cdc83d0509ad0fe199b890f62f39c4415cf60268a27a6aed0d343f0658f8779bd7add690fa98
-  languageName: node
-  linkType: hard
-
-"xmlbuilder@npm:^4.1.0":
-  version: 4.2.1
-  resolution: "xmlbuilder@npm:4.2.1"
-  dependencies:
-    lodash: ^4.0.0
-  checksum: 2d4c5fb6591399904070cee273a558847bffe07c71458871d3b44b0157e7c2e18684991b47636b8f5c80fcf4f79cb83b263c65781c960adcccfb80d349fa82b0
   languageName: node
   linkType: hard
 
@@ -17936,6 +17761,55 @@ __metadata:
   checksum: e1e60a859b21af5897501b3e12ff2c811b39f7b376e32ee8de0056bcfe7e64609c08dc265e33d7b6c20f81d07f987eb1be1dad8780473461a437828828995a79
   languageName: node
   linkType: hard
+
+"zatogrip@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "zatogrip@workspace:."
+  dependencies:
+    "@babel/core": ^7.15.8
+    "@babel/eslint-parser": ^7.15.8
+    "@babel/eslint-plugin": ^7.14.5
+    "@babel/plugin-transform-runtime": ^7.15.8
+    "@babel/runtime": ^7.15.4
+    babel-eslint: ^10.1.0
+    babel-plugin-styled-components: ^1.13.3
+    eslint: ^8.1.0
+    eslint-config-airbnb: ^18.2.1
+    eslint-config-react-app: ^6.0.0
+    eslint-loader: ^4.0.2
+    eslint-plugin-flowtype: ^8.0.2
+    eslint-plugin-import: ^2.25.2
+    eslint-plugin-jsx-a11y: ^6.4.1
+    eslint-plugin-react: ^7.26.1
+    eslint-plugin-react-hooks: ^4.3.0
+    gatsby: ^4.5.2
+    gatsby-plugin-alias-imports: ^1.0.5
+    gatsby-plugin-image: ^2.0.0
+    gatsby-plugin-manifest: ^4.0.0
+    gatsby-plugin-offline: ^5.0.0
+    gatsby-plugin-react-helmet: ^5.0.0
+    gatsby-plugin-sharp: ^4.0.1
+    gatsby-plugin-styled-components: ^5.0.0
+    gatsby-source-filesystem: ^4.0.0
+    gatsby-transformer-sharp: ^4.0.0
+    husky: ^7.0.4
+    lint-staged: ^11.2.6
+    polished: ^4.1.3
+    prop-types: ^15.7.2
+    react: ^17.0.2
+    react-dom: ^17.0.2
+    react-helmet: ^6.1.0
+    sanitize-html: ^2.6.1
+    smoothscroll-polyfill: ^0.4.4
+    styled-components: ^5.3.3
+    stylelint: 13.8.0
+    stylelint-config-recommended: ^6.0.0
+    stylelint-config-standard: 20.0.0
+    stylelint-config-styled-components: ^0.1.1
+    stylelint-order: 4.1.0
+    stylelint-processor-styled-components: ^1.10.0
+  languageName: unknown
+  linkType: soft
 
 "zwitch@npm:^1.0.0":
   version: 1.0.5

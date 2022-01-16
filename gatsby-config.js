@@ -1,3 +1,7 @@
+require('dotenv').config({
+  path: `.env.${process.env.NODE_ENV}`,
+});
+
 module.exports = {
   plugins: [
     'gatsby-plugin-react-helmet',
@@ -12,22 +16,12 @@ module.exports = {
     'gatsby-plugin-sharp',
     {
       options: {
-        rule: {
-          omitKeys: [
-            'width',
-            'height',
-          ],
-        },
-      },
-      resolve: 'gatsby-plugin-react-svg',
-    },
-    {
-      options: {
         alias: {
-          '@assets': 'src/assets',
           '@components': 'src/components',
+          '@containers': 'src/containers',
           '@pages': 'src/pages',
           '@src': 'src',
+          '@templates': 'src/templates',
           '@theme': 'src/theme',
           '@utils': 'src/utils',
         },
@@ -40,8 +34,8 @@ module.exports = {
         background_color: '#663399',
         display: 'minimal-ui',
         icon: 'src/images/gatsby-icon.png', // This path is relative to the root of the site.
-        name: 'Untitled Gatsby project',
-        short_name: 'foo',
+        name: 'Zatogrip 2022',
+        short_name: 'zatogrip',
         start_url: '/',
         theme_color: '#663399', // TODO: set these up
       },
@@ -54,7 +48,8 @@ module.exports = {
   ],
   siteMetadata: {
     author: '@kjhank',
-    description: 'Gatsby starter using Styled Components',
-    title: 'Gatsby Starter with Styled Components',
+    baseUrl: 'https://zatogrip.pl',
+    description: '2022 Zatogrip page',
+    title: 'Zatogrip',
   },
 };
