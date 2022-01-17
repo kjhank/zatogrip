@@ -23,7 +23,7 @@ const theme = {
     dim: '#ededed',
     gradient: {
       from: '#007d30',
-      to: '#007d30',
+      to: '#00572C',
     },
     highlight: '#005b31',
     light: '#d5d5d5',
@@ -45,10 +45,7 @@ const theme = {
   getColor: variant => theme.colors[variant],
   getFont: (variant = 'default') => theme.fonts[variant],
   getGradient: (direction = 'right') => (direction === 'radial' ?
-    `radial-gradient(
-      ${theme.colors.gradient.from} 30%,
-      ${theme.colors.gradient.to}
-    )` :
+    `radial-gradient(circle at 50%, ${theme.colors.gradient.from} 40%, ${theme.colors.gradient.to})` :
     `linear-gradient(
       to ${direction},
       ${theme.colors.gradient.from},

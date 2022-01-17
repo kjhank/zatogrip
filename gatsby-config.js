@@ -19,6 +19,7 @@ module.exports = {
         alias: {
           '@components': 'src/components',
           '@containers': 'src/containers',
+          '@icons': 'src/icons',
           '@pages': 'src/pages',
           '@src': 'src',
           '@templates': 'src/templates',

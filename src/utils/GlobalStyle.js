@@ -158,9 +158,13 @@ export const GlobalStyle = createGlobalStyle`
     text-decoration-skip-ink: auto;
   }
 
-  img {
+  img,
+  picture {
     display: block;
+    width: auto;
     max-width: 100%;
+    height: auto;
+    max-height: 100%;
   }
 
   input,

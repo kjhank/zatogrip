@@ -22,8 +22,10 @@ export const topNavigation = [
     type: 'scroll',
   },
   {
-    section: 'contact',
     text: 'Kontakt',
-    type: 'scroll',
+    type: 'link',
+    url: '/kontakt/',
   },
 ];
+
+export const SCROLL_DEBOUNCE = 300;
