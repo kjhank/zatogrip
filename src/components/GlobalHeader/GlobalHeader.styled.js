@@ -33,11 +33,12 @@ export const Navigation = styled.nav`
 `;
 
 const commonNavStyle = css`
-  ${({ theme }) => theme.getLinkStyles()};
+  ${({ theme }) => theme.getLinkStyles(theme.getColor('link'))};
   padding: 0;
   background-color: transparent;
   color: ${({ theme }) => theme.colors.alt};
   font-size: clamp(12px, 1.09375vw, 21vw);
+  font-family: ${({ theme }) => theme.getFont('heading')};
   text-transform: uppercase;
   cursor: pointer;
 `;

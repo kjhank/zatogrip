@@ -8,6 +8,7 @@ export const Section = styled.section`
   aspect-ratio: 1920/1040;
   width: 100%;
   color: ${({ theme }) => theme.colors.alt};
+  font-family: ${({ theme }) => theme.getFont('heading')};
 `;
 
 export const Heading = styled.h2`

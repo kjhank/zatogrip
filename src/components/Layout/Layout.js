@@ -10,7 +10,7 @@ import {
   GlobalFooter, GlobalHeader,
 } from '@components';
 
-// import '../../../static/fonts/stylesheet.css'; // TODO: update when we get fonts
+import '../../../static/fonts/stylesheet.css'; // TODO: update when we get fonts
 
 import { Seo } from './Seo';
 import {

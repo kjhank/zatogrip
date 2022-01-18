@@ -74,6 +74,7 @@ export const PostTitle = styled.h3`
   color: ${({ theme }) => theme.getColor('alt')};
   font-weight: bold;
   font-size: clamp(12px, 1.145833vw, 22px);
+  font-family: ${({ theme }) => theme.getFont('alt')};
   text-transform: uppercase;
 `;
 
@@ -86,6 +87,8 @@ export const Excerpt = styled.p`
 export const PostLink = styled(Link)`
   ${arrowLinkStyles};
   margin-top: auto;
+  font-size: clamp(10px, 0.729167vw, 16px);
+  font-family: ${({ theme }) => theme.getFont('heading')};
 `;
 
 export const AllPostsLink = styled(Link)`
@@ -96,6 +99,7 @@ export const AllPostsLink = styled(Link)`
   background-color: #fff;
   color: ${({ theme }) => theme.getColor('alt')};
   font-size: clamp(9px, 0.78125vw, 15px);
+  font-family: ${({ theme }) => theme.getFont('heading')};
   transition: ${({ theme }) => theme.getTransitions([
     'filter',
     'transform',
@@ -103,7 +107,7 @@ export const AllPostsLink = styled(Link)`
 
   :hover {
     filter: drop-shadow(0 4px 4px ${rgba('#000', 0.25)});
-    transform: scale(1.1);
+    transform: scale(1.05);
   }
 `;
 

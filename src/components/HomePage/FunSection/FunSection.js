@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { createPortal } from 'react-dom';
 import PropTypes from 'prop-types';
 
 import { Arrow } from '@icons';
-import { Container } from '@components';
+import {
+  Container, Modal,
+} from '@components';
 import { SectionHeading } from '@components/HomePage/styled';
 import {
   ArrowWrapper,
@@ -16,14 +19,35 @@ import {
   TriggersList,
 } from './FunSection.styled';
 
+import { Items } from './Items';
+
 export const FunSection = ({
   content, innerRef,
 }) => {
+  const BODY = document.body;
   const list = [
-    content.origami,
-    content.coloringBooks,
-    content.DIY,
+    {
+      ...content.origami,
+      type: 'origami',
+    },
+    {
+      ...content.coloringBooks,
+      type: 'coloringBooks',
+    },
+    {
+      ...content.DIY,
+      type: 'diy',
+    },
   ];
+
+  const [
+    openModal,
+    setOpenModal,
+  ] = useState(null);
+
+  const handleModal = type => {
+    setOpenModal(type);
+  };
 
   return (
     <Section ref={innerRef}>
@@ -38,7 +62,7 @@ export const FunSection = ({
             {list.map(item => (
               <SingleTrigger key={item.text}>
                 <ItemImage image={item.image} />
-                <ModalTrigger>
+                <ModalTrigger onClick={() => handleModal(item.type)}>
                   {item.text}
                   <ArrowWrapper>
                     <Arrow />
@@ -49,6 +73,15 @@ export const FunSection = ({
           </TriggersList>
         </ContentWrapper>
       </Container>
+      {list.find(({ type }) => type === openModal) ?
+        createPortal(
+          <Modal
+            close={handleModal}
+          >
+            <Items content={list.find(({ type }) => type === openModal)} />
+          </Modal>, BODY
+        ) :
+        null}
     </Section>
   );
 };

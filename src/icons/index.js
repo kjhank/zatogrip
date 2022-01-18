@@ -7,3 +7,5 @@ export { default as Envelope } from './Envelope';
 export { default as EnvelopeWithAt } from './EnvelopeWithAt';
 export { default as Phone } from './Phone';
 export { default as Pills } from './Pills';
+export { default as ManufacturerLogo } from './ManufacturerLogo';
+export { default as Ellipses } from './Ellipses';

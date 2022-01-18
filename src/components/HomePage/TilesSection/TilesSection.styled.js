@@ -49,6 +49,7 @@ export const TileFront = styled.div`
   color: ${({ theme }) => theme.getColor('alt')};
   font-weight: bold;
   font-size: clamp(14px, 1.458333vw, 28px);
+  font-family: ${({ theme }) => theme.getFont('alt')};
   text-align: center;
 `;
 
@@ -60,6 +61,7 @@ export const TileBack = styled.div`
   background-image: ${({ theme }) => theme.getGradient('radial')};
   color: #fff;
   font-size: clamp(10px, 0.954861vw, 18.3px);
+  font-family: ${({ theme }) => theme.getFont('')};
   text-align: center;
   transform: rotateY(180deg);
 `;
@@ -69,6 +71,8 @@ export const FlipButton = styled.button.attrs({ type: 'button' })`
   position: absolute;
   bottom: 10%;
   left: 50%;
+  font-size: clamp(10px, 0.729167vw, 14px);
+  font-family: ${({ theme }) => theme.getFont('heading')};
   text-transform: uppercase;
   transform: translateX(-50%);
 `;
@@ -105,6 +109,7 @@ export const CloseButton = styled.button.attrs({ type: 'button' })`
 export const Footnotes = styled.footer`
   color: ${({ theme }) => theme.getColor('alt')};
   font-size: clamp(6px, 0.520833vw, 10px);
+  font-family: ${({ theme }) => theme.getFont('alt')};
 
   > ol {
     list-style-position: inside;

@@ -12,7 +12,6 @@ export const arrowLinkStyles = css`
   padding: min(12px, 0.625vw) min(20px, 1.041667vw);
   color: #fff;
   font-weight: normal;
-  font-size: clamp(10px, 0.729167vw, 14px);
   cursor: pointer;
 
   ::before {

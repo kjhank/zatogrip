@@ -40,6 +40,7 @@ export const TriggersList = styled.ul`
   align-items: flex-start;
   gap: min(84px, 4.375vw);
   font-size: clamp(25px, 2.604167vw, 50px);
+  font-family: ${({ theme }) => theme.getFont('heading')};
 `;
 
 export const SingleTrigger = styled.li`
@@ -61,13 +62,10 @@ export const ArrowWrapper = styled.div`
     'background-color',
     'color',
   ])};
-
-  > svg {
-    transition: ${({ theme }) => theme.getTransitions(['transform'])};
-  }
 `;
 
 export const ModalTrigger = styled.button.attrs({ type: 'button' })`
+  ${({ theme }) => theme.getLinkStyles(theme.getColor('alt'))};
   display: flex;
   align-items: center;
   padding: 0;
@@ -80,10 +78,6 @@ export const ModalTrigger = styled.button.attrs({ type: 'button' })`
     ${ArrowWrapper} {
       background-color: #fff;
       color: ${({ theme }) => theme.getColor('alt')};
-
-      > svg {
-        transform: translateX(50%);
-      }
     }
   }
 `;
@@ -95,3 +89,14 @@ export const ItemImage = styled(WPImage)`
   width: 20%;
   transform: translateY(-50%);
 `;
+
+export const ItemsGrid = styled.ul`
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+`;
+
+export const SingleItem = styled.li``;
+
+export const Thumbnail = styled(WPImage)``;
+
+export const DownloadLink = styled.a``;

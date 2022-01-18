@@ -1,7 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Arrow } from '@icons';
+import {
+  Arrow, Ellipses,
+} from '@icons';
 
 import {
   ArrowWrapper,
@@ -22,14 +24,15 @@ export const List = ({ products }) => (
             image={product.image}
           />
           <Package
+            $isMobile
             className={`variant--${product.color}`}
             image={product.imageMobile}
-            isMobile
           />
           <ProductLink
             to={`/${product.product.post_name}`}
             variant={product.color}
           >
+            <Ellipses />
             {product.linkText}
             {' '}
             <ArrowWrapper>
@@ -47,14 +50,15 @@ export const List = ({ products }) => (
             image={product.image}
           />
           <Package
+            $isMobile
             className={`variant--${product.color}`}
             image={product.imageMobile}
-            isMobile
           />
           <ProductLink
             to={`/${product.product.post_name}`}
             variant={product.color}
           >
+            <Ellipses />
             {product.linkText}
             {' '}
             <ArrowWrapper>
@@ -72,14 +76,15 @@ export const List = ({ products }) => (
             image={product.image}
           />
           <Package
+            $isMobile
             className={`variant--${product.color}`}
             image={product.imageMobile}
-            isMobile
           />
           <ProductLink
             to={`/${product.product.post_name}`}
             variant={product.color}
           >
+            <Ellipses />
             {product.linkText}
             {' '}
             <ArrowWrapper>

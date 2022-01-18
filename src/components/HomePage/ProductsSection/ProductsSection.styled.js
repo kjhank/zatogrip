@@ -61,17 +61,25 @@ export const ProductLink = styled(Link)`
     'transform',
   ])};
 
+  > svg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 0;
+    transform: translate(-50%, -50%);
+  }
+
   :hover {
-    filter: brightness(1.1) drop-shadow(0 6px 6px ${rgba('#000', 0.5)});
+    /* filter: brightness(1.1) drop-shadow(0 6px 6px ${rgba('#000', 0.5)}); */
     transform: scale(1.1);
 
     ${ArrowWrapper} {
       background-color: ${({ theme }) => theme.getColor('alt')};
       color: #fff;
 
-      > svg {
+      /* > svg {
         transform: translateX(50%);
-      }
+      } */
     }
   }
 `;
@@ -95,9 +103,9 @@ export const ProductsList = styled.ul`
 
 export const Package = styled(WPImage)`
   position: absolute;
-  display: ${({ isMobile }) => (isMobile ? 'none' : 'block')};
+  display: ${({ $isMobile }) => ($isMobile ? 'none' : 'block')};
 
   @media ${queries.xs} {
-    display: ${({ isMobile }) => (isMobile ? 'block' : 'none')};
+    display: ${({ $isMobile }) => ($isMobile ? 'block' : 'none')};
   }
 `;
