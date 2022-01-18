@@ -7,6 +7,7 @@ import {
   Container, Modal,
 } from '@components';
 import { SectionHeading } from '@components/HomePage/styled';
+import { isBrowser } from '@utils/helpers';
 import {
   ArrowWrapper,
   Background,
@@ -24,7 +25,7 @@ import { Items } from './Items';
 export const FunSection = ({
   content, innerRef,
 }) => {
-  const BODY = document.body;
+  const BODY = isBrowser ? document.body : null;
   const list = [
     {
       ...content.origami,
