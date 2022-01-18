@@ -17,10 +17,10 @@ export const WPImage = ({
     {/* eslint-disable-next-line jsx-a11y/img-redundant-alt */}
     <img
       alt={image?.alt}
-      height={image.height}
+      height={image?.height}
       loading={isLazy ? 'lazy' : 'eager'}
       src={image?.url}
-      width={image.width}
+      width={image?.width}
     />
   </picture>
 

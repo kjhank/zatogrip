@@ -5,19 +5,30 @@ import { Arrow } from '@icons';
 
 import {
   ArrowWrapper,
-  Product, ProductGroup, ProductLink, ProductsList,
+  Package,
+  Product,
+  ProductGroup,
+  ProductLink,
+  ProductsList,
 } from './ProductsSection.styled';
 
 export const List = ({ products }) => (
   <ProductsList>
-    {products.filter(({ group }) => group === 'first').map(product => (
-      <ProductGroup key={product.linkText}>
-        <Product>
+    <ProductGroup>
+      {products.filter(({ group }) => group === 'first').map(product => (
+        <Product key={product.linkText}>
+          <Package
+            className={`variant--${product.color}`}
+            image={product.image}
+          />
+          <Package
+            className={`variant--${product.color}`}
+            image={product.imageMobile}
+            isMobile
+          />
           <ProductLink
             to={`/${product.product.post_name}`}
-            variant={product.product.post_title.split(' ').slice(-1)
-              .join()
-              .toLowerCase()}
+            variant={product.color}
           >
             {product.linkText}
             {' '}
@@ -26,16 +37,23 @@ export const List = ({ products }) => (
             </ArrowWrapper>
           </ProductLink>
         </Product>
-      </ProductGroup>
-    ))}
-    {products.filter(({ group }) => group === 'second').map(product => (
-      <ProductGroup key={product.linkText}>
-        <Product>
+      ))}
+    </ProductGroup>
+    <ProductGroup>
+      {products.filter(({ group }) => group === 'second').map(product => (
+        <Product key={product.linkText}>
+          <Package
+            className={`variant--${product.color}`}
+            image={product.image}
+          />
+          <Package
+            className={`variant--${product.color}`}
+            image={product.imageMobile}
+            isMobile
+          />
           <ProductLink
             to={`/${product.product.post_name}`}
-            variant={product.product.post_title.split(' ').slice(-1)
-              .join()
-              .toLowerCase()}
+            variant={product.color}
           >
             {product.linkText}
             {' '}
@@ -44,16 +62,23 @@ export const List = ({ products }) => (
             </ArrowWrapper>
           </ProductLink>
         </Product>
-      </ProductGroup>
-    ))}
-    {products.filter(({ group }) => group === 'third').map(product => (
-      <ProductGroup key={product.linkText}>
-        <Product>
+      ))}
+    </ProductGroup>
+    <ProductGroup>
+      {products.filter(({ group }) => group === 'third').map(product => (
+        <Product key={product.linkText}>
+          <Package
+            className={`variant--${product.color}`}
+            image={product.image}
+          />
+          <Package
+            className={`variant--${product.color}`}
+            image={product.imageMobile}
+            isMobile
+          />
           <ProductLink
             to={`/${product.product.post_name}`}
-            variant={product.product.post_title.split(' ').slice(-1)
-              .join()
-              .toLowerCase()}
+            variant={product.color}
           >
             {product.linkText}
             {' '}
@@ -62,8 +87,8 @@ export const List = ({ products }) => (
             </ArrowWrapper>
           </ProductLink>
         </Product>
-      </ProductGroup>
-    ))}
+      ))}
+    </ProductGroup>
   </ProductsList>
 );
 

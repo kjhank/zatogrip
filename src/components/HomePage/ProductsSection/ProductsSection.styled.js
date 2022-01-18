@@ -4,6 +4,8 @@ import { Link } from 'gatsby';
 
 import { WPImage } from '@components';
 
+import { queries } from '@utils/rwd';
+
 export const Section = styled.section`
   position: relative;
   margin: max(66px, 3.4375vw) 0;
@@ -11,15 +13,11 @@ export const Section = styled.section`
 
 export const Background = styled(WPImage)`
   position: absolute;
-  top: 0;
+  top: -25vw;
   right: 0;
   left: 0;
-  z-index: 0;
+  z-index: -1;
 `;
-
-export const ProductGroup = styled.li``;
-
-export const Product = styled.article``;
 
 export const ArrowWrapper = styled.div`
   position: absolute;
@@ -78,9 +76,28 @@ export const ProductLink = styled(Link)`
   }
 `;
 
+export const ProductGroup = styled.li`
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+`;
+
+export const Product = styled.article`
+  position: relative;
+`;
+
 export const ProductsList = styled.ul`
   position: relative;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
+`;
+
+export const Package = styled(WPImage)`
+  position: absolute;
+  display: ${({ isMobile }) => (isMobile ? 'none' : 'block')};
+
+  @media ${queries.xs} {
+    display: ${({ isMobile }) => (isMobile ? 'block' : 'none')};
+  }
 `;

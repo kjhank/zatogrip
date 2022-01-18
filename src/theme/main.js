@@ -8,7 +8,7 @@ import {
 const theme = {
   borderRadii: {
     large: '200px',
-    larger: '100px',
+    larger: '90px',
     default: '50px',
     mediumPlus: '40px',
     medium: '33px',
@@ -19,7 +19,7 @@ const theme = {
   colors: {
     accent: '#eb097d',
     alt: '#00572c',
-    copy: '#b9B9b9',
+    copy: '#b9b9b9',
     dim: '#ededed',
     gradient: {
       from: '#007d30',

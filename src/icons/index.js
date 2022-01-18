@@ -2,3 +2,8 @@ export { default as SquigglyArrow } from './SquigllyArrow';
 export { default as HeaderLogo } from './HeaderLogo';
 export { default as Arrow } from './Arrow';
 export { default as X } from './X';
+export { default as LongArrow } from './LongArrow';
+export { default as Envelope } from './Envelope';
+export { default as EnvelopeWithAt } from './EnvelopeWithAt';
+export { default as Phone } from './Phone';
+export { default as Pills } from './Pills';

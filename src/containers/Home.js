@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import {
-  HeroSection, ProductsSection, TilesSection,
+  FunSection, HeroSection, PostsSection, ProductsSection, TilesSection, VideoSection,
 } from '@components/HomePage';
 import { Main } from '@components/styled';
 
@@ -18,6 +18,15 @@ export const Home = ({
     <ProductsSection
       content={products}
       innerRef={navItems.find(({ section }) => section === 'products').innerRef}
+    />
+    <VideoSection content={video} />
+    <PostsSection
+      content={posts}
+      innerRef={navItems.find(({ section }) => section === 'support').innerRef}
+    />
+    <FunSection
+      content={fun}
+      innerRef={navItems.find(({ section }) => section === 'fun').innerRef}
     />
   </Main>
 );
