@@ -21,7 +21,7 @@ export const List = ({ products }) => (
         <Product key={product.linkText}>
           <Package
             className={`variant--${product.color}`}
-            image={product.image}
+            image={product.image} // TODO: adjust image sizes
           />
           <Package
             $isMobile
