@@ -8,10 +8,10 @@ import {
 const theme = {
   borderRadii: {
     large: '200px',
-    larger: '100px',
+    larger: '90px',
     default: '50px',
     mediumPlus: '40px',
-    medium: '33px',
+    medium: '30px',
     small: '25px',
     smaller: '20px',
     tiny: '11px',
@@ -19,11 +19,11 @@ const theme = {
   colors: {
     accent: '#eb097d',
     alt: '#00572c',
-    copy: '#b9B9b9',
+    copy: '#b9b9b9',
     dim: '#ededed',
     gradient: {
       from: '#007d30',
-      to: '#007d30',
+      to: '#00572C',
     },
     highlight: '#005b31',
     light: '#d5d5d5',
@@ -39,22 +39,20 @@ const theme = {
     },
   },
   fonts: {
+    alt: 'Montserrat, sans-serif',
     default: 'Proxima Nova, sans-serif',
-    heading: 'Barlow, sans-serif',
+    heading: 'Swis721BdRndEU, serif',
   },
   getColor: variant => theme.colors[variant],
   getFont: (variant = 'default') => theme.fonts[variant],
-  getGradient: (direction = 'right') => (direction === 'radial' ?
-    `radial-gradient(
-      ${theme.colors.gradient.from} 30%,
-      ${theme.colors.gradient.to}
-    )` :
+  getGradient: (direction = 'right', offset = 50) => (direction === 'radial' ?
+    `radial-gradient(circle at ${offset}%, ${theme.colors.gradient.from} 30%, ${theme.colors.gradient.to})` :
     `linear-gradient(
       to ${direction},
       ${theme.colors.gradient.from},
       ${theme.colors.gradient.to}
     )`),
-  getLinkStyles: () => css`
+  getLinkStyles: (color = '#fff') => css`
     position: relative;
 
     ::after {
@@ -63,18 +61,19 @@ const theme = {
       top: 100%;
       right: 0;
       left: 0;
-      height: 2px;
-      border-radius: 1px;
-      background-image: linear-gradient(#fff, #fff);
+      height: 0.1em;
+      background-color: ${color};
       background-position: center;
-      background-size: 0 100%;
       background-repeat: no-repeat;
-      transition: ${({ theme: { transitions } }) => `background-size ${transitions.duration}`};
+      transition: ${theme.getTransitions(['transform'])};
+      transform: scaleX(0) translate3d(0, 0, 0);
+      transform-origin: right;
     }
 
     :hover {
       ::after {
-        background-size: 100% 100%;
+        transform: scaleX(1) translate3d(0, 0, 0);
+        transform-origin: left;
       }
     }
   `,

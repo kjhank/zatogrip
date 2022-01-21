@@ -108,9 +108,16 @@ exports.createPages = async ({
   ] = await getApiData(endpoints);
 
   pages.forEach(page => {
+    const context = page.slug === slugs.home ?
+      {
+        ...getContext(page, settings, globals),
+        posts,
+      } :
+      getContext(page, settings, globals);
+
     const pageData = {
       component: getTemplate(page),
-      context: getContext(page, settings, globals),
+      context,
       path: getPath(page),
     };
 
