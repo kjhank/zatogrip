@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import sanitize from 'sanitize-html';
 
 import { Arrow } from '@icons';
 import {
@@ -10,6 +11,10 @@ import {
   PostTitle,
   SinglePost,
 } from './PostsSection.styled';
+
+const sanitizeConfig = {
+  allowedTags: [],
+};
 
 export const PostsTrack = ({
   clickText,
@@ -22,7 +27,7 @@ export const PostsTrack = ({
     }) => (
       <SinglePost key={slug}>
         {acf.homeThumb && <PostCover image={acf.homeThumb} />}
-        <PostTitle>{title}</PostTitle>
+        <PostTitle dangerouslySetInnerHTML={{ __html: sanitize(title, sanitizeConfig) }} />
         {acf.excerpt && <Excerpt>{acf.excerpt}</Excerpt>}
         <PostLink to={`/${slug}`}>
           {clickText}

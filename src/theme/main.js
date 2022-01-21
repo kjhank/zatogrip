@@ -62,7 +62,6 @@ const theme = {
       right: 0;
       left: 0;
       height: 0.1em;
-      border-radius: 0.05em;
       background-color: ${color};
       background-position: center;
       background-repeat: no-repeat;
