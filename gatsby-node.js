@@ -2,6 +2,7 @@ const fetch = require('node-fetch');
 const path = require('path');
 
 const endpoints = {
+  carousel: 'acf/v3/options/carousel/',
   globals: 'acf/v3/options/globals/',
   pages: 'wp/v2/pages/',
   posts: 'wp/v2/posts/',
@@ -12,6 +13,7 @@ const templates = {
   home: path.resolve('./src/templates/HomePage.js'),
   notFound: path.resolve('./src/templates/NotFoundPage.js'),
   post: path.resolve('./src/templates/PostPage.js'),
+  product: path.resolve('./src/templates/ProductPage.js'),
 };
 
 const paths = {
@@ -20,17 +22,33 @@ const paths = {
 };
 
 const slugs = {
+  contact: 'kontakt',
   home: 'strona-glowna',
   notFound: '404',
 };
 
-const getTemplate = ({ slug }) => {
+const types = {
+  page: 'page',
+  post: 'post',
+};
+
+const getTemplate = ({
+  slug, type,
+}) => {
   if (slug === slugs.home) {
     return templates.home;
   }
 
   if (slug.includes(slugs.notFound)) {
     return templates.notFound;
+  }
+
+  // if (slug === slugs.contact) {
+  //   return templates.contact;
+  // }
+
+  if (type === types.page) {
+    return templates.product;
   }
 
   return templates.post;
@@ -48,10 +66,14 @@ const getPath = ({ slug }) => {
   return `/${slug}`;
 };
 
-const getContext = (pageData, settings, globals) => {
+const getContext = (pageData, settings, globals, { acf: { carousel } }) => {
   const {
     acf, slug, title, type, yoast_head_json,
   } = pageData;
+
+  const {
+    hasCarousel, isInactive,
+  } = acf;
 
   const globalContext = {
     TMP: pageData, // TODO: remove, just for reference
@@ -72,6 +94,19 @@ const getContext = (pageData, settings, globals) => {
       ...globalContext,
       data: acf,
     };
+  }
+
+  if (type === types.page) {
+    return hasCarousel ?
+      {
+        ...globalContext,
+        carousel,
+        data: acf,
+      } :
+      {
+        ...globalContext,
+        data: acf,
+      };
   }
 
   return globalContext;
@@ -101,6 +136,7 @@ exports.createPages = async ({
   };
 
   const [
+    carousel,
     globals,
     pages,
     posts,
@@ -110,10 +146,10 @@ exports.createPages = async ({
   pages.forEach(page => {
     const context = page.slug === slugs.home ?
       {
-        ...getContext(page, settings, globals),
+        ...getContext(page, settings, globals, carousel),
         posts,
       } :
-      getContext(page, settings, globals);
+      getContext(page, settings, globals, carousel);
 
     const pageData = {
       component: getTemplate(page),
@@ -127,7 +163,7 @@ exports.createPages = async ({
   posts.forEach(post => {
     const postData = {
       component: getTemplate(post),
-      context: getContext(post, settings, globals),
+      context: getContext(post, settings, globals, carousel),
       path: getPath(post),
     };
 

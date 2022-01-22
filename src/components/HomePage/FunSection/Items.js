@@ -11,7 +11,7 @@ import {
 export const Items = ({ content }) => (
   <ItemsGrid>
     {content.files.map(({ item }) => (
-      <SingleItem>
+      <SingleItem key={item.name}>
         {item.thumbnail ?
           (
             <Thumbnail

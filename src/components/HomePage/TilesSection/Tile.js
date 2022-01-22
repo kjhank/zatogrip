@@ -1,27 +1,28 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import {
-  Arrow, X,
-} from '@icons';
+import { X } from '@icons';
 
 import {
-  CloseButton, FlipButton, SingleTile, TileBack, TileFront,
+  CloseButton, FlipButton, SingleTile, TileBack, TileBackground, TileFront,
 } from './TilesSection.styled';
 
 export const Tile = ({
-  content, clickText, closeText, handleFlip, isFlipped, tileIndex,
+  content, clickText, closeText, handleFlip, hasBackground, isFlipped, tileIndex,
 }) => (
   <SingleTile isFlipped={isFlipped}>
     <TileFront>
       {content.frontText}
-      <FlipButton onClick={() => handleFlip(tileIndex)}>
+      <FlipButton
+        $isButton
+        onClick={() => handleFlip(tileIndex)}
+      >
         {clickText}
         {' '}
-        <Arrow />
       </FlipButton>
     </TileFront>
     <TileBack>
+      {hasBackground && <TileBackground />}
       {content.backText}
       <CloseButton onClick={() => handleFlip(-1)}>
         <X />
@@ -39,6 +40,7 @@ Tile.propTypes = {
     frontText: PropTypes.string,
   }).isRequired,
   handleFlip: PropTypes.func.isRequired,
+  hasBackground: PropTypes.bool.isRequired,
   isFlipped: PropTypes.bool.isRequired,
   tileIndex: PropTypes.number.isRequired,
 };

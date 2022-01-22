@@ -2,8 +2,9 @@ import styled from 'styled-components';
 import { rgba } from 'polished';
 import { Link } from 'gatsby';
 
-import { WPImage } from '@components';
-import { arrowLinkStyles } from '@components/styled';
+import {
+  ArrowLink, WPImage,
+} from '@components';
 
 export const Section = styled.section`
   position: relative;
@@ -84,11 +85,9 @@ export const Excerpt = styled.p`
   font-size: clamp(10px, 1.145833vw, 20px);
 `;
 
-export const PostLink = styled(Link)`
-  ${arrowLinkStyles};
+export const PostLink = styled(ArrowLink)`
   margin-top: auto;
   font-size: clamp(10px, 0.729167vw, 16px);
-  font-family: ${({ theme }) => theme.getFont('heading')};
 `;
 
 export const AllPostsLink = styled(Link)`

@@ -107,7 +107,9 @@ const Layout = ({
       />
       {cloneElement(children, { navItems })}
       <GlobalFooter
+        carousel={pageContext.carousel}
         content={pageContext?.globals?.acf}
+        hasCarousel={pageContext?.hasCarousel}
       />
     </Theme>
 
@@ -120,9 +122,11 @@ Layout.propTypes = {
     PropTypes.arrayOf(PropTypes.node),
   ]).isRequired,
   pageContext: PropTypes.shape({
+    carousel: PropTypes.shape({}),
     globals: PropTypes.shape({
       acf: PropTypes.shape({}),
     }),
+    hasCarousel: PropTypes.bool,
     metadata: PropTypes.shape({
       globals: PropTypes.shape({
         language: PropTypes.string,

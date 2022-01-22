@@ -37,19 +37,19 @@ export const GlobalFooter = ({ content }) => (
         <Contact>
           <Pills />
           <Address
-            dangerouslySetInnerHTML={{ __html: sanitize(content.companyData, sanitizeConfig) }}
+            dangerouslySetInnerHTML={{ __html: sanitize(content?.companyData, sanitizeConfig) }}
           />
         </Contact>
         <Contact>
           <Envelope />
           <Address
-            dangerouslySetInnerHTML={{ __html: sanitize(content.officeData, sanitizeConfig) }}
+            dangerouslySetInnerHTML={{ __html: sanitize(content?.officeData, sanitizeConfig) }}
           />
         </Contact>
         <Contact>
           <Phone />
           <ul>
-            {content.phones.map(({ number }) => (
+            {content?.phones.map(({ number }) => (
               <li key={number}>
                 <GenericLink href={`tel:${number.split(' ').join('')
                   .split('-')
@@ -64,7 +64,7 @@ export const GlobalFooter = ({ content }) => (
         <Contact>
           <EnvelopeWithAt />
           <ul>
-            {content.emails.map(({ email }) => (
+            {content?.emails.map(({ email }) => (
               <li key={email}>
                 <GenericLink href={email}>{email}</GenericLink>
               </li>
@@ -75,9 +75,9 @@ export const GlobalFooter = ({ content }) => (
       <Bottom>
         <ManufacturerLogo />
         <Legal>
-          {content.legal.copyright}
+          {content?.legal.copyright}
           <Links>
-            {content.legal.externalUrls.map(({ link }) => (link.url.includes('http') ?
+            {content?.legal.externalUrls.map(({ link }) => (link.url.includes('http') ?
               (
                 <ExternalLink
                   href={link.url}
@@ -96,11 +96,11 @@ export const GlobalFooter = ({ content }) => (
               )))}
           </Links>
         </Legal>
-        <BadgeLink href={content.productsLink.url}>
-          {content.productsLink.title}
+        <BadgeLink href={content?.productsLink.url}>
+          {content?.productsLink.title}
         </BadgeLink>
         <Badge>
-          {content.badge}
+          {content?.badge}
         </Badge>
       </Bottom>
     </Container>

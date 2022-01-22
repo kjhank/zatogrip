@@ -1,7 +1,8 @@
 import styled, { css } from 'styled-components';
 import { rgba } from 'polished';
 
-import { arrowLinkStyles } from '@components/styled';
+import { ArrowLink } from '@components';
+import { TileBg } from '@icons';
 
 export const Section = styled.section`
   position: relative;
@@ -66,13 +67,11 @@ export const TileBack = styled.div`
   transform: rotateY(180deg);
 `;
 
-export const FlipButton = styled.button.attrs({ type: 'button' })`
-  ${arrowLinkStyles};
+export const FlipButton = styled(ArrowLink)`
   position: absolute;
   bottom: 10%;
   left: 50%;
   font-size: clamp(10px, 0.729167vw, 14px);
-  font-family: ${({ theme }) => theme.getFont('heading')};
   text-transform: uppercase;
   transform: translateX(-50%);
 `;
@@ -114,4 +113,16 @@ export const Footnotes = styled.footer`
   > ol {
     list-style-position: inside;
   }
+`;
+
+export const TileBackground = styled(TileBg)`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: auto;
+  max-width: 90%;
+  height: auto;
+  max-height: 90%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
 `;
