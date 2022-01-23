@@ -30,7 +30,9 @@ const sanitizeConfig = {
   ],
 };
 
-export const GlobalFooter = ({ content }) => (
+export const GlobalFooter = ({
+  carousel, content, hasCarousel,
+}) => (
   <Footer>
     <Container>
       <Contacts>

@@ -102,6 +102,7 @@ const getContext = (pageData, settings, globals, { acf: { carousel } }) => {
         ...globalContext,
         carousel,
         data: acf,
+        hasCarousel,
       } :
       {
         ...globalContext,

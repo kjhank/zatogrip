@@ -4,13 +4,12 @@ import { WPImage } from '@components';
 
 export const Wrapper = styled.section`
   margin-top: min(80px, 4.166667vw);
-  margin-bottom: 25vh;
 
   > div {
     display: flex;
     flex-direction: column;
     align-items: center;
-    border-bottom: 1px dashed ${({ theme }) => theme.getColor('alt')};
+    ${({ theme }) => theme.getSectionBorder()};
   }
 `;
 

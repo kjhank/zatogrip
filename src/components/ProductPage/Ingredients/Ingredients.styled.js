@@ -1,0 +1,30 @@
+import styled from 'styled-components';
+
+export const Section = styled.section`
+  > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    ${({ theme }) => theme.getSectionBorder()};
+
+    > h2 {
+      margin: min(47px, 2.447917vw) 0 min(35px, 1.822917vw);
+    }
+  }
+`;
+
+export const Intro = styled.p`
+  margin-bottom: min(61px, 3.177083vw);
+  font-weight: bold;
+  font-size: clamp(14px, 1.25vw, 24px);
+`;
+
+export const Footnotes = styled.footer`
+  margin-bottom: min(55px, 2.864583vw);
+  font-size: clamp(8px, 0.625vw, 12px);
+  text-align: center;
+
+  > ul {
+    list-style-type: none;
+  }
+`;
