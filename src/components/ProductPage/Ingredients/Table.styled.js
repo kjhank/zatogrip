@@ -36,4 +36,8 @@ export const Cell = styled.td`
   :not(:first-of-type) {
     text-align: center;
   }
+
+  :first-of-type:nth-last-of-type(2) {
+    width: 75%;
+  }
 `;
