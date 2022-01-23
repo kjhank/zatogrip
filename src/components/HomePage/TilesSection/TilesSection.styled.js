@@ -74,6 +74,10 @@ export const FlipButton = styled(ArrowLink)`
   font-size: clamp(10px, 0.729167vw, 14px);
   text-transform: uppercase;
   transform: translateX(-50%);
+
+  &.& {
+    position: absolute;
+  }
 `;
 
 export const CloseButton = styled.button.attrs({ type: 'button' })`

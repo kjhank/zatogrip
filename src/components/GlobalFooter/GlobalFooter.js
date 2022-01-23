@@ -113,7 +113,7 @@ export const GlobalFooter = ({
 );
 
 GlobalFooter.propTypes = {
-  carousel: PropTypes.shape({}).isRequired,
+  carousel: PropTypes.shape({}),
   content: PropTypes.shape({
     badge: PropTypes.string,
     companyData: PropTypes.string,
@@ -129,5 +129,10 @@ GlobalFooter.propTypes = {
       url: PropTypes.string,
     }),
   }).isRequired,
-  hasCarousel: PropTypes.bool.isRequired,
+  hasCarousel: PropTypes.bool,
+};
+
+GlobalFooter.defaultProps = {
+  carousel: null,
+  hasCarousel: false,
 };

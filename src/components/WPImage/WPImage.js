@@ -6,8 +6,7 @@ export const WPImage = ({
 }) => (
   <picture {...props}>
     <source
-      srcSet={`${image?.url?.split('.').slice(0, -1)
-        .join('.')}.webp`}
+      srcSet={`${image?.url}.webp`}
       type="image/webp"
     />
     <source

@@ -15,6 +15,7 @@ export const Tile = ({
       {content.frontText}
       <FlipButton
         $isButton
+        $isCaps
         onClick={() => handleFlip(tileIndex)}
       >
         {clickText}

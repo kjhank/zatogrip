@@ -7,12 +7,11 @@ import {
 } from './ArrowLink.styled';
 
 export const ArrowLink = ({
-  $isButton, $isCaps, children, href, onClick, to, ...props
+  children, href, onClick, to, ...props
 }) => {
-  if ($isButton) {
+  if (!href && !to) {
     return (
       <Button
-        $isCaps={$isCaps}
         onClick={onClick}
         {...props}
       >
@@ -25,7 +24,6 @@ export const ArrowLink = ({
   if (href) {
     return (
       <ExternalLink
-        $isCaps={$isCaps}
         href={href}
         {...props}
       >
@@ -37,7 +35,6 @@ export const ArrowLink = ({
 
   return (
     <Link
-      $isCaps={$isCaps}
       to={to}
       {...props}
     >

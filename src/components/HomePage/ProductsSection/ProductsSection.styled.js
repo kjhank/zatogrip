@@ -76,10 +76,6 @@ export const ProductLink = styled(Link)`
     ${ArrowWrapper} {
       background-color: ${({ theme }) => theme.getColor('alt')};
       color: #fff;
-
-      /* > svg {
-        transform: translateX(50%);
-      } */
     }
   }
 `;
@@ -103,9 +99,35 @@ export const ProductsList = styled.ul`
 
 export const Package = styled(WPImage)`
   position: absolute;
+  bottom: 100%;
   display: ${({ $isMobile }) => ($isMobile ? 'none' : 'block')};
+  max-width: unset;
+  max-height: unset;
 
   @media ${queries.xs} {
     display: ${({ $isMobile }) => ($isMobile ? 'block' : 'none')};
   }
+
+  &.variant {
+    &--mini {
+      width: 28.697917vw;
+    }
+
+    &--baby {
+      width: 38.125vw;
+    }
+
+    &--kids {
+      width: 38.75vw;
+    }
+
+    &--junior {
+      width: 38.802083vw;
+    }
+
+    &--forte {
+      width: 34.322917vw;
+    }
+  }
+
 `;

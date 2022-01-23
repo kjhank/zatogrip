@@ -9,7 +9,7 @@ import {
 } from './GlobalHeader.styled';
 
 export const GlobalHeader = ({
-  handleScroll, isHidden, navItems,
+  handleScroll, hasLinks, isHidden, navItems,
 }) => (
   <StyledHeader isHidden={isHidden}>
     <Container>
@@ -17,7 +17,7 @@ export const GlobalHeader = ({
         <HeaderLogo />
       </HomeLink>
       <Navigation>
-        {navItems.map(item => (item.type === 'scroll' ?
+        {navItems.map(item => (item.type === 'scroll' && !hasLinks ?
           (
             <ScrollButton
               key={item.text}
@@ -29,7 +29,8 @@ export const GlobalHeader = ({
           (
             <Link
               key={item.text}
-              to={item.url}
+              state={{ scrollTarget: item.section }}
+              to={item.url || '/'}
             >
               {item.text}
             </Link>
@@ -41,6 +42,7 @@ export const GlobalHeader = ({
 
 GlobalHeader.propTypes = {
   handleScroll: PropTypes.func.isRequired,
+  hasLinks: PropTypes.bool.isRequired,
   isHidden: PropTypes.bool.isRequired,
   navItems: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
 };
