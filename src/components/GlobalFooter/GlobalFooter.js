@@ -10,6 +10,8 @@ import {
   Envelope, EnvelopeWithAt, ManufacturerLogo, Phone, Pills,
 } from '@icons';
 
+import { Carousel } from './Carousel/Carousel';
+
 import {
   Address,
   Badge,
@@ -34,6 +36,7 @@ export const GlobalFooter = ({
   carousel, content, hasCarousel,
 }) => (
   <Footer>
+    {hasCarousel && <Carousel content={carousel} />}
     <Container>
       <Contacts>
         <Contact>
@@ -110,6 +113,7 @@ export const GlobalFooter = ({
 );
 
 GlobalFooter.propTypes = {
+  carousel: PropTypes.shape({}).isRequired,
   content: PropTypes.shape({
     badge: PropTypes.string,
     companyData: PropTypes.string,
@@ -125,5 +129,5 @@ GlobalFooter.propTypes = {
       url: PropTypes.string,
     }),
   }).isRequired,
-
+  hasCarousel: PropTypes.bool.isRequired,
 };

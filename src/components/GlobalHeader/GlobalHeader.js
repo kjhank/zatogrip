@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link as HomeLink } from 'gatsby';
 
 import { Container } from '@components';
 import { HeaderLogo } from '@icons';
@@ -12,7 +13,9 @@ export const GlobalHeader = ({
 }) => (
   <StyledHeader isHidden={isHidden}>
     <Container>
-      <HeaderLogo />
+      <HomeLink to="/">
+        <HeaderLogo />
+      </HomeLink>
       <Navigation>
         {navItems.map(item => (item.type === 'scroll' ?
           (

@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 export const Section = styled.section`
-  margin-bottom: 25vh;
   padding: min(69px, 3.59375vw) 0 min(120px, 6.25vw);
 
   ul {
