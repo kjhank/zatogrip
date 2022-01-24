@@ -7,7 +7,7 @@ import {
 
 export const IconsGrid = ({ icons }) => (
   <List>
-    {icons.map(({
+    {icons?.map(({
       hasBadges, row,
     }) => (
       <Row key={JSON.stringify(row)}>

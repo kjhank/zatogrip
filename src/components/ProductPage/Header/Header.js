@@ -20,18 +20,19 @@ const sanitizeConfig = {
 };
 
 export const Header = ({
-  background, box, description, footnotes, heading, links, list,
+  background, box, description, footnotes, heading, links, list, pageSlug,
 }) => (
   <Wrapper>
     <Cover
       image={background}
       isLazy={false}
     />
+    <Box
+      className={`variant--${pageSlug}`}
+      image={box}
+      isLazy={false}
+    />
     <Container>
-      <Box
-        image={box}
-        isLazy={false}
-      />
       <ContentWrapper>
         <Heading>{heading}</Heading>
         <Description dangerouslySetInnerHTML={{ __html: sanitize(description, sanitizeConfig) }} />
@@ -67,5 +68,6 @@ Header.propTypes = {
   heading: PropTypes.string.isRequired,
   links: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
   list: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
+  pageSlug: PropTypes.string.isRequired,
 };
 

@@ -8,7 +8,7 @@ import {
 export const Table = ({
   body, head,
 }) => (
-  <StyledTable>
+  <StyledTable isNarrow={head.length < 3}>
     <Head>
       <Row>
         {head.map(item => (

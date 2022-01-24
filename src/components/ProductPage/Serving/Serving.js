@@ -18,14 +18,21 @@ const sanitizeConfig = {
 };
 
 export const Serving = ({
-  amount, badge, description, heading,
+  amount, badge, description, heading, pageSlug,
 }) => (
   <Wrapper>
     <Container>
-      <SectionHeading>{heading}</SectionHeading>
-      <Amount>{amount}</Amount>
-      <Badge image={badge} />
-      <Description dangerouslySetInnerHTML={{ __html: sanitize(description, sanitizeConfig) }} />
+      {heading && <SectionHeading>{heading}</SectionHeading>}
+      {amount && <Amount>{amount}</Amount>}
+      {badge && (
+        <Badge
+          className={pageSlug}
+          image={badge}
+        />
+      )}
+      {description &&
+        <Description dangerouslySetInnerHTML={{ __html: sanitize(description, sanitizeConfig) }} />
+      }
     </Container>
   </Wrapper>
 );
@@ -35,5 +42,6 @@ Serving.propTypes = {
   badge: PropTypes.shape({}).isRequired,
   description: PropTypes.string.isRequired,
   heading: PropTypes.string.isRequired,
+  pageSlug: PropTypes.string.isRequired,
 };
 

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const StyledTable = styled.table`
-  width: 90%;
+  width: ${({ isNarrow }) => (isNarrow ? '70%' : '90%')};
   border-spacing: min(20px, 1.041667vw) min(10px, 0.520833vw);
   border-collapse: separate;
 `;

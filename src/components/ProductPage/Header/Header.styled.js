@@ -18,8 +18,7 @@ export const Cover = styled(WPImage)`
 `;
 
 export const ContentWrapper = styled.div`
-  padding-right: 5em;
-  padding-left: min(601px, 31.302083vw);
+  padding-left: 40%;
 
   > ul {
     padding-right: 17%;
@@ -66,10 +65,37 @@ export const LinksWrapper = styled.nav`
 
 export const Box = styled(WPImage)`
   position: absolute;
-  bottom: -6%;
+  top: 80%;
   left: -2.5%;
   z-index: 1;
   width: min(551px, 28.697917vw);
+
+  &.variant {
+    &--zatogrip-baby {
+      top: ${({ theme }) => theme.getMin(580)};
+      left: ${({ theme }) => theme.getMin(-46)};
+      width: ${({ theme }) => theme.getMin(788)};
+    }
+
+    &--zatogrip-kids {
+      top: ${({ theme }) => theme.getMin(641)};
+      left: ${({ theme }) => theme.getMin(-43)};
+      width: ${({ theme }) => theme.getMin(1626 / 2)};
+    }
+
+    &--zatogrip-junior {
+      top: ${({ theme }) => theme.getMin(635)};
+      left: ${({ theme }) => theme.getMin(3)};
+      width: ${({ theme }) => theme.getMin(792)};
+    }
+
+    &--tabletki-zatogrip-forte {
+      top: ${({ theme }) => theme.getMin(658)};
+      left: ${({ theme }) => theme.getMin(58)};
+      width: ${({ theme }) => theme.getMin(698)};
+
+    }
+  }
 `;
 
 export const Footnotes = styled.footer`

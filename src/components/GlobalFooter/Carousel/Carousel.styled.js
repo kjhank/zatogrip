@@ -27,6 +27,7 @@ export const NavButton = styled.button`
   right: ${({ isFlipped }) => isFlipped && '100%'};
   left: ${({ isFlipped }) => !isFlipped && '100%'};
   z-index: 4;
+  filter: none;
   aspect-ratio: 1/1;
   width: ${({ theme }) => theme.getMin(80)};
   border: 1px solid #fff;
@@ -36,6 +37,7 @@ export const NavButton = styled.button`
   transition: ${({ theme }) => theme.getTransitions([
     'color',
     'background-color',
+    'filter',
   ])};
   transform: ${({ isFlipped }) => (isFlipped ? 'translateY(-50%) rotateY(180deg)' : 'translateY(-50%)')};
   cursor: pointer;
@@ -52,6 +54,7 @@ export const NavButton = styled.button`
   }
 
   :hover {
+    filter: drop-shadow(0 0 0.25em #fff);
     background-color: ${({ theme }) => theme.getColor('alt')};
     color: #fff;
   }

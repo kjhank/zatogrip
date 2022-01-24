@@ -22,11 +22,13 @@ export const Ingredients = ({
         head={table.head}
       />
       <IconsGrid icons={icons} />
+      {footnotes.length && (
       <Footnotes>
         <ul>
           {footnotes.map(({ footnote }) => <li key={footnote}>{footnote}</li>)}
         </ul>
       </Footnotes>
+      )}
     </Container>
   </Section>
 );

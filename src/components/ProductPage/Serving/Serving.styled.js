@@ -24,12 +24,17 @@ export const Amount = styled.p`
 `;
 
 export const Badge = styled(WPImage)`
-  width: min(262px, 13.645833vw);
+width: ${({ theme }) => theme.getMin(423)};
+
+&.variant {
+  &--zatogrip-mini {
+      width: ${({ theme }) => theme.getMin(262)};
+    }
+  }
 `;
 
 export const Description = styled.p`
   margin: min(47px, 2.447917vw) 0 min(67px, 3.489583vw);
-  padding: 0 20.5%;
   font-size: clamp(14px, 1.25vw, 24px);
   text-align: center;
   white-space: break-spaces;

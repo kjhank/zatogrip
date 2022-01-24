@@ -84,6 +84,7 @@ const getContext = (pageData, settings, globals, { acf: { carousel } }) => {
         siteName: settings.title,
       },
       title: title.rendered,
+      slug,
       type,
       yoast: yoast_head_json,
     },

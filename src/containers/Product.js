@@ -11,6 +11,7 @@ export const Product = ({
   header,
   ingredients,
   serving,
+  slug,
   warnings,
 }) => (
   <Main>
@@ -22,12 +23,14 @@ export const Product = ({
       heading={header.heading}
       links={header.links}
       list={header.list}
+      pageSlug={slug}
     />
     <Serving
       amount={serving.value}
       badge={serving.image}
       description={serving.description}
       heading={serving.heading}
+      pageSlug={slug}
     />
     <Ingredients
       footnotes={ingredients.footnotes}
@@ -66,6 +69,7 @@ Product.propTypes = {
     image: PropTypes.shape({}),
     value: PropTypes.string,
   }).isRequired,
+  slug: PropTypes.string.isRequired,
   warnings: PropTypes.shape({
     heading: PropTypes.string,
     list: PropTypes.arrayOf(PropTypes.shape({})),
