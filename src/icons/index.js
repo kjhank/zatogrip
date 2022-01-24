@@ -9,3 +9,4 @@ export { default as Phone } from './Phone';
 export { default as Pills } from './Pills';
 export { default as ManufacturerLogo } from './ManufacturerLogo';
 export { default as Ellipses } from './Ellipses';
+export { default as TileBg } from './TileBg';

@@ -1,8 +1,8 @@
 import styled, { css } from 'styled-components';
+import { Link as GenericLink } from 'gatsby';
+import { ExternalLink as ExLink } from '@components';
 
-export const Main = styled.main``;
-
-export const arrowLinkStyles = css`
+const commonStyle = css`
   position: relative;
   overflow: hidden;
   display: inline-flex;
@@ -12,6 +12,8 @@ export const arrowLinkStyles = css`
   padding: min(12px, 0.625vw) min(20px, 1.041667vw);
   color: #fff;
   font-weight: normal;
+  font-family: ${({ theme }) => theme.getFont('heading')};
+  text-transform: ${({ $isCaps }) => $isCaps && 'uppercase'};
   cursor: pointer;
 
   ::before {
@@ -46,9 +48,14 @@ export const arrowLinkStyles = css`
   }
 `;
 
-export const SectionHeading = styled.h2`
-  color: ${({ theme }) => theme.colors.alt};
-  font-size: clamp(28px, 2.916667vw, 56px);
-  font-family: ${({ theme }) => theme.getFont('heading')};
-  text-align: center;
+export const Link = styled(GenericLink)`
+  ${commonStyle};
+`;
+
+export const Button = styled.button.attrs({ type: 'button' })`
+  ${commonStyle};
+`;
+
+export const ExternalLink = styled(ExLink)`
+  ${commonStyle};
 `;

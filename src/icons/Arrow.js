@@ -3,6 +3,7 @@ import * as React from 'react';
 const SvgArrow = props => (
   <svg
     height={13.325}
+    viewBox="0 0 14.044 13.325"
     width={14.044}
     xmlns="http://www.w3.org/2000/svg"
     {...props}

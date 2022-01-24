@@ -36,6 +36,7 @@ export const TilesSection = ({
               closeText={closeText}
               content={tile}
               handleFlip={handleFlip}
+              hasBackground={tile.backHasBg}
               isFlipped={index === flippedTile}
               key={tile.backText}
               tileIndex={index}

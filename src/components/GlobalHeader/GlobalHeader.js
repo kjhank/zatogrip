@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link as HomeLink } from 'gatsby';
 
 import { Container } from '@components';
 import { HeaderLogo } from '@icons';
@@ -8,13 +9,15 @@ import {
 } from './GlobalHeader.styled';
 
 export const GlobalHeader = ({
-  handleScroll, isHidden, navItems,
+  handleScroll, hasLinks, isHidden, navItems,
 }) => (
   <StyledHeader isHidden={isHidden}>
     <Container>
-      <HeaderLogo />
+      <HomeLink to="/">
+        <HeaderLogo />
+      </HomeLink>
       <Navigation>
-        {navItems.map(item => (item.type === 'scroll' ?
+        {navItems.map(item => (item.type === 'scroll' && !hasLinks ?
           (
             <ScrollButton
               key={item.text}
@@ -26,7 +29,8 @@ export const GlobalHeader = ({
           (
             <Link
               key={item.text}
-              to={item.url}
+              state={{ scrollTarget: item.section }}
+              to={item.url || '/'}
             >
               {item.text}
             </Link>
@@ -38,6 +42,7 @@ export const GlobalHeader = ({
 
 GlobalHeader.propTypes = {
   handleScroll: PropTypes.func.isRequired,
+  hasLinks: PropTypes.bool.isRequired,
   isHidden: PropTypes.bool.isRequired,
   navItems: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
 };

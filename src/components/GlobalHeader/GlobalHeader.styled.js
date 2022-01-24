@@ -17,7 +17,8 @@ export const StyledHeader = styled.header`
     align-items: center;
     padding: max(17px, 0.885417vw);
 
-    > svg {
+    > a {
+      display: block;
       width: auto;
       height: max(61px, 3.177083vw);
     }

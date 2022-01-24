@@ -18,7 +18,7 @@ import {
 } from './static';
 
 const Layout = ({
-  children, pageContext,
+  children, location, pageContext, path,
 }) => {
   const [
     isCookiesModalOpen,
@@ -96,18 +96,33 @@ const Layout = ({
     window.scrollTo(scrollConfig);
   };
 
+  useEffect(() => {
+    if (location?.state?.scrollTarget) {
+      const { state: { scrollTarget } } = location;
+
+      const scrollRef = navItems.find(({ section }) => section === scrollTarget).innerRef;
+
+      handleScroll(scrollRef);
+    }
+  },
+  [location]);
+
   return (
     <Theme>
       <Seo data={seoData} />
       <GlobalStyle shouldScroll={!isCookiesModalOpen} />
       <GlobalHeader
         handleScroll={handleScroll}
+        hasLinks={path !== '/'}
         isHidden={isScrollingDown}
         navItems={navItems}
+        products={pageContext.globals.acf.products}
       />
       {cloneElement(children, { navItems })}
       <GlobalFooter
+        carousel={pageContext.carousel}
         content={pageContext?.globals?.acf}
+        hasCarousel={pageContext?.hasCarousel}
       />
     </Theme>
 
@@ -119,10 +134,19 @@ Layout.propTypes = {
     PropTypes.node,
     PropTypes.arrayOf(PropTypes.node),
   ]).isRequired,
-  pageContext: PropTypes.shape({
-    globals: PropTypes.shape({
-      acf: PropTypes.shape({}),
+  location: PropTypes.shape({
+    state: PropTypes.shape({
+      scrollTarget: PropTypes.string,
     }),
+  }).isRequired,
+  pageContext: PropTypes.shape({
+    carousel: PropTypes.shape({}),
+    globals: PropTypes.shape({
+      acf: PropTypes.shape({
+        products: PropTypes.arrayOf(PropTypes.shape({})),
+      }),
+    }),
+    hasCarousel: PropTypes.bool,
     metadata: PropTypes.shape({
       globals: PropTypes.shape({
         language: PropTypes.string,
@@ -132,6 +156,7 @@ Layout.propTypes = {
     }),
     title: PropTypes.string,
   }).isRequired,
+  path: PropTypes.string.isRequired,
 };
 
 export default Layout;

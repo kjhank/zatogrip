@@ -77,7 +77,14 @@ const theme = {
       }
     }
   `,
+  getMin: max => `min(${max}px, ${(max / 19.2).toFixed(4)}vw)`,
   getRadius: (variant = 'default') => theme.borderRadii[variant],
+  getSectionBorder: (color = theme.getColor('alt')) => css`
+    background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' stroke='${color.replace('#', '%23')}' stroke-width='4' stroke-dasharray='6%2c 14' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
+    background-position: bottom;
+    background-size: 100% 1px;
+    background-repeat: no-repeat;
+  `,
   getTransitions: (properties, duration) => properties.map(property => `${property} ${theme.transitions[duration] || theme.transitions.duration}`).join(', '),
   transitions: {
     duration: '0.4s',

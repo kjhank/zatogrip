@@ -29,18 +29,16 @@ export const PostsSection = ({
 
   const handleClick = direction => {
     const { current: listElement } = postsRef;
-    const { width: leftScroll } = listElement.firstElementChild.getBoundingClientRect();
+    const { width: childWidth } = listElement.firstElementChild.getBoundingClientRect();
+    const xScroll = childWidth * 2;
     const scrollConfig = {
       behavior: 'smooth',
-      left: direction === 'right' ? leftScroll * 2 : -leftScroll * 2,
+      left: direction === 'right' ? xScroll * 2 : -xScroll * 2,
     };
 
     setScrollPosition('');
 
     listElement.scrollBy(scrollConfig);
-
-    // console.log(elementWidth);
-    // console.log(scrolledX);
   };
 
   useEffect(() => {

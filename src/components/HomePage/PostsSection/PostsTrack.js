@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import sanitize from 'sanitize-html';
 
-import { Arrow } from '@icons';
 import {
   Excerpt,
   PostCover,
@@ -31,7 +30,6 @@ export const PostsTrack = ({
         {acf.excerpt && <Excerpt>{acf.excerpt}</Excerpt>}
         <PostLink to={`/${slug}`}>
           {clickText}
-          <Arrow />
         </PostLink>
       </SinglePost>
     ))}
