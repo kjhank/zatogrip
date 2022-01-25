@@ -6,8 +6,9 @@ import {
   animate, timeline,
 } from 'motion';
 
+import { X } from '@icons';
 import {
-  Backdrop, Wrapper,
+  Backdrop, CloseButton, Wrapper,
 } from './Modal.styled';
 
 export const Modal = ({
@@ -81,6 +82,10 @@ export const Modal = ({
       ref={backdropRef}
     >
       <Wrapper ref={modalRef}>
+        <CloseButton onClick={close}>
+          <X />
+          Zamknij
+        </CloseButton>
         {children}
       </Wrapper>
     </Backdrop>

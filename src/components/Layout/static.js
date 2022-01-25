@@ -7,14 +7,24 @@ export const topNavigation = [
     type: 'scroll',
   },
   {
+    hasSubmenu: true,
+    highlightType: [
+      'page',
+      'products',
+    ],
     section: 'products',
     text: 'Za te produkty',
     type: 'scroll',
   },
   {
+    highlightType: [
+      'post',
+      'posts',
+    ],
     section: 'support',
     text: 'Za to wsparcie',
     type: 'scroll',
+    url: '/strefa-rodzica/',
   },
   {
     section: 'fun',
@@ -22,6 +32,7 @@ export const topNavigation = [
     type: 'scroll',
   },
   {
+    highlightType: ['page'],
     text: 'Kontakt',
     type: 'link',
     url: '/kontakt/',

@@ -1,10 +1,39 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-export const Post = props => (
-  <div>{JSON.stringify(props)}</div>
+import { Main } from '@components/styled';
+
+import {
+  Body, Header, Related,
+} from '@components/Post';
+
+export const Post = ({
+  body, cover, footnotes, relatedPosts, title,
+}) => (
+  <Main>
+    <Header
+      cover={cover}
+      title={title}
+    />
+    <Body
+      body={body}
+      footnotes={footnotes}
+    />
+    <Related
+      articles={relatedPosts?.articles}
+      heading={relatedPosts?.heading}
+    />
+  </Main>
 );
 
 Post.propTypes = {
-
+  body: PropTypes.string.isRequired,
+  cover: PropTypes.shape({}).isRequired,
+  footnotes: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
+  relatedPosts: PropTypes.shape({
+    articles: PropTypes.arrayOf(PropTypes.shape({})),
+    heading: PropTypes.string,
+  }).isRequired,
+  title: PropTypes.string.isRequired,
 };
 

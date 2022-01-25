@@ -4,6 +4,7 @@ import { ExternalLink as ExLink } from '@components';
 
 const commonStyle = css`
   position: relative;
+  z-index: 1;
   overflow: hidden;
   display: inline-flex;
   justify-content: space-between;

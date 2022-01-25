@@ -11,7 +11,7 @@ export const Section = styled.section`
 export const TilesGrid = styled.ul`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-gap: max(12px, 0.625vw);
+  grid-gap: ${({ theme }) => theme.getMin(72)};
   margin: max(66px, 3.4375vw) 0;
 `;
 
@@ -35,6 +35,7 @@ const tileCommonStyle = css`
   right: 0;
   bottom: 0;
   left: 0;
+  z-index: 3;
   backface-visibility: hidden;
   width: 100%;
   height: 100%;
@@ -45,7 +46,7 @@ export const TileFront = styled.div`
   ${tileCommonStyle};
   display: grid;
   place-items: center;
-  padding: 0 55px;
+  padding: 0 ${({ theme }) => theme.getMin(20)};
   background-color: #fff;
   color: ${({ theme }) => theme.getColor('alt')};
   font-weight: bold;
@@ -58,13 +59,16 @@ export const TileBack = styled.div`
   ${tileCommonStyle};
   display: grid;
   place-items: center;
-  padding: 0 20%;
   background-image: ${({ theme }) => theme.getGradient('radial')};
   color: #fff;
-  font-size: clamp(10px, 0.954861vw, 18.3px);
+  font-size: clamp(10px, 0.833333vw, 16px);
   font-family: ${({ theme }) => theme.getFont('')};
   text-align: center;
   transform: rotateY(180deg);
+
+  > p {
+    width: 55%;
+  }
 `;
 
 export const FlipButton = styled(ArrowLink)`
@@ -110,12 +114,22 @@ export const CloseButton = styled.button.attrs({ type: 'button' })`
 `;
 
 export const Footnotes = styled.footer`
-  color: ${({ theme }) => theme.getColor('alt')};
+  position: relative;
+  z-index: 1;
+  padding-right: 60%;
   font-size: clamp(6px, 0.520833vw, 10px);
   font-family: ${({ theme }) => theme.getFont('alt')};
 
   > ol {
     list-style-position: inside;
+
+    > li {
+      display: inline;
+
+      > span {
+        color: ${({ theme }) => theme.getColor('alt')};
+      }
+    }
   }
 `;
 

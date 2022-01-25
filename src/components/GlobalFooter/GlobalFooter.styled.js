@@ -6,6 +6,7 @@ import { ExternalLink } from '@components';
 export const Footer = styled.footer`
   position: relative;
   z-index: 2;
+  background-color: #fff;
   font-family: ${({ theme }) => theme.getFont('alt')};
 `;
 
@@ -84,7 +85,7 @@ export const Bottom = styled.section`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 5%;
+  padding: 5% 0;
   transform: translateY(-50%);
 `;
 

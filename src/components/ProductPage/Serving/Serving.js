@@ -39,9 +39,12 @@ export const Serving = ({
 
 Serving.propTypes = {
   amount: PropTypes.string.isRequired,
-  badge: PropTypes.shape({}).isRequired,
+  badge: PropTypes.shape({}),
   description: PropTypes.string.isRequired,
   heading: PropTypes.string.isRequired,
   pageSlug: PropTypes.string.isRequired,
 };
 
+Serving.defaultProps = {
+  badge: null,
+};

@@ -5,24 +5,58 @@ export const Backdrop = styled.div`
   position: fixed;
   top: 0;
   right: 0;
+  bottom: 0;
   left: 0;
   z-index: 46;
+  overflow: scroll;
   opacity: 0;
   display: flex;
   justify-content: center;
   align-items: flex-start;
   min-height: 100vh;
-  padding-top: 10vh;
+  padding: 10vh 0;
   background-color: ${rgba('#fff', 0.5)};
   backdrop-filter: blur(5px);
 `;
 
 export const Wrapper = styled.aside`
-  filter: drop-shadow(0 min(10px, 1vh) 6px ${rgba('#000', 0.33)});
-  width: min(960px, 50vw);
+  filter: ${({ theme }) => `drop-shadow(${theme.getMin(10)} ${theme.getMin(20)} ${theme.getMin(64)} rgb(0 0 0 / 0.29))`};
+  width: ${({ theme }) => theme.getMin(1150)};
   border-radius: ${({ theme }) => theme.getRadius()};
-  padding: min(24px, 1.25vw);
+  padding: ${({ theme }) => theme.getMin(75)};
   background-color: #fff;
-  transform: translateY(-50vh);
+  transform: translateY(-100%);
 `;
 
+export const CloseButton = styled.button`
+  position: absolute;
+  top: ${({ theme }) => theme.getMin(34)};
+  right: ${({ theme }) => theme.getMin(34)};
+  aspect-ratio: 1/1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: ${({ theme }) => theme.getMin(75)};
+  border: 2px solid ${({ theme }) => theme.getColor('alt')};
+  border-radius: 100%;
+  background-color: transparent;
+  color: ${({ theme }) => theme.getColor('alt')};
+  font-size: max(6px, 10px);
+  text-transform: uppercase;
+  transition: ${({ theme }) => theme.getTransitions([
+    'background-color',
+    'color',
+  ])};
+  cursor: pointer;
+
+  > svg {
+    font-size: clamp(20px, 1.979167vw, 38px);
+    fill: currentColor;
+  }
+
+  :hover {
+    background-color: ${({ theme }) => theme.getColor('alt')};
+    color: #fff;
+  }
+`;

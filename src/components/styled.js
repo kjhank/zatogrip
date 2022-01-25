@@ -1,6 +1,8 @@
 import styled, { css } from 'styled-components';
 
-export const Main = styled.main``;
+export const Main = styled.main`
+  background-color: #fff;
+`;
 
 export const arrowLinkStyles = css`
   position: relative;

@@ -6,3 +6,4 @@ export { Container } from './Container/Container';
 export { GlobalHeader } from './GlobalHeader/GlobalHeader';
 export { GlobalFooter } from './GlobalFooter/GlobalFooter';
 export { BulletList } from './BulletList/BulletList';
+export { ProductsMenu } from './GlobalHeader/ProductsMenu';

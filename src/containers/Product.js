@@ -57,7 +57,10 @@ Product.propTypes = {
     list: PropTypes.arrayOf(PropTypes.shape({})),
   }).isRequired,
   ingredients: PropTypes.shape({
-    footnotes: PropTypes.arrayOf(PropTypes.shape({})),
+    footnotes: PropTypes.oneOfType([
+      PropTypes.bool,
+      PropTypes.arrayOf(PropTypes.shape({})),
+    ]),
     heading: PropTypes.string,
     icons: PropTypes.arrayOf(PropTypes.shape({})),
     intro: PropTypes.string,
@@ -66,7 +69,10 @@ Product.propTypes = {
   serving: PropTypes.shape({
     description: PropTypes.string,
     heading: PropTypes.string,
-    image: PropTypes.shape({}),
+    image: PropTypes.oneOfType([
+      PropTypes.bool,
+      PropTypes.shape({}),
+    ]),
     value: PropTypes.string,
   }).isRequired,
   slug: PropTypes.string.isRequired,

@@ -45,7 +45,18 @@ export const TilesSection = ({
         </TilesGrid>
         <Footnotes>
           <ol>
-            {footnotes.map(({ footnote }) => <li key={footnote}>{footnote}</li>)}
+            {footnotes.map(({ footnote }, index) => (
+              <li key={footnote}>
+                <span>
+                  [
+                  {index + 1}
+                  ]
+                </span>
+                {' '}
+                {footnote}
+                {' '}
+              </li>
+            ))}
           </ol>
         </Footnotes>
       </Container>

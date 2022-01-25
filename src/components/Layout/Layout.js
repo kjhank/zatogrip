@@ -7,7 +7,7 @@ import smoothscroll from 'smoothscroll-polyfill';
 import { Theme } from '@theme/main';
 import { GlobalStyle } from '@utils';
 import {
-  GlobalFooter, GlobalHeader,
+  GlobalFooter, GlobalHeader, ProductsMenu,
 } from '@components';
 
 import '../../../static/fonts/stylesheet.css'; // TODO: update when we get fonts
@@ -30,6 +30,11 @@ const Layout = ({
     setScrollingDown,
   ] = useState(false);
 
+  const [
+    isSubmenuVisible,
+    setSubmenuVisible,
+  ] = useState(false);
+
   useEffect(() => {
     smoothscroll.polyfill();
   }, []);
@@ -43,7 +48,7 @@ const Layout = ({
   const seoData = {
     ...pageContext?.metadata?.yoast,
     language: pageContext?.metadata?.globals?.language,
-    title: `${pageContext?.metadata?.globals?.siteName} - ${pageContext?.title}`,
+    title: pageContext?.title ? `${pageContext?.metadata?.globals?.siteName} - ${pageContext?.title}` : pageContext?.metadata?.globals?.siteName,
   };
 
   const navItems = topNavigation.map(item => {
@@ -75,6 +80,7 @@ const Layout = ({
 
     const onScroll = () => {
       if (!isScrolling) {
+        setSubmenuVisible(false);
         window.requestAnimationFrame(updateScrollDir);
         isScrolling = true;
       }
@@ -96,6 +102,12 @@ const Layout = ({
     window.scrollTo(scrollConfig);
   };
 
+  const handleMouseOver = ({ type }, source) => {
+    const shouldOpen = !!(source === 'button' && (type === 'mouseenter' || 'mouseleave'));
+
+    setSubmenuVisible(shouldOpen);
+  };
+
   useEffect(() => {
     if (location?.state?.scrollTarget) {
       const { state: { scrollTarget } } = location;
@@ -112,11 +124,18 @@ const Layout = ({
       <Seo data={seoData} />
       <GlobalStyle shouldScroll={!isCookiesModalOpen} />
       <GlobalHeader
+        handleMouse={handleMouseOver}
         handleScroll={handleScroll}
         hasLinks={path !== '/'}
         isHidden={isScrollingDown}
         navItems={navItems}
-        products={pageContext.globals.acf.products}
+        slug={pageContext?.metadata?.slug}
+        type={pageContext?.metadata?.type}
+      />
+      <ProductsMenu
+        handleMouse={handleMouseOver}
+        isVisible={isSubmenuVisible}
+        products={pageContext?.globals?.acf?.products}
       />
       {cloneElement(children, { navItems })}
       <GlobalFooter
@@ -152,6 +171,8 @@ Layout.propTypes = {
         language: PropTypes.string,
         siteName: PropTypes.string,
       }),
+      slug: PropTypes.string,
+      type: PropTypes.string,
       yoast: PropTypes.shape({}),
     }),
     title: PropTypes.string,

@@ -55,7 +55,7 @@ export const PostsSection = ({
 
       if (scrollLeft <= 0) {
         setScrollPosition('start');
-      } else if (scrollLeft === maxScroll) {
+      } else if (scrollLeft >= maxScroll - 1) {
         setScrollPosition('end');
       } else {
         setScrollPosition('');
@@ -74,7 +74,7 @@ export const PostsSection = ({
           <SectionHeading>{content.heading}</SectionHeading>
           <Intro>{content.intro}</Intro>
           <Navigation>
-            <AllPostsLink to={`/${content.allPostsLink.post_name}`}>{content.allPostsText}</AllPostsLink>
+            <AllPostsLink to={`/${content.allPostsLink.post_name}/`}>{content.allPostsText}</AllPostsLink>
             <ScrollButton
               disabled={scrollPosition === 'start'}
               isFlipped
