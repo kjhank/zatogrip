@@ -94,7 +94,7 @@ export const GlobalFooter = ({
               (
                 <Link
                   key={link.title}
-                  to={link.url}
+                  to={`${link.url}/`}
                 >
                   {link.title}
                 </Link>

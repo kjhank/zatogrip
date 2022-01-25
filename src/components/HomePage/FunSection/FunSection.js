@@ -79,7 +79,10 @@ export const FunSection = ({
           <Modal
             close={handleModal}
           >
-            <Items content={list.find(({ type }) => type === openModal)} />
+            <Items
+              content={list.find(({ type }) => type === openModal)}
+              heading={content.modalTitle}
+            />
           </Modal>, BODY
         ) :
         null}
@@ -94,6 +97,7 @@ FunSection.propTypes = {
     coloringBooks: PropTypes.shape({}),
     heading: PropTypes.string,
     intro: PropTypes.string,
+    modalTitle: PropTypes.string,
     origami: PropTypes.shape({}),
   }).isRequired,
   innerRef: PropTypes.shape({}).isRequired,

@@ -13,18 +13,21 @@ const templates = {
   home: path.resolve('./src/templates/HomePage.js'),
   notFound: path.resolve('./src/templates/NotFoundPage.js'),
   post: path.resolve('./src/templates/PostPage.js'),
+  posts: path.resolve('./src/templates/PostsPage.js'),
   product: path.resolve('./src/templates/ProductPage.js'),
 };
 
 const paths = {
   home: '/',
   notFound: '/404/',
+  posts: '/strefa-rodzica/',
 };
 
 const slugs = {
   contact: 'kontakt',
   home: 'strona-glowna',
   notFound: '404',
+  posts: 'strefa-rodzica',
 };
 
 const types = {
@@ -41,6 +44,10 @@ const getTemplate = ({
 
   if (slug.includes(slugs.notFound)) {
     return templates.notFound;
+  }
+
+  if (type === types.page && slug === slugs.posts) {
+    return templates.posts;
   }
 
   // if (slug === slugs.contact) {
@@ -66,7 +73,7 @@ const getPath = ({ slug }) => {
   return `/${slug}`;
 };
 
-const getContext = (pageData, settings, globals, { acf: { carousel } }) => {
+const getContext = async (pageData, settings, globals, { acf: { carousel } }, allPosts) => {
   const {
     acf, slug, title, type, yoast_head_json,
   } = pageData;
@@ -83,8 +90,8 @@ const getContext = (pageData, settings, globals, { acf: { carousel } }) => {
         language: settings.language,
         siteName: settings.title,
       },
-      title: title.rendered,
       slug,
+      title: title.rendered,
       type,
       yoast: yoast_head_json,
     },
@@ -98,7 +105,7 @@ const getContext = (pageData, settings, globals, { acf: { carousel } }) => {
   }
 
   if (type === types.page) {
-    return hasCarousel ?
+    const pageContext = hasCarousel ?
       {
         ...globalContext,
         carousel,
@@ -109,9 +116,46 @@ const getContext = (pageData, settings, globals, { acf: { carousel } }) => {
         ...globalContext,
         data: acf,
       };
+
+    if (slug === slugs.posts) {
+      const posts = allPosts.map(post => ({
+        cover: post.acf.cover,
+        excerpt: post.acf.excerpt,
+        slug: post.slug,
+        thumbnail: post.acf.homeThumb,
+        title: post.title.rendered,
+      }));
+
+      return {
+        ...pageContext,
+        posts,
+      };
+    }
+
+    return pageContext;
   }
 
-  return globalContext;
+  const relatedPosts = acf?.articles?.articles.map(({ article }) => {
+    const { ID } = article;
+    const { acf: acfData } = allPosts.find(post => post.id === ID);
+
+    return {
+      ...article,
+      cover: acfData?.cover,
+      excerpt: acfData?.excerpt,
+      thumbnail: acfData?.homeThumb,
+    };
+  });
+
+  return {
+    ...globalContext,
+    ...acf,
+    articles: {
+      ...acf.articles,
+      articles: relatedPosts,
+    },
+    body: pageData?.content?.rendered,
+  };
 };
 
 exports.createPages = async ({
@@ -145,13 +189,13 @@ exports.createPages = async ({
     settings,
   ] = await getApiData(endpoints);
 
-  pages.forEach(page => {
+  pages.forEach(async page => {
     const context = page.slug === slugs.home ?
       {
-        ...getContext(page, settings, globals, carousel),
+        ...await getContext(page, settings, globals, carousel, posts),
         posts,
       } :
-      getContext(page, settings, globals, carousel);
+      await getContext(page, settings, globals, carousel, posts);
 
     const pageData = {
       component: getTemplate(page),
@@ -162,10 +206,10 @@ exports.createPages = async ({
     createPage(pageData);
   });
 
-  posts.forEach(post => {
+  await posts.forEach(async post => {
     const postData = {
       component: getTemplate(post),
-      context: getContext(post, settings, globals, carousel),
+      context: await getContext(post, settings, globals, carousel, posts),
       path: getPath(post),
     };
 

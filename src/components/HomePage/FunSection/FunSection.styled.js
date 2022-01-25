@@ -82,21 +82,66 @@ export const ModalTrigger = styled.button.attrs({ type: 'button' })`
   }
 `;
 
+export const ModalHeading = styled.h2`
+  color: ${({ theme }) => theme.getColor('accent')};
+  font-size: clamp(24px, 2.1875vw, 42px);
+  font-family: ${({ theme }) => theme.getFont('heading')};
+  text-align: center;
+  text-transform: uppercase;
+`;
+
 export const ItemImage = styled(WPImage)`
   position: absolute;
   top: 50%;
-  left: 0;
-  width: 20%;
+  left: ${({ theme }) => theme.getMin(-100)};
+  height: ${({
+    image, theme,
+  }) => theme.getMin(image.height / 2)};
+  max-height: unset;
+  mix-blend-mode: multiply;
   transform: translateY(-50%);
+
+  > img {
+    /* max-width: unset;
+    max-height: unset; */
+  }
 `;
 
 export const ItemsGrid = styled.ul`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  gap: ${({ theme }) => theme.getMin(54)};
+  margin: ${({ theme }) => `${theme.getMin(100)} 0 ${theme.getMin(70)}`};
 `;
 
-export const SingleItem = styled.li``;
+export const SingleItem = styled.li`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+`;
 
-export const Thumbnail = styled(WPImage)``;
+export const Thumbnail = styled(WPImage)`
+  overflow: hidden;
+  aspect-ratio: 1/1;
+  width: 100%;
+  margin-bottom: ${({ theme }) => theme.getMin(24)};
+  border: 2px solid ${({ theme }) => theme.getColor('alt')};
+  border-radius: ${({ theme }) => theme.getRadius('small')};
 
-export const DownloadLink = styled.a``;
+  > img {
+    width: 100%;
+    max-width: unset;
+    height: 100%;
+    max-height: unset;
+    object-fit: cover;
+  }
+`;
+
+export const Name = styled.h3`
+  margin-bottom: ${({ theme }) => theme.getMin(24)};
+  color: ${({ theme }) => theme.getColor('alt')};
+  font-size: clamp(28px, 2.604167vw, 50px);
+  font-family: ${({ theme }) => theme.getFont('heading')};
+  text-align: center;
+`;

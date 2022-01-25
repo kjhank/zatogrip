@@ -13,7 +13,7 @@ export const Section = styled.section`
 
 export const Heading = styled.h2`
   position: absolute;
-  top: 10%;
+  top: ${({ theme }) => theme.getMin(154)};
   right: 12%;
   font-size: clamp(40px, 5.729167vw, 120px);
   line-height: 0.8;

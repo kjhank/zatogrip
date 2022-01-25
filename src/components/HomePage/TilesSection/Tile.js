@@ -24,7 +24,7 @@ export const Tile = ({
     </TileFront>
     <TileBack>
       {hasBackground && <TileBackground />}
-      {content.backText}
+      <p>{content.backText}</p>
       <CloseButton onClick={() => handleFlip(-1)}>
         <X />
         {closeText}

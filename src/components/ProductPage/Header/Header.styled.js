@@ -13,7 +13,7 @@ export const Cover = styled(WPImage)`
   top: min(-47px, -2.447917vw);
   right: 0;
   left: 0;
-  z-index: -2;
+  z-index: 0;
   width: 100%;
 `;
 
@@ -52,6 +52,8 @@ export const Description = styled.div`
 `;
 
 export const LinksWrapper = styled.nav`
+  position: relative;
+  z-index: 1;
   display: flex;
   align-items: center;
   gap: min(28px, 1.458333vw);

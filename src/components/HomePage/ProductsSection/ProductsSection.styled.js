@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { rgba } from 'polished';
 import { Link } from 'gatsby';
 
 import { WPImage } from '@components';
@@ -8,15 +7,22 @@ import { queries } from '@utils/rwd';
 
 export const Section = styled.section`
   position: relative;
-  margin: max(66px, 3.4375vw) 0;
+  margin: ${({ theme }) => theme.getMin(32)} 0  ${({ theme }) => theme.getMin(66)};
+
+  > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
 `;
 
 export const Background = styled(WPImage)`
   position: absolute;
-  top: -25vw;
+  top: ${({ theme }) => theme.getMin(-450)};
   right: 0;
   left: 0;
-  z-index: -1;
+  z-index: 0;
 `;
 
 export const ArrowWrapper = styled.div`
@@ -54,8 +60,8 @@ export const ProductLink = styled(Link)`
   }) => theme.colors.products[variant]};
   color: #fff;
   font-size: clamp(12px, 1.145833vw, 22px);
-  line-height: 0.8;
-  text-align: center;
+  line-height: 1;
+  text-align: left;
   transition: ${({ theme }) => theme.getTransitions([
     'filter',
     'transform',
@@ -70,7 +76,6 @@ export const ProductLink = styled(Link)`
   }
 
   :hover {
-    /* filter: brightness(1.1) drop-shadow(0 6px 6px ${rgba('#000', 0.5)}); */
     transform: scale(1.1);
 
     ${ArrowWrapper} {
@@ -84,6 +89,11 @@ export const ProductGroup = styled.li`
   display: flex;
   justify-content: center;
   align-items: flex-end;
+  gap: ${({ theme }) => theme.getMin(100)};
+
+  :last-child {
+    margin-left: ${({ theme }) => theme.getMin(150)};
+  }
 `;
 
 export const Product = styled.article`
@@ -93,40 +103,44 @@ export const Product = styled.article`
 export const ProductsList = styled.ul`
   position: relative;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: flex-end;
+  gap: ${({ theme }) => theme.getMin(240)};
+  width: 100%;
+  height: ${({ theme }) => theme.getMin(529)};
+  padding-left: ${({ theme }) => theme.getMin(50)};
 `;
 
 export const Package = styled(WPImage)`
   position: absolute;
-  bottom: 100%;
+  bottom: 75%;
+  left: 50%;
   display: ${({ $isMobile }) => ($isMobile ? 'none' : 'block')};
+  width: ${({
+    image, theme,
+  }) => theme.getMin(Math.round(image.width / 2))};
   max-width: unset;
   max-height: unset;
+  transform: translateX(-40%);
 
   @media ${queries.xs} {
     display: ${({ $isMobile }) => ($isMobile ? 'block' : 'none')};
   }
 
+  > img {
+    width: 100%;
+    max-width: unset;
+    max-height: unset;
+  }
+
   &.variant {
     &--mini {
-      width: 28.697917vw;
-    }
-
-    &--baby {
-      width: 38.125vw;
-    }
-
-    &--kids {
-      width: 38.75vw;
-    }
-
-    &--junior {
-      width: 38.802083vw;
+      bottom: 85%;
     }
 
     &--forte {
-      width: 34.322917vw;
+      bottom: 50%;
+      transform: translateX(-50%);
     }
   }
 
