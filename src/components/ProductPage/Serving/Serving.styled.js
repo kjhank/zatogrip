@@ -24,13 +24,9 @@ export const Amount = styled.p`
 `;
 
 export const Badge = styled(WPImage)`
-width: ${({ theme }) => theme.getMin(423)};
-
-&.variant {
-  &--zatogrip-mini {
-      width: ${({ theme }) => theme.getMin(262)};
-    }
-  }
+width: ${({
+    image, theme,
+  }) => theme.getMin(image.width / 2)};
 `;
 
 export const Description = styled.p`

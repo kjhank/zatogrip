@@ -95,7 +95,6 @@ export const Box = styled(WPImage)`
       top: ${({ theme }) => theme.getMin(658)};
       left: ${({ theme }) => theme.getMin(58)};
       width: ${({ theme }) => theme.getMin(698)};
-
     }
   }
 `;

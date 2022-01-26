@@ -4,10 +4,8 @@ import React, {
 } from 'react';
 import PropTypes from 'prop-types';
 
-import { ArrowLink } from '@components';
-
 import {
-  Input, Label, LabelText, TextArea, Wrapper,
+  Input, Label, LabelText, SubmitButton, TextArea, Wrapper,
 } from './Form.styled';
 
 const initialForm = {
@@ -20,21 +18,29 @@ const initialForm = {
 
 const fieldTypes = {
   userName: {
+    dataType: 'text',
+    isRequired: true,
     label: 'Imię i nazwisko',
     type: 'input',
     variant: 'small',
   },
   userEmail: {
+    dataType: 'email',
+    isRequired: true,
     label: 'E-mail',
     type: 'input',
     variant: 'small',
   },
   messageSubject: {
+    dataType: 'text',
+    isRequired: true,
     label: 'Tytuł wiadomości',
     type: 'input',
     variant: 'large',
   },
   messageContent: {
+    dataType: 'text',
+    isRequired: true,
     label: 'Treść wiadomości',
     type: 'textarea',
     variant: 'large',
@@ -44,14 +50,14 @@ const fieldTypes = {
 
 export const Form = ({ form }) => {
   const [
-    formData,
-    setFormData,
+    formValues,
+    setFormValues,
   ] = useState(initialForm);
 
-  // const [
-  //   requestState,
-  //   setRequestState,
-  // ] = useState(null);
+  const [
+    requestState,
+    setRequestState,
+  ] = useState(null);
 
   const [
     focusedField,
@@ -63,23 +69,45 @@ export const Form = ({ form }) => {
       id, value,
     },
   }) => {
-    setFormData(current => ({
+    setFormValues(current => ({
       ...current,
       [id]: value,
     }));
   };
 
-  const handleSubmit = event => {
+  const { GATSBY_BACKEND_URL } = process.env;
+
+  const handleSubmit = async event => {
     event.preventDefault();
-    console.log(form);
-    console.log(event);
+
+    const { target: formElement } = event;
+
+    const isValid = formElement.checkValidity();
+
+    if (isValid) {
+      setRequestState('pending');
+      const { ID: formId } = form;
+      const formUrl = `${GATSBY_BACKEND_URL}/contact-form-7/v1/contact-forms/${formId}/feedback`;
+      const formData = new FormData();
+
+      Array.from(formElement.elements).forEach(item => formData.append(item.name, item.value));
+
+      const response = await fetch(formUrl, {
+        body: formData,
+        method: 'post',
+      });
+
+      const { status } = await response.json();
+
+      setRequestState(status);
+    }
   };
 
   return (
     <Wrapper onSubmit={handleSubmit}>
       {Object.keys(initialForm).map(key => {
         const {
-          label, type, variant,
+          dataType, isRequired, label, type, variant,
         } = fieldTypes[key];
 
         return (
@@ -87,7 +115,7 @@ export const Form = ({ form }) => {
             key={key}
             variant={variant}
           >
-            <LabelText isHidden={!!formData[key] || focusedField === key}>{label}</LabelText>
+            <LabelText isHidden={!!formValues[key] || focusedField === key}>{label}</LabelText>
             {type === 'input' && (
             <Input
               id={key}
@@ -95,6 +123,8 @@ export const Form = ({ form }) => {
               onBlur={() => setFocusedField(null)}
               onChange={handleChange}
               onFocus={() => setFocusedField(key)}
+              required={isRequired}
+              type={dataType}
             />
             )}
             {type === 'textarea' && (
@@ -104,19 +134,30 @@ export const Form = ({ form }) => {
                 onBlur={() => setFocusedField(null)}
                 onChange={handleChange}
                 onFocus={() => setFocusedField(key)}
+                required={isRequired}
+                type={dataType}
               />
             )}
           </Label>
         );
       })}
-      <ArrowLink type="submit">
-        Wyślij
-      </ArrowLink>
+      <SubmitButton
+        disabled={requestState === 'pending' || requestState === 'mail_sent'}
+        isRed={requestState === 'mail_failed'}
+        type="submit"
+      >
+        {!requestState && 'Wyślij'}
+        {requestState === 'pending' && 'Wysyłam wiadomość...'}
+        {requestState === 'mail_sent' && 'Wiadomość wysłana 👌'}
+        {requestState === 'mail_failed' && 'Wystąpił błąd'}
+      </SubmitButton>
     </Wrapper>
   );
 };
 
 Form.propTypes = {
-  form: PropTypes.shape({}).isRequired,
+  form: PropTypes.shape({
+    ID: PropTypes.number,
+  }).isRequired,
 };
 

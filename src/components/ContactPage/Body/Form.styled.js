@@ -1,5 +1,7 @@
 import styled, { css } from 'styled-components';
 
+import { ArrowLink } from '@components';
+
 export const Wrapper = styled.form`
   display: flex;
   flex-wrap: wrap;
@@ -8,10 +10,30 @@ export const Wrapper = styled.form`
   gap: ${({ theme }) => theme.getMin(9)};
   width: ${({ theme }) => theme.getMin(615)};
   margin-top: ${({ theme }) => theme.getMin(70)};
+`;
 
-  > button {
-    margin: ${({ theme }) => theme.getMin(28)} auto 0;
-    padding: ${({ theme }) => theme.getMin(12)} ${({ theme }) => theme.getMin(50)};
+export const SubmitButton = styled(ArrowLink)`
+  margin: ${({ theme }) => theme.getMin(28)} auto 0;
+  padding: ${({ theme }) => theme.getMin(12)} ${({ theme }) => theme.getMin(50)};
+
+  ::before {
+    background-image: ${({ isRed }) => isRed && 'radial-gradient(circle at 50%, #800000 30%, #570000)'};
+  }
+
+  :disabled {
+    filter: brightness(1.1);
+    cursor: not-allowed;
+
+    :hover {
+      background-size: 100%;
+      ::before {
+        filter: unset;
+      }
+
+      > svg {
+        transform: unset;
+      }
+    }
   }
 `;
 
@@ -48,7 +70,10 @@ const commonInputStyle = css`
   padding: ${({ theme }) => `${theme.getMin(20)} ${theme.getMin(24)}`};
   font-size: clamp(10px, 0.729167vw, 14px);
   font-family: ${({ theme }) => theme.getFont('alt')};
-  transition: ${({ theme }) => theme.getTransitions(['outline-color'])};
+  transition: ${({ theme }) => theme.getTransitions([
+    'outline-color',
+    'border-color',
+  ])};
 
   :focus {
     outline-color: ${({ theme }) => theme.getColor('link')};

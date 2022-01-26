@@ -73,6 +73,8 @@ export const ProductLink = styled(Link)`
     top: 50%;
     left: 50%;
     z-index: 0;
+    width: 115%;
+    height: auto;
     transform: translate(-50%, -50%);
   }
 
