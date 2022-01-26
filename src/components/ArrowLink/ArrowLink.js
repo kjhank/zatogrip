@@ -7,12 +7,13 @@ import {
 } from './ArrowLink.styled';
 
 export const ArrowLink = ({
-  children, href, onClick, to, ...props
+  children, href, onClick, to, type, ...props
 }) => {
   if (!href && !to) {
     return (
       <Button
         onClick={onClick}
+        type={type}
         {...props}
       >
         {children}
@@ -54,6 +55,7 @@ ArrowLink.propTypes = {
   href: PropTypes.string,
   onClick: PropTypes.func,
   to: PropTypes.string,
+  type: PropTypes.string,
 };
 
 ArrowLink.defaultProps = {
@@ -62,4 +64,5 @@ ArrowLink.defaultProps = {
   href: null,
   onClick: null,
   to: null,
+  type: 'button',
 };

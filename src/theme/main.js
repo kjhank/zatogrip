@@ -14,7 +14,7 @@ const theme = {
     medium: '30px',
     small: '25px',
     smaller: '20px',
-    tiny: '11px',
+    tiny: '14px',
   },
   colors: {
     accent: '#eb097d',
@@ -87,6 +87,7 @@ const theme = {
   `,
   getTransitions: (properties, duration) => properties.map(property => `${property} ${theme.transitions[duration] || theme.transitions.duration}`).join(', '),
   transitions: {
+    slowDuration: '0.8s',
     duration: '0.4s',
     fastDuration: '0.2s',
   },

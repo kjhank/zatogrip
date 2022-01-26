@@ -42,7 +42,7 @@ export const CloseButton = styled.button`
   border-radius: 100%;
   background-color: transparent;
   color: ${({ theme }) => theme.getColor('alt')};
-  font-size: max(6px, 10px);
+  font-size: min(6px, 10px);
   text-transform: uppercase;
   transition: ${({ theme }) => theme.getTransitions([
     'background-color',

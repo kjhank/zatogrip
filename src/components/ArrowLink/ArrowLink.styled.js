@@ -53,7 +53,7 @@ export const Link = styled(GenericLink)`
   ${commonStyle};
 `;
 
-export const Button = styled.button.attrs({ type: 'button' })`
+export const Button = styled.button`
   ${commonStyle};
 `;
 

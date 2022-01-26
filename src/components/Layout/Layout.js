@@ -48,7 +48,7 @@ const Layout = ({
   const seoData = {
     ...pageContext?.metadata?.yoast,
     language: pageContext?.metadata?.globals?.language,
-    title: pageContext?.title ? `${pageContext?.metadata?.globals?.siteName} - ${pageContext?.title}` : pageContext?.metadata?.globals?.siteName,
+    title: pageContext?.metadata?.title ? `${pageContext?.metadata?.globals?.siteName} - ${pageContext?.metadata?.title}` : pageContext?.metadata?.globals?.siteName,
   };
 
   const navItems = topNavigation.map(item => {
@@ -172,6 +172,7 @@ Layout.propTypes = {
         siteName: PropTypes.string,
       }),
       slug: PropTypes.string,
+      title: PropTypes.string,
       type: PropTypes.string,
       yoast: PropTypes.shape({}),
     }),

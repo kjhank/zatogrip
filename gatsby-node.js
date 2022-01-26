@@ -10,6 +10,7 @@ const endpoints = {
 };
 
 const templates = {
+  contact: path.resolve('./src/templates/ContactPage.js'),
   home: path.resolve('./src/templates/HomePage.js'),
   notFound: path.resolve('./src/templates/NotFoundPage.js'),
   post: path.resolve('./src/templates/PostPage.js'),
@@ -18,6 +19,7 @@ const templates = {
 };
 
 const paths = {
+  contact: '/contact/',
   home: '/',
   notFound: '/404/',
   posts: '/strefa-rodzica/',
@@ -50,9 +52,9 @@ const getTemplate = ({
     return templates.posts;
   }
 
-  // if (slug === slugs.contact) {
-  //   return templates.contact;
-  // }
+  if (slug === slugs.contact) {
+    return templates.contact;
+  }
 
   if (type === types.page) {
     return templates.product;
@@ -83,7 +85,7 @@ const getContext = async (pageData, settings, globals, { acf: { carousel } }, al
   } = acf;
 
   const globalContext = {
-    TMP: pageData, // TODO: remove, just for reference
+    // TMP: pageData, // TODO: remove, just for reference
     globals,
     metadata: {
       globals: {
