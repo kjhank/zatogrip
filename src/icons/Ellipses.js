@@ -4,6 +4,7 @@ const SvgEllipses = props => (
   <svg
     data-name="Component 8 \u2013 1"
     height={107}
+    viewBox="0 0 104 107"
     width={104}
     xmlns="http://www.w3.org/2000/svg"
     {...props}

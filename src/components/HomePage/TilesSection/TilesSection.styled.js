@@ -116,8 +116,8 @@ export const CloseButton = styled.button.attrs({ type: 'button' })`
 export const Footnotes = styled.footer`
   position: relative;
   z-index: 1;
-  padding-right: 60%;
-  font-size: clamp(6px, 0.520833vw, 10px);
+  padding-right: 30%;
+  font-size: clamp(8px, 0.729167vw, 14px);
   font-family: ${({ theme }) => theme.getFont('alt')};
 
   > ol {
