@@ -18,7 +18,7 @@ export const Items = ({
     <ModalHeading>{heading}</ModalHeading>
     <ItemsGrid>
       {content?.files?.map(({ item }) => (
-        <SingleItem key={item.name}>
+        <SingleItem key={item?.file}>
           {item?.thumbnail ?
             (
               <Thumbnail

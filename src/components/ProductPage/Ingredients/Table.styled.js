@@ -28,6 +28,7 @@ export const Cell = styled.td`
   padding: min(16px, 0.833333vw) min(28px, 1.458333vw);
   background-color: ${({ theme }) => theme.getColor('dim')};
   font-weight: ${({ isLighter }) => (isLighter ? 'normal' : 'bold')};
+  vertical-align: middle;
 
   :first-of-type {
     width: 55%;
