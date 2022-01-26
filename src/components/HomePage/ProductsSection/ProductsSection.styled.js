@@ -29,10 +29,10 @@ export const ArrowWrapper = styled.div`
   position: absolute;
   right: -20%;
   bottom: -20%;
-  aspect-ratio: 1/1;
   display: grid;
   place-items: center;
   width: min(41px, 2.135417vw);
+  height: min(41px, 2.135417vw);
   border: 1px solid ${({ theme }) => theme.getColor('alt')};
   border-radius: 50%;
   background-color: #fff;
@@ -52,6 +52,7 @@ export const ProductLink = styled(Link)`
   display: grid;
   place-items: center;
   width: min(90px, 4.6875vw);
+  height: min(90px, 4.6875vw);
   aspect-ratio: 1/1;
   border-radius: 999px;
   padding: min(24px, 1.25vw);
@@ -118,7 +119,7 @@ export const Package = styled(WPImage)`
   display: ${({ $isMobile }) => ($isMobile ? 'none' : 'block')};
   width: ${({
     image, theme,
-  }) => theme.getMin(Math.round(image.width / 2))};
+  }) => theme.getMin(Math.round(image.width))};
   max-width: unset;
   max-height: unset;
   transform: translateX(-40%);

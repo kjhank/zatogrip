@@ -5,6 +5,7 @@ import { Product } from '@containers';
 
 const ProductPage = ({ pageContext }) => (
   <Product
+    ctxSize={JSON.stringify(pageContext).length}
     header={pageContext?.data?.header}
     ingredients={pageContext?.data?.ingredients}
     serving={pageContext?.data?.servingSection}

@@ -6,9 +6,10 @@ import { Home } from '@containers';
 const HomePage = ({
   navItems, pageContext: {
     data, posts,
-  },
+  }, pageContext,
 }) => (
   <Home
+    ctxSize={JSON.stringify(pageContext).length}
     fun={data.funSection}
     hero={data.hero}
     navItems={navItems}

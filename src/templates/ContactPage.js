@@ -5,6 +5,7 @@ import { Contact } from '@containers';
 
 const ContactPage = ({ pageContext }) => (
   <Contact
+    ctxSize={JSON.stringify(pageContext).length}
     form={pageContext.data.form}
     header={pageContext.data.header}
     image={pageContext.data.image}

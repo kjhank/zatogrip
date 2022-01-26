@@ -83,7 +83,7 @@ export const ProductsMenuWrapper = styled.nav`
   z-index: 20;
   filter: drop-shadow(11px 14px 27px rgb(0 0 0 / 0.2));
   width: ${({ theme }) => theme.getMin(1920)};
-  height: ${({ theme }) => theme.getMin(415)};
+  height: ${({ theme }) => theme.getMin(450)};
   background-color: #fff;
   transition: ${({ theme }) => theme.getTransitions(['transform'])};
   transform: ${({ isVisible }) => `translateY(${isVisible ? 0 : '-100%'})`};

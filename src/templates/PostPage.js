@@ -7,6 +7,7 @@ const PostPage = ({ pageContext }) => (
   <Post
     body={pageContext?.body}
     cover={pageContext?.cover}
+    ctxSize={JSON.stringify(pageContext).length}
     footnotes={pageContext?.footnotes}
     relatedPosts={pageContext.articles}
     title={pageContext.metadata.title}
