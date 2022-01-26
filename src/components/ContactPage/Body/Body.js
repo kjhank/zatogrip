@@ -13,7 +13,10 @@ export const Body = ({
   contactData, heading, form, image,
 }) => (
   <StyledBody>
-    <Image image={image} />
+    <Image
+      image={image}
+      isLazy={false}
+    />
     <Container>
       <Title>{heading}</Title>
       <ContactData dangerouslySetInnerHTML={{ __html: sanitize(contactData) }} />

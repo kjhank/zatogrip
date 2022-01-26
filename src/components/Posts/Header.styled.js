@@ -10,7 +10,7 @@ export const StyledHeader = styled.header`
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    padding-right: 49%;
+    padding-right: ${({ theme }) => theme.getMin(1550 / 2)};
   }
 `;
 
