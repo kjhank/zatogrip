@@ -19,7 +19,7 @@ export const GlobalHeader = ({
       <Navigation>
         {navItems.map(item => {
           const isHighlighted = item?.url?.includes(slug) ||
-            (item?.highlightType?.includes('products') && slug.startsWith('zatogrip')) ||
+            (item?.highlightType?.includes('products') && (slug?.startsWith('zatogrip') || slug?.startsWith('tabletki'))) ||
             (type === 'post' && item?.highlightType?.includes('post'));
 
           return (item.type === 'scroll' && !hasLinks ?

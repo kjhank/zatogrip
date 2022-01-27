@@ -5,23 +5,39 @@ import { WPImage } from '@components';
 export const Wrapper = styled.header`
   position: relative;
   height: 100vh;
-  padding-top: min(148px, 7.708333vw);
 `;
 
 export const Cover = styled(WPImage)`
   position: absolute;
-  top: min(-47px, -2.447917vw);
-  right: 0;
-  left: 0;
+  top: 0;
   z-index: 0;
-  width: 100%;
+  max-width: unset;
+  height: 100%;
 `;
 
 export const ContentWrapper = styled.div`
-  padding-left: 40%;
+  position: relative;
+  width: 60%;
+  height: 100%;
+  margin-left: auto;
+`;
 
-  > ul {
-    padding-right: 17%;
+export const TopWrapper = styled.div`
+  position: relative;
+  height: 85%;
+  padding-top: ${({ theme }) => theme.getMin(135)};
+
+  ${ContentWrapper} {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    > ul {
+      margin-top: auto;
+      padding-right: 17%;
+      padding-bottom: 1em;
+    }
   }
 `;
 
@@ -57,7 +73,7 @@ export const LinksWrapper = styled.nav`
   display: flex;
   align-items: center;
   gap: min(28px, 1.458333vw);
-  margin-top: min(86px, 4.479167vw);
+  margin-top: min(24px, 4.479167vw);
   font-size: clamp(10px, 1.041667vw, 20px);
 
   > a {
@@ -67,34 +83,45 @@ export const LinksWrapper = styled.nav`
 
 export const Box = styled(WPImage)`
   position: absolute;
-  top: 80%;
-  left: -2.5%;
+  /* bottom: -20%; */
   z-index: 1;
-  width: min(551px, 28.697917vw);
+  width: ${({
+    theme, image,
+  }) => theme.getMin(image.width / 2)};
+  max-width: unset;
+  max-height: unset;
+
+  > img {
+    width: 100%;
+    max-width: unset;
+    max-height: unset;
+  }
 
   &.variant {
+
+    &--zatogrip-mini {
+      top: ${({ theme }) => `calc(100% - ${theme.getMin(214)})`};
+      right: ${({ theme }) => `calc(100% + ${theme.getMin(88)})`};
+    }
+
     &--zatogrip-baby {
-      top: ${({ theme }) => theme.getMin(580)};
-      left: ${({ theme }) => theme.getMin(-46)};
-      width: ${({ theme }) => theme.getMin(788)};
+      top: ${({ theme }) => `calc(100% - ${theme.getMin(257)})`};
+      right: ${({ theme }) => `calc(100% + ${theme.getMin(57)})`};
     }
 
     &--zatogrip-kids {
-      top: ${({ theme }) => theme.getMin(641)};
-      left: ${({ theme }) => theme.getMin(-43)};
-      width: ${({ theme }) => theme.getMin(1626 / 2)};
+      top: ${({ theme }) => `calc(100% - ${theme.getMin(250)})`};
+      right: ${({ theme }) => `calc(100% + ${theme.getMin(31)})`};
     }
 
     &--zatogrip-junior {
-      top: ${({ theme }) => theme.getMin(635)};
-      left: ${({ theme }) => theme.getMin(3)};
-      width: ${({ theme }) => theme.getMin(792)};
+      top: ${({ theme }) => `calc(100% - ${theme.getMin(270)})`};
+      right: ${({ theme }) => `calc(100% + ${theme.getMin(25)})`};
     }
 
     &--tabletki-zatogrip-forte {
-      top: ${({ theme }) => theme.getMin(658)};
-      left: ${({ theme }) => theme.getMin(58)};
-      width: ${({ theme }) => theme.getMin(698)};
+      top: ${({ theme }) => `calc(100% - ${theme.getMin(230)})`};
+      right: ${({ theme }) => `calc(100% + ${theme.getMin(61)})`};
     }
   }
 `;

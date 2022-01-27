@@ -1,3 +1,7 @@
+import {
+  useEffect, useRef,
+} from 'react';
+
 export const isBrowser = !!(typeof window !== 'undefined' && window.document && window.document.createElement);
 
 export const debounceFunction = (func, delay) => {
@@ -13,4 +17,14 @@ export const debounceFunction = (func, delay) => {
   }
 
   return debounced;
+};
+
+export const usePrevious = value => {
+  const ref = useRef();
+
+  useEffect(() => {
+    ref.current = value;
+  });
+
+  return ref.current;
 };

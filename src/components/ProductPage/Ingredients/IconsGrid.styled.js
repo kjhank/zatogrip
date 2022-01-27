@@ -16,23 +16,35 @@ export const InnerGrid = styled.ul`
   justify-content: center;
   align-items: flex-start;
   gap: 1em;
+  height: 100%;
 `;
 
 export const Item = styled.li`
   width: min(170px, 8.854167vw);
+  height: 100%;
 `;
 
 export const Image = styled(WPImage)`
-  height: ${({ $isSmaller }) => ($isSmaller ? 'min(128px, 6.666667vw)' : 'min(139px, 7.239583vw)')};
+  aspect-ratio: 1/1;
+  width: 100%;
+
+  > img {
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+  }
 `;
 
 export const Figure = styled.figure`
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   align-items: center;
+  height: 100%;
 `;
 
 export const Caption = styled.figcaption`
+  margin-top: auto;
   font-weight: bold;
   font-size: clamp(10px, 1.041667vw, 20px);
   text-align: center;

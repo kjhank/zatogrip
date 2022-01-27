@@ -5,8 +5,9 @@ import { SquigglyArrow } from '@icons';
 
 export const Section = styled.section`
   position: relative;
-  aspect-ratio: 1920/1040;
+  /* aspect-ratio: 1920/1040; */
   width: 100%;
+  height: min(100vh, 56.25vw);
   color: ${({ theme }) => theme.colors.alt};
   font-family: ${({ theme }) => theme.getFont('heading')};
 `;

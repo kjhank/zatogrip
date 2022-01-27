@@ -77,6 +77,7 @@ const theme = {
       }
     }
   `,
+  getMax: max => `max(${max}px, ${(max / 19.2).toFixed(4)}vw)`,
   getMin: max => `min(${max}px, ${(max / 19.2).toFixed(4)}vw)`,
   getRadius: (variant = 'default') => theme.borderRadii[variant],
   getSectionBorder: (color = theme.getColor('alt')) => css`

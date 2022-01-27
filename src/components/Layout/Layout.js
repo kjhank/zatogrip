@@ -1,5 +1,5 @@
 import React, {
-  cloneElement, createRef, useEffect, useState,
+  cloneElement, createRef, useEffect, useRef, useState,
 } from 'react';
 import PropTypes from 'prop-types';
 import smoothscroll from 'smoothscroll-polyfill';
@@ -12,10 +12,15 @@ import {
 
 import '../../../static/fonts/stylesheet.css'; // TODO: update when we get fonts
 
+import {
+  debounceFunction, isBrowser,
+} from '@utils/helpers';
 import { Seo } from './Seo';
 import {
   COOKIES_LS_KEY, topNavigation,
 } from './static';
+
+const SCROLL_DEBOUNCE_DELAY = 50;
 
 const Layout = ({
   children, location, pageContext, path,
@@ -26,9 +31,9 @@ const Layout = ({
   ] = useState(false);
 
   const [
-    isScrollingDown,
-    setScrollingDown,
-  ] = useState(false);
+    isHeaderVisible,
+    setHeaderVisible,
+  ] = useState(true);
 
   const [
     isSubmenuVisible,
@@ -60,36 +65,25 @@ const Layout = ({
     };
   });
 
+  const pageScrollRef = useRef(isBrowser ? window.scrollY : 0);
+
   useEffect(() => {
-    const threshold = 0;
-    let initialScrollY = window.pageYOffset;
-    let isScrolling = false;
+    const scrollHandler = () => {
+      const { scrollY } = window;
+      const isScrolledDown = pageScrollRef.current > scrollY;
 
-    const updateScrollDir = () => {
-      const scrollY = window.pageYOffset;
+      setHeaderVisible(isScrolledDown || scrollY === 0);
+      setSubmenuVisible(false);
 
-      if (Math.abs(scrollY - initialScrollY) < threshold) {
-        isScrolling = false;
-
-        return;
-      }
-      setScrollingDown(scrollY > initialScrollY);
-      initialScrollY = scrollY > 0 ? scrollY : 0;
-      isScrolling = false;
+      pageScrollRef.current = scrollY;
     };
 
-    const onScroll = () => {
-      if (!isScrolling) {
-        setSubmenuVisible(false);
-        window.requestAnimationFrame(updateScrollDir);
-        isScrolling = true;
-      }
-    };
+    const handlePageScroll = debounceFunction(scrollHandler, SCROLL_DEBOUNCE_DELAY);
 
-    window.addEventListener('scroll', onScroll);
+    window.addEventListener('scroll', handlePageScroll);
 
-    return () => window.removeEventListener('scroll', onScroll);
-  }, [isScrollingDown]);
+    return () => window.removeEventListener('scroll', handlePageScroll);
+  }, []);
 
   const handleScroll = ({ current: element }) => {
     const scrollOffset = element.getBoundingClientRect().top + window.scrollY;
@@ -100,6 +94,7 @@ const Layout = ({
     };
 
     window.scrollTo(scrollConfig);
+    setSubmenuVisible(false);
   };
 
   const handleMouseOver = ({ type }, source) => {
@@ -127,7 +122,7 @@ const Layout = ({
         handleMouse={handleMouseOver}
         handleScroll={handleScroll}
         hasLinks={path !== '/'}
-        isHidden={isScrollingDown}
+        isHidden={!isHeaderVisible}
         navItems={navItems}
         slug={pageContext?.metadata?.slug}
         type={pageContext?.metadata?.type}

@@ -76,6 +76,7 @@ const getPath = ({ slug }) => {
 };
 
 const getContext = async (pageData, settings, globals, { acf: { carousel } }, allPosts) => {
+  // TODO: reduce pageContext sizes
   const {
     acf, slug, title, type, yoast_head_json,
   } = pageData;
