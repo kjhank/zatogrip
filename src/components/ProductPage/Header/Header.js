@@ -6,7 +6,7 @@ import {
   ArrowLink, BulletList, Container,
 } from '@components';
 import {
-  Box, ContentWrapper, Cover, Description, Footnotes, Heading, LinksWrapper, Wrapper,
+  Box, ContentWrapper, Cover, Description, Footnotes, Heading, LinksWrapper, TopWrapper, Wrapper,
 } from './Header.styled';
 
 const sanitizeConfig = {
@@ -23,20 +23,28 @@ export const Header = ({
   background, box, description, footnotes, heading, links, list, pageSlug,
 }) => (
   <Wrapper>
-    <Cover
-      image={background}
-      isLazy={false}
-    />
-    <Box
-      className={`variant--${pageSlug}`}
-      image={box}
-      isLazy={false}
-    />
+    <TopWrapper>
+      <Cover
+        image={background}
+        isLazy={false}
+      />
+      <Container>
+        <ContentWrapper>
+          <Box
+            className={`variant--${pageSlug}`}
+            image={box}
+            isLazy={false}
+          />
+          <Heading>{heading}</Heading>
+          <Description
+            dangerouslySetInnerHTML={{ __html: sanitize(description, sanitizeConfig) }}
+          />
+          <BulletList items={list} />
+        </ContentWrapper>
+      </Container>
+    </TopWrapper>
     <Container>
       <ContentWrapper>
-        <Heading>{heading}</Heading>
-        <Description dangerouslySetInnerHTML={{ __html: sanitize(description, sanitizeConfig) }} />
-        <BulletList items={list} />
         <LinksWrapper>
           {links.map(({ link }) => (
             <ArrowLink
@@ -49,7 +57,6 @@ export const Header = ({
             </ArrowLink>
           ))}
         </LinksWrapper>
-
         <Footnotes>
           <ol>
             {footnotes.map(({ footnote }) => <li key={footnote}>{footnote}</li>)}

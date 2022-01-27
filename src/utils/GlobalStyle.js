@@ -120,7 +120,9 @@ export const GlobalStyle = createGlobalStyle`
 
   body {
     overflow: hidden;
+    max-width: min(1920px, 100vw);
     min-height: 100vh;
+    margin: auto;
     scroll-behavior: smooth;
     text-rendering: optimizeSpeed;
     color: ${({ theme }) => theme.getColor('main')};

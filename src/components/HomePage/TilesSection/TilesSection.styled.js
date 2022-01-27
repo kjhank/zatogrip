@@ -6,6 +6,7 @@ import { TileBg } from '@icons';
 
 export const Section = styled.section`
   position: relative;
+  transform: translateY(-10%);
 `;
 
 export const TilesGrid = styled.ul`

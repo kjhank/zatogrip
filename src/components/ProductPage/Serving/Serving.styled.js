@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { WPImage } from '@components';
 
 export const Wrapper = styled.section`
-  margin-top: min(80px, 4.166667vw);
+  margin-top: ${({ theme }) => theme.getMin(60)};
 
   > div {
     display: flex;

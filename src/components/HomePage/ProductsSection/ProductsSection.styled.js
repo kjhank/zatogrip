@@ -121,7 +121,7 @@ export const Package = styled(WPImage)`
   display: ${({ $isMobile }) => ($isMobile ? 'none' : 'block')};
   width: ${({
     image, theme,
-  }) => theme.getMin(Math.round(image.width))};
+  }) => theme.getMin(Math.round(image.width / 2))};
   max-width: unset;
   max-height: unset;
   transform: translateX(-40%);
