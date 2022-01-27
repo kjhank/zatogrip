@@ -19,7 +19,7 @@ export const Section = styled.section`
 
 export const Background = styled(WPImage)`
   position: absolute;
-  top: ${({ theme }) => theme.getMin(-375)};
+  top: ${({ theme }) => theme.getMin(-475)};
   right: 0;
   left: 0;
   z-index: 0;
