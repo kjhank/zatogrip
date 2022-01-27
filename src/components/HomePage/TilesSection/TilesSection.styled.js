@@ -11,7 +11,7 @@ export const Section = styled.section`
 export const TilesGrid = styled.ul`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-gap: ${({ theme }) => theme.getMin(72)};
+  grid-gap: ${({ theme }) => theme.getMin(12)};
   margin: max(66px, 3.4375vw) 0;
 `;
 
