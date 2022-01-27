@@ -46,7 +46,7 @@ export const TileFront = styled.div`
   ${tileCommonStyle};
   display: grid;
   place-items: center;
-  padding: 0 ${({ theme }) => theme.getMin(20)};
+  padding: 0 ${({ theme }) => theme.getMin(64)};
   background-color: #fff;
   color: ${({ theme }) => theme.getColor('alt')};
   font-weight: bold;
