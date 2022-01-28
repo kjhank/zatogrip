@@ -158,9 +158,8 @@ export const ItemImage = styled(WPImage)`
   position: absolute;
   top: 50%;
   left: ${({ theme }) => theme.getMin(-100)};
-  height: ${({
-    image, theme,
-  }) => theme.getMin(image.height / 2)};
+  width: 4em;
+  max-width; unset;
   max-height: unset;
   mix-blend-mode: multiply;
   transform: translateY(-50%);
