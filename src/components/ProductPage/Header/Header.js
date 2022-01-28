@@ -2,11 +2,21 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import sanitize from 'sanitize-html';
 
+import { Ellipses } from '@icons';
 import {
   ArrowLink, BulletList, Container,
 } from '@components';
 import {
-  Box, ContentWrapper, Cover, Description, Footnotes, Heading, LinksWrapper, TopWrapper, Wrapper,
+  Box,
+  ContentWrapper,
+  Cover,
+  CoverPortrait,
+  Description,
+  Footnotes,
+  Heading,
+  LinksWrapper,
+  TopWrapper,
+  Wrapper,
 } from './Header.styled';
 
 const sanitizeConfig = {
@@ -20,9 +30,10 @@ const sanitizeConfig = {
 };
 
 export const Header = ({
-  background, box, description, footnotes, heading, links, list, pageSlug,
+  background, backgroundPortrait, box, description, footnotes, heading, links, list, pageSlug,
 }) => (
   <Wrapper>
+    <CoverPortrait image={backgroundPortrait} />
     <TopWrapper>
       <Cover
         image={background}
@@ -35,7 +46,10 @@ export const Header = ({
             image={box}
             isLazy={false}
           />
-          <Heading>{heading}</Heading>
+          <Heading variant={pageSlug.split('-').at(-1)}>
+            <span>{heading}</span>
+            <Ellipses />
+          </Heading>
           <Description
             dangerouslySetInnerHTML={{ __html: sanitize(description, sanitizeConfig) }}
           />
@@ -69,6 +83,7 @@ export const Header = ({
 
 Header.propTypes = {
   background: PropTypes.shape({}).isRequired,
+  backgroundPortrait: PropTypes.shape({}).isRequired,
   box: PropTypes.shape({}).isRequired,
   description: PropTypes.string.isRequired,
   footnotes: PropTypes.arrayOf(PropTypes.shape({})).isRequired,

@@ -1,5 +1,7 @@
 import styled, { css } from 'styled-components';
 
+import { queries } from '@utils/rwd';
+
 export const Wrapper = styled.div`
   position: relative;
   background-color: #fff;
@@ -10,6 +12,11 @@ const contentHeading = css`
   color: ${({ theme }) => theme.getColor('alt')};
   font-size: clamp(18px, 1.770833vw, 34px);
   font-family: ${({ theme }) => theme.getFont('heading')};
+
+  @media ${queries.xs} {
+    font-size: max(5vw, 20px);
+    text-align: center;
+  }
 `;
 
 export const Content = styled.article`
@@ -27,10 +34,21 @@ export const Content = styled.article`
     margin-top: 1em;
   }
 
+  ol,
   ul {
     margin: 1em 0;
     padding-left: 2em;
     list-style-position: inside;
+  }
+
+  @media ${queries.xs} {
+    font-size: max(4vw, 16px);
+
+    ol,
+    ul {
+      padding-left: 1em;
+    }
+
   }
 `;
 
@@ -44,6 +62,10 @@ export const FootnotesWrapper = styled.footer`
     gap: 0.5em;
     list-style-position: inside;
     font-size: clamp(10px, 1.145833vw, 22px);
+
+    @media ${queries.xs} {
+      font-size: max(3vw, 12px);
+    }
 
     > li {
       padding: 0.2em 0;
@@ -66,4 +88,8 @@ export const FootnoteHeading = styled.h3`
   color: ${({ theme }) => theme.getColor('alt')};
   font-size: clamp(14px, 1.458333vw, 28px);
   font-family: ${({ theme }) => theme.getFont('heading')};
+
+  @media ${queries.xs} {
+    font-size: max(4vw, 16px);
+  }
 `;

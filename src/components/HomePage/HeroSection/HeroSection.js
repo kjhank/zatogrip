@@ -4,7 +4,7 @@ import sanitize from 'sanitize-html';
 
 import { Container } from '@components';
 import {
-  Arrow, Background, BottomText, Heading, Section,
+  Arrow, Background, BottomText, Heading, PortraitBackground, Section,
 } from './HeroSection.styled';
 
 const sanitizeConfig = {
@@ -18,6 +18,11 @@ export const HeroSection = ({ content }) => (
   <Section>
     <Background
       image={content.background}
+      isLazy={false}
+    />
+    <PortraitBackground
+      $isMobile
+      image={content.backgroundPortrait}
       isLazy={false}
     />
     <Container>
@@ -34,6 +39,7 @@ export const HeroSection = ({ content }) => (
 HeroSection.propTypes = {
   content: PropTypes.shape({
     background: PropTypes.shape({}),
+    backgroundPortrait: PropTypes.shape({}),
     bottomText: PropTypes.string,
     heading: PropTypes.string,
   }).isRequired,

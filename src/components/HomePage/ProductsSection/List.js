@@ -8,6 +8,7 @@ import {
 import {
   ArrowWrapper,
   Package,
+  PackagePortrait,
   Product,
   ProductGroup,
   ProductLink,
@@ -18,13 +19,15 @@ export const List = ({ products }) => (
   <ProductsList>
     <ProductGroup>
       {products.filter(({ group }) => group === 'first').map(product => (
-        <Product key={product.linkText}>
+        <Product
+          className={`variant--${product.color}`}
+          key={product.linkText}
+        >
           <Package
             className={`variant--${product.color}`}
             image={product.image} // TODO: adjust image sizes
           />
-          <Package
-            $isMobile
+          <PackagePortrait
             className={`variant--${product.color}`}
             image={product.imageMobile}
           />
@@ -33,7 +36,7 @@ export const List = ({ products }) => (
             variant={product.color}
           >
             <Ellipses />
-            {product.linkText}
+            <span>{product.linkText}</span>
             {' '}
             <ArrowWrapper>
               <Arrow />
@@ -44,13 +47,15 @@ export const List = ({ products }) => (
     </ProductGroup>
     <ProductGroup>
       {products.filter(({ group }) => group === 'second').map(product => (
-        <Product key={product.linkText}>
+        <Product
+          className={`variant--${product.color}`}
+          key={product.linkText}
+        >
           <Package
             className={`variant--${product.color}`}
             image={product.image}
           />
-          <Package
-            $isMobile
+          <PackagePortrait
             className={`variant--${product.color}`}
             image={product.imageMobile}
           />
@@ -59,7 +64,7 @@ export const List = ({ products }) => (
             variant={product.color}
           >
             <Ellipses />
-            {product.linkText}
+            <span>{product.linkText}</span>
             {' '}
             <ArrowWrapper>
               <Arrow />
@@ -70,13 +75,15 @@ export const List = ({ products }) => (
     </ProductGroup>
     <ProductGroup>
       {products.filter(({ group }) => group === 'third').map(product => (
-        <Product key={product.linkText}>
+        <Product
+          className={`variant--${product.color}`}
+          key={product.linkText}
+        >
           <Package
             className={`variant--${product.color}`}
             image={product.image}
           />
-          <Package
-            $isMobile
+          <PackagePortrait
             className={`variant--${product.color}`}
             image={product.imageMobile}
           />
@@ -85,7 +92,7 @@ export const List = ({ products }) => (
             variant={product.color}
           >
             <Ellipses />
-            {product.linkText}
+            <span>{product.linkText}</span>
             {' '}
             <ArrowWrapper>
               <Arrow />

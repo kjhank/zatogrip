@@ -8,11 +8,12 @@ import {
 } from '@components/Posts';
 
 export const Posts = ({
-  cover, heading, intro, postLinkText, posts,
+  cover, coverPortrait, heading, intro, postLinkText, posts,
 }) => (
   <Main>
     <Header
       cover={cover}
+      coverPortrait={coverPortrait}
       heading={heading}
       intro={intro}
     />

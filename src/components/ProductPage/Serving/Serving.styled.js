@@ -1,15 +1,27 @@
 import styled from 'styled-components';
 
 import { WPImage } from '@components';
+import { queries } from '@utils/rwd';
 
 export const Wrapper = styled.section`
   margin-top: ${({ theme }) => theme.getMin(60)};
+
+  @media ${queries.xs} {
+    margin-top: 2em;
+    padding-bottom: 3em;
+    ${({ theme }) => theme.getSectionBorder()};
+  }
 
   > div {
     display: flex;
     flex-direction: column;
     align-items: center;
     ${({ theme }) => theme.getSectionBorder()};
+
+    @media ${queries.xs} {
+      gap: 2em;
+      background-image: unset;
+    }
   }
 `;
 
@@ -21,12 +33,25 @@ export const Amount = styled.p`
   color: ${({ theme }) => theme.getColor('accent')};
   font-size: clamp(20px, 2.083333vw, 40px);
   font-family: ${({ theme }) => theme.getFont('heading')};
+
+  @media ${queries.xs} {
+    width: 100%;
+    border-radius: ${({ theme }) => theme.getRadius('medium')};
+    padding: 0.5em;
+    font-size: min(50px, 8vw);
+    text-align: center;
+    white-space: pre-wrap;
+  }
 `;
 
 export const Badge = styled(WPImage)`
-width: ${({
+  width: ${({
     image, theme,
   }) => theme.getMin(image.width / 2)};
+
+  @media ${queries.xs} {
+    width: 85%;
+  }
 `;
 
 export const Description = styled.p`
@@ -43,5 +68,10 @@ export const Description = styled.p`
   em,
   i {
     color: ${({ theme }) => theme.getColor('accent')};
+  }
+
+  @media ${queries.xs} {
+    margin: 0;
+    font-size: clamp(24px, 2.5vw, 48px);
   }
 `;

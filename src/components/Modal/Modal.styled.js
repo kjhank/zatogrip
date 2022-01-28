@@ -1,5 +1,6 @@
 import styled from 'styled-components';
-import { rgba } from 'polished';
+
+import { queries } from '@utils/rwd';
 
 export const Backdrop = styled.div`
   position: fixed;
@@ -15,7 +16,7 @@ export const Backdrop = styled.div`
   align-items: flex-start;
   min-height: 100vh;
   padding: 10vh 0;
-  background-color: ${rgba('#fff', 0.5)};
+  background-color: rgb(255 255 255 / 0.5);
   backdrop-filter: blur(5px);
 `;
 
@@ -26,6 +27,16 @@ export const Wrapper = styled.aside`
   padding: ${({ theme }) => theme.getMin(75)};
   background-color: #fff;
   transform: translateY(-100%);
+
+  @media ${queries.s} {
+    width: 90vw;
+  }
+
+  @media ${queries.xs} {
+    width: 90vw;
+    padding: min(1vw, 4px);
+    border-radius: ${({ theme }) => theme.getRadius('tiny')};
+  }
 `;
 
 export const CloseButton = styled.button`
@@ -51,12 +62,24 @@ export const CloseButton = styled.button`
   cursor: pointer;
 
   > svg {
-    font-size: clamp(20px, 1.979167vw, 38px);
+    width: 40%;
+    height: auto;
+    margin-bottom: 10%;
     fill: currentColor;
   }
 
   :hover {
     background-color: ${({ theme }) => theme.getColor('alt')};
     color: #fff;
+  }
+
+  @media ${queries.s} {
+    top: ${({ theme }) => theme.getMin(50)};
+    right: ${({ theme }) => theme.getMin(50)};
+    width: ${({ theme }) => theme.getMin(100)};
+  }
+
+  @media ${queries.xs} {
+    width: max(10vw, 40px);
   }
 `;

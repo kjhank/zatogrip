@@ -40,6 +40,11 @@ const Layout = ({
     setSubmenuVisible,
   ] = useState(false);
 
+  const [
+    isNavigationOpen,
+    setNavigationOpen,
+  ] = useState(false);
+
   useEffect(() => {
     smoothscroll.polyfill();
   }, []);
@@ -74,6 +79,7 @@ const Layout = ({
 
       setHeaderVisible(isScrolledDown || scrollY === 0);
       setSubmenuVisible(false);
+      setNavigationOpen(false);
 
       pageScrollRef.current = scrollY;
     };
@@ -95,6 +101,7 @@ const Layout = ({
 
     window.scrollTo(scrollConfig);
     setSubmenuVisible(false);
+    setNavigationOpen(false);
   };
 
   const handleMouseOver = ({ type }, source) => {
@@ -114,6 +121,12 @@ const Layout = ({
   },
   [location]);
 
+  useEffect(() => {
+    setNavigationOpen(false);
+    setSubmenuVisible(false);
+    setHeaderVisible(true);
+  }, [location]);
+
   return (
     <Theme>
       <Seo data={seoData} />
@@ -123,7 +136,10 @@ const Layout = ({
         handleScroll={handleScroll}
         hasLinks={path !== '/'}
         isHidden={!isHeaderVisible}
+        isNavigationOpen={isNavigationOpen}
         navItems={navItems}
+        onToggleClick={() => setNavigationOpen(current => !current)}
+        products={pageContext?.globals?.acf?.products}
         slug={pageContext?.metadata?.slug}
         type={pageContext?.metadata?.type}
       />

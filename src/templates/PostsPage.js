@@ -6,6 +6,7 @@ import { Posts } from '@containers';
 const PostsPage = ({ pageContext }) => (
   <Posts
     cover={pageContext?.data?.header?.background}
+    coverPortrait={pageContext?.data?.header?.backgroundPortrait}
     ctxSize={JSON.stringify(pageContext).length}
     heading={pageContext?.data?.header?.heading}
     intro={pageContext?.data?.header?.intro}
@@ -19,6 +20,7 @@ PostsPage.propTypes = {
     data: PropTypes.shape({
       header: PropTypes.shape({
         background: PropTypes.shape({}),
+        backgroundPortrait: PropTypes.shape({}),
         heading: PropTypes.string,
         intro: PropTypes.string,
       }),

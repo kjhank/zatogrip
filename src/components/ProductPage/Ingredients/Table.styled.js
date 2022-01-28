@@ -1,9 +1,16 @@
 import styled from 'styled-components';
 
+import { queries } from '@utils/rwd';
+
 export const StyledTable = styled.table`
   width: ${({ isNarrow }) => (isNarrow ? '70%' : '90%')};
   border-spacing: min(20px, 1.041667vw) min(10px, 0.520833vw);
   border-collapse: separate;
+
+  @media ${queries.xs} {
+    width: 100%;
+    margin-top: 1em;
+  }
 `;
 
 export const Head = styled.thead`
@@ -21,6 +28,12 @@ export const HeadCell = styled.th`
   border-radius: ${({ theme }) => theme.getRadius('medium')};
   padding: min(16px, 0.833333vw) 0;
   text-transform: ${({ isUppercase }) => isUppercase && 'uppercase'};
+  vertical-align: middle;
+
+  @media ${queries.xs} {
+    border-radius: ${({ theme }) => theme.getRadius('tiny')};
+    padding: 2em 0.1em;
+  }
 `;
 
 export const Cell = styled.td`
@@ -40,5 +53,10 @@ export const Cell = styled.td`
 
   :first-of-type:nth-last-of-type(2) {
     width: 75%;
+  }
+
+  @media ${queries.xs} {
+    border-radius: ${({ theme }) => theme.getRadius('tiny')};
+    padding: 1em 0.5em;
   }
 `;

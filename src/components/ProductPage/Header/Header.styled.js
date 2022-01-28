@@ -1,10 +1,17 @@
 import styled from 'styled-components';
 
 import { WPImage } from '@components';
+import { queries } from '@utils/rwd';
 
 export const Wrapper = styled.header`
   position: relative;
   height: 100vh;
+
+  @media ${queries.xs} {
+    height: auto;
+    padding-bottom: 3em;
+    ${({ theme }) => theme.getSectionBorder()};
+  }
 `;
 
 export const Cover = styled(WPImage)`
@@ -13,6 +20,20 @@ export const Cover = styled(WPImage)`
   z-index: 0;
   max-width: unset;
   height: 100%;
+
+  @media ${queries.l} {
+    max-height: unset;
+
+    > img {
+      height: 100%;
+      max-height: unset;
+      object-fit: cover;
+    }
+  }
+
+  @media ${queries.xs} {
+    display: none;
+  }
 `;
 
 export const ContentWrapper = styled.div`
@@ -20,6 +41,16 @@ export const ContentWrapper = styled.div`
   width: 60%;
   height: 100%;
   margin-left: auto;
+
+  @media ${queries.l} {
+    width: 50%;
+  }
+
+  @media ${queries.xs} {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
 `;
 
 export const TopWrapper = styled.div`
@@ -38,6 +69,12 @@ export const TopWrapper = styled.div`
       padding-right: 17%;
       padding-bottom: 1em;
     }
+
+    @media ${queries.xs} {
+      align-items: center;
+      width: 100%;
+      margin-top: -80%;
+    }
   }
 `;
 
@@ -45,6 +82,46 @@ export const Heading = styled.h1`
   color: ${({ theme }) => theme.colors.alt};
   font-size: clamp(36px, 3.90625vw, 75px);
   font-family: ${({ theme }) => theme.getFont('heading')};
+
+  > svg {
+    display: none;
+  }
+
+  @media ${queries.xs} {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    place-items: center;
+    width: min(45vw, 175px);
+    height: min(45vw, 175px);
+    aspect-ratio: 1/1;
+    margin-top: -15%;
+    border-radius: 999px;
+    padding: min(24px, 1.25vw);
+    background-color: ${({
+    theme, variant,
+  }) => theme.colors.products[variant]};
+    color: #fff;
+    font-size: max(10vw, 48px);
+    font-family: ${({ theme }) => theme.getFont('heading')};
+    line-height: 1;
+    text-align: left;
+
+    > span {
+      width: 75%;
+    }
+
+    > svg {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      z-index: 0;
+      display: block;
+      width: 115%;
+      height: auto;
+      transform: translate(-50%, -50%);
+    }
+  }
 `;
 
 export const Description = styled.div`
@@ -65,6 +142,13 @@ export const Description = styled.div`
   i {
     font-style: italic;
   }
+
+  @media ${queries.xs} {
+    margin-top: 2em;
+    padding: 0 5%;
+    font-size: clamp(24px, 2.5vw, 48px);
+    text-align: center;
+  }
 `;
 
 export const LinksWrapper = styled.nav`
@@ -79,11 +163,22 @@ export const LinksWrapper = styled.nav`
   > a {
     border-radius: ${({ theme }) => theme.getRadius('large')};
   }
+
+  @media ${queries.xs} {
+    flex-direction: column;
+    order: 1;
+    padding: 0 20%;
+
+    > a {
+      width: 100%;
+      padding: ${({ theme }) => `${theme.getMax(12)} ${theme.getMax(24)}`};
+      font-size: clamp(18px, 1.875vw, 36px);
+    }
+  }
 `;
 
 export const Box = styled(WPImage)`
   position: absolute;
-  /* bottom: -20%; */
   z-index: 1;
   width: ${({
     theme, image,
@@ -98,7 +193,6 @@ export const Box = styled(WPImage)`
   }
 
   &.variant {
-
     &--zatogrip-mini {
       top: ${({ theme }) => `calc(100% - ${theme.getMin(214)})`};
       right: ${({ theme }) => `calc(100% + ${theme.getMin(88)})`};
@@ -124,6 +218,11 @@ export const Box = styled(WPImage)`
       right: ${({ theme }) => `calc(100% + ${theme.getMin(61)})`};
     }
   }
+
+  @media ${queries.xs} {
+    position: static;
+    width: 100%;
+  }
 `;
 
 export const Footnotes = styled.footer`
@@ -132,5 +231,19 @@ export const Footnotes = styled.footer`
 
   ol {
     list-style-position: inside;
+  }
+
+  @media ${queries.xs} {
+    order: 0;
+    font-size: min(16px, 3vw);
+    text-align: center;
+  }
+`;
+
+export const CoverPortrait = styled(WPImage)`
+  display: none;
+
+  @media ${queries.xs} {
+    display: block;
   }
 `;

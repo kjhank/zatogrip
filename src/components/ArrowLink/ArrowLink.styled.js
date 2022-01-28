@@ -1,6 +1,9 @@
 import styled, { css } from 'styled-components';
 import { Link as GenericLink } from 'gatsby';
+
 import { ExternalLink as ExLink } from '@components';
+
+import { queries } from '@utils/rwd';
 
 const commonStyle = css`
   position: relative;
@@ -10,7 +13,7 @@ const commonStyle = css`
   justify-content: space-between;
   align-items: center;
   border-radius: ${({ theme }) => theme.getRadius('smaller')};
-  padding: min(12px, 0.625vw) min(20px, 1.041667vw);
+  padding: ${({ theme }) => `${theme.getMin(12)} ${theme.getMin(20)}`};
   color: #fff;
   font-weight: normal;
   font-family: ${({ theme }) => theme.getFont('heading')};
@@ -46,6 +49,10 @@ const commonStyle = css`
     > svg {
       transform: translateX(50%);
     }
+  }
+
+  @media ${queries.s} {
+    padding: ${({ theme }) => `${theme.getMin(16)} ${theme.getMin(24)}`};
   }
 `;
 

@@ -2,6 +2,8 @@ import styled, { css } from 'styled-components';
 import { Link as GenericLink } from 'gatsby';
 import { WPImage } from '@components';
 
+import { queries } from '@utils/rwd';
+
 export const StyledHeader = styled.header`
   position: fixed;
   top: 0;
@@ -17,24 +19,40 @@ export const StyledHeader = styled.header`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: max(17px, 0.885417vw);
+    padding: min(17px, 0.885417vw);
+    background-color: #fff;
+
+    @media ${queries.xs} {
+      padding: 2.5% 0;
+    }
 
     > a {
+      position: relative;
+      z-index: 1;
       display: block;
       width: auto;
-      height: max(61px, 3.177083vw);
+      height: min(61px, 3.177083vw);
       transition: ${({ theme }) => theme.getTransitions([
     'filter',
     'transform',
   ])};
 
-      :hover {
-        filter: brightness(1.05);
-        transform: scale(1.05);
+      > svg {
+        width: auto;
+        height: 100%;
       }
+
+    :hover {
+      filter: brightness(1.05);
+      transform: scale(1.05);
+    }
+
+    @media ${queries.xs} {
+      width: 65%;
+      height: auto;
     }
   }
-
+}
 `;
 
 export const Navigation = styled.nav`
@@ -42,6 +60,23 @@ export const Navigation = styled.nav`
   justify-content: flex-end;
   align-items: center;
   gap: clamp(10px, 4.010417vw, 77px);
+  transition: ${({ theme }) => theme.getTransitions(['transform'])};
+
+  @media ${queries.xs} {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    left: 50%;
+    z-index: -1;
+    overflow: scroll;
+    filter: drop-shadow(0 1em 2em rgb(0 0 0 / 0.2) );
+    flex-direction: column;
+    gap: 1em;
+    width: 100vw;
+    padding-bottom: 1em;
+    background-color: #fff;
+    transform: ${({ isHidden }) => (isHidden ? 'translate(-50%, -100%)' : 'translate(-50%, 0)')};
+  }
 `;
 
 const commonNavStyle = css`
@@ -53,6 +88,11 @@ const commonNavStyle = css`
   font-family: ${({ theme }) => theme.getFont('heading')};
   text-transform: uppercase;
   cursor: pointer;
+
+  @media ${queries.xs} {
+    font-size: clamp(18px, 1.875vw, 36vw);
+    text-align: center;
+  }
 `;
 
 export const ScrollButton = styled.button.attrs({ type: 'button' })`
@@ -72,6 +112,10 @@ export const Link = styled(GenericLink)`
     height: 0.1em;
     background-color: ${({ theme }) => theme.getColor('link')};
     background-repeat: no-repeat;
+
+    @media ${queries.xs} {
+      display: none;
+    }
   }
 `;
 
@@ -205,3 +249,49 @@ export const ProductName = styled.h2`
   }) => theme.colors.products[variant]};
   }
 `;
+
+export const NavToggle = styled.button`
+  aspect-ratio: 1/1;
+  position: relative;
+  z-index: 1;
+  display: none;
+  width: min(40px, 10vw);
+  background-color: #fff;
+  transition: ${({ theme }) => theme.getTransitions([
+    'transform',
+    'box-shadow',
+  ])};
+  transform: ${({ isFlipped }) => (isFlipped ? 'rotateZ(180deg) rotateX(180deg)' : 'rotateZ(0) rotateX(0)')};
+  transform-style: preserve-3d;
+
+  > svg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    backface-visibility: hidden;
+    background-color: #fff;
+    fill: ${({ theme }) => theme.getColor('alt')};
+    stroke: ${({ theme }) => theme.getColor('alt')};
+    transform: translate(-50%, -50%);
+
+    :last-child {
+      transform: translate(-50%, -50%) rotateX(180deg);
+    }
+  }
+
+  @media ${queries.xs} {
+    display: block;
+  }
+`;
+
+export const SubNav = styled.nav`
+  display: none;
+
+  @media ${queries.xs} {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    margin-top: 1em;
+  }
+`;
+

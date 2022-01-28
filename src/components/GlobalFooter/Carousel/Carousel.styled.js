@@ -1,11 +1,18 @@
 import styled from 'styled-components';
 
+import { queries } from '@utils/rwd';
+
 export const Section = styled.section`
   height: 40.341792vw;
   margin-bottom: ${({ theme }) => theme.getMin(150)};
   background-image: ${({ theme }) => theme.getGradient('radial', 65)};
   color: #fff;
   font-family: ${({ theme }) => theme.getFont('heading')};
+
+  @media ${queries.xs} {
+    height: 125vw;
+    margin-bottom: min(200px, 50vw);
+  }
 `;
 
 export const StaticHeading = styled.h2`
@@ -19,6 +26,11 @@ export const StaticHeading = styled.h2`
   font-size: clamp(35px, 3.125vw, 60px);
   text-align: center;
   transform: translateX(-50%);
+
+  @media ${queries.xs} {
+    width: 100%;
+    padding: 0.5em;
+  }
 `;
 
 export const NavButton = styled.button`
@@ -57,6 +69,14 @@ export const NavButton = styled.button`
     filter: drop-shadow(0 0 0.25em #fff);
     background-color: ${({ theme }) => theme.getColor('alt')};
     color: #fff;
+  }
+
+  @media ${queries.xs} {
+    top: unset;
+    right: ${({ isFlipped }) => isFlipped && '55%'};
+    bottom: 1em;
+    left: ${({ isFlipped }) => !isFlipped && '55%'};
+    width: min(50px, 10vw);
   }
 `;
 
@@ -164,4 +184,8 @@ export const Text = styled.p`
   font-size: ${({ fontSize }) => `clamp(${fontSize * 0.6}px, ${fontSize / 19.2}vw, ${fontSize}px)`};
   white-space: break-spaces;
   transform: translate(-50%, -50%);
+
+  @media ${queries.xs} {
+    font-size: ${({ fontSize }) => `${fontSize * 0.4}px`};
+  }
 `;

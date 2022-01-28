@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { Container } from '@components';
 import { SectionHeading } from '@components/HomePage/styled';
 import {
-  Background, Section,
+  Background, BackgroundPortrait, Section,
 } from './ProductsSection.styled';
 import { List } from './List';
 
@@ -15,6 +15,7 @@ export const ProductsSection = ({
     <Background image={content.background} />
     <Container>
       <SectionHeading>{content.heading}</SectionHeading>
+      <BackgroundPortrait image={content.backgroundPortrait} />
       <List products={content.products} />
     </Container>
   </Section>
@@ -23,6 +24,7 @@ export const ProductsSection = ({
 ProductsSection.propTypes = {
   content: PropTypes.shape({
     background: PropTypes.shape({}),
+    backgroundPortrait: PropTypes.shape({}),
     heading: PropTypes.string,
     products: PropTypes.arrayOf(PropTypes.shape({})),
   }).isRequired,
