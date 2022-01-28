@@ -46,7 +46,7 @@ export const Header = ({
             image={box}
             isLazy={false}
           />
-          <Heading variant={pageSlug.split('-').at(-1)}>
+          <Heading variant={pageSlug.split('-')[pageSlug.split('-').length - 1]}>
             <span>{heading}</span>
             <Ellipses />
           </Heading>
