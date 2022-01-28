@@ -4,16 +4,17 @@ import sanitize from 'sanitize-html';
 
 import { Container } from '@components';
 import {
-  Cover, Heading, Intro, StyledHeader,
+  Cover, CoverPortrait, Heading, Intro, StyledHeader,
 } from './Header.styled';
 
 const sanitizeConfig = { allowedTags: ['p'] };
 
 export const Header = ({
-  cover, heading, intro,
+  cover, coverPortrait, heading, intro,
 }) => (
   <StyledHeader>
     <Cover image={cover} />
+    <CoverPortrait image={coverPortrait} />
     <Container>
       <Heading>{heading}</Heading>
       <Intro dangerouslySetInnerHTML={{ __html: sanitize(intro, sanitizeConfig) }} />

@@ -23,7 +23,7 @@ export const Serving = ({
   <Wrapper>
     <Container>
       {heading && <SectionHeading>{heading}</SectionHeading>}
-      {amount && <Amount>{amount}</Amount>}
+      {amount && <Amount>{amount.split(',').join(',\n')}</Amount>}
       {badge && (
         <Badge
           className={pageSlug}

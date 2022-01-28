@@ -1,6 +1,7 @@
 import styled, { css } from 'styled-components';
 
 import { ArrowLink } from '@components';
+import { queries } from '@utils/rwd';
 
 export const Wrapper = styled.form`
   display: flex;
@@ -10,6 +11,11 @@ export const Wrapper = styled.form`
   gap: ${({ theme }) => theme.getMin(9)};
   width: ${({ theme }) => theme.getMin(615)};
   margin-top: ${({ theme }) => theme.getMin(70)};
+
+  @media ${queries.xs} {
+    width: 100%;
+    gap: 1em;
+  }
 `;
 
 export const SubmitButton = styled(ArrowLink)`
@@ -35,6 +41,11 @@ export const SubmitButton = styled(ArrowLink)`
       }
     }
   }
+
+  @media ${queries.xs} {
+    min-width: 40%;
+    padding: 0.5em 1em;
+  }
 `;
 
 export const Label = styled.label`
@@ -44,6 +55,12 @@ export const Label = styled.label`
   flex-grow: 1;
   flex-shrink: 0;
   width: ${({ variant }) => variant === 'large' && '100%'};
+  font-size: clamp(10px, 0.729167vw, 14px);
+
+  @media ${queries.xs} {
+    width: 100%;
+    font-size: max(20px, 5vw);
+  }
 `;
 
 export const LabelText = styled.span`
@@ -52,7 +69,6 @@ export const LabelText = styled.span`
   left: 1.5em;
   opacity: ${({ isHidden }) => (isHidden ? 0 : 1)};
   color: ${({ theme }) => theme.getColor('copy')};
-  font-size: clamp(10px, 0.729167vw, 14px);
   font-family: ${({ theme }) => theme.getFont('alt')};
   transition: ${({ theme }) => theme.getTransitions([
     'transform',
@@ -60,6 +76,11 @@ export const LabelText = styled.span`
   ], 'slowDuration')};
   transform: translateX(${({ isHidden }) => (isHidden ? '-25vw' : '0')});
   pointer-events: none;
+
+  @media ${queries.xs} {
+    top: max(10px, 2.5vw);
+    left: max(10px, 2.5vw);
+  }
 `;
 
 const commonInputStyle = css`
@@ -68,7 +89,6 @@ const commonInputStyle = css`
   border: 2px solid ${({ theme }) => theme.getColor('alt')};
   border-radius: ${({ theme }) => theme.getRadius('tiny')};
   padding: ${({ theme }) => `${theme.getMin(20)} ${theme.getMin(24)}`};
-  font-size: clamp(10px, 0.729167vw, 14px);
   font-family: ${({ theme }) => theme.getFont('alt')};
   transition: ${({ theme }) => theme.getTransitions([
     'outline-color',
@@ -77,6 +97,10 @@ const commonInputStyle = css`
 
   :focus {
     outline-color: ${({ theme }) => theme.getColor('link')};
+  }
+
+  @media ${queries.xs} {
+    padding: max(6px, 1.5vw);
   }
 `;
 
@@ -88,4 +112,8 @@ export const TextArea = styled.textarea`
   ${commonInputStyle}
   height: ${({ theme }) => theme.getMin(190)};
   resize: none;
+
+  @media ${queries.xs} {
+    height: 8em;
+  }
 `;

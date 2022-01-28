@@ -3,17 +3,45 @@ import { rgba } from 'polished';
 
 import { ArrowLink } from '@components';
 import { TileBg } from '@icons';
+import { queries } from '@utils/rwd';
 
 export const Section = styled.section`
   position: relative;
+  z-index: 2;
   margin-top: -5%;
+
+  @media ${queries.xs} {
+    margin-top: unset;
+
+    > div {
+      > h2 {
+        margin-top: 1.5em;
+        padding: 0 2em;
+        font-size: clamp(46px, 5.208333vw, 100px);
+        line-height: 1
+      }
+    }
+  }
 `;
 
 export const TilesGrid = styled.ul`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-gap: ${({ theme }) => theme.getMin(12)};
-  margin: max(66px, 3.4375vw) 0;
+  gap: ${({ theme }) => theme.getMin(12)};
+  margin: ${({ theme }) => theme.getMin(66)} 0;
+
+  @media ${queries.xs} {
+    position: relative;
+    left: -5vw;
+    overflow-x: scroll;
+    display: flex;
+    gap: 5vw;
+    width: 100vw;
+    max-width: 100vw;
+    margin: ${({ theme }) => `${theme.getMin(16)}`} 0;
+    padding: 4vw 5vw;
+    scroll-snap-type: x mandatory;
+  }
 `;
 
 export const SingleTile = styled.li`
@@ -28,6 +56,14 @@ export const SingleTile = styled.li`
   ])};
   transform: ${({ isFlipped }) => (isFlipped ? 'rotateY(180deg) scale(1.2)' : 'rotateY(0) scale(1)')};
   transform-style: preserve-3d;
+
+  @media ${queries.xs} {
+    flex-shrink: 0;
+    width: 95vw;
+    margin: 5vw;
+    scroll-snap-align: center;
+    transform: ${({ isFlipped }) => (isFlipped ? 'rotateY(180deg) scale(1)' : 'rotateY(0) scale(1)')};
+  }
 `;
 
 const tileCommonStyle = css`
@@ -38,37 +74,43 @@ const tileCommonStyle = css`
   left: 0;
   z-index: 3;
   backface-visibility: hidden;
+  display: grid;
+  place-items: center;
   width: 100%;
   height: 100%;
   border-radius: inherit;
+  text-align: center;
 `;
 
 export const TileFront = styled.div`
   ${tileCommonStyle};
-  display: grid;
-  place-items: center;
   padding: 0 ${({ theme }) => theme.getMin(64)};
   background-color: #fff;
   color: ${({ theme }) => theme.getColor('alt')};
   font-weight: bold;
   font-size: clamp(14px, 1.458333vw, 28px);
   font-family: ${({ theme }) => theme.getFont('alt')};
-  text-align: center;
+
+  @media ${queries.xs} {
+    padding: 0 ${({ theme }) => theme.getMax(32)};
+    font-size: clamp(32px, 3.333333vw, 64px);
+  }
 `;
 
 export const TileBack = styled.div`
   ${tileCommonStyle};
-  display: grid;
-  place-items: center;
   background-image: ${({ theme }) => theme.getGradient('radial')};
   color: #fff;
   font-size: clamp(10px, 0.833333vw, 16px);
   font-family: ${({ theme }) => theme.getFont('')};
-  text-align: center;
   transform: rotateY(180deg);
 
   > p {
     width: 55%;
+  }
+
+  @media ${queries.xs} {
+    font-size: clamp(18px, 1.666667vw, 32px);
   }
 `;
 
@@ -82,6 +124,16 @@ export const FlipButton = styled(ArrowLink)`
 
   &.& {
     position: absolute;
+  }
+
+  @media ${queries.xs} {
+    bottom: 5%;
+    padding: ${({ theme }) => `${theme.getMax(12)} ${theme.getMax(24)}`};
+    font-size: clamp(14px, 1.25vw, 24px);
+
+    > svg {
+      margin-left: 2em;
+    }
   }
 `;
 
@@ -108,9 +160,17 @@ export const CloseButton = styled.button.attrs({ type: 'button' })`
   }
 
   > svg {
-    margin-bottom: 12;
-    font-size: 38px;
+    width: ${({ theme }) => theme.getMin(38)};
+    margin-bottom: ${({ theme }) => theme.getMin(12)};
     fill: currentColor;
+  }
+
+  @media ${queries.xs} {
+    font-size: clamp(10px, 0.729167vw, 14px);
+
+    > svg {
+      width: ${({ theme }) => theme.getMin(48)};
+    }
   }
 `;
 
@@ -131,6 +191,10 @@ export const Footnotes = styled.footer`
         color: ${({ theme }) => theme.getColor('alt')};
       }
     }
+  }
+
+  @media ${queries.xs} {
+    display: none;
   }
 `;
 

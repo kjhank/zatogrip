@@ -4,12 +4,19 @@ import {
   ArrowLink, WPImage,
 } from '@components';
 
+import { queries } from '@utils/rwd';
+
 export const Wrapper = styled.section``;
 
 export const Grid = styled.ul`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: ${({ theme }) => theme.getMin('96')};
+  padding-bottom: ${({ theme }) => theme.getMin(150)};
+
+  @media ${queries.xs} {
+    grid-template-columns: repeat(2, 1fr);
+  }
 `;
 
 export const Title = styled.h2`
@@ -48,6 +55,11 @@ export const Excerpt = styled.p`
 export const Link = styled(ArrowLink)`
   margin-top: auto;
   font-size: clamp(10px, 0.729167vw, 16px);
+
+  @media ${queries.xs} {
+    padding: ${({ theme }) => `${theme.getMax(12)} ${theme.getMax(24)}`};
+    font-size: min(3vw, 16px);
+  }
 `;
 
 export const Item = styled.li`

@@ -4,17 +4,21 @@ import sanitize from 'sanitize-html';
 
 import { Container } from '@components';
 import {
-  ContactData, Image, StyledBody, Title,
+  ContactData, Image, ImagePortrait, StyledBody, Title,
 } from './Body.styled';
 
 import { Form } from './Form';
 
 export const Body = ({
-  contactData, heading, form, image,
+  contactData, heading, form, image, imagePortrait,
 }) => (
   <StyledBody>
     <Image
       image={image}
+      isLazy={false}
+    />
+    <ImagePortrait
+      image={imagePortrait}
       isLazy={false}
     />
     <Container>
@@ -30,5 +34,6 @@ Body.propTypes = {
   form: PropTypes.shape({}).isRequired,
   heading: PropTypes.string.isRequired,
   image: PropTypes.shape({}).isRequired,
+  imagePortrait: PropTypes.shape({}).isRequired,
 };
 

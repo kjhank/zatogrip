@@ -9,6 +9,7 @@ const ContactPage = ({ pageContext }) => (
     form={pageContext.data.form}
     header={pageContext.data.header}
     image={pageContext.data.image}
+    imagePortrait={pageContext.data.imagePortrait}
   />
 );
 
@@ -18,6 +19,7 @@ ContactPage.propTypes = {
       form: PropTypes.shape({}),
       header: PropTypes.shape({}),
       image: PropTypes.shape({}),
+      imagePortrait: PropTypes.shape({}),
     }),
   }).isRequired,
 };

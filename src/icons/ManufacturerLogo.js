@@ -3,6 +3,7 @@ import * as React from 'react';
 const SvgManufacturerLogo = props => (
   <svg
     height={37}
+    viewBox="0 0 79 37"
     width={79}
     xmlns="http://www.w3.org/2000/svg"
     {...props}

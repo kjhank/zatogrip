@@ -9,14 +9,10 @@ export const Container = styled.div`
   margin: 0 auto;
 
   @media ${queries.xl} {
-    width: 70vw; // TODO: adjust for min()
+    width: min(85vw, 100%);
   }
 
-  @media ${queries.l} {
-    width: 85vw; // TODO: adjust for min()
-  }
-
-  @media ${queries.s} {
-    width: 95vw; // TODO: adjust for min()
+  @media ${queries.xs} {
+    width: 90vw;
   }
 `;

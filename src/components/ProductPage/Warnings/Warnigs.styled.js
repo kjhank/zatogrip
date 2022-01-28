@@ -1,7 +1,13 @@
 import styled from 'styled-components';
 
+import { queries } from '@utils/rwd';
+
 export const Section = styled.section`
   padding: min(69px, 3.59375vw) 0 min(120px, 6.25vw);
+
+  @media ${queries.xs} {
+    padding: 2em 0;
+  }
 
   ul {
     gap: 1.25em;

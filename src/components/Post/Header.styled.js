@@ -25,6 +25,7 @@ export const Cover = styled(WPImage)`
   > img {
     width: 100%;
     max-width: unset;
+    height: 100%;
     object-fit: cover;
   }
 `;

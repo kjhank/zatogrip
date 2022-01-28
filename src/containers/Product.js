@@ -17,6 +17,7 @@ export const Product = ({
   <Main>
     <Header
       background={header.background}
+      backgroundPortrait={header.backgroundPortrait}
       box={header.box}
       description={header.description}
       footnotes={header.footnotes}
@@ -49,6 +50,7 @@ export const Product = ({
 Product.propTypes = {
   header: PropTypes.shape({
     background: PropTypes.shape({}),
+    backgroundPortrait: PropTypes.shape({}),
     box: PropTypes.shape({}),
     description: PropTypes.string,
     footnotes: PropTypes.arrayOf(PropTypes.shape({})),

@@ -3,6 +3,7 @@ import * as React from 'react';
 const SvgHeaderLogo = props => (
   <svg
     height={61.123}
+    viewBox="0 0 239.286 61.123"
     width={239.286}
     xmlns="http://www.w3.org/2000/svg"
     {...props}

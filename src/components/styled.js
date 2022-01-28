@@ -1,5 +1,7 @@
 import styled, { css } from 'styled-components';
 
+import { queries } from '@utils/rwd';
+
 export const Main = styled.main`
   background-color: #fff;
 `;
@@ -46,6 +48,10 @@ export const arrowLinkStyles = css`
       transform: translateX(50%);
     }
   }
+
+  @media ${queries.xs} {
+    padding: ${({ theme }) => `${theme.getMin(16)} ${theme.getMin(24)}`}
+  }
 `;
 
 export const SectionHeading = styled.h2`
@@ -53,4 +59,8 @@ export const SectionHeading = styled.h2`
   font-size: clamp(28px, 2.916667vw, 56px);
   font-family: ${({ theme }) => theme.getFont('heading')};
   text-align: center;
+
+  @media ${queries.xs} {
+    font-size: min(72px, 10vw);
+  }
 `;

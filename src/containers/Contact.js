@@ -5,7 +5,7 @@ import { Main } from '@components/styled';
 import { Body } from '@components/ContactPage';
 
 export const Contact = ({
-  form, header, image,
+  form, header, image, imagePortrait,
 }) => (
   <Main>
     <Body
@@ -13,6 +13,7 @@ export const Contact = ({
       form={form}
       heading={header.heading}
       image={image}
+      imagePortrait={imagePortrait}
     />
   </Main>
 );
@@ -24,5 +25,6 @@ Contact.propTypes = {
     heading: PropTypes.string,
   }).isRequired,
   image: PropTypes.shape({}).isRequired,
+  imagePortrait: PropTypes.shape({}).isRequired,
 };
 

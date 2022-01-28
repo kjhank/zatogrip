@@ -34,7 +34,10 @@ export const Ingredients = ({
 );
 
 Ingredients.propTypes = {
-  footnotes: PropTypes.arrayOf(PropTypes.shape({})),
+  footnotes: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.shape({})),
+    PropTypes.bool,
+  ]),
   heading: PropTypes.string.isRequired,
   icons: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
   intro: PropTypes.string.isRequired,

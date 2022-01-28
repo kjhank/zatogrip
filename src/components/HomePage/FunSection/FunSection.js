@@ -11,6 +11,7 @@ import { isBrowser } from '@utils/helpers';
 import {
   ArrowWrapper,
   Background,
+  BackgroundPortrait,
   ContentWrapper,
   Intro,
   ItemImage,
@@ -73,6 +74,7 @@ export const FunSection = ({
             ))}
           </TriggersList>
         </ContentWrapper>
+        <BackgroundPortrait image={content.backgroundPortrait} />
       </Container>
       {list.find(({ type }) => type === openModal) ?
         createPortal(
@@ -94,6 +96,7 @@ FunSection.propTypes = {
   content: PropTypes.shape({
     DIY: PropTypes.shape({}),
     background: PropTypes.shape({}),
+    backgroundPortrait: PropTypes.shape({}),
     coloringBooks: PropTypes.shape({}),
     heading: PropTypes.string,
     intro: PropTypes.string,

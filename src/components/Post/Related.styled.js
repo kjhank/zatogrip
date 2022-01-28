@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+import { queries } from '@utils/rwd';
+
 import {
   ArrowLink, WPImage,
 } from '@components';
@@ -9,6 +11,10 @@ export const RelatedContent = styled.aside`
   z-index: 1;
   padding-bottom: ${({ theme }) => theme.getMin(100)};
   background-color: #fff;
+
+  @media ${queries.xs} {
+    padding-bottom: max(200px, 50vw);
+  }
 `;
 
 export const Heading = styled.h1`
@@ -27,6 +33,10 @@ export const PostsList = styled.ul`
   gap: ${({ theme }) => theme.getMin(81)};
   max-width: 100%;
   padding-bottom: ${({ theme }) => theme.getMin(100)};
+
+  @media ${queries.xs} {
+    grid-template-columns: 1fr;
+  }
 `;
 
 export const SinglePost = styled.li`
@@ -43,17 +53,30 @@ export const PostTitle = styled.h3`
   font-size: clamp(12px, 1.145833vw, 22px);
   font-family: ${({ theme }) => theme.getFont('alt')};
   text-transform: uppercase;
+
+  @media ${queries.xs} {
+    font-size: max(5vw, 20px);
+  }
 `;
 
 export const Excerpt = styled.p`
   margin-bottom: ${({ theme }) => theme.getMin(32)};
   color: ${({ theme }) => theme.getColor('main')};
   font-size: clamp(10px, 1.145833vw, 20px);
+
+  @media ${queries.xs} {
+    font-size: max(4vw, 16px);
+  }
 `;
 
 export const PostLink = styled(ArrowLink)`
   margin-top: auto;
   font-size: clamp(10px, 0.729167vw, 16px);
+
+  @media ${queries.xs} {
+    padding: ${({ theme }) => `${theme.getMax(12)} ${theme.getMax(24)}`};
+    font-size: min(3vw, 16px);
+  }
 `;
 
 export const PostCover = styled(WPImage)`
