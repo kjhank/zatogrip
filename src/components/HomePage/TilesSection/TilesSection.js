@@ -4,14 +4,13 @@ import PropTypes from 'prop-types';
 import { Container } from '@components';
 import { SectionHeading } from '@components/HomePage/styled';
 import {
-  Footnotes,
-  Section, TilesGrid,
+  Arrow, ArrowText, ArrowTextWrapper, Footnotes, Section, TilesGrid,
 } from './TilesSection.styled';
 import { Tile } from './Tile';
 
 export const TilesSection = ({
   content: {
-    clickText, closeText, footnotes, heading, tiles,
+    arrowText, clickText, closeText, footnotes, heading, tiles,
   },
   innerRef,
 }) => {
@@ -28,6 +27,10 @@ export const TilesSection = ({
   return (
     <Section ref={innerRef}>
       <Container>
+        <ArrowTextWrapper>
+          <ArrowText>{arrowText}</ArrowText>
+          <Arrow />
+        </ArrowTextWrapper>
         <SectionHeading>{heading}</SectionHeading>
         <TilesGrid>
           {tiles.map((tile, index) => (
@@ -66,6 +69,7 @@ export const TilesSection = ({
 
 TilesSection.propTypes = {
   content: PropTypes.shape({
+    arrowText: PropTypes.string,
     clickText: PropTypes.string,
     closeText: PropTypes.string,
     footnotes: PropTypes.arrayOf(PropTypes.shape({})),

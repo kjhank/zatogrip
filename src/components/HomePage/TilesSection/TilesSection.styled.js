@@ -2,7 +2,9 @@ import styled, { css } from 'styled-components';
 import { rgba } from 'polished';
 
 import { ArrowLink } from '@components';
-import { TileBg } from '@icons';
+import {
+  SquigglyArrow, TileBg,
+} from '@icons';
 import { queries } from '@utils/rwd';
 
 export const Section = styled.section`
@@ -91,6 +93,11 @@ export const TileFront = styled.div`
   font-size: clamp(14px, 1.458333vw, 28px);
   font-family: ${({ theme }) => theme.getFont('alt')};
 
+  @media ${queries.s} {
+    padding: 0 15%;
+    font-size: clamp(12px, 1.25vw, 24px);
+  }
+
   @media ${queries.xs} {
     padding: 0 ${({ theme }) => theme.getMax(32)};
     font-size: clamp(32px, 3.333333vw, 64px);
@@ -107,6 +114,10 @@ export const TileBack = styled.div`
 
   > p {
     width: 55%;
+  }
+
+  @media ${queries.s} {
+    font-size: min(1vw, 8px);
   }
 
   @media ${queries.xs} {
@@ -165,6 +176,14 @@ export const CloseButton = styled.button.attrs({ type: 'button' })`
     fill: currentColor;
   }
 
+  @media ${queries.s} {
+    font-size: min(8px, 1vw);
+
+    > svg {
+      width: min(16px, 2vw);
+    }
+  }
+
   @media ${queries.xs} {
     font-size: clamp(10px, 0.729167vw, 14px);
 
@@ -209,3 +228,58 @@ export const TileBackground = styled(TileBg)`
   transform: translate(-50%, -50%);
   pointer-events: none;
 `;
+
+export const ArrowTextWrapper = styled.div`
+  position: absolute;
+  top: ${({ theme }) => theme.getMin(-125)};
+  right: 12%;
+  width: ${({ theme }) => theme.getMin(556)};
+
+  @media ${queries.huge} {
+    top: ${({ theme }) => theme.getMin(-95)};
+  }
+
+  @media ${queries.l} {
+    width: 40%;
+  }
+
+  @media ${queries.s} {
+    top: ${({ theme }) => theme.getMin(-85)};
+  }
+`;
+
+export const ArrowText = styled.p`
+  position: absolute;
+  top: 0;
+  right: ${({ theme }) => theme.getMin(50)};
+  width: auto;
+  color: ${({ theme }) => theme.getColor('alt')};
+  font-size: clamp(14px, 1.666667vw, 32px);
+  font-family: ${({ theme }) => theme.getFont('heading')};
+  text-align: right;
+
+  @media ${queries.l} {
+    top: 2em;
+  }
+
+  @media ${queries.s} {
+    top: 3em;
+  }
+
+  @media ${queries.xs} {
+    position: static;
+    bottom: 0;
+    order: 3;
+    margin-top: -2em;
+    font-size: clamp(24px, 2.5vw, 48px);
+  }
+`;
+
+export const Arrow = styled(SquigglyArrow)`
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  pointer-events: none;
+`;
+

@@ -18,7 +18,10 @@ const HomePage = ({
       posts,
     }}
     products={data.productsSection}
-    tiles={data.tilesSection}
+    tiles={{
+      ...data.tilesSection,
+      arrowText: data.hero.bottomText,
+    }}
     video={data.videoSection}
   />
 );
@@ -28,7 +31,9 @@ HomePage.propTypes = {
   pageContext: PropTypes.shape({
     data: PropTypes.shape({
       funSection: PropTypes.shape({}),
-      hero: PropTypes.shape({}),
+      hero: PropTypes.shape({
+        bottomText: PropTypes.string,
+      }),
       postsSection: PropTypes.shape({}),
       productsSection: PropTypes.shape({}),
       tilesSection: PropTypes.shape({}),

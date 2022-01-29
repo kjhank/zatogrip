@@ -11,6 +11,10 @@ export const StyledHeader = styled.header`
     height: 56.25vw;
   }
 
+  @media ${queries.s} {
+    padding-top: 3vh;
+  }
+
   @media ${queries.xs} {
     height: auto;
     min-height: 100vh;

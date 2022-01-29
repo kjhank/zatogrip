@@ -7,10 +7,22 @@ export const Wrapper = styled.header`
   position: relative;
   height: 100vh;
 
-  @media ${queries.xs} {
+  > div {
+    :last-child {
+      height: 15%;
+    }
+  }
+
+  @media ${queries.s} {
     height: auto;
     padding-bottom: 3em;
     ${({ theme }) => theme.getSectionBorder()};
+
+    > div {
+      :last-child {
+        height: auto;
+      }
+    }
   }
 `;
 
@@ -18,8 +30,18 @@ export const Cover = styled(WPImage)`
   position: absolute;
   top: 0;
   z-index: 0;
+  width: 100%;
   max-width: unset;
   height: 100%;
+  max-height: unset;
+
+  > img {
+    width: 100%;
+    height: 100%;
+    max-height: unset;
+    object-fit: contain;
+    object-position: top left;
+  }
 
   @media ${queries.l} {
     max-height: unset;
@@ -31,13 +53,17 @@ export const Cover = styled(WPImage)`
     }
   }
 
-  @media ${queries.xs} {
+  @media ${queries.s} {
     display: none;
   }
 `;
 
 export const ContentWrapper = styled.div`
   position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
   width: 60%;
   height: 100%;
   margin-left: auto;
@@ -46,7 +72,7 @@ export const ContentWrapper = styled.div`
     width: 50%;
   }
 
-  @media ${queries.xs} {
+  @media ${queries.s} {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -56,25 +82,34 @@ export const ContentWrapper = styled.div`
 export const TopWrapper = styled.div`
   position: relative;
   height: 85%;
-  padding-top: ${({ theme }) => theme.getMin(135)};
+  padding-top: ${({ theme }) => theme.getMin(110)};
 
   ${ContentWrapper} {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
+    gap: min(1em, 1.302083vw);
 
     > ul {
       margin-top: auto;
-      padding-right: 17%;
-      padding-bottom: 1em;
+      margin-bottom: 1em;
+      padding-right: 5%;
     }
 
-    @media ${queries.xs} {
+    @media ${queries.s} {
       align-items: center;
       width: 100%;
       margin-top: -80%;
+
+      > ul {
+        font-size: max(3vw, 16px);
+      }
     }
+  }
+
+  @media ${queries.s} {
+    height: 100%;
   }
 `;
 
@@ -87,7 +122,7 @@ export const Heading = styled.h1`
     display: none;
   }
 
-  @media ${queries.xs} {
+  @media ${queries.s} {
     position: relative;
     z-index: 1;
     display: grid;
@@ -102,7 +137,7 @@ export const Heading = styled.h1`
     theme, variant,
   }) => theme.colors.products[variant]};
     color: #fff;
-    font-size: max(10vw, 48px);
+    font-size: min(10vw, 48px);
     font-family: ${({ theme }) => theme.getFont('heading')};
     line-height: 1;
     text-align: left;
@@ -125,12 +160,11 @@ export const Heading = styled.h1`
 `;
 
 export const Description = styled.div`
-  margin: min(25px, 1.302083vw) 0 min(40px, 2.083333vw);
   font-size: clamp(14px, 1.25vw, 24px);
 
   p + p {
-    margin-top: 1em;
-    line-height: 1.3;
+    margin-top: 0.8em;
+    line-height: 1.2;
   }
 
   b,
@@ -143,7 +177,7 @@ export const Description = styled.div`
     font-style: italic;
   }
 
-  @media ${queries.xs} {
+  @media ${queries.s} {
     margin-top: 2em;
     padding: 0 5%;
     font-size: clamp(24px, 2.5vw, 48px);
@@ -162,6 +196,17 @@ export const LinksWrapper = styled.nav`
 
   > a {
     border-radius: ${({ theme }) => theme.getRadius('large')};
+  }
+
+  @media ${queries.s} {
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 2em;
+
+    > a {
+      padding: ${({ theme }) => `${theme.getMax(12)} ${theme.getMax(24)}`};
+      font-size: clamp(18px, 1.875vw, 36px);
+    }
   }
 
   @media ${queries.xs} {
@@ -219,21 +264,20 @@ export const Box = styled(WPImage)`
     }
   }
 
-  @media ${queries.xs} {
+  @media ${queries.s} {
     position: static;
     width: 100%;
   }
 `;
 
 export const Footnotes = styled.footer`
-  margin-top: min(37px, 1.927083vw);
   font-size: clamp(6px, 0.520833vw, 10px);
 
   ol {
     list-style-position: inside;
   }
 
-  @media ${queries.xs} {
+  @media ${queries.s} {
     order: 0;
     font-size: min(16px, 3vw);
     text-align: center;
@@ -243,7 +287,11 @@ export const Footnotes = styled.footer`
 export const CoverPortrait = styled(WPImage)`
   display: none;
 
-  @media ${queries.xs} {
+  @media ${queries.s} {
     display: block;
+
+    > img {
+      width: 100%;
+    }
   }
 `;

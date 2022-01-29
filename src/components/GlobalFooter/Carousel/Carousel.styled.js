@@ -9,6 +9,10 @@ export const Section = styled.section`
   color: #fff;
   font-family: ${({ theme }) => theme.getFont('heading')};
 
+  @media ${queries.s} {
+    margin-bottom: max(100px, 15vw);
+  }
+
   @media ${queries.xs} {
     height: 125vw;
     margin-bottom: min(200px, 50vw);
@@ -27,9 +31,14 @@ export const StaticHeading = styled.h2`
   text-align: center;
   transform: translateX(-50%);
 
+  @media ${queries.s} {
+    font-size: max(2vw, 16px);
+  }
+
   @media ${queries.xs} {
     width: 100%;
     padding: 0.5em;
+    font-size: clamp(35px, 3.125vw, 60px);
   }
 `;
 
@@ -184,6 +193,14 @@ export const Text = styled.p`
   font-size: ${({ fontSize }) => `clamp(${fontSize * 0.6}px, ${fontSize / 19.2}vw, ${fontSize}px)`};
   white-space: break-spaces;
   transform: translate(-50%, -50%);
+
+  @media ${queries.l} {
+    font-size: ${({ fontSize }) => `${fontSize * 0.5}px`};
+  }
+
+  @media ${queries.ss} {
+    font-size: ${({ fontSize }) => `${fontSize * 0.3}px`};
+  }
 
   @media ${queries.xs} {
     font-size: ${({ fontSize }) => `${fontSize * 0.4}px`};

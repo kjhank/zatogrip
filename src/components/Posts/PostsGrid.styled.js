@@ -14,6 +14,10 @@ export const Grid = styled.ul`
   gap: ${({ theme }) => theme.getMin('96')};
   padding-bottom: ${({ theme }) => theme.getMin(150)};
 
+  @media ${queries.s} {
+    padding-bottom: max(100px, 15vw);
+  }
+
   @media ${queries.xs} {
     grid-template-columns: repeat(2, 1fr);
   }

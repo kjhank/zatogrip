@@ -31,6 +31,11 @@ export const Contacts = styled.ul`
     background-size: 150%;
   }
 
+  @media ${queries.s} {
+    flex-wrap: wrap;
+    row-gap: 2em;
+  }
+
   @media ${queries.xs} {
     flex-direction: column;
     align-items: flex-start;
@@ -58,8 +63,13 @@ export const Contact = styled.li`
     ${({ theme }) => theme.getLinkStyles()};
   }
 
-  @media ${queries.xs} {
+  @media ${queries.s} {
+    width: 50%;
     line-height: 1.5;
+  }
+
+  @media ${queries.xs} {
+    width: 100%;
 
     > svg {
       margin-right: 2em;

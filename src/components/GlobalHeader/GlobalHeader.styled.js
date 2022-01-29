@@ -22,6 +22,20 @@ export const StyledHeader = styled.header`
     padding: min(17px, 0.885417vw);
     background-color: #fff;
 
+    @media ${queries.s} {
+      padding: 0.5% 0;
+
+      ::before {
+        content: '';
+        position: absolute;
+        left: 50%;
+        width: 100vh;
+        height: 100%;
+        background-color: #fff;
+        transform: translateX(-50%);
+      }
+    }
+
     @media ${queries.xs} {
       padding: 2.5% 0;
     }
@@ -47,6 +61,16 @@ export const StyledHeader = styled.header`
       transform: scale(1.05);
     }
 
+    @media ${queries.s} {
+      width: 35%;
+      height: auto;
+
+      > svg {
+        width: 100%;
+        height: auto;
+      }
+    }
+
     @media ${queries.xs} {
       width: 65%;
       height: auto;
@@ -56,13 +80,9 @@ export const StyledHeader = styled.header`
 `;
 
 export const Navigation = styled.nav`
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  gap: clamp(10px, 4.010417vw, 77px);
   transition: ${({ theme }) => theme.getTransitions(['transform'])};
 
-  @media ${queries.xs} {
+  @media ${queries.s} {
     position: absolute;
     top: 100%;
     right: 0;
@@ -77,6 +97,15 @@ export const Navigation = styled.nav`
     background-color: #fff;
     transform: ${({ isHidden }) => (isHidden ? 'translate(-50%, -100%)' : 'translate(-50%, 0)')};
   }
+
+  > ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    gap: clamp(10px, 4.010417vw, 77px);
+    list-style-type: none;
+  }
 `;
 
 const commonNavStyle = css`
@@ -89,7 +118,7 @@ const commonNavStyle = css`
   text-transform: uppercase;
   cursor: pointer;
 
-  @media ${queries.xs} {
+  @media ${queries.s} {
     font-size: clamp(18px, 1.875vw, 36vw);
     text-align: center;
   }
@@ -113,7 +142,7 @@ export const Link = styled(GenericLink)`
     background-color: ${({ theme }) => theme.getColor('link')};
     background-repeat: no-repeat;
 
-    @media ${queries.xs} {
+    @media ${queries.s} {
       display: none;
     }
   }
@@ -279,7 +308,7 @@ export const NavToggle = styled.button`
     }
   }
 
-  @media ${queries.xs} {
+  @media ${queries.s} {
     display: block;
   }
 `;
@@ -287,7 +316,7 @@ export const NavToggle = styled.button`
 export const SubNav = styled.nav`
   display: none;
 
-  @media ${queries.xs} {
+  @media ${queries.s} {
     display: flex;
     flex-direction: column;
     gap: 1em;
