@@ -8,7 +8,7 @@ import { queries } from '@utils/rwd';
 export const Section = styled.section`
   position: relative;
   z-index: 1;
-  margin: ${({ theme }) => theme.getMin(32)} 0  ${({ theme }) => theme.getMin(66)};
+  margin: ${({ theme }) => theme.getMin(200)} 0  ${({ theme }) => theme.getMin(66)};
 
   > div {
     display: flex;
