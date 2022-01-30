@@ -73,5 +73,10 @@ export const Description = styled.p`
   @media ${queries.xs} {
     margin: 0;
     font-size: clamp(24px, 2.5vw, 48px);
+
+    b,
+    strong {
+      font-weight: 600;
+    }
   }
 `;

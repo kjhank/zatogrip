@@ -100,11 +100,14 @@ export const Navigation = styled.nav`
 
   > ul {
     display: flex;
-    flex-direction: column;
     justify-content: flex-end;
     align-items: center;
     gap: clamp(10px, 4.010417vw, 77px);
     list-style-type: none;
+
+    @media ${queries.s} {
+      flex-direction: column;
+    }
   }
 `;
 

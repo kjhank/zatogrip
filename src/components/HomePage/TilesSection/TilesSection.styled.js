@@ -13,7 +13,7 @@ export const Section = styled.section`
   margin-top: -5%;
 
   @media ${queries.xs} {
-    margin-top: unset;
+    margin-top: -10%;
 
     > div {
       > h2 {
@@ -246,6 +246,15 @@ export const ArrowTextWrapper = styled.div`
   @media ${queries.s} {
     top: ${({ theme }) => theme.getMin(-85)};
   }
+
+  @media ${queries.xs} {
+    position: static;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    text-align: center;
+  }
 `;
 
 export const ArrowText = styled.p`
@@ -269,7 +278,7 @@ export const ArrowText = styled.p`
   @media ${queries.xs} {
     position: static;
     bottom: 0;
-    order: 3;
+    order: 1;
     margin-top: -2em;
     font-size: clamp(24px, 2.5vw, 48px);
   }
@@ -281,5 +290,11 @@ export const Arrow = styled(SquigglyArrow)`
   right: 0;
   width: 100%;
   pointer-events: none;
+
+  @media ${queries.xs} {
+    position: static;
+    order: 0;
+    transform: rotate(-15deg);
+  }
 `;
 

@@ -2,6 +2,7 @@ import styled, { css } from 'styled-components';
 
 import { WPImage } from '@components';
 import { queries } from '@utils/rwd';
+import { SquigglyArrow } from '@icons';
 
 export const Section = styled.section`
   position: relative;
@@ -14,7 +15,6 @@ export const Section = styled.section`
 
   @media ${queries.xs} {
     height: unset;
-    min-height: 100vh;
 
     > div {
       display: flex;
@@ -70,5 +70,15 @@ export const PortraitBackground = styled(WPImage)`
     position: static;
     display: block;
     order: 0;
+  }
+`;
+
+export const Arrow = styled(SquigglyArrow)`
+  @media ${queries.xs} {
+    position: static;
+    order: 2;
+    width: 90%;
+    margin-top: -2em;
+    transform: rotate(-10deg);
   }
 `;

@@ -19,8 +19,10 @@ export const Product = ({
       background={header.background}
       backgroundPortrait={header.backgroundPortrait}
       box={header.box}
+      boxPortrait={header.boxPortrait}
       description={header.description}
       footnotes={header.footnotes}
+      hasPortraitBox={header.hasPortraitBox}
       heading={header.heading}
       links={header.links}
       list={header.list}
@@ -52,8 +54,13 @@ Product.propTypes = {
     background: PropTypes.shape({}),
     backgroundPortrait: PropTypes.shape({}),
     box: PropTypes.shape({}),
+    boxPortrait: PropTypes.oneOfType([
+      PropTypes.shape({}),
+      PropTypes.bool,
+    ]),
     description: PropTypes.string,
     footnotes: PropTypes.arrayOf(PropTypes.shape({})),
+    hasPortraitBox: PropTypes.bool,
     heading: PropTypes.string,
     links: PropTypes.arrayOf(PropTypes.shape({})),
     list: PropTypes.arrayOf(PropTypes.shape({})),

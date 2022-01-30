@@ -37,9 +37,16 @@ export const Navigation = styled.nav`
 
 export const Intro = styled.p`
   width: 60%;
-  margin-top: min(23px, 1.197917vw);
+  margin-top: ${({ theme }) => theme.getMin(23)};
   font-weight: bold;
   font-size: clamp(14px, 1.25vw, 24px);
+
+  @media ${queries.xs} {
+    width: 100%;
+    margin: 1em 0 2em;
+    font-weight: normal;
+    font-size: max(5vw, 18px);
+  }
 `;
 
 export const PostsList = styled.ul`
@@ -180,5 +187,9 @@ export const ScrollButton = styled.button.attrs({ type: 'button' })`
 
   @media ${queries.l} {
     order: ${({ isFlipped }) => (isFlipped ? 0 : 2)}
+  }
+
+  @media ${queries.xs} {
+    display: none;
   }
 `;

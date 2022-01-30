@@ -5,7 +5,7 @@ import { queries } from '@utils/rwd';
 
 export const Wrapper = styled.header`
   position: relative;
-  height: 100vh;
+  height: min(100vh, 56.25vw);
 
   > div {
     :last-child {
@@ -102,8 +102,19 @@ export const TopWrapper = styled.div`
       width: 100%;
       margin-top: -80%;
 
+
+      &.variant--tabletki-zatogrip-forte {
+        margin-top: -50%;
+      }
+
       > ul {
         font-size: max(3vw, 16px);
+      }
+    }
+
+    @media ${queries.xs} {
+      > ul {
+        font-size: max(7vw, 26px);
       }
     }
   }
@@ -130,7 +141,7 @@ export const Heading = styled.h1`
     width: min(45vw, 175px);
     height: min(45vw, 175px);
     aspect-ratio: 1/1;
-    margin-top: -15%;
+    margin-top: -10%;
     border-radius: 999px;
     padding: min(24px, 1.25vw);
     background-color: ${({
@@ -178,10 +189,14 @@ export const Description = styled.div`
   }
 
   @media ${queries.s} {
-    margin-top: 2em;
+    margin: 2em 0;
     padding: 0 5%;
     font-size: clamp(24px, 2.5vw, 48px);
     text-align: center;
+  }
+
+  @media ${queries.s} {
+    font-size: max(20px, 5vw);
   }
 `;
 
@@ -239,34 +254,53 @@ export const Box = styled(WPImage)`
 
   &.variant {
     &--zatogrip-mini {
-      top: ${({ theme }) => `calc(100% - ${theme.getMin(214)})`};
-      right: ${({ theme }) => `calc(100% + ${theme.getMin(88)})`};
+      top: ${({ theme }) => `calc(100% - ${theme.getMin(150)})`};
+      right: ${({ theme }) => `calc(100% + ${theme.getMin(190)})`};
     }
 
     &--zatogrip-baby {
-      top: ${({ theme }) => `calc(100% - ${theme.getMin(257)})`};
-      right: ${({ theme }) => `calc(100% + ${theme.getMin(57)})`};
+      top: ${({ theme }) => `calc(100% - ${theme.getMin(223)})`};
+      right: ${({ theme }) => `calc(100% + ${theme.getMin(292)})`};
     }
 
     &--zatogrip-kids {
-      top: ${({ theme }) => `calc(100% - ${theme.getMin(250)})`};
-      right: ${({ theme }) => `calc(100% + ${theme.getMin(31)})`};
+      top: ${({ theme }) => `calc(100% - ${theme.getMin(169)})`};
+      right: ${({ theme }) => `calc(100% + ${theme.getMin(223)})`};
     }
 
     &--zatogrip-junior {
-      top: ${({ theme }) => `calc(100% - ${theme.getMin(270)})`};
-      right: ${({ theme }) => `calc(100% + ${theme.getMin(25)})`};
+      top: ${({ theme }) => `calc(100% - ${theme.getMin(192)})`};
+      right: ${({ theme }) => `calc(100% + ${theme.getMin(192)})`};
     }
 
     &--tabletki-zatogrip-forte {
-      top: ${({ theme }) => `calc(100% - ${theme.getMin(230)})`};
-      right: ${({ theme }) => `calc(100% + ${theme.getMin(61)})`};
+      top: ${({ theme }) => `calc(100% - ${theme.getMin(92)})`};
+      right: ${({ theme }) => `calc(100% + ${theme.getMin(223)})`};
     }
   }
 
   @media ${queries.s} {
     position: static;
+    display: ${({ $isShownInPortrait }) => ($isShownInPortrait ? 'block' : 'none')};
     width: 100%;
+  }
+`;
+
+export const BoxPortrait = styled(WPImage)`
+  display: none;
+  width: 100%;
+  max-width: unset;
+  height: auto;
+  max-height: unset;
+
+  > img {
+    width: 100%;
+    max-width: unset;
+    max-height: unset;
+  }
+
+  @media ${queries.s} {
+    display: block;
   }
 `;
 

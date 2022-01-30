@@ -64,6 +64,8 @@ export const Intro = styled.p`
   font-size: clamp(14px, 1.25vw, 24px);
 
   @media ${queries.xs} {
+    margin-top: 2em;
+    font-weight: 600;
     font-size: clamp(24px, 2.5vw, 48px);
   }
 `;
@@ -110,12 +112,13 @@ export const ArrowWrapper = styled.div`
   width: ${({ theme }) => theme.getMin(41)};
   height: ${({ theme }) => theme.getMin(41)};
   margin-left: min(37px, 1.927083vw);
-  border: 1px solid ${({ theme }) => theme.getColor('alt')};
+  border: 1px solid ${({ theme }) => theme.colors.gradient.from};
   border-radius: 50%;
-  background-color: ${({ theme }) => theme.getColor('alt')};
+  background-color: ${({ theme }) => theme.colors.gradient.from};
   color: #fff;
   transition: ${({ theme }) => theme.getTransitions([
     'background-color',
+    'border-color',
     'color',
   ])};
 
@@ -143,8 +146,9 @@ export const ModalTrigger = styled.button.attrs({ type: 'button' })`
 
   :hover {
     ${ArrowWrapper} {
+      border-color: ${({ theme }) => theme.colors.gradient.from};
       background-color: #fff;
-      color: ${({ theme }) => theme.getColor('alt')};
+      color: ${({ theme }) => theme.colors.gradient.from};
     }
   }
 

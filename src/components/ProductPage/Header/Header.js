@@ -8,6 +8,7 @@ import {
 } from '@components';
 import {
   Box,
+  BoxPortrait,
   ContentWrapper,
   Cover,
   CoverPortrait,
@@ -30,7 +31,17 @@ const sanitizeConfig = {
 };
 
 export const Header = ({
-  background, backgroundPortrait, box, description, footnotes, heading, links, list, pageSlug,
+  background,
+  backgroundPortrait,
+  box,
+  boxPortrait,
+  description,
+  footnotes,
+  hasPortraitBox,
+  heading,
+  links,
+  list,
+  pageSlug,
 }) => {
   const splitSlug = pageSlug.split('-');
   const variant = splitSlug[splitSlug.length - 1];
@@ -44,12 +55,20 @@ export const Header = ({
           isLazy={false}
         />
         <Container>
-          <ContentWrapper>
+          <ContentWrapper className={`variant--${pageSlug}`}>
             <Box
+              $isShownInPortrait={!hasPortraitBox}
               className={`variant--${pageSlug}`}
               image={box}
               isLazy={false}
             />
+            {hasPortraitBox && (
+            <BoxPortrait
+              className={`variant--${pageSlug}-portrait`}
+              image={boxPortrait}
+              isLazy={false}
+            />
+            )}
             <Heading variant={variant}>
               <span>{heading}</span>
               <Ellipses />
@@ -90,8 +109,13 @@ Header.propTypes = {
   background: PropTypes.shape({}).isRequired,
   backgroundPortrait: PropTypes.shape({}).isRequired,
   box: PropTypes.shape({}).isRequired,
+  boxPortrait: PropTypes.oneOfType([
+    PropTypes.shape({}),
+    PropTypes.bool,
+  ]).isRequired,
   description: PropTypes.string.isRequired,
   footnotes: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
+  hasPortraitBox: PropTypes.bool.isRequired,
   heading: PropTypes.string.isRequired,
   links: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
   list: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
