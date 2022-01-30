@@ -50,7 +50,7 @@ export const Badge = styled(WPImage)`
   }) => theme.getMin(image.width / 2)};
 
   @media ${queries.xs} {
-    width: 85%;
+    width: ${({ image }) => `min(${image.width / 2}px, 85%)`};
   }
 `;
 

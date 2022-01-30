@@ -17,11 +17,16 @@ export const Section = styled.section`
 
     @media ${queries.xs} {
       align-items: center;
+      margin-top: min(2em, 50px);
 
       > h2 {
         padding: 0 3em;
       }
     }
+  }
+
+  @media ${queries.xs} {
+    margin-top: 0;
   }
 `;
 
@@ -184,8 +189,10 @@ export const Product = styled.article`
   position: relative;
 
   @media ${queries.xs} {
-    display: grid;
-    place-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
     width: 100%;
     height: 100%;
   }
@@ -219,11 +226,15 @@ export const PackagePortrait = styled(WPImage)`
 
   @media ${queries.xs} {
     display: block;
+    width: ${({ image }) => `min(${image.width / 2}px, 100%)`};
     max-width: unset;
-    height: ${({
-    image, theme,
-  }) => theme.getMax(image.height / 2)};
+    height: auto;
     margin: 0 -25%;
+
+    > img {
+      width: 100%;
+      height: auto;
+    }
   }
 `;
 

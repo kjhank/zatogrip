@@ -41,7 +41,7 @@ export const TilesGrid = styled.ul`
     width: 100vw;
     max-width: 100vw;
     margin: ${({ theme }) => `${theme.getMin(16)}`} 0;
-    padding: 4vw 5vw;
+    padding: 3vw 5vw 15vw;
     scroll-snap-type: x mandatory;
   }
 `;
@@ -214,7 +214,11 @@ export const Footnotes = styled.footer`
   }
 
   @media ${queries.xs} {
-    display: none;
+    > ol {
+      top: -8em;
+      padding-right: 0;
+      text-align: center;
+    }
   }
 `;
 
