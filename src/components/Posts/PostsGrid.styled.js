@@ -15,7 +15,7 @@ export const Grid = styled.ul`
   padding-bottom: ${({ theme }) => theme.getMin(150)};
 
   @media ${queries.s} {
-    padding-bottom: max(100px, 15vw);
+    padding-bottom: max(150px, 50vw);
   }
 
   @media ${queries.xs} {
