@@ -202,7 +202,7 @@ export const Text = styled.p`
     font-size: ${({ fontSize }) => `${fontSize * 0.5}px`};
   }
 
-  @media ${queries.ss} {
+  @media ${queries.s} {
     font-size: ${({ fontSize }) => `${fontSize * 0.3}px`};
   }
 
