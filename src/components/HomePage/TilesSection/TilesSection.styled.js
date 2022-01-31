@@ -33,16 +33,84 @@ export const TilesGrid = styled.ul`
   margin: ${({ theme }) => theme.getMin(66)} 0;
 
   @media ${queries.xs} {
+    display: none;
+  }
+`;
+
+export const MobileTiles = styled.div`
+  display: none;
+
+  @media ${queries.xs} {
     position: relative;
     left: -5vw;
-    overflow-x: scroll;
-    display: flex;
-    gap: 5vw;
+    display: block;
     width: 100vw;
-    max-width: 100vw;
-    margin: ${({ theme }) => `${theme.getMin(16)}`} 0;
-    padding: 3vw 5vw 15vw;
-    scroll-snap-type: x mandatory;
+
+    > .swiper {
+      padding: 0 5vw;
+    }
+
+    .swiper-wrapper {
+      padding: 2em 0 4em;
+    }
+  }
+`;
+
+export const MobileNav = styled.nav`
+  display: none;
+
+  @media ${queries.xs} {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    margin: 0 auto 2em;
+    color: ${({ theme }) => theme.getColor('alt')};
+
+    > svg {
+      fill: currentColor;
+    }
+
+    > button {
+      display: block;
+
+      path {
+      stroke-width: 3px;}
+    }
+  }
+`;
+
+export const ScrollButton = styled.button.attrs({ type: 'button' })`
+  padding: 0;
+  background-color: transparent;
+  color: ${({
+    theme, disabled,
+  }) => (disabled ? theme.getColor('copy') : theme.getColor('alt'))};
+  transform: ${({ isFlipped }) => isFlipped && 'rotateY(180deg)'};
+  cursor: ${({ disabled }) => !disabled && 'pointer'};
+
+  > svg {
+    transition: ${({ theme }) => theme.getTransitions([
+    'color',
+    'transform',
+    'filter',
+  ])};
+    transform: ${({ disabled }) => disabled && 'scale(0.9)'};
+  }
+
+  :hover {
+    > svg {
+      filter: ${({ disabled }) => !disabled && 'brightness(1.25)'};
+      transform: ${({ disabled }) => !disabled && 'translateX(10%)'};
+    }
+  }
+
+  @media ${queries.l} {
+    order: ${({ isFlipped }) => (isFlipped ? 0 : 2)}
+  }
+
+  @media ${queries.xs} {
+    display: none;
   }
 `;
 
@@ -61,9 +129,9 @@ export const SingleTile = styled.li`
 
   @media ${queries.xs} {
     flex-shrink: 0;
-    width: 95vw;
+    /* width: 95vw;
     margin: 5vw;
-    scroll-snap-align: center;
+    scroll-snap-align: center; */
     transform: ${({ isFlipped }) => (isFlipped ? 'rotateY(180deg) scale(1)' : 'rotateY(0) scale(1)')};
   }
 `;
@@ -99,6 +167,7 @@ export const TileFront = styled.div`
   }
 
   @media ${queries.xs} {
+    width: auto;
     padding: 0 ${({ theme }) => theme.getMax(32)};
     font-size: clamp(32px, 3.333333vw, 64px);
   }
@@ -215,7 +284,7 @@ export const Footnotes = styled.footer`
 
   @media ${queries.xs} {
     > ol {
-      top: -8em;
+      top: 100%;
       padding-right: 0;
       text-align: center;
     }

@@ -17,7 +17,7 @@ export const Section = styled.section`
 
     @media ${queries.xs} {
       align-items: center;
-      margin-top: min(2em, 50px);
+      margin-top: min(8em, 120px);
 
       > h2 {
         padding: 0 3em;
