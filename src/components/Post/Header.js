@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import sanitize from 'sanitize-html';
 
 import { Container } from '@components';
 import {
@@ -12,7 +13,7 @@ export const Header = ({
   <StyledHeader>
     <Cover image={cover} />
     <Container>
-      <Title>{title}</Title>
+      <Title dangerouslySetInnerHTML={{ __html: sanitize(title) }} />
     </Container>
   </StyledHeader>
 );

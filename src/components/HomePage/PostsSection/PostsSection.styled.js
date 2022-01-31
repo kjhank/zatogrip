@@ -81,7 +81,7 @@ export const SinglePost = styled.article`
 export const PostCover = styled(WPImage)`
   overflow: hidden;
   width: 100%;
-  height: 100%;
+  aspect-ratio: 447/370;
   border-radius: ${({ theme }) => theme.getRadius('small')};
 
   > img {

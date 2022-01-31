@@ -24,6 +24,7 @@ export const Header = ({
 
 Header.propTypes = {
   cover: PropTypes.shape({}).isRequired,
+  coverPortrait: PropTypes.shape({}).isRequired,
   heading: PropTypes.string.isRequired,
   intro: PropTypes.string.isRequired,
 };
