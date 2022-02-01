@@ -131,6 +131,10 @@ export const ProductLink = styled(Link)`
     'transform',
   ])};
 
+  > span {
+    width: min-content;
+  }
+
   > svg {
     position: absolute;
     top: 50%;
@@ -160,10 +164,6 @@ export const ProductLink = styled(Link)`
     width: min(45vw, 175px);
     height: min(45vw, 175px);
     font-size: max(10vw, 48px);
-
-    > span {
-      width: 75%;
-    }
   }
 `;
 
@@ -182,6 +182,10 @@ export const ProductGroup = styled.li`
     align-items: center;
     gap: max(50px, 10vh);
     width: 100%;
+
+    :last-child {
+      margin-left: unset;
+    }
   }
 `;
 

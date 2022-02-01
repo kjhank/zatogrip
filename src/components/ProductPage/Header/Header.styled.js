@@ -192,7 +192,7 @@ export const Description = styled.div`
     margin: 2em 0;
     padding: 0 5%;
     font-size: clamp(24px, 2.5vw, 48px);
-    text-align: center;
+    text-align: left;
   }
 
   @media ${queries.s} {
@@ -314,7 +314,7 @@ export const Footnotes = styled.footer`
   @media ${queries.s} {
     order: 0;
     font-size: min(16px, 3vw);
-    text-align: center;
+    text-align: left;
   }
 `;
 

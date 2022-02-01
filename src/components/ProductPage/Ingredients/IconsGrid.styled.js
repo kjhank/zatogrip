@@ -15,7 +15,9 @@ export const List = styled.ul`
   }
 `;
 
-export const Row = styled.li``;
+export const Row = styled.li`
+  width: 100%;
+`;
 
 export const InnerGrid = styled.ul`
   display: flex;
