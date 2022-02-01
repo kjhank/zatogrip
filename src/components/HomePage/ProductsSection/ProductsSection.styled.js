@@ -111,8 +111,9 @@ export const ArrowWrapper = styled.div`
 
 export const ProductLink = styled(Link)`
   position: relative;
-  display: grid;
-  place-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: min(90px, 4.6875vw);
   height: min(90px, 4.6875vw);
   aspect-ratio: 1/1;

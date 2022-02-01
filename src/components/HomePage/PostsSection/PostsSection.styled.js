@@ -42,7 +42,6 @@ export const Navigation = styled.nav`
 export const Intro = styled.p`
   width: 60%;
   margin-top: ${({ theme }) => theme.getMin(23)};
-  font-weight: bold;
   font-size: clamp(14px, 1.25vw, 24px);
 
   @media ${queries.xs} {

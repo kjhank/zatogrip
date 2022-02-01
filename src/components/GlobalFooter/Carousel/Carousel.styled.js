@@ -27,7 +27,7 @@ export const StaticHeading = styled.h2`
   border: ${({ theme }) => theme.getMin(3)} solid #fff;
   border-radius: ${({ theme }) => theme.getRadius('large')};
   padding: ${({ theme }) => `${theme.getMin(23)} ${theme.getMin(65)}`};
-  font-size: clamp(35px, 3.125vw, 60px);
+  font-size: clamp(28px, 2.916667vw, 56px);
   text-align: center;
   transform: translateX(-50%);
 
@@ -194,13 +194,10 @@ export const Text = styled.p`
   top: 50%;
   left: 50%;
   width: 100%;
-  font-size: ${({ fontSize }) => `clamp(${fontSize * 0.6}px, ${fontSize / 19.2}vw, ${fontSize}px)`};
+  font-size: clamp(28px, 2.916667vw, 56px);
   white-space: break-spaces;
   transform: translate(-50%, -50%);
 
-  @media ${queries.l} {
-    font-size: ${({ fontSize }) => `${fontSize * 0.5}px`};
-  }
 
   @media ${queries.s} {
     font-size: ${({ fontSize }) => `${fontSize * 0.3}px`};

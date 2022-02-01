@@ -9,7 +9,7 @@ export const List = styled.ul`
   gap: min(1.25em, 1.3vw);
   color: ${({ theme }) => theme.colors.gradient.from};
   font-size: clamp(16px, 1.354167vw, 26px);
-  font-family: ${({ theme }) => theme.getFont('heading')};
+  font-family: ${({ theme }) => theme.getFont('alt')};
 
   @media ${queries.xs} {
     gap: 1em;

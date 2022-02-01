@@ -60,12 +60,10 @@ export const BackgroundPortrait = styled(WPImage)`
 
 export const Intro = styled.p`
   margin: min(70px, 3.645833vw) 0 min(84px, 4.375vw);
-  font-weight: bold;
   font-size: clamp(14px, 1.25vw, 24px);
 
   @media ${queries.xs} {
     margin-top: 2em;
-    font-weight: 600;
     font-size: clamp(24px, 2.5vw, 48px);
   }
 `;

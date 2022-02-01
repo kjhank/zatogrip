@@ -94,6 +94,7 @@ export const TopWrapper = styled.div`
     > ul {
       margin-top: auto;
       margin-bottom: 1em;
+      font-family: ${({ theme }) => theme.getFont('heading')};
       padding-right: 5%;
     }
 
@@ -254,27 +255,27 @@ export const Box = styled(WPImage)`
 
   &.variant {
     &--zatogrip-mini {
-      top: ${({ theme }) => `calc(100% - ${theme.getMin(150)})`};
+      top: calc(100% - 25vh);
       right: ${({ theme }) => `calc(100% + ${theme.getMin(190)})`};
     }
 
     &--zatogrip-baby {
-      top: ${({ theme }) => `calc(100% - ${theme.getMin(223)})`};
+      top: calc(100% - 25vh);
       right: ${({ theme }) => `calc(100% + ${theme.getMin(292)})`};
     }
 
     &--zatogrip-kids {
-      top: ${({ theme }) => `calc(100% - ${theme.getMin(169)})`};
+      top: calc(100% - 25vh);
       right: ${({ theme }) => `calc(100% + ${theme.getMin(223)})`};
     }
 
     &--zatogrip-junior {
-      top: ${({ theme }) => `calc(100% - ${theme.getMin(192)})`};
+      top: calc(100% - 25vh);
       right: ${({ theme }) => `calc(100% + ${theme.getMin(192)})`};
     }
 
     &--tabletki-zatogrip-forte {
-      top: ${({ theme }) => `calc(100% - ${theme.getMin(92)})`};
+      top: calc(100% - 20vh);
       right: ${({ theme }) => `calc(100% + ${theme.getMin(223)})`};
     }
   }
