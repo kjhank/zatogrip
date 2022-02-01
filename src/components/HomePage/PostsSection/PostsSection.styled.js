@@ -43,6 +43,7 @@ export const Intro = styled.p`
   width: 60%;
   margin-top: ${({ theme }) => theme.getMin(23)};
   font-size: clamp(14px, 1.25vw, 24px);
+  white-space: pre-wrap;
 
   @media ${queries.xs} {
     width: 100%;

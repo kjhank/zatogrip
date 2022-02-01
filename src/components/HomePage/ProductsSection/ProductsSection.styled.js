@@ -126,7 +126,7 @@ export const ProductLink = styled(Link)`
   font-size: clamp(12px, 1.145833vw, 22px);
   font-family: ${({ theme }) => theme.getFont('heading')};
   line-height: 1;
-  text-align: left;
+  text-align: center;
   transition: ${({ theme }) => theme.getTransitions([
     'filter',
     'transform',
