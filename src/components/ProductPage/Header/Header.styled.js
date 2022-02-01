@@ -152,7 +152,7 @@ export const Heading = styled.h1`
     font-size: min(10vw, 48px);
     font-family: ${({ theme }) => theme.getFont('heading')};
     line-height: 1;
-    text-align: left;
+    text-align: center;
 
     > span {
       width: 75%;
