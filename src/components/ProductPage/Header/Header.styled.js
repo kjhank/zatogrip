@@ -265,17 +265,17 @@ export const Box = styled(WPImage)`
   &.variant {
     &--zatogrip-mini {
       top: calc(100% - 25vh);
-      right: ${({ theme }) => `calc(100% + ${theme.getMin(190)})`};
+      right: ${({ theme }) => `calc(100% + ${theme.getMin(150)})`};
     }
 
     &--zatogrip-baby {
       top: calc(100% - 25vh);
-      right: ${({ theme }) => `calc(100% + ${theme.getMin(292)})`};
+      right: ${({ theme }) => `calc(100% + ${theme.getMin(200)})`};
     }
 
     &--zatogrip-kids {
       top: calc(100% - 25vh);
-      right: ${({ theme }) => `calc(100% + ${theme.getMin(223)})`};
+      right: ${({ theme }) => `calc(100% + ${theme.getMin(175)})`};
     }
 
     &--zatogrip-junior {
@@ -285,7 +285,7 @@ export const Box = styled(WPImage)`
 
     &--tabletki-zatogrip-forte {
       top: calc(100% - 20vh);
-      right: ${({ theme }) => `calc(100% + ${theme.getMin(223)})`};
+      right: ${({ theme }) => `calc(100% + ${theme.getMin(150)})`};
     }
   }
 

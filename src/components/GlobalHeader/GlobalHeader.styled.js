@@ -221,7 +221,8 @@ export const ProductImage = styled(WPImage)`
 
   &.submenu-variant {
     &--mini {
-      left: -20%;
+      left: 50%;
+      transform: translateX(-50%)
     }
 
     &--baby {
@@ -254,26 +255,7 @@ export const ProductLink = styled(GenericLink)`
 
   :hover {
     ${ProductImage} {
-      transform: scale(1.1);
-
-      &.submenu-variant {
-
-        &--baby {
-          transform: scale(1.1) translateX(-50%)
-        }
-
-        &--kids {
-          transform: scale(1.1) translateX(-50%)
-        }
-
-        &--junior {
-          transform: scale(1.1) translateX(-50%)
-        }
-
-        &--forte {
-          transform: scale(1.1) translateX(-50%)
-        }
-      }
+      transform: scale(1.1) translateX(-50%);
     }
   }
 `;
