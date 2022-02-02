@@ -66,12 +66,29 @@ export const PostsWrapper = styled.div`
 `;
 
 export const SinglePost = styled.article`
-  display: flex;
-  flex-shrink: 0;
-  flex-direction: column;
-  align-items: flex-start;
   height: 100%;
-  scroll-snap-align: start;
+
+  > a {
+    display: flex;
+    flex-shrink: 0;
+    flex-direction: column;
+    align-items: flex-start;
+    height: 100%;
+
+    :hover {
+      > div:last-child {
+        background-size: 150%;
+
+        ::before {
+          filter: brightness(1.2);
+        }
+
+        > svg {
+          transform: translateX(50%);
+        }
+      }
+    }
+  }
 
   @media ${queries.xs} {
     flex-shrink: 0;
@@ -114,7 +131,7 @@ export const Excerpt = styled.p`
   }
 `;
 
-export const PostLink = styled(ArrowLink)`
+export const Arrow = styled(ArrowLink)`
   margin-top: auto;
   font-size: clamp(10px, 0.729167vw, 16px);
 

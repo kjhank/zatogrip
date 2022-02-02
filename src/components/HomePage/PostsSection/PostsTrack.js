@@ -4,14 +4,15 @@ import sanitize from 'sanitize-html';
 import {
   Swiper, SwiperSlide,
 } from 'swiper/react';
+import { Link } from 'gatsby';
 
 import 'swiper/css';
 import 'swiper/css/navigation';
 
 import {
+  Arrow,
   Excerpt,
   PostCover,
-  PostLink,
   PostsWrapper,
   PostTitle,
   SinglePost,
@@ -58,12 +59,16 @@ export const PostsTrack = ({
           tag="li"
         >
           <SinglePost>
-            {acf.homeThumb && <PostCover image={acf.homeThumb} />}
-            <PostTitle dangerouslySetInnerHTML={{ __html: sanitize(title, sanitizeConfig) }} />
-            {acf.excerpt && <Excerpt>{acf.excerpt}</Excerpt>}
-            <PostLink to={`/${slug}`}>
-              {clickText}
-            </PostLink>
+            <Link to={`/${slug}`}>
+              {acf.homeThumb && <PostCover image={acf.homeThumb} />}
+              <PostTitle dangerouslySetInnerHTML={{ __html: sanitize(title, sanitizeConfig) }} />
+              {acf.excerpt && <Excerpt>{acf.excerpt}</Excerpt>}
+              <Arrow
+                customAs="div"
+              >
+                {clickText}
+              </Arrow>
+            </Link>
           </SinglePost>
         </SwiperSlide>
       ))}

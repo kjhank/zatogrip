@@ -67,3 +67,8 @@ export const Button = styled.button`
 export const ExternalLink = styled(ExLink)`
   ${commonStyle};
 `;
+
+export const Div = styled.div`
+  ${commonStyle};
+  cursor: inherit;
+`;

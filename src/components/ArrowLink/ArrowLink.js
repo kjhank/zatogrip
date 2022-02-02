@@ -3,12 +3,22 @@ import PropTypes from 'prop-types';
 
 import { Arrow } from '@icons';
 import {
-  Button, ExternalLink, Link,
+  Button, Div, ExternalLink, Link,
 } from './ArrowLink.styled';
 
 export const ArrowLink = ({
-  children, href, onClick, to, type, ...props
+  customAs, children, href, onClick, to, type, ...props
 }) => {
+  if (customAs === 'div') {
+    return (
+      <Div {...props}>
+        {children}
+        {' '}
+        <Arrow />
+      </Div>
+    );
+  }
+
   if (!href && !to) {
     return (
       <Button
@@ -52,6 +62,7 @@ ArrowLink.propTypes = {
     PropTypes.node,
     PropTypes.arrayOf(PropTypes.node),
   ]).isRequired,
+  customAs: PropTypes.string,
   href: PropTypes.string,
   onClick: PropTypes.func,
   to: PropTypes.string,
@@ -61,6 +72,7 @@ ArrowLink.propTypes = {
 ArrowLink.defaultProps = {
   $isButton: false,
   $isCaps: false,
+  customAs: null,
   href: null,
   onClick: null,
   to: null,
