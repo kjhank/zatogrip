@@ -111,6 +111,13 @@ export const Navigation = styled.nav`
 
     @media ${queries.s} {
       flex-direction: column;
+
+      > li {
+        display: inline-flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
     }
   }
 `;
@@ -298,26 +305,35 @@ export const NavToggle = styled.button`
   z-index: 1;
   display: none;
   width: min(40px, 10vw);
+  height: min(40px, 10vw);
   background-color: #fff;
   transition: ${({ theme }) => theme.getTransitions([
     'transform',
     'box-shadow',
   ])};
-  transform: ${({ isFlipped }) => (isFlipped ? 'rotateZ(180deg) rotateX(180deg)' : 'rotateZ(0) rotateX(0)')};
   transform-style: preserve-3d;
 
   > svg {
     position: absolute;
     top: 50%;
     left: 50%;
-    backface-visibility: hidden;
+    opacity: ${({ isFlipped }) => (isFlipped ? 0 : 1)};
+    height: auto;
+    width: 100%;
+    max-width: 100%;
+    max-height: 100%;
     background-color: #fff;
     fill: ${({ theme }) => theme.getColor('alt')};
     stroke: ${({ theme }) => theme.getColor('alt')};
     transform: translate(-50%, -50%);
+    transition: ${({ theme }) => theme.getTransitions([
+    'opacity',
+    'box-shadow',
+  ])};
 
     :last-child {
-      transform: translate(-50%, -50%) rotateX(180deg);
+      height: 80%;
+      opacity: ${({ isFlipped }) => (isFlipped ? 1 : 0)};
     }
   }
 

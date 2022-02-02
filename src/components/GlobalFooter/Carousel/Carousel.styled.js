@@ -17,6 +17,10 @@ export const Section = styled.section`
     height: 125vw;
     margin-bottom: min(200px, 50vw);
   }
+
+  @media ${queries.tiny} {
+    margin-bottom: min(250px, 60vw);
+  }
 `;
 
 export const StaticHeading = styled.h2`
@@ -116,6 +120,7 @@ export const Item = styled.li`
   > svg {
     position: absolute;
     z-index: 0;
+    max-width: 100%;
     max-height: 90%;
     pointer-events: none;
 

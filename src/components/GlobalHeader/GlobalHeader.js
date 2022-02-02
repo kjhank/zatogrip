@@ -33,6 +33,7 @@ export const GlobalHeader = ({
       >
         <Burger />
         <X />
+        {/* <span>X</span> */}
       </NavToggle>
       <Navigation isHidden={!isNavigationOpen}>
         <ul>
