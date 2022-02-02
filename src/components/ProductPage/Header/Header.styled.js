@@ -293,6 +293,12 @@ export const Box = styled(WPImage)`
     position: static;
     display: ${({ $isShownInPortrait }) => ($isShownInPortrait ? 'block' : 'none')};
     width: 100%;
+
+    &.variant {
+      &--zatogrip-kids {
+        margin-top: -20%;
+      }
+    }
   }
 `;
 
