@@ -98,11 +98,16 @@ export const TopWrapper = styled.div`
       padding-right: 5%;
     }
 
+    &.variant--tabletki-zatogrip-forte {
+      > ul {
+        margin-top: unset;
+      }
+    }
+
     @media ${queries.s} {
       align-items: center;
       width: 100%;
       margin-top: -80%;
-
 
       &.variant--tabletki-zatogrip-forte {
         margin-top: -50%;
@@ -235,6 +240,10 @@ export const LinksWrapper = styled.nav`
       padding: ${({ theme }) => `${theme.getMax(12)} ${theme.getMax(24)}`};
       font-size: clamp(18px, 1.875vw, 36px);
     }
+  }
+
+  @media ${queries.xxs} {
+    padding: 0 5%;
   }
 `;
 

@@ -49,8 +49,18 @@ export const Badge = styled(WPImage)`
     image, theme,
   }) => theme.getMin(image.width / 2)};
 
+  &.tabletki-zatogrip-forte {
+    width: ${({
+    image, theme,
+  }) => theme.getMin((image.width / 2) * 0.85)};
+  }
+
   @media ${queries.xs} {
     width: ${({ image }) => `min(${image.width / 2}px, 85%)`};
+
+    &.tabletki-zatogrip-forte {
+      width: ${({ image }) => `min(${image.width / 2}px, 50%)`};
+    }
   }
 `;
 

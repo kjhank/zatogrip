@@ -15,6 +15,7 @@ export const Section = styled.section`
 
   @media ${queries.xs} {
     height: unset;
+    margin-top: 3em;
 
     > div {
       display: flex;

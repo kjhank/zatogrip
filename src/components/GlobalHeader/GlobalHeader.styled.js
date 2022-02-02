@@ -15,6 +15,10 @@ export const StyledHeader = styled.header`
   transition: ${({ theme }) => theme.getTransitions(['transform'])};
   transform: ${({ isHidden }) => (isHidden ? 'translateY(-100%)' : 'translateY(0)')};
 
+  @media ${queries.xs} {
+    transform: none;
+  }
+
   > div {
     display: flex;
     justify-content: space-between;
@@ -279,6 +283,12 @@ export const ProductName = styled.h2`
     color: ${({
     variant, theme,
   }) => theme.colors.products[variant]};
+  }
+
+  br {
+    display: inline-block;
+    content: ' ';
+    width: 0.75ch;
   }
 `;
 

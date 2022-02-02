@@ -24,6 +24,15 @@ export const Section = styled.section`
       }
     }
   }
+
+  @media ${queries.tiny} {
+    > div {
+      > h2 {
+        font-size: min(12vw, 36px);
+        padding: 0;
+      }
+    }
+  }
 `;
 
 export const TilesGrid = styled.ul`
@@ -129,9 +138,6 @@ export const SingleTile = styled.li`
 
   @media ${queries.xs} {
     flex-shrink: 0;
-    /* width: 95vw;
-    margin: 5vw;
-    scroll-snap-align: center; */
     transform: ${({ isFlipped }) => (isFlipped ? 'rotateY(180deg) scale(1)' : 'rotateY(0) scale(1)')};
   }
 `;
@@ -171,6 +177,10 @@ export const TileFront = styled.div`
     padding: 0 ${({ theme }) => theme.getMax(32)};
     font-size: clamp(32px, 3.333333vw, 64px);
   }
+
+  @media ${queries.tiny} {
+    font-size: min(24px, 8vw);
+  }
 `;
 
 export const TileBack = styled.div`
@@ -191,6 +201,10 @@ export const TileBack = styled.div`
 
   @media ${queries.xs} {
     font-size: clamp(18px, 1.666667vw, 32px);
+  }
+
+  @media ${queries.tiny} {
+    font-size: min(14px, 4vw);
   }
 `;
 
