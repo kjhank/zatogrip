@@ -21,6 +21,10 @@ export const Item = styled.li`
   display: inline-flex;
   align-items: baseline;
   gap: min(1em, 1.5625vw);
+
+  > span {
+    white-space: pre;
+  }
 `;
 
 export const Bullet = styled.div`

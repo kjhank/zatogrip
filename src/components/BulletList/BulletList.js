@@ -1,10 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import sanitize from 'sanitize-html';
 
 import { Arrow } from '@icons';
 import {
   Bullet, Item, List,
 } from './BulletList.styled';
+
+const sanitizeConfig = {
+  allowedTags: ['br'],
+};
 
 export const BulletList = ({ items }) => (
   <List>
@@ -13,7 +18,7 @@ export const BulletList = ({ items }) => (
         <Bullet>
           <Arrow />
         </Bullet>
-        {item}
+        <span dangerouslySetInnerHTML={{ __html: sanitize(item, sanitizeConfig) }} />
       </Item>
     ))}
   </List>
