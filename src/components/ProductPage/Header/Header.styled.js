@@ -89,7 +89,7 @@ export const TopWrapper = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    gap: min(1em, 1.302083vw);
+    gap: min(3em, 4vw);
 
     > ul {
       margin-bottom: 1em;
