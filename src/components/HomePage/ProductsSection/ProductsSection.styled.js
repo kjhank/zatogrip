@@ -8,7 +8,7 @@ import { queries } from '@utils/rwd';
 export const Section = styled.section`
   position: relative;
   z-index: 1;
-  margin: ${({ theme }) => theme.getMin(32)} 0  ${({ theme }) => theme.getMin(66)};
+  margin: ${({ theme }) => theme.getMin(200)} 0  ${({ theme }) => theme.getMin(66)};
 
   > div {
     display: flex;
@@ -17,11 +17,16 @@ export const Section = styled.section`
 
     @media ${queries.xs} {
       align-items: center;
+      margin-top: min(8em, 120px);
 
       > h2 {
         padding: 0 3em;
       }
     }
+  }
+
+  @media ${queries.xs} {
+    margin-top: 0;
   }
 `;
 
@@ -106,8 +111,9 @@ export const ArrowWrapper = styled.div`
 
 export const ProductLink = styled(Link)`
   position: relative;
-  display: grid;
-  place-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: min(90px, 4.6875vw);
   height: min(90px, 4.6875vw);
   aspect-ratio: 1/1;
@@ -120,11 +126,15 @@ export const ProductLink = styled(Link)`
   font-size: clamp(12px, 1.145833vw, 22px);
   font-family: ${({ theme }) => theme.getFont('heading')};
   line-height: 1;
-  text-align: left;
+  text-align: center;
   transition: ${({ theme }) => theme.getTransitions([
     'filter',
     'transform',
   ])};
+
+  > span {
+    width: min-content;
+  }
 
   > svg {
     position: absolute;
@@ -155,10 +165,6 @@ export const ProductLink = styled(Link)`
     width: min(45vw, 175px);
     height: min(45vw, 175px);
     font-size: max(10vw, 48px);
-
-    > span {
-      width: 75%;
-    }
   }
 `;
 
@@ -177,6 +183,10 @@ export const ProductGroup = styled.li`
     align-items: center;
     gap: max(50px, 10vh);
     width: 100%;
+
+    :last-child {
+      margin-left: unset;
+    }
   }
 `;
 
@@ -184,8 +194,10 @@ export const Product = styled.article`
   position: relative;
 
   @media ${queries.xs} {
-    display: grid;
-    place-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
     width: 100%;
     height: 100%;
   }
@@ -219,11 +231,15 @@ export const PackagePortrait = styled(WPImage)`
 
   @media ${queries.xs} {
     display: block;
+    width: ${({ image }) => `min(${image.width / 2}px, 100%)`};
     max-width: unset;
-    height: ${({
-    image, theme,
-  }) => theme.getMax(image.height / 2)};
+    height: auto;
     margin: 0 -25%;
+
+    > img {
+      width: 100%;
+      height: auto;
+    }
   }
 `;
 

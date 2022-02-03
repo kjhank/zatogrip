@@ -20,7 +20,6 @@ const queries = {
   touch: '(hover: none) and (pointer: coarse)',
   portrait: '(orientation: portrait)',
 };
-
 /* eslint-enable sort-keys */
 
 const mfQueries = {

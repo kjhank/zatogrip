@@ -25,8 +25,9 @@ export const Intro = styled.p`
   font-size: clamp(14px, 1.25vw, 24px);
 
   @media ${queries.xs} {
+    font-weight: 600;
     font-size: min(48px, 6vw);
-    text-aligN: center;
+    text-align: center;
   }
 `;
 

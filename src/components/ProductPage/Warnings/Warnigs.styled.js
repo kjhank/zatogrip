@@ -14,6 +14,10 @@ export const Section = styled.section`
     width: 80%;
     margin: min(109px, 5.677083vw) auto 0;
     color: ${({ theme }) => theme.getColor('main')};
-    font-size: clamp(15px, 1.302083vw, 25px);
+    font-size: clamp(14px, 1.25vw, 24px);
+
+    @media ${queries.tiny} {
+      width: 100%;
+    }
   }
 `;

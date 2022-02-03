@@ -9,9 +9,17 @@ export const Section = styled.section`
   color: #fff;
   font-family: ${({ theme }) => theme.getFont('heading')};
 
+  @media ${queries.s} {
+    margin-bottom: max(100px, 15vw);
+  }
+
   @media ${queries.xs} {
     height: 125vw;
     margin-bottom: min(200px, 50vw);
+  }
+
+  @media ${queries.tiny} {
+    margin-bottom: min(250px, 60vw);
   }
 `;
 
@@ -23,13 +31,18 @@ export const StaticHeading = styled.h2`
   border: ${({ theme }) => theme.getMin(3)} solid #fff;
   border-radius: ${({ theme }) => theme.getRadius('large')};
   padding: ${({ theme }) => `${theme.getMin(23)} ${theme.getMin(65)}`};
-  font-size: clamp(35px, 3.125vw, 60px);
+  font-size: clamp(28px, 2.916667vw, 56px);
   text-align: center;
   transform: translateX(-50%);
+
+  @media ${queries.s} {
+    font-size: max(2vw, 16px);
+  }
 
   @media ${queries.xs} {
     width: 100%;
     padding: 0.5em;
+    font-size: clamp(35px, 3.125vw, 60px);
   }
 `;
 
@@ -76,7 +89,11 @@ export const NavButton = styled.button`
     right: ${({ isFlipped }) => isFlipped && '55%'};
     bottom: 1em;
     left: ${({ isFlipped }) => !isFlipped && '55%'};
-    width: min(50px, 10vw);
+    width: max(50px, 10vw);
+
+    > svg {
+      width: 50%;
+    }
   }
 `;
 
@@ -103,6 +120,7 @@ export const Item = styled.li`
   > svg {
     position: absolute;
     z-index: 0;
+    max-width: 100%;
     max-height: 90%;
     pointer-events: none;
 
@@ -181,9 +199,14 @@ export const Text = styled.p`
   top: 50%;
   left: 50%;
   width: 100%;
-  font-size: ${({ fontSize }) => `clamp(${fontSize * 0.6}px, ${fontSize / 19.2}vw, ${fontSize}px)`};
+  font-size: clamp(28px, 2.916667vw, 56px);
   white-space: break-spaces;
   transform: translate(-50%, -50%);
+
+
+  @media ${queries.s} {
+    font-size: ${({ fontSize }) => `${fontSize * 0.3}px`};
+  }
 
   @media ${queries.xs} {
     font-size: ${({ fontSize }) => `${fontSize * 0.4}px`};

@@ -4,7 +4,7 @@ import sanitize from 'sanitize-html';
 
 import { Container } from '@components';
 import {
-  Arrow, Background, BottomText, Heading, PortraitBackground, Section,
+  Background, Heading, PortraitBackground, Section,
 } from './HeroSection.styled';
 
 const sanitizeConfig = {
@@ -30,8 +30,6 @@ export const HeroSection = ({ content }) => (
         __html: sanitize(content.heading, sanitizeConfig),
       }}
       />
-      <BottomText>{content.bottomText}</BottomText>
-      <Arrow />
     </Container>
   </Section>
 );

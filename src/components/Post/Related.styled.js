@@ -12,8 +12,8 @@ export const RelatedContent = styled.aside`
   padding-bottom: ${({ theme }) => theme.getMin(100)};
   background-color: #fff;
 
-  @media ${queries.xs} {
-    padding-bottom: max(200px, 50vw);
+  @media ${queries.s} {
+    padding-bottom: max(100px, 15vw);
   }
 `;
 

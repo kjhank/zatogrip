@@ -1,16 +1,22 @@
 import React, {
-  createRef, useEffect,
+  createRef,
+  useRef,
   useState,
 } from 'react';
 import PropTypes from 'prop-types';
 
 import { Container } from '@components';
 import { SectionHeading } from '@components/HomePage/styled';
-import { LongArrow } from '@icons';
+import {
+  Hand, LongArrow,
+} from '@icons';
+import { isMobile } from '@utils/helpers';
+
 import {
   AllPostsLink,
   Header,
   Intro,
+  MobileNav,
   Navigation,
   ScrollButton,
   Section,
@@ -20,52 +26,30 @@ import { PostsTrack } from './PostsTrack';
 export const PostsSection = ({
   content, innerRef,
 }) => {
+  const swiperRef = useRef();
+  const postsRef = createRef(null);
   const [
     scrollPosition,
     setScrollPosition,
   ] = useState('start');
 
-  const postsRef = createRef(null);
-
   const handleClick = direction => {
-    const { current: listElement } = postsRef;
-    const { width: childWidth } = listElement.firstElementChild.getBoundingClientRect();
-    const xScroll = childWidth * 2;
-    const scrollConfig = {
-      behavior: 'smooth',
-      left: direction === 'right' ? xScroll * 2 : -xScroll * 2,
-    };
+    const { current: swiperInstance } = swiperRef;
 
-    setScrollPosition('');
+    if (direction === 'right') {
+      swiperInstance.slideNext();
+    } else {
+      swiperInstance.slidePrev();
+    }
 
-    listElement.scrollBy(scrollConfig);
+    if (swiperInstance.isBeginning) {
+      setScrollPosition('start');
+    } else if (swiperInstance.isEnd) {
+      setScrollPosition('end');
+    } else {
+      setScrollPosition(null);
+    }
   };
-
-  useEffect(() => {
-    const { current: listElement } = postsRef;
-
-    const handleScroll = event => {
-      const {
-        target: {
-          clientWidth, scrollLeft, scrollWidth,
-        },
-      } = event;
-
-      const maxScroll = scrollWidth - clientWidth;
-
-      if (scrollLeft <= 0) {
-        setScrollPosition('start');
-      } else if (scrollLeft >= maxScroll - 1) {
-        setScrollPosition('end');
-      } else {
-        setScrollPosition('');
-      }
-    };
-
-    listElement.addEventListener('scroll', handleScroll);
-
-    return () => listElement.removeEventListener('scroll', handleScroll);
-  }, []);
 
   return (
     <Section ref={innerRef}>
@@ -74,7 +58,9 @@ export const PostsSection = ({
           <SectionHeading>{content.heading}</SectionHeading>
           <Intro>{content.intro}</Intro>
           <Navigation>
-            <AllPostsLink to={`/${content.allPostsLink.post_name}/`}>{content.allPostsText}</AllPostsLink>
+            <AllPostsLink to={`/${content.allPostsLink.post_name}/`}>
+              {isMobile ? content?.allPostsTextPortrait : content?.allPostsText}
+            </AllPostsLink>
             <ScrollButton
               disabled={scrollPosition === 'start'}
               isFlipped
@@ -94,7 +80,24 @@ export const PostsSection = ({
           clickText={content.postLinkText}
           innerRef={postsRef}
           posts={content.posts}
+          swiperRef={swiperRef}
         />
+        <MobileNav>
+          <ScrollButton
+            disabled={scrollPosition === 'start'}
+            isFlipped
+            onClick={() => handleClick('left')}
+          >
+            <LongArrow />
+          </ScrollButton>
+          <Hand />
+          <ScrollButton
+            disabled={scrollPosition === 'end'}
+            onClick={() => handleClick('right')}
+          >
+            <LongArrow />
+          </ScrollButton>
+        </MobileNav>
       </Container>
     </Section>
   );
@@ -106,6 +109,7 @@ PostsSection.propTypes = {
       post_name: PropTypes.string,
     }),
     allPostsText: PropTypes.string,
+    allPostsTextPortrait: PropTypes.string,
     heading: PropTypes.string,
     intro: PropTypes.string,
     postLinkText: PropTypes.string,

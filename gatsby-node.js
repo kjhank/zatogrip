@@ -28,7 +28,7 @@ const paths = {
 const slugs = {
   contact: 'kontakt',
   home: 'strona-glowna',
-  notFound: '404',
+  notFound: '404', // TODO: create 404 template
   posts: 'strefa-rodzica',
 };
 
@@ -82,11 +82,10 @@ const getContext = async (pageData, settings, globals, { acf: { carousel } }, al
   } = pageData;
 
   const {
-    hasCarousel, isInactive,
+    hasCarousel, isInactive, // TODO: create inactive page
   } = acf;
 
   const globalContext = {
-    // TMP: pageData, // TODO: remove, just for reference
     globals,
     metadata: {
       globals: {

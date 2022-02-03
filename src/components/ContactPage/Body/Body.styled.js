@@ -8,8 +8,13 @@ export const StyledBody = styled.article`
   margin-bottom: ${({ theme }) => theme.getMin(150)};
   padding-top: ${({ theme }) => theme.getMin(200)};
 
+  @media ${queries.s} {
+    padding-top: ${({ theme }) => theme.getMin(400)};
+  }
+
   @media ${queries.xs} {
     margin-bottom: max(200px, 50vw);
+    padding-top: unset;
   }
 `;
 
@@ -19,7 +24,7 @@ export const Title = styled.h1`
   font-family: ${({ theme }) => theme.getFont('heading')};
 
   @media ${queries.xs} {
-    padding-top: 60vh;
+    padding-top: 65vh;
   }
 `;
 

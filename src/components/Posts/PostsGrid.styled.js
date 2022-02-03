@@ -12,7 +12,12 @@ export const Grid = styled.ul`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: ${({ theme }) => theme.getMin('96')};
+  margin-top: ${({ theme }) => theme.getMin(96)};
   padding-bottom: ${({ theme }) => theme.getMin(150)};
+
+  @media ${queries.s} {
+    padding-bottom: max(150px, 50vw);
+  }
 
   @media ${queries.xs} {
     grid-template-columns: repeat(2, 1fr);

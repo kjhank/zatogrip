@@ -8,9 +8,12 @@ import {
 } from './TilesSection.styled';
 
 export const Tile = ({
-  content, clickText, closeText, handleFlip, hasBackground, isFlipped, tileIndex,
+  content, clickText, closeText, handleFlip, hasBackground, isFlipped, tileIndex, ...props
 }) => (
-  <SingleTile isFlipped={isFlipped}>
+  <SingleTile
+    isFlipped={isFlipped}
+    {...props}
+  >
     <TileFront>
       {content.frontText}
       <FlipButton

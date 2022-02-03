@@ -8,6 +8,7 @@ import {
 } from '@components';
 import {
   Box,
+  BoxPortrait,
   ContentWrapper,
   Cover,
   CoverPortrait,
@@ -30,63 +31,91 @@ const sanitizeConfig = {
 };
 
 export const Header = ({
-  background, backgroundPortrait, box, description, footnotes, heading, links, list, pageSlug,
-}) => (
-  <Wrapper>
-    <CoverPortrait image={backgroundPortrait} />
-    <TopWrapper>
-      <Cover
-        image={background}
-        isLazy={false}
-      />
+  background,
+  backgroundPortrait,
+  box,
+  boxPortrait,
+  description,
+  footnotes,
+  hasPortraitBox,
+  heading,
+  links,
+  list,
+  pageSlug,
+}) => {
+  const splitSlug = pageSlug.split('-');
+  const variant = splitSlug[splitSlug.length - 1];
+
+  return (
+    <Wrapper>
+      <CoverPortrait image={backgroundPortrait} />
+      <TopWrapper>
+        <Cover
+          image={background}
+          isLazy={false}
+        />
+        <Container>
+          <ContentWrapper className={`variant--${pageSlug}`}>
+            <Box
+              $isShownInPortrait={!hasPortraitBox}
+              className={`variant--${pageSlug}`}
+              image={box}
+              isLazy={false}
+            />
+            {hasPortraitBox && (
+            <BoxPortrait
+              className={`variant--${pageSlug}-portrait`}
+              image={boxPortrait}
+              isLazy={false}
+            />
+            )}
+            <Heading variant={variant}>
+              <span>{heading}</span>
+              <Ellipses />
+            </Heading>
+            <Description
+              dangerouslySetInnerHTML={{ __html: sanitize(description, sanitizeConfig) }}
+            />
+            <BulletList items={list} />
+          </ContentWrapper>
+        </Container>
+      </TopWrapper>
       <Container>
         <ContentWrapper>
-          <Box
-            className={`variant--${pageSlug}`}
-            image={box}
-            isLazy={false}
-          />
-          <Heading variant={pageSlug.split('-').at(-1)}>
-            <span>{heading}</span>
-            <Ellipses />
-          </Heading>
-          <Description
-            dangerouslySetInnerHTML={{ __html: sanitize(description, sanitizeConfig) }}
-          />
-          <BulletList items={list} />
+          <LinksWrapper>
+            {links.map(({ link }) => (
+              <ArrowLink
+                href={link.url}
+                key={link.title}
+                rel="noreferrer"
+                target="_blank"
+              >
+                {link.title}
+              </ArrowLink>
+            ))}
+          </LinksWrapper>
+          <Footnotes>
+            <ol>
+              {footnotes.map(({ footnote }) => <li key={footnote}>{footnote}</li>)}
+            </ol>
+          </Footnotes>
         </ContentWrapper>
       </Container>
-    </TopWrapper>
-    <Container>
-      <ContentWrapper>
-        <LinksWrapper>
-          {links.map(({ link }) => (
-            <ArrowLink
-              href={link.url}
-              key={link.title}
-              rel="noreferrer"
-              target="_blank"
-            >
-              {link.title}
-            </ArrowLink>
-          ))}
-        </LinksWrapper>
-        <Footnotes>
-          <ol>
-            {footnotes.map(({ footnote }) => <li key={footnote}>{footnote}</li>)}
-          </ol>
-        </Footnotes>
-      </ContentWrapper>
-    </Container>
-  </Wrapper>
-);
+    </Wrapper>
+  );
+};
 
 Header.propTypes = {
   background: PropTypes.shape({}).isRequired,
   backgroundPortrait: PropTypes.shape({}).isRequired,
   box: PropTypes.shape({}).isRequired,
+  boxPortrait: PropTypes.oneOfType([
+    PropTypes.shape({}),
+    PropTypes.bool,
+  ]).isRequired,
   description: PropTypes.string.isRequired,
   footnotes: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
+  hasPortraitBox: PropTypes.bool.isRequired,
   heading: PropTypes.string.isRequired,
   links: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
   list: PropTypes.arrayOf(PropTypes.shape({})).isRequired,

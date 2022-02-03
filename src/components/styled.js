@@ -63,4 +63,8 @@ export const SectionHeading = styled.h2`
   @media ${queries.xs} {
     font-size: min(72px, 10vw);
   }
+
+  @media ${queries.tiny} {
+    font-size: min(12vw, 36px);
+  }
 `;

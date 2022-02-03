@@ -22,10 +22,12 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-helmet": "^6.1.0",
+    "react-light-carousel": "^1.2.1",
     "sanitize-html": "^2.6.1",
     "smoothscroll-polyfill": "^0.4.4",
     "styled-components": "^5.3.3",
-    "stylelint-config-recommended": "^6.0.0"
+    "stylelint-config-recommended": "^6.0.0",
+    "swiper": "^7.4.1"
   },
   "devDependencies": {
     "@babel/core": "^7.15.8",

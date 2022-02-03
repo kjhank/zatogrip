@@ -13,8 +13,8 @@ const contentHeading = css`
   font-size: clamp(18px, 1.770833vw, 34px);
   font-family: ${({ theme }) => theme.getFont('heading')};
 
-  @media ${queries.xs} {
-    font-size: max(5vw, 20px);
+  @media ${queries.s} {
+    font-size: max(5vw, 32px);
     text-align: center;
   }
 `;
@@ -39,6 +39,10 @@ export const Content = styled.article`
     margin: 1em 0;
     padding-left: 2em;
     list-style-position: inside;
+  }
+
+  @media ${queries.s} {
+    font-size: max(3vw, 20px);
   }
 
   @media ${queries.xs} {

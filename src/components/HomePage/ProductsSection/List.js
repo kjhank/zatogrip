@@ -25,7 +25,7 @@ export const List = ({ products }) => (
         >
           <Package
             className={`variant--${product.color}`}
-            image={product.image} // TODO: adjust image sizes
+            image={product.image}
           />
           <PackagePortrait
             className={`variant--${product.color}`}

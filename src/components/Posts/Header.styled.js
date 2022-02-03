@@ -4,11 +4,16 @@ import styled from 'styled-components';
 import { queries } from '@utils/rwd';
 
 export const StyledHeader = styled.header`
-  height: 100vh;
-  margin-bottom: ${({ theme }) => theme.getMin(96)};
+  position: relative;
+  overflow: hidden;
+  height: 80vh;
 
   @media ${queries.l} {
     height: 56.25vw;
+  }
+
+  @media ${queries.s} {
+    padding-top: 3vh;
   }
 
   @media ${queries.xs} {

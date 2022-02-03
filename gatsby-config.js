@@ -32,20 +32,17 @@ module.exports = {
     },
     {
       options: {
-        background_color: '#663399',
+        background_color: '#007d30',
         display: 'minimal-ui',
-        icon: 'src/images/favicon.png', // This path is relative to the root of the site.
+        icon: 'src/images/favicon.png',
         name: 'Zatogrip 2022',
         short_name: 'zatogrip',
         start_url: '/',
-        theme_color: '#663399', // TODO: set these up
+        theme_color: '#007d30',
       },
       resolve: 'gatsby-plugin-manifest',
     },
     'gatsby-plugin-styled-components',
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.app/offline
-    // 'gatsby-plugin-offline',
   ],
   siteMetadata: {
     author: '@kjhank',

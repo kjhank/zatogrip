@@ -6,10 +6,10 @@ export const List = styled.ul`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: min(1.5em, 1.3vw);
+  gap: min(1.25em, 1.3vw);
   color: ${({ theme }) => theme.colors.gradient.from};
   font-size: clamp(16px, 1.354167vw, 26px);
-  font-family: ${({ theme }) => theme.getFont('heading')};
+  font-family: ${({ theme }) => theme.getFont()};
 
   @media ${queries.xs} {
     gap: 1em;
@@ -21,6 +21,10 @@ export const Item = styled.li`
   display: inline-flex;
   align-items: baseline;
   gap: min(1em, 1.5625vw);
+
+  > span {
+    white-space: pre;
+  }
 `;
 
 export const Bullet = styled.div`

@@ -60,10 +60,10 @@ export const BackgroundPortrait = styled(WPImage)`
 
 export const Intro = styled.p`
   margin: min(70px, 3.645833vw) 0 min(84px, 4.375vw);
-  font-weight: bold;
   font-size: clamp(14px, 1.25vw, 24px);
 
   @media ${queries.xs} {
+    margin-top: 2em;
     font-size: clamp(24px, 2.5vw, 48px);
   }
 `;
@@ -86,6 +86,10 @@ export const SingleTrigger = styled.li`
   position: relative;
   padding-left: 25%;
 
+  @media ${queries.l} {
+    padding-left: 10%;
+  }
+
   @media ${queries.m} {
     padding-left: 5%;
   }
@@ -100,25 +104,30 @@ export const SingleTrigger = styled.li`
 export const ArrowWrapper = styled.div`
   aspect-ratio: 1/1;
   display: grid;
+  flex-grow: 0;
+  flex-shrink: 0;
   place-items: center;
   width: ${({ theme }) => theme.getMin(41)};
+  height: ${({ theme }) => theme.getMin(41)};
   margin-left: min(37px, 1.927083vw);
-  border: 1px solid ${({ theme }) => theme.getColor('alt')};
+  border: 1px solid ${({ theme }) => theme.colors.gradient.from};
   border-radius: 50%;
-  background-color: ${({ theme }) => theme.getColor('alt')};
+  background-color: ${({ theme }) => theme.colors.gradient.from};
   color: #fff;
   transition: ${({ theme }) => theme.getTransitions([
     'background-color',
+    'border-color',
     'color',
   ])};
 
   > svg {
-    max-width: 75%;
+    width: 75%;
     height: auto;
   }
 
   @media ${queries.xs} {
     width: max(40px, 10vw);
+    height: max(40px, 10vw);
     margin-left: 1em;
   }
 `;
@@ -135,8 +144,9 @@ export const ModalTrigger = styled.button.attrs({ type: 'button' })`
 
   :hover {
     ${ArrowWrapper} {
+      border-color: ${({ theme }) => theme.colors.gradient.from};
       background-color: #fff;
-      color: ${({ theme }) => theme.getColor('alt')};
+      color: ${({ theme }) => theme.colors.gradient.from};
     }
   }
 
@@ -159,10 +169,15 @@ export const ItemImage = styled(WPImage)`
   top: 50%;
   left: ${({ theme }) => theme.getMin(-100)};
   width: 4em;
-  max-width; unset;
+  max-width: unset;
   max-height: unset;
   mix-blend-mode: multiply;
   transform: translateY(-50%);
+
+  @media ${queries.s} {
+    left: -3em;
+    width: 3em;
+  }
 
   @media ${queries.xs} {
     position: static;

@@ -15,12 +15,30 @@ export const StyledHeader = styled.header`
   transition: ${({ theme }) => theme.getTransitions(['transform'])};
   transform: ${({ isHidden }) => (isHidden ? 'translateY(-100%)' : 'translateY(0)')};
 
+  @media ${queries.xs} {
+    transform: none;
+  }
+
   > div {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: min(17px, 0.885417vw);
     background-color: #fff;
+
+    @media ${queries.s} {
+      padding: 0.5% 0;
+
+      ::before {
+        content: '';
+        position: absolute;
+        left: 50%;
+        width: 100vh;
+        height: 100%;
+        background-color: #fff;
+        transform: translateX(-50%);
+      }
+    }
 
     @media ${queries.xs} {
       padding: 2.5% 0;
@@ -47,6 +65,16 @@ export const StyledHeader = styled.header`
       transform: scale(1.05);
     }
 
+    @media ${queries.s} {
+      width: 35%;
+      height: auto;
+
+      > svg {
+        width: 100%;
+        height: auto;
+      }
+    }
+
     @media ${queries.xs} {
       width: 65%;
       height: auto;
@@ -56,13 +84,9 @@ export const StyledHeader = styled.header`
 `;
 
 export const Navigation = styled.nav`
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  gap: clamp(10px, 4.010417vw, 77px);
   transition: ${({ theme }) => theme.getTransitions(['transform'])};
 
-  @media ${queries.xs} {
+  @media ${queries.s} {
     position: absolute;
     top: 100%;
     right: 0;
@@ -77,6 +101,25 @@ export const Navigation = styled.nav`
     background-color: #fff;
     transform: ${({ isHidden }) => (isHidden ? 'translate(-50%, -100%)' : 'translate(-50%, 0)')};
   }
+
+  > ul {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: clamp(10px, 4.010417vw, 77px);
+    list-style-type: none;
+
+    @media ${queries.s} {
+      flex-direction: column;
+
+      > li {
+        display: inline-flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+  }
 `;
 
 const commonNavStyle = css`
@@ -89,7 +132,7 @@ const commonNavStyle = css`
   text-transform: uppercase;
   cursor: pointer;
 
-  @media ${queries.xs} {
+  @media ${queries.s} {
     font-size: clamp(18px, 1.875vw, 36vw);
     text-align: center;
   }
@@ -113,7 +156,7 @@ export const Link = styled(GenericLink)`
     background-color: ${({ theme }) => theme.getColor('link')};
     background-repeat: no-repeat;
 
-    @media ${queries.xs} {
+    @media ${queries.s} {
       display: none;
     }
   }
@@ -178,7 +221,8 @@ export const ProductImage = styled(WPImage)`
 
   &.submenu-variant {
     &--mini {
-      left: -20%;
+      left: 50%;
+      transform: translateX(-50%)
     }
 
     &--baby {
@@ -211,26 +255,7 @@ export const ProductLink = styled(GenericLink)`
 
   :hover {
     ${ProductImage} {
-      transform: scale(1.1);
-
-      &.submenu-variant {
-
-        &--baby {
-          transform: scale(1.1) translateX(-50%)
-        }
-
-        &--kids {
-          transform: scale(1.1) translateX(-50%)
-        }
-
-        &--junior {
-          transform: scale(1.1) translateX(-50%)
-        }
-
-        &--forte {
-          transform: scale(1.1) translateX(-50%)
-        }
-      }
+      transform: scale(1.1) translateX(-50%);
     }
   }
 `;
@@ -248,6 +273,12 @@ export const ProductName = styled.h2`
     variant, theme,
   }) => theme.colors.products[variant]};
   }
+
+  br {
+    display: inline-block;
+    content: ' ';
+    width: 0.75ch;
+  }
 `;
 
 export const NavToggle = styled.button`
@@ -256,30 +287,39 @@ export const NavToggle = styled.button`
   z-index: 1;
   display: none;
   width: min(40px, 10vw);
+  height: min(40px, 10vw);
   background-color: #fff;
   transition: ${({ theme }) => theme.getTransitions([
     'transform',
     'box-shadow',
   ])};
-  transform: ${({ isFlipped }) => (isFlipped ? 'rotateZ(180deg) rotateX(180deg)' : 'rotateZ(0) rotateX(0)')};
   transform-style: preserve-3d;
 
   > svg {
     position: absolute;
     top: 50%;
     left: 50%;
-    backface-visibility: hidden;
+    opacity: ${({ isFlipped }) => (isFlipped ? 0 : 1)};
+    height: auto;
+    width: 100%;
+    max-width: 100%;
+    max-height: 100%;
     background-color: #fff;
     fill: ${({ theme }) => theme.getColor('alt')};
     stroke: ${({ theme }) => theme.getColor('alt')};
     transform: translate(-50%, -50%);
+    transition: ${({ theme }) => theme.getTransitions([
+    'opacity',
+    'box-shadow',
+  ])};
 
     :last-child {
-      transform: translate(-50%, -50%) rotateX(180deg);
+      height: 80%;
+      opacity: ${({ isFlipped }) => (isFlipped ? 1 : 0)};
     }
   }
 
-  @media ${queries.xs} {
+  @media ${queries.s} {
     display: block;
   }
 `;
@@ -287,7 +327,7 @@ export const NavToggle = styled.button`
 export const SubNav = styled.nav`
   display: none;
 
-  @media ${queries.xs} {
+  @media ${queries.s} {
     display: flex;
     flex-direction: column;
     gap: 1em;
