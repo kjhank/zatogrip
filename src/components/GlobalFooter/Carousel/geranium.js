@@ -11,18 +11,6 @@ const SvgGeranium = props => (
     xmlnsXlink="http://www.w3.org/1999/xlink"
     {...props}
   >
-    <defs>
-      <clipPath id="clip-path">
-        <rect
-          data-name="Rectangle 33"
-          fill="#fff"
-          height={619.862}
-          id="Rectangle_33"
-          transform="translate(0 0)"
-          width={1066.695}
-        />
-      </clipPath>
-    </defs>
     <g
       data-name="Group 1756"
       id="Group_1756"

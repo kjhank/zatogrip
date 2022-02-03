@@ -113,7 +113,7 @@ export const TopWrapper = styled.div`
 
     @media ${queries.xs} {
       > ul {
-        font-size: max(7vw, 26px);
+        font-size: max(20px, 5vw);
       }
     }
   }

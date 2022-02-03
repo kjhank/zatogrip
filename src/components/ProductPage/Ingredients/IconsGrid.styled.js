@@ -67,6 +67,6 @@ export const Caption = styled.figcaption`
   text-align: center;
 
   @media ${queries.xs} {
-    font-size: min(20px, 5vw);
+    font-size: min(16px,4vw);
   }
 `;

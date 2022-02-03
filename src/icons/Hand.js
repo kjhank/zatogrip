@@ -11,19 +11,7 @@ const SvgHand = props => (
     xmlnsXlink="http://www.w3.org/1999/xlink"
     {...props}
   >
-    {/* <defs>
-      <clipPath id="clip-path">
-        <rect
-          data-name="Rectangle 376"
-          fill="#00572c"
-          height={42.332}
-          id="Rectangle_376"
-          width={34.853}
-        />
-      </clipPath>
-    </defs> */}
     <g
-      // clipPath="url(#clip-path)"
       data-name="Group 1817"
       id="Group_1817"
     >

@@ -6,7 +6,7 @@ import { SectionHeading } from '@components/styled';
 import { ArrowLink } from '@components';
 
 import {
-  Heading, Text, Wrapper,
+  Text, Wrapper,
 } from './CookiesAlert.styled';
 
 const sanitizeConfig = {
@@ -35,5 +35,6 @@ CookiesAlert.propTypes = {
     heading: PropTypes.string,
     message: PropTypes.string,
   }).isRequired,
+  isVisible: PropTypes.bool.isRequired,
 };
 

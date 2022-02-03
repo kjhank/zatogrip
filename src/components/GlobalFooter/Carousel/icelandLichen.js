@@ -11,17 +11,6 @@ const SvgIcelandLichen = props => (
     xmlnsXlink="http://www.w3.org/1999/xlink"
     {...props}
   >
-    <defs>
-      <clipPath id="clip-path">
-        <rect
-          data-name="Rectangle 443"
-          fill="#fff"
-          height={762.814}
-          id="Rectangle_443"
-          width={595.539}
-        />
-      </clipPath>
-    </defs>
     <g
       data-name="Group 1968"
       id="Group_1968"

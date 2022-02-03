@@ -9,17 +9,6 @@ const SvgBlackLilac = props => (
     xmlnsXlink="http://www.w3.org/1999/xlink"
     {...props}
   >
-    <defs>
-      <clipPath id="clip-path">
-        <rect
-          data-name="Rectangle 32"
-          fill="#fff"
-          height={711.391}
-          id="Rectangle_32"
-          width={686.122}
-        />
-      </clipPath>
-    </defs>
     <g
       data-name="Group 1754"
       id="Group_1754"

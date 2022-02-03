@@ -11,18 +11,6 @@ const SvgZinc = props => (
     xmlnsXlink="http://www.w3.org/1999/xlink"
     {...props}
   >
-    <defs>
-      <clipPath id="clip-path">
-        <rect
-          data-name="Rectangle 449"
-          fill="#fff"
-          height={689}
-          id="Rectangle_449"
-          transform="translate(0.118 0.117)"
-          width={689}
-        />
-      </clipPath>
-    </defs>
     <g
       data-name="Group 1982"
       id="Group_1982"
