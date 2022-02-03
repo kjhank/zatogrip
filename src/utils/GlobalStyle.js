@@ -118,6 +118,10 @@ export const GlobalStyle = createGlobalStyle`
     display: block;
   }
 
+  html {
+    overflow: ${({ shouldScroll }) => (shouldScroll ? 'auto' : 'hidden')}
+  }
+
   body {
     overflow: hidden;
     max-width: min(1920px, 100vw);
