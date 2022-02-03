@@ -87,21 +87,14 @@ export const TopWrapper = styled.div`
   ${ContentWrapper} {
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: flex-start;
     gap: min(1em, 1.302083vw);
 
     > ul {
-      margin-top: auto;
       margin-bottom: 1em;
       font-family: ${({ theme }) => theme.getFont('heading')};
       padding-right: 5%;
-    }
-
-    &.variant--tabletki-zatogrip-forte {
-      > ul {
-        margin-top: unset;
-      }
     }
 
     @media ${queries.s} {
