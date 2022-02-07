@@ -2,12 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import {
-  FunSection, HeroSection, PostsSection, ProductsSection, TilesSection, VideoSection,
+  FunSection, HeroSection, PostsSection, ProductsSection, TilesSection,
 } from '@components/HomePage';
 import { Main } from '@components/styled';
 
 export const Home = ({
-  fun, hero, navItems, posts, products, tiles, video,
+  fun, hero, navItems, posts, products, tiles, // video,
 }) => (
   <Main>
     <HeroSection content={hero} />
@@ -19,7 +19,6 @@ export const Home = ({
       content={products}
       innerRef={navItems.find(({ section }) => section === 'products').innerRef}
     />
-    <VideoSection content={video} />
     <PostsSection
       content={posts}
       innerRef={navItems.find(({ section }) => section === 'support').innerRef}

@@ -13,7 +13,7 @@ import {
 import '../../../static/fonts/stylesheet.css';
 
 import {
-  debounceFunction, isBrowser,
+  debounceFunction, isBrowser, isMobile,
 } from '@utils/helpers';
 import { Seo } from './Seo';
 import {
@@ -97,7 +97,10 @@ const Layout = ({
   }, []);
 
   const handleScroll = ({ current: element }) => {
-    const scrollOffset = element.getBoundingClientRect().top + window.scrollY;
+    const scrollOffset =
+    element.getBoundingClientRect().top +
+    window.scrollY -
+    (isMobile ? 100 : 0);
 
     const scrollConfig = {
       behavior: 'smooth',
@@ -180,6 +183,7 @@ Layout.propTypes = {
   }).isRequired,
   pageContext: PropTypes.shape({
     carousel: PropTypes.shape({}),
+    cookies: PropTypes.shape({}),
     globals: PropTypes.shape({
       acf: PropTypes.shape({
         products: PropTypes.arrayOf(PropTypes.shape({})),

@@ -29,7 +29,7 @@ export const CookiesAlert = ({
 );
 
 CookiesAlert.propTypes = {
-  confirmCookies: PropTypes.string.isRequired,
+  confirmCookies: PropTypes.func.isRequired,
   content: PropTypes.shape({
     confirmText: PropTypes.string,
     heading: PropTypes.string,
