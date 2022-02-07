@@ -11,17 +11,6 @@ const SvgAdvertisea = props => (
     xmlnsXlink="http://www.w3.org/1999/xlink"
     {...props}
   >
-    <defs>
-      <clipPath id="clip-path">
-        <rect
-          data-name="Rectangle 446"
-          fill="#fff"
-          height={757.566}
-          id="Rectangle_446"
-          width={436.992}
-        />
-      </clipPath>
-    </defs>
     <g
       data-name="Group 1975"
       id="Group_1975"

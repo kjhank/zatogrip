@@ -7,13 +7,13 @@ import smoothscroll from 'smoothscroll-polyfill';
 import { Theme } from '@theme/main';
 import { GlobalStyle } from '@utils';
 import {
-  GlobalFooter, GlobalHeader, ProductsMenu,
+  CookiesAlert, GlobalFooter, GlobalHeader, ProductsMenu,
 } from '@components';
 
 import '../../../static/fonts/stylesheet.css';
 
 import {
-  debounceFunction, isBrowser,
+  debounceFunction, isBrowser, isMobile,
 } from '@utils/helpers';
 import { Seo } from './Seo';
 import {
@@ -26,8 +26,8 @@ const Layout = ({
   children, location, pageContext, path,
 }) => {
   const [
-    isCookiesModalOpen,
-    setCookiesModalOpen,
+    isCookiesAlertOpen,
+    setCookiesAlertOpen,
   ] = useState(false);
 
   const [
@@ -52,8 +52,13 @@ const Layout = ({
   useEffect(() => {
     const hasUserAgreed = localStorage.getItem(COOKIES_LS_KEY);
 
-    setCookiesModalOpen(!hasUserAgreed);
+    setCookiesAlertOpen(!hasUserAgreed);
   }, []);
+
+  const confirmCookies = () => {
+    localStorage.setItem(COOKIES_LS_KEY, true);
+    setCookiesAlertOpen(false);
+  };
 
   const seoData = {
     ...pageContext?.metadata?.yoast,
@@ -92,7 +97,10 @@ const Layout = ({
   }, []);
 
   const handleScroll = ({ current: element }) => {
-    const scrollOffset = element.getBoundingClientRect().top + window.scrollY;
+    const scrollOffset =
+    element.getBoundingClientRect().top +
+    window.scrollY -
+    (isMobile ? 100 : 0);
 
     const scrollConfig = {
       behavior: 'smooth',
@@ -130,7 +138,7 @@ const Layout = ({
   return (
     <Theme>
       <Seo data={seoData} />
-      <GlobalStyle shouldScroll={!isCookiesModalOpen} />
+      <GlobalStyle shouldScroll={!isCookiesAlertOpen} />
       <GlobalHeader
         handleMouse={handleMouseOver}
         handleScroll={handleScroll}
@@ -154,8 +162,12 @@ const Layout = ({
         content={pageContext?.globals?.acf}
         hasCarousel={pageContext?.hasCarousel}
       />
+      <CookiesAlert
+        confirmCookies={confirmCookies}
+        content={pageContext?.cookies}
+        isVisible={isCookiesAlertOpen}
+      />
     </Theme>
-
   );
 };
 
@@ -171,6 +183,7 @@ Layout.propTypes = {
   }).isRequired,
   pageContext: PropTypes.shape({
     carousel: PropTypes.shape({}),
+    cookies: PropTypes.shape({}),
     globals: PropTypes.shape({
       acf: PropTypes.shape({
         products: PropTypes.arrayOf(PropTypes.shape({})),

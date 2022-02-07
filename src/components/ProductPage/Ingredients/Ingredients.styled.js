@@ -41,7 +41,7 @@ export const Footnotes = styled.footer`
   }
 
   @media ${queries.xs} {
-    font-size: min(16px, 4vw);
+    font-size: min(16px, 3vw);
     text-align: center;
   }
 `;

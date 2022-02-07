@@ -23,7 +23,7 @@ export const Item = styled.li`
   gap: min(1em, 1.5625vw);
 
   > span {
-    white-space: pre;
+    white-space: pre-line;
   }
 `;
 

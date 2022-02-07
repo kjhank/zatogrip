@@ -5,23 +5,12 @@ const SvgGeraniumLeft = props => (
     data-name="Component 6 \u2013 1"
     height={619.862}
     id="Component_6_1"
+    viewBox="0 0 1066.695 619.862"
     width={1066.695}
     xmlns="http://www.w3.org/2000/svg"
     xmlnsXlink="http://www.w3.org/1999/xlink"
     {...props}
   >
-    <defs>
-      <clipPath id="clip-path">
-        <rect
-          data-name="Rectangle 33"
-          fill="#fff"
-          height={619.862}
-          id="Rectangle_33"
-          transform="translate(0 0)"
-          width={1066.695}
-        />
-      </clipPath>
-    </defs>
     <g
       data-name="Group 1967"
       id="Group_1967"

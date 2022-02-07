@@ -5,22 +5,12 @@ const SvgGinger = props => (
     data-name="Component 13 \u2013 1"
     height={626.257}
     id="Component_13_1"
+    viewBox="0 0 913.543 626.257"
     width={913.543}
     xmlns="http://www.w3.org/2000/svg"
     xmlnsXlink="http://www.w3.org/1999/xlink"
     {...props}
   >
-    <defs>
-      <clipPath id="clip-path">
-        <rect
-          data-name="Rectangle 450"
-          fill="#fff"
-          height={626.257}
-          id="Rectangle_450"
-          width={913.543}
-        />
-      </clipPath>
-    </defs>
     <g
       data-name="Group 1983"
       id="Group_1983"

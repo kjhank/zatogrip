@@ -16,8 +16,13 @@ export const Section = styled.section`
     color: ${({ theme }) => theme.getColor('main')};
     font-size: clamp(14px, 1.25vw, 24px);
 
+    @media ${queries.xs} {
+      font-size: max(20px, 5vw);
+    }
+
     @media ${queries.tiny} {
       width: 100%;
+      font-size: max(16px, 5vw);
     }
   }
 `;

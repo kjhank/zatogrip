@@ -44,6 +44,10 @@ export const StaticHeading = styled.h2`
     padding: 0.5em;
     font-size: clamp(35px, 3.125vw, 60px);
   }
+
+  @media ${queries.tiny} {
+    font-size: max(20px, 5vw);
+  }
 `;
 
 export const NavButton = styled.button`
@@ -210,5 +214,9 @@ export const Text = styled.p`
 
   @media ${queries.xs} {
     font-size: ${({ fontSize }) => `${fontSize * 0.4}px`};
+  }
+
+  @media ${queries.tiny} {
+    font-size: max(20px, 5vw);
   }
 `;

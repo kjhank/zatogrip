@@ -82,7 +82,7 @@ export const Description = styled.p`
 
   @media ${queries.xs} {
     margin: 0;
-    font-size: clamp(24px, 2.5vw, 48px);
+    font-size: max(20px, 5vw);
     text-align: left;
 
     b,

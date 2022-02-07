@@ -45,6 +45,10 @@ export const Contacts = styled.ul`
     font-size: clamp(14px, 1.458333vw, 28px);
     transform: translateY(-35%);
   }
+
+  @media ${queries.tiny} {
+    font-size: min(12px, 3vw);
+  }
 `;
 
 export const Contact = styled.li`

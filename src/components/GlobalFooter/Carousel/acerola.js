@@ -11,17 +11,6 @@ const SvgAcerola = props => (
     xmlnsXlink="http://www.w3.org/1999/xlink"
     {...props}
   >
-    <defs>
-      <clipPath id="clip-path">
-        <rect
-          data-name="Rectangle 445"
-          fill="#fff"
-          height={625.935}
-          id="Rectangle_445"
-          width={821.968}
-        />
-      </clipPath>
-    </defs>
     <g
       data-name="Group 1973"
       id="Group_1973"

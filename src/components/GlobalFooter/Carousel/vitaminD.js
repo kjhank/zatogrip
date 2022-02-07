@@ -11,17 +11,6 @@ const SvgVitaminDLeft = props => (
     xmlnsXlink="http://www.w3.org/1999/xlink"
     {...props}
   >
-    <defs>
-      <clipPath id="clip-path">
-        <rect
-          data-name="Rectangle 447"
-          fill="#fff"
-          height={740.722}
-          id="Rectangle_447"
-          width={740.662}
-        />
-      </clipPath>
-    </defs>
     <g
       data-name="Group 1978"
       id="Group_1978"

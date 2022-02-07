@@ -86,6 +86,11 @@ const getContext = async (pageData, settings, globals, { acf: { carousel } }, al
   } = acf;
 
   const globalContext = {
+    cookies: {
+      confirmText: globals?.acf?.confirmText,
+      heading: globals?.acf?.heading,
+      message: globals?.acf?.message,
+    },
     globals,
     metadata: {
       globals: {

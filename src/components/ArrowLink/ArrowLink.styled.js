@@ -54,6 +54,10 @@ const commonStyle = css`
   @media ${queries.s} {
     padding: ${({ theme }) => `${theme.getMin(16)} ${theme.getMin(24)}`};
   }
+
+  @media ${queries.xs} {
+    padding: 0.5em 1em;
+  }
 `;
 
 export const Link = styled(GenericLink)`
