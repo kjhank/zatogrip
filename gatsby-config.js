@@ -42,6 +42,18 @@ module.exports = {
       },
       resolve: 'gatsby-plugin-manifest',
     },
+    {
+      options: {
+        id: process.env.GTM_ID,
+      },
+      resolve: 'gatsby-plugin-google-tagmanager',
+    },
+    {
+      options: {
+        trackingId: process.env.GA_ID,
+      },
+      resolve: 'gatsby-plugin-google-analytics',
+    },
     'gatsby-plugin-styled-components',
   ],
   siteMetadata: {

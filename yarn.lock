@@ -7609,6 +7609,35 @@ __metadata:
   languageName: node
   linkType: hard
 
+"gatsby-plugin-google-analytics@npm:^4.7.0":
+  version: 4.7.0
+  resolution: "gatsby-plugin-google-analytics@npm:4.7.0"
+  dependencies:
+    "@babel/runtime": ^7.15.4
+    minimatch: 3.0.4
+    web-vitals: ^1.1.2
+  peerDependencies:
+    gatsby: ^4.0.0-next
+    react: ^16.9.0 || ^17.0.0
+    react-dom: ^16.9.0 || ^17.0.0
+  checksum: 8224c06767ea34e74c383f56eab7817624ef37cb96eb734a9c6dc17fb2354716dcebe73ad49d102b026dad2ff2028eec5fdfa4d5504ef034262428ee12f02f68
+  languageName: node
+  linkType: hard
+
+"gatsby-plugin-google-tagmanager@npm:^4.7.0":
+  version: 4.7.0
+  resolution: "gatsby-plugin-google-tagmanager@npm:4.7.0"
+  dependencies:
+    "@babel/runtime": ^7.15.4
+    web-vitals: ^1.1.2
+  peerDependencies:
+    gatsby: ^4.0.0-next
+    react: ^16.9.0 || ^17.0.0
+    react-dom: ^16.9.0 || ^17.0.0
+  checksum: d82eb10406268914e67e328d9060f4f598915150875da726f65a1d49f75cff80470eae1e0d825bb0a77457d8a96e2337c687f0bf2df0c8bd6685692e51be88a9
+  languageName: node
+  linkType: hard
+
 "gatsby-plugin-image@npm:^2.0.0":
   version: 2.6.0
   resolution: "gatsby-plugin-image@npm:2.6.0"
@@ -15746,6 +15775,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"web-vitals@npm:^1.1.2":
+  version: 1.1.2
+  resolution: "web-vitals@npm:1.1.2"
+  checksum: 92071029089277166e11141b735831d9011e85737d32c1360034676db898ab0ca95f19041ee01904f2189ad6e711b9da6b17567e4831290a429a586c98bc573f
+  languageName: node
+  linkType: hard
+
 "webidl-conversions@npm:^3.0.0":
   version: 3.0.1
   resolution: "webidl-conversions@npm:3.0.1"
@@ -16423,6 +16459,8 @@ __metadata:
     eslint-plugin-react-hooks: ^4.3.0
     gatsby: ^4.5.2
     gatsby-plugin-alias-imports: ^1.0.5
+    gatsby-plugin-google-analytics: ^4.7.0
+    gatsby-plugin-google-tagmanager: ^4.7.0
     gatsby-plugin-image: ^2.0.0
     gatsby-plugin-manifest: ^4.0.0
     gatsby-plugin-netlify: ^4.1.0
