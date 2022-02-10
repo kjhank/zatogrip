@@ -113,7 +113,7 @@ export const Badge = styled.p`
 export const BadgeLink = styled(ExternalLink)`
   ${badgeStyles}
   filter: none;
-  background-color: ${({ theme }) => theme.getColor('accent')};
+  background-color: rgb(66, 149, 209);
   transition: ${({ theme }) => theme.getTransitions([
     'filter',
     'transform',
