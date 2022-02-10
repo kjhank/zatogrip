@@ -1,10 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import sanitize from 'sanitize-html';
+import { Link } from 'gatsby';
 
 import { Container } from '@components';
 import {
-  Excerpt, Grid, Image, Item, Link, Title, Wrapper,
+  Excerpt, Grid, Image, Item, MoreText, Title, Wrapper,
 } from './PostsGrid.styled';
 
 export const PostsGrid = ({
@@ -15,10 +16,12 @@ export const PostsGrid = ({
       <Grid>
         {posts.map(post => (
           <Item key={post.slug}>
-            <Image image={post.cover} />
-            <Title dangerouslySetInnerHTML={{ __html: sanitize(post.title) }} />
-            <Excerpt>{post.excerpt}</Excerpt>
-            <Link to={`/${post.slug}/`}>{linkText}</Link>
+            <Link to={`/${post.slug}/`}>
+              <Image image={post.cover} />
+              <Title dangerouslySetInnerHTML={{ __html: sanitize(post.title) }} />
+              <Excerpt>{post.excerpt}</Excerpt>
+              <MoreText customAs="div">{linkText}</MoreText>
+            </Link>
           </Item>
         ))}
       </Grid>

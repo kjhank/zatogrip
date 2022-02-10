@@ -57,7 +57,7 @@ export const Excerpt = styled.p`
   font-size: clamp(10px, 1.145833vw, 20px);
 `;
 
-export const Link = styled(ArrowLink)`
+export const MoreText = styled(ArrowLink)`
   margin-top: auto;
   font-size: clamp(10px, 0.729167vw, 16px);
 
@@ -68,17 +68,23 @@ export const Link = styled(ArrowLink)`
 `;
 
 export const Item = styled.li`
+  > a {
   display: flex;
   flex-shrink: 0;
   flex-direction: column;
   align-items: flex-start;
 
   :hover {
-    ${Image} {
-      > img {
-        filter: brightness(1.05);
-        transform: scale(1.05) translate3d(0, 0, 0);
+    > div {
+      background-size: 150%;
+
+      ::before {
+        filter: brightness(1.2);
+      }
+
+      > svg {
+        transform: translateX(50%);
       }
     }
-  }
+}
 `;
