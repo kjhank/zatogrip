@@ -11,5 +11,6 @@
       "@theme": ["./src/theme/*"],
       "@utils": ["./src/utils/*"]
     }
-  }
+  },
+  "exclude": ["node_modules/*"]
 }

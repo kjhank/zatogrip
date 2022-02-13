@@ -29,6 +29,7 @@ const theme = {
     light: '#d5d5d5',
     link: '#559303',
     main: '#717171',
+    player: '#bb181b',
     products: {
       baby: '#5a9407',
       forte: '#00461c',
