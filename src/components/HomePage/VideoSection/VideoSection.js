@@ -35,10 +35,8 @@ export const VideoSection = ({
   }, []);
 
   useEffect(() => {
-    // if (videoRef.current) {
     videoRef.current.addEventListener('play', handleVideoState);
     videoRef.current.addEventListener('pause', handleVideoState);
-    // }
   }, []);
 
   return (
@@ -61,7 +59,10 @@ export const VideoSection = ({
             />
             Your browser can&apos;t play videos
           </Video>
-          <PlayButton isActive={!isVideoPlaying}>
+          <PlayButton
+            isActive={!isVideoPlaying}
+            onClick={handlePlayback}
+          >
             <Play />
           </PlayButton>
         </VideoWrapper>
