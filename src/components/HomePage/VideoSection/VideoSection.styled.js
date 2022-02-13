@@ -19,6 +19,7 @@ export const PlayButton = styled.button.attrs({ type: 'button' })`
   ])};
   transform: ${({ isActive }) => (isActive ? 'translate(-50%, -50%) scale(1)' : 'translate(-50%, -50%) scale(0)')};
   pointer-events: ${({ isActive }) => (isActive ? 'all' : 'none')};
+  cursor: pointer;
 
   > svg {
     fill: currentColor;
