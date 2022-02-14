@@ -49,7 +49,12 @@ export const VideoWrapper = styled.div`
 `;
 
 export const Video = styled.video`
+  display: block;
+  width: auto;
   max-width: 100%;
+  height: 100%;
+  max-height: 85vh;
+  margin: auto;
   border-radius: ${({ theme }) => theme.getRadius('tiny')};
   cursor: pointer;
 
