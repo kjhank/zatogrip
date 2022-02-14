@@ -9,6 +9,8 @@ export const PlayButton = styled.button.attrs({ type: 'button' })`
   top: 50%;
   left: 50%;
   opacity: ${({ isActive }) => (isActive ? 1 : 0)};
+  width: 14%;
+  height: auto;
   padding: 0;
   background-color: transparent;
   color: ${({ theme }) => theme.getColor('accent')};

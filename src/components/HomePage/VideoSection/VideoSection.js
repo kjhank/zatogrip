@@ -22,11 +22,14 @@ export const VideoSection = ({
     setVideoPlaying,
   ] = useState(false);
   const videoRef = useRef();
-  const handlePlayback = ({ target }) => {
-    if (target.paused) {
-      target.play();
+
+  const handlePlayback = () => {
+    const { current: videoNode } = videoRef;
+
+    if (videoNode.paused) {
+      videoNode.play();
     } else {
-      target.pause();
+      videoNode.pause();
     }
   };
 
@@ -35,8 +38,15 @@ export const VideoSection = ({
   }, []);
 
   useEffect(() => {
-    videoRef.current.addEventListener('play', handleVideoState);
-    videoRef.current.addEventListener('pause', handleVideoState);
+    const { current: videoNode } = videoRef;
+
+    videoNode.addEventListener('play', handleVideoState);
+    videoNode.addEventListener('pause', handleVideoState);
+
+    return () => {
+      videoNode.removeEventListener('play', handleVideoState);
+      videoNode.removeEventListener('pause', handleVideoState);
+    };
   }, []);
 
   return (
