@@ -27,6 +27,10 @@ export const PlayButton = styled.button.attrs({ type: 'button' })`
     height: auto;
   }
 
+  :hover {
+    filter: brightness(1.1) contrast(1.1);
+  }
+
   @media ${queries.m} {
     width: 15vw;
     height: auto;
