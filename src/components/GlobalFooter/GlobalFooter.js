@@ -71,7 +71,7 @@ export const GlobalFooter = ({
           <ul>
             {content?.emails.map(({ email }) => (
               <li key={email}>
-                <GenericLink href={email}>{email}</GenericLink>
+                <GenericLink href={`mailto:${email}`}>{email}</GenericLink>
               </li>
             ))}
           </ul>
