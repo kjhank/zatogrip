@@ -82,7 +82,7 @@ const getContext = async (pageData, settings, globals, { acf: { carousel } }, al
   } = pageData;
 
   const {
-    hasCarousel, isInactive, // TODO: create inactive page
+    hasCarousel, isInactive, // TODO: create inactive page template
   } = acf;
 
   const globalContext = {

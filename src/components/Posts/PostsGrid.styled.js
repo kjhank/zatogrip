@@ -86,5 +86,6 @@ export const Item = styled.li`
         transform: translateX(50%);
       }
     }
+  }
 }
 `;
