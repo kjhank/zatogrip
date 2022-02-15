@@ -23,6 +23,18 @@ export const Wrapper = styled.aside`
   @media ${queries.xs} {
     width: 95vw;
   }
+
+  @media ${queries.xtiny} {
+    > h2 {
+      font-size: 24px;
+    }
+  }
 `;
 
-export const Text = styled.article``;
+export const Text = styled.article`
+  @media ${queries.xtiny} {
+    margin: 2em 0;
+    font-size: 14px;
+    text-align: center;
+  }
+`;

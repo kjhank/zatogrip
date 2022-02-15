@@ -34,8 +34,13 @@ export const Wrapper = styled.aside`
 
   @media ${queries.xs} {
     width: 90vw;
-    padding: min(1vw, 4px);
     border-radius: ${({ theme }) => theme.getRadius('tiny')};
+    padding: min(1vw, 4px);
+  }
+
+  @media ${queries.xtiny} {
+  filter: ${({ theme }) => `drop-shadow(${theme.getMin(10)} ${theme.getMin(20)} ${theme.getMin(64)} rgba(0, 0, 0, 0.29))`};
+
   }
 `;
 
@@ -81,5 +86,6 @@ export const CloseButton = styled.button`
 
   @media ${queries.xs} {
     width: max(10vw, 40px);
+    height: max(10vw, 40px);
   }
 `;

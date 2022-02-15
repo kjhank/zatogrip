@@ -197,6 +197,11 @@ export const ItemsGrid = styled.ul`
   @media ${queries.xs} {
     grid-template-columns: repeat(2, 1fr);
   }
+
+  @media ${queries.tiny} {
+    grid-gap: 2em;
+    margin-top: 2em;
+  }
 `;
 
 export const SingleItem = styled.li`
@@ -209,6 +214,10 @@ export const SingleItem = styled.li`
     a {
       padding: 0.5em 1em;
     }
+  }
+
+  @media ${queries.tiny} {
+    font-size: 14px;
   }
 `;
 

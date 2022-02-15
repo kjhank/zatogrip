@@ -12,6 +12,7 @@ export const breakpoints = {
   xxsplus: 512,
   xxs: 400,
   tiny: 360,
+  xtiny: 320,
 };
 
 const queries = {

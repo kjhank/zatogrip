@@ -22,6 +22,12 @@ export const Wrapper = styled.section`
       gap: 2em;
       background-image: unset;
     }
+
+    @media ${queries.xtiny} {
+      *:not(:first-child) {
+        margin-top: 2em;
+      }
+    }
   }
 `;
 
@@ -60,6 +66,14 @@ export const Badge = styled(WPImage)`
 
     &.tabletki-zatogrip-forte {
       width: ${({ image }) => `min(${image.width / 2}px, 50%)`};
+    }
+  }
+
+  @media ${queries.xtiny} {
+    width: ${({ image }) => `min(${image.width / 2}px, 50%)`};
+
+    &.tabletki-zatogrip-forte {
+      width: ${({ image }) => `min(${image.width / 2}px, 30%)`};
     }
   }
 `;

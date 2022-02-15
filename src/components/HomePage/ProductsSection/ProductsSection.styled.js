@@ -166,6 +166,10 @@ export const ProductLink = styled(Link)`
     height: min(45vw, 175px);
     font-size: max(10vw, 48px);
   }
+
+  @media ${queries.xtiny} {
+    font-size: 32px;
+  }
 `;
 
 export const ProductGroup = styled.li`
@@ -188,6 +192,16 @@ export const ProductGroup = styled.li`
       margin-left: unset;
     }
   }
+
+  @media ${queries.xtiny} {
+    :not(:first-child) {
+      margin-top: 64px;
+
+      @supports (gap: max(50px, 10vh)) {
+        margin-top: 0;
+      }
+    }
+  }
 `;
 
 export const Product = styled.article`
@@ -200,6 +214,16 @@ export const Product = styled.article`
     align-items: center;
     width: 100%;
     height: 100%;
+  }
+
+@media ${queries.xtiny} {
+    :not(:first-child) {
+      margin-top: 64px;
+
+      @supports (gap: max(50px, 10vh)) {
+        margin-top: 0;
+      }
+    }
   }
 `;
 

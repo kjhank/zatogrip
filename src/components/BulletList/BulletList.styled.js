@@ -25,6 +25,14 @@ export const Item = styled.li`
   > span {
     white-space: pre-line;
   }
+
+  @media ${queries.xtiny} {
+    font-size: 16px;
+
+    & + & {
+      margin-top: 1em;
+    }
+  }
 `;
 
 export const Bullet = styled.div`
@@ -53,5 +61,9 @@ export const Bullet = styled.div`
     > svg {
       width: 0.5em;
     }
+  }
+
+  @media ${queries.xtiny} {
+    margin-right: 1em;
   }
 `;

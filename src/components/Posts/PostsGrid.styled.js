@@ -22,6 +22,10 @@ export const Grid = styled.ul`
   @media ${queries.xs} {
     grid-template-columns: repeat(2, 1fr);
   }
+
+  @media ${queries.tiny} {
+    grid-template-columns: 1fr;
+  }
 `;
 
 export const Title = styled.h2`
@@ -69,23 +73,27 @@ export const MoreText = styled(ArrowLink)`
 
 export const Item = styled.li`
   > a {
-  display: flex;
-  flex-shrink: 0;
-  flex-direction: column;
-  align-items: flex-start;
+    display: flex;
+    flex-shrink: 0;
+    flex-direction: column;
+    align-items: flex-start;
 
-  :hover {
-    > div {
-      background-size: 150%;
+    :hover {
+      > div {
+        background-size: 150%;
 
-      ::before {
-        filter: brightness(1.2);
-      }
+        ::before {
+          filter: brightness(1.2);
+        }
 
-      > svg {
-        transform: translateX(50%);
+        > svg {
+          transform: translateX(50%);
+        }
       }
     }
   }
+
+@media ${queries.tiny} {
+  margin-top: 1em;
 }
 `;
