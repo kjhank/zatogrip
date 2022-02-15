@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 import styled, { css } from 'styled-components';
 import { Link as GenericLink } from 'gatsby';
 import { WPImage } from '@components';
@@ -135,6 +136,12 @@ const commonNavStyle = css`
   @media ${queries.s} {
     font-size: clamp(18px, 1.875vw, 36vw);
     text-align: center;
+  }
+
+  @media ${queries.xtiny} {
+    margin: 0.25em 0;
+    padding: 0.5em 0;
+    font-size: 14px;
   }
 `;
 
@@ -275,8 +282,8 @@ export const ProductName = styled.h2`
   }
 
   br {
-    display: inline-block;
     content: ' ';
+    display: inline-block;
     width: 0.75ch;
   }
 `;
@@ -300,22 +307,22 @@ export const NavToggle = styled.button`
     top: 50%;
     left: 50%;
     opacity: ${({ isFlipped }) => (isFlipped ? 0 : 1)};
-    height: auto;
     width: 100%;
     max-width: 100%;
+    height: auto;
     max-height: 100%;
     background-color: #fff;
     fill: ${({ theme }) => theme.getColor('alt')};
     stroke: ${({ theme }) => theme.getColor('alt')};
-    transform: translate(-50%, -50%);
     transition: ${({ theme }) => theme.getTransitions([
     'opacity',
     'box-shadow',
   ])};
+    transform: translate(-50%, -50%);
 
     :last-child {
-      height: 80%;
       opacity: ${({ isFlipped }) => (isFlipped ? 1 : 0)};
+      height: 80%;
     }
   }
 
@@ -332,6 +339,10 @@ export const SubNav = styled.nav`
     flex-direction: column;
     gap: 1em;
     margin-top: 1em;
+  }
+
+  @media ${queries.xtiny} {
+    margin-top: unset;
   }
 `;
 

@@ -50,6 +50,10 @@ export const Image = styled(WPImage)`
     object-fit: contain;
     object-position: center;
   }
+
+  @media ${queries.tiny} {
+    height: 35vw;
+  }
 `;
 
 export const Figure = styled.figure`

@@ -1,3 +1,5 @@
+/* stylelint-disable no-descending-specificity */
+
 import styled, { css } from 'styled-components';
 import { rgba } from 'polished';
 
@@ -28,8 +30,16 @@ export const Section = styled.section`
   @media ${queries.tiny} {
     > div {
       > h2 {
-        font-size: min(12vw, 36px);
         padding: 0;
+        font-size: min(12vw, 36px);
+      }
+    }
+  }
+
+  @media ${queries.xtiny} {
+    > div {
+      > h2 {
+        font-size: 32px;
       }
     }
   }
@@ -61,6 +71,23 @@ export const MobileTiles = styled.div`
 
     .swiper-wrapper {
       padding: 2em 0 4em;
+    }
+  }
+
+  @media ${queries.xtiny} {
+    height: 100vw;
+
+    .swiper,
+    .swiper-wrapper {
+      height: 100%;
+    }
+
+    .swiper {
+      padding: 2em 0;
+    }
+
+    .swiper-wrapper {
+      padding: 0;
     }
   }
 `;
@@ -140,6 +167,12 @@ export const SingleTile = styled.li`
     flex-shrink: 0;
     transform: ${({ isFlipped }) => (isFlipped ? 'rotateY(180deg) scale(1)' : 'rotateY(0) scale(1)')};
   }
+
+  @media ${queries.xtiny} {
+    width: 100%;
+    height: 100%;
+    transform: ${({ isFlipped }) => (isFlipped ? 'rotateY(180deg) scale(1.1)' : 'rotateY(0) scale(1)')};
+  }
 `;
 
 const tileCommonStyle = css`
@@ -181,6 +214,10 @@ export const TileFront = styled.div`
   @media ${queries.tiny} {
     font-size: min(24px, 8vw);
   }
+
+  @media ${queries.xtiny} {
+    font-size: 18px;
+  }
 `;
 
 export const TileBack = styled.div`
@@ -206,6 +243,14 @@ export const TileBack = styled.div`
   @media ${queries.tiny} {
     font-size: min(14px, 4vw);
   }
+
+  @media ${queries.xtiny} {
+    font-size: 12px;
+
+    > p {
+      width: 50%;
+    }
+  }
 `;
 
 export const FlipButton = styled(ArrowLink)`
@@ -228,6 +273,10 @@ export const FlipButton = styled(ArrowLink)`
     > svg {
       margin-left: 2em;
     }
+  }
+
+  @media ${queries.xtiny} {
+    font-size: 14px;
   }
 `;
 
@@ -265,6 +314,10 @@ export const CloseButton = styled.button.attrs({ type: 'button' })`
     > svg {
       width: min(16px, 2vw);
     }
+  }
+
+  @media ${queries.s} {
+    font-size: 12px;
   }
 
   @media ${queries.xs} {
@@ -315,6 +368,11 @@ export const TileBackground = styled(TileBg)`
   max-height: 90%;
   transform: translate(-50%, -50%);
   pointer-events: none;
+
+  @media ${queries.xtiny} {
+    max-width: 95%;
+    max-height: 95%;
+  }
 `;
 
 export const ArrowTextWrapper = styled.div`
@@ -369,6 +427,10 @@ export const ArrowText = styled.p`
     order: 1;
     margin-top: -2em;
     font-size: clamp(24px, 2.5vw, 48px);
+  }
+
+  @media ${queries.xtiny} {
+    font-size: 20px;
   }
 `;
 

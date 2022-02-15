@@ -93,8 +93,8 @@ export const TopWrapper = styled.div`
 
     > ul {
       margin-bottom: 1em;
-      font-family: ${({ theme }) => theme.getFont('heading')};
       padding-right: 5%;
+      font-family: ${({ theme }) => theme.getFont('heading')};
     }
 
     @media ${queries.s} {
@@ -197,6 +197,10 @@ export const Description = styled.div`
   @media ${queries.s} {
     font-size: max(20px, 5vw);
   }
+
+  @media ${queries.xtiny} {
+    font-size: 18px;
+  }
 `;
 
 export const LinksWrapper = styled.nav`
@@ -237,6 +241,12 @@ export const LinksWrapper = styled.nav`
 
   @media ${queries.xxs} {
     padding: 0 5%;
+  }
+
+  @media ${queries.xtiny} {
+    > a:not(:first-of-type) {
+      margin-top: 2em;
+    }
   }
 `;
 

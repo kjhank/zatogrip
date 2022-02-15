@@ -17,6 +17,10 @@ const contentHeading = css`
     font-size: max(5vw, 32px);
     text-align: center;
   }
+
+  @media ${queries.tiny} {
+    font-size: 24px;
+  }
 `;
 
 export const Content = styled.article`
@@ -46,13 +50,17 @@ export const Content = styled.article`
   }
 
   @media ${queries.xs} {
+    padding: 5% 0;
     font-size: max(4vw, 16px);
 
     ol,
     ul {
       padding-left: 1em;
     }
+  }
 
+  @media ${queries.xtiny} {
+    font-size: 18px;
   }
 `;
 

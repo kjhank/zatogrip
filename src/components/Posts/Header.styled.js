@@ -63,7 +63,7 @@ export const Heading = styled.h1`
 
 export const Intro = styled.div`
   margin: min(25px, 1.302083vw) 0 min(40px, 2.083333vw);
-  font-weight: bold;
+  font-weight: 600;
   font-size: clamp(14px, 1.25vw, 24px);
   line-height: 1.208333;
 

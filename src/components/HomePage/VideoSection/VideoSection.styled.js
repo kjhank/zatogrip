@@ -63,4 +63,8 @@ export const Video = styled.video`
       filter: brightness(1.1) contrast(1.1);
     }
   }
+
+  @media ${queries.xtiny} {
+    max-height: 50vh;
+  }
 `;
