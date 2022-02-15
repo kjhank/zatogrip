@@ -94,6 +94,7 @@ export const NavButton = styled.button`
     bottom: 1em;
     left: ${({ isFlipped }) => !isFlipped && '55%'};
     width: max(50px, 10vw);
+    height: max(50px, 10vw);
 
     > svg {
       width: 50%;

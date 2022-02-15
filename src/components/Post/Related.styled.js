@@ -44,6 +44,10 @@ export const SinglePost = styled.li`
   flex-shrink: 0;
   flex-direction: column;
   align-items: flex-start;
+
+  & + & {
+    margin-top: 48px;
+  }
 `;
 
 export const PostTitle = styled.h3`

@@ -15,4 +15,8 @@ export const SectionHeading = styled.h2`
     line-height: 1;
     text-align: center;
   }
+
+  @media ${queries.xtiny} {
+    font-size: 32px;
+  }
 `;

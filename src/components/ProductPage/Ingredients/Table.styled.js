@@ -11,6 +11,10 @@ export const StyledTable = styled.table`
     width: 100%;
     margin-top: 1em;
   }
+
+  @media ${queries.xtiny} {
+    border-spacing: 5px 10px;
+  }
 `;
 
 export const Head = styled.thead`

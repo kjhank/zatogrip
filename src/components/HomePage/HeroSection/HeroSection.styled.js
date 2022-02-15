@@ -48,6 +48,10 @@ export const Heading = styled.h2`
     width: 100%;
     font-size: clamp(80px, 7.8125vw, 150px);
   }
+
+  @media ${queries.xtiny} {
+    font-size: 40px;
+  }
 `;
 
 const commonBackground = css`

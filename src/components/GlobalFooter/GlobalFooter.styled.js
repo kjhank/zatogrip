@@ -79,6 +79,16 @@ export const Contact = styled.li`
       margin-right: 2em;
     }
   }
+
+  @media ${queries.xtiny} {
+    & + & {
+      margin-top: 2em;
+    }
+
+    > svg {
+      width: 10vw;
+    }
+  }
 `;
 
 export const Link = styled.a``;
