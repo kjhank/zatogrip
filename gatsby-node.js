@@ -144,7 +144,8 @@ const getContext = async (pageData, settings, globals, { acf: { carousel } }, al
 
   const relatedPosts = acf?.articles?.articles.map(({ article }) => {
     const { ID } = article;
-    const { acf: acfData } = allPosts.find(post => post.id === ID);
+
+    const { acf: acfData } = allPosts?.find(post => post.id === ID) ?? { acf: {} };
 
     return {
       ...article,
