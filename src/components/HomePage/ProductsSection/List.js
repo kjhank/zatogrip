@@ -18,7 +18,7 @@ import {
 export const List = ({ products }) => (
   <ProductsList>
     <ProductGroup>
-      {products.filter(({ group }) => group === 'first').map(product => (
+      {products?.filter(({ group }) => group === 'first')?.map(product => (
         <Product
           className={`variant--${product.color}`}
           key={product.linkText}
@@ -46,7 +46,7 @@ export const List = ({ products }) => (
       ))}
     </ProductGroup>
     <ProductGroup>
-      {products.filter(({ group }) => group === 'second').map(product => (
+      {products?.filter(({ group }) => group === 'second')?.map(product => (
         <Product
           className={`variant--${product.color}`}
           key={product.linkText}
@@ -74,7 +74,7 @@ export const List = ({ products }) => (
       ))}
     </ProductGroup>
     <ProductGroup>
-      {products.filter(({ group }) => group === 'third').map(product => (
+      {products?.filter(({ group }) => group === 'third')?.map(product => (
         <Product
           className={`variant--${product.color}`}
           key={product.linkText}

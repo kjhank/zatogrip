@@ -29,15 +29,15 @@ export const FunSection = ({
   const BODY = isBrowser ? document.body : null;
   const list = [
     {
-      ...content.origami,
+      ...content?.origami,
       type: 'origami',
     },
     {
-      ...content.coloringBooks,
+      ...content?.coloringBooks,
       type: 'coloringBooks',
     },
     {
-      ...content.DIY,
+      ...content?.DIY,
       type: 'diy',
     },
   ];
@@ -53,15 +53,15 @@ export const FunSection = ({
 
   return (
     <Section ref={innerRef}>
-      <Background image={content.background} />
+      <Background image={content?.background} />
       <Container>
         <ContentWrapper>
-          <SectionHeading>{content.heading}</SectionHeading>
+          <SectionHeading>{content?.heading}</SectionHeading>
           <Intro>
-            {content.intro}
+            {content?.intro}
           </Intro>
           <TriggersList>
-            {list.map(item => (
+            {list?.map(item => (
               <SingleTrigger key={item.text}>
                 <ItemImage image={item.image} />
                 <ModalTrigger onClick={() => handleModal(item.type)}>
@@ -74,9 +74,9 @@ export const FunSection = ({
             ))}
           </TriggersList>
         </ContentWrapper>
-        <BackgroundPortrait image={content.backgroundPortrait} />
+        <BackgroundPortrait image={content?.backgroundPortrait} />
       </Container>
-      {list.find(({ type }) => type === openModal) ?
+      {list?.find(({ type }) => type === openModal) ?
         createPortal(
           <Modal
             close={handleModal}

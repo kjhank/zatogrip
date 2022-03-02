@@ -58,7 +58,7 @@ export const PostsSection = ({
           <SectionHeading>{content.heading}</SectionHeading>
           <Intro>{content.intro}</Intro>
           <Navigation>
-            <AllPostsLink to={`/${content.allPostsLink.post_name}/`}>
+            <AllPostsLink to={`/${content.allPostsLink?.post_name}/`}>
               {isMobile ? content?.allPostsTextPortrait : content?.allPostsText}
             </AllPostsLink>
             <ScrollButton
