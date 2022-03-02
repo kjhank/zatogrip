@@ -88,7 +88,7 @@ export const TilesSection = ({
         </ArrowTextWrapper>
         <SectionHeading>{heading}</SectionHeading>
         <TilesGrid>
-          {tiles.map((tile, index) => (
+          {tiles?.map((tile, index) => (
             <Tile
               clickText={clickText}
               closeText={closeText}
@@ -113,7 +113,7 @@ export const TilesSection = ({
             spaceBetween={20}
             wrapperTag="ul"
           >
-            {tiles.map((tile, index) => (
+            {tiles?.map((tile, index) => (
               <SwiperSlide
                 key={tile.backText}
                 tag="li"
@@ -151,7 +151,7 @@ export const TilesSection = ({
         </MobileNav>
         <Footnotes>
           <ol>
-            {footnotes.map(({ footnote }, index) => visibleFootnotes.includes(index) && (
+            {footnotes?.map(({ footnote }, index) => visibleFootnotes.includes(index) && (
               <li key={footnote}>
                 <span>
                   [

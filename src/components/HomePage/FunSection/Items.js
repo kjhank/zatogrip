@@ -29,7 +29,7 @@ export const Items = ({
               <Name>{item.name}</Name>}
           <ArrowLink
             $isCaps
-            href={item?.file}
+            href={item?.file?.url}
           >
             Pobierz
           </ArrowLink>

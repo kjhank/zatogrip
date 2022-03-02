@@ -173,7 +173,7 @@ exports.createPages = async ({
     const apiData = Promise.all(
       Object.keys(sources).map(async source => {
         const isOptions = source.includes('acf/');
-        const url = `${process.env.GATSBY_BACKEND_URL}/${sources[source]}${isOptions ? '' : '?per_page=100'}`;
+        const url = `${process.env.GATSBY_BACKEND_URL}/${sources[source]}${isOptions ? '' : '?per_page=100&acf_format=standard'}`;
         const headers = new fetch.Headers();
         const AUTH_STRING = `${process.env.BACKEND_USER}:${process.env.BACKEND_USER_PASS}`;
 
