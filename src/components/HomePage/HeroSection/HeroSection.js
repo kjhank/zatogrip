@@ -17,17 +17,17 @@ const sanitizeConfig = {
 export const HeroSection = ({ content }) => (
   <Section>
     <Background
-      image={content.background}
+      image={content?.backgroundImage}
       isLazy={false}
     />
     <PortraitBackground
       $isMobile
-      image={content.backgroundPortrait}
+      image={content?.backgroundPortraitImage}
       isLazy={false}
     />
     <Container>
       <Heading dangerouslySetInnerHTML={{
-        __html: sanitize(content.heading, sanitizeConfig),
+        __html: sanitize(content?.heading, sanitizeConfig),
       }}
       />
     </Container>
@@ -36,8 +36,8 @@ export const HeroSection = ({ content }) => (
 
 HeroSection.propTypes = {
   content: PropTypes.shape({
-    background: PropTypes.shape({}),
-    backgroundPortrait: PropTypes.shape({}),
+    backgroundImage: PropTypes.shape({}),
+    backgroundPortraitImage: PropTypes.shape({}),
     bottomText: PropTypes.string,
     heading: PropTypes.string,
   }).isRequired,

@@ -14,8 +14,8 @@ import {
 
 export const VideoSection = ({
   content: {
-    mp4Source, poster, webmSource,
-  },
+    mp4source, poster, webmSource,
+  } = {},
 }) => {
   const [
     isVideoPlaying,
@@ -64,8 +64,8 @@ export const VideoSection = ({
               type={`${webmSource?.type}/${webmSource?.subtype}`}
             />
             <source
-              src={mp4Source?.url}
-              type={`${mp4Source?.type}/${mp4Source?.subtype}`}
+              src={mp4source?.url}
+              type={`${mp4source?.type}/${mp4source?.subtype}`}
             />
             Your browser can&apos;t play videos
           </Video>
@@ -83,7 +83,7 @@ export const VideoSection = ({
 
 VideoSection.propTypes = {
   content: PropTypes.shape({
-    mp4Source: PropTypes.shape({
+    mp4source: PropTypes.shape({
       subtype: PropTypes.string,
       type: PropTypes.string,
       url: PropTypes.string,

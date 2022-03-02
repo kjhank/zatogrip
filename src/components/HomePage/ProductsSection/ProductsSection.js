@@ -12,11 +12,11 @@ export const ProductsSection = ({
   content, innerRef,
 }) => (
   <Section ref={innerRef}>
-    <Background image={content.background} />
+    <Background image={content?.background} />
     <Container>
-      <SectionHeading>{content.heading}</SectionHeading>
-      <BackgroundPortrait image={content.backgroundPortrait} />
-      <List products={content.products} />
+      <SectionHeading>{content?.heading}</SectionHeading>
+      <BackgroundPortrait image={content?.backgroundPortrait} />
+      <List products={content?.products} />
     </Container>
   </Section>
 );

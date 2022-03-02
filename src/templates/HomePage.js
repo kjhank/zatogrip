@@ -20,7 +20,7 @@ const HomePage = ({
     products={data.productsSection}
     tiles={{
       ...data.tilesSection,
-      arrowText: data.hero.bottomText,
+      arrowText: data?.hero?.bottomText,
     }}
     video={data.videoSection}
   />

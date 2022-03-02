@@ -1,37 +1,16 @@
 import React from 'react';
-import { Link } from 'gatsby';
-import styled from 'styled-components';
-import { Container } from '@components';
+import PropTypes from 'prop-types';
 
-const Wrapper = styled.main`
-  margin-top: 115px;
-  color: ${({ theme }) => theme.colors.brand};
-`;
+import { NotFoundContainer } from '@containers';
 
-const Text = styled.p`
-  font-size: 16px;
-`;
-
-const StyledLink = styled(Link)`
-  color: #b00b1e;
-  text-decoration: underline;
-`;
-
-const NotFoundPage = () => (
-  <>
-    <Wrapper>
-      <Container>
-        <h1>Hello there</h1>
-        <Text>
-          This is a custom 404 page.
-          {' '}
-          <StyledLink to="/">Click here</StyledLink>
-          {' '}
-          to go home.
-        </Text>
-      </Container>
-    </Wrapper>
-  </>
+const NotFoundPage = ({ pageContext }) => (
+  <NotFoundContainer content={pageContext?.data} />
 );
 
 export default NotFoundPage;
+
+NotFoundPage.propTypes = {
+  pageContext: PropTypes.shape({
+    data: PropTypes.shape({}),
+  }).isRequired,
+};

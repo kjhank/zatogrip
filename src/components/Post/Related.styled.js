@@ -45,8 +45,10 @@ export const SinglePost = styled.li`
   flex-direction: column;
   align-items: flex-start;
 
-  & + & {
+  @media ${queries.xtiny} {
+    & + & {
     margin-top: 48px;
+  }
   }
 `;
 
