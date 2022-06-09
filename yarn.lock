@@ -7529,7 +7529,30 @@ __metadata:
   languageName: node
   linkType: hard
 
-"gatsby-core-utils@npm:^3.5.2, gatsby-core-utils@npm:^3.6.0":
+"gatsby-core-utils@npm:^3.5.2":
+  version: 3.9.0
+  resolution: "gatsby-core-utils@npm:3.9.0"
+  dependencies:
+    "@babel/runtime": ^7.15.4
+    ci-info: 2.0.0
+    configstore: ^5.0.1
+    fastq: ^1.13.0
+    file-type: ^16.5.3
+    fs-extra: ^10.0.0
+    got: ^11.8.3
+    import-from: ^4.0.0
+    lmdb: ^2.1.7
+    lock: ^1.1.0
+    node-object-hash: ^2.3.10
+    proper-lockfile: ^4.1.2
+    resolve-from: ^5.0.0
+    tmp: ^0.2.1
+    xdg-basedir: ^4.0.0
+  checksum: 8326c3c1a6f554fddf789135fb8f07df1ced818aac44858d3db6c5e4d2d00d94394fb652d7ef2e2d37901d0660a6e292ee1d64b6c06e89a30078c75889039240
+  languageName: node
+  linkType: hard
+
+"gatsby-core-utils@npm:^3.6.0":
   version: 3.6.0
   resolution: "gatsby-core-utils@npm:3.6.0"
   dependencies:
@@ -8935,6 +8958,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"import-from@npm:^4.0.0":
+  version: 4.0.0
+  resolution: "import-from@npm:4.0.0"
+  checksum: 1fa29c05b048da18914e91d9a529e5d9b91774bebbfab10e53f59bcc1667917672b971cf102fee857f142e5e433ce69fa1f0a596e1c7d82f9947a5ec352694b9
+  languageName: node
+  linkType: hard
+
 "import-lazy@npm:^2.1.0":
   version: 2.1.0
   resolution: "import-lazy@npm:2.1.0"
@@ -10088,6 +10118,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"lmdb@npm:^2.1.7":
+  version: 2.2.3
+  resolution: "lmdb@npm:2.2.3"
+  dependencies:
+    msgpackr: ^1.5.4
+    nan: ^2.14.2
+    node-gyp: latest
+    node-gyp-build: ^4.2.3
+    ordered-binary: ^1.2.4
+    weak-lru-cache: ^1.2.2
+  checksum: 62a4ed194a505e9b3098ef133c465f8316305f03e6c68206e3d753a4eecfc4ffbb1c451a66dede859b935391e61915914cc08a2f0744f099fbdb86b063241d43
+  languageName: node
+  linkType: hard
+
 "load-bmfont@npm:^1.3.1, load-bmfont@npm:^1.4.0":
   version: 1.4.1
   resolution: "load-bmfont@npm:1.4.1"
@@ -11035,7 +11079,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"msgpackr@npm:^1.5.0":
+"msgpackr@npm:^1.5.0, msgpackr@npm:^1.5.4":
   version: 1.5.4
   resolution: "msgpackr@npm:1.5.4"
   dependencies:
@@ -11653,7 +11697,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ordered-binary@npm:^1.0.0":
+"ordered-binary@npm:^1.0.0, ordered-binary@npm:^1.2.4":
   version: 1.2.4
   resolution: "ordered-binary@npm:1.2.4"
   checksum: 69090e7d6e3428ea2f232b612e5d77e6a793d6c19e1639911d6b1d9815eb83830747cd5d138fda79a5be61aa015a75c4fcf44b521423b896ca24d14bdbc0d517
@@ -15768,7 +15812,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"weak-lru-cache@npm:^1.0.0":
+"weak-lru-cache@npm:^1.0.0, weak-lru-cache@npm:^1.2.2":
   version: 1.2.2
   resolution: "weak-lru-cache@npm:1.2.2"
   checksum: 0fbe16839d193ed82ddb4fe331ca8cfaee2ecbd42596aa02366c708956cf41f7258f2d5411c3bc9aa099c26058dc47afbd2593d449718a18e4ef4d870c5ace18
