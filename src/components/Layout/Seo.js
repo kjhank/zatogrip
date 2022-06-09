@@ -13,6 +13,12 @@ export const Seo = ({ data }) => (
         property="og:title"
       />
     )}
+    {data.description && (
+      <meta
+        content={data.description}
+        property="description"
+      />
+    )}
     {data.og_locale && (
       <meta
         content={data.og_locale}
@@ -92,6 +98,7 @@ export const Seo = ({ data }) => (
 
 Seo.propTypes = {
   data: PropTypes.shape({
+    description: PropTypes.string,
     language: PropTypes.string,
     og_description: PropTypes.string,
     og_image: PropTypes.arrayOf(PropTypes.shape({})),

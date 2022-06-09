@@ -68,30 +68,32 @@ export const PostsWrapper = styled.div`
 export const SinglePost = styled.article`
   height: 100%;
 
-  > a {
+  > div {
     display: flex;
     flex-shrink: 0;
     flex-direction: column;
     align-items: flex-start;
     height: 100%;
 
-    :hover {
-      > div:last-child {
-        background-size: 150%;
+      > a:last-child {
+        margin-top: auto;
 
-        ::before {
-          filter: brightness(1.2);
-        }
+        &:hover {
+          background-size: 150%;
 
-        > svg {
-          transform: translateX(50%);
+          ::before {
+            filter: brightness(1.2);
+          }
+
+          > svg {
+            transform: translateX(50%);
+          }
         }
       }
-    }
   }
 
   @media ${queries.xs} {
-    flex-shrink: 0;
+    margin: auto auto 0;
   }
 `;
 
