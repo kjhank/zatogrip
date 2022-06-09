@@ -59,16 +59,24 @@ export const PostsTrack = ({
           tag="li"
         >
           <SinglePost>
-            <Link to={`/${slug}`}>
+            <div>
               {acf.homeThumb && <PostCover image={acf.homeThumb} />}
-              <PostTitle dangerouslySetInnerHTML={{ __html: sanitize(title, sanitizeConfig) }} />
-              {acf.excerpt && <Excerpt>{acf.excerpt}</Excerpt>}
-              <Arrow
-                customAs="div"
+              <Link
+                rel="dofollow"
+                to={`/${slug}`}
               >
-                {clickText}
-              </Arrow>
-            </Link>
+                <PostTitle dangerouslySetInnerHTML={{ __html: sanitize(title, sanitizeConfig) }} />
+              </Link>
+              {acf.excerpt && <Excerpt>{acf.excerpt}</Excerpt>}
+              <Link
+                rel="nofollow"
+                to={`/${slug}`}
+              >
+                <Arrow customAs="div">
+                  {clickText}
+                </Arrow>
+              </Link>
+            </div>
           </SinglePost>
         </SwiperSlide>
       ))}
