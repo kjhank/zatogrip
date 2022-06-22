@@ -16,7 +16,7 @@ export const Seo = ({ data }) => (
     {data.description && (
       <meta
         content={data.description}
-        property="description"
+        name="description"
       />
     )}
     {data.og_locale && (
