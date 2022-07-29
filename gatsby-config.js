@@ -4,6 +4,7 @@ require('dotenv').config({
 
 module.exports = {
   plugins: [
+    `gatsby-plugin-sitemap`,
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-netlify',
     {
@@ -62,5 +63,6 @@ module.exports = {
     baseUrl: 'https://zatogrip.pl',
     description: '2022 Zatogrip page',
     title: 'Zatogrip',
+    siteUrl: `https://zatogrip.pl`,
   },
 };
