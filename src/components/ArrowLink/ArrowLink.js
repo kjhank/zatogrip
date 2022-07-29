@@ -7,7 +7,7 @@ import {
 } from './ArrowLink.styled';
 
 export const ArrowLink = ({
-  customAs, children, href, onClick, to, type, ...props
+  customAs, children, href, rel, onClick, to, type, ...props
 }) => {
   if (customAs === 'div') {
     return (
@@ -36,6 +36,7 @@ export const ArrowLink = ({
     return (
       <ExternalLink
         href={href}
+        rel={rel}
         {...props}
       >
         {children}
@@ -64,6 +65,7 @@ ArrowLink.propTypes = {
   ]).isRequired,
   customAs: PropTypes.string,
   href: PropTypes.string,
+  rel: PropTypes.string,
   onClick: PropTypes.func,
   to: PropTypes.string,
   type: PropTypes.string,
@@ -74,6 +76,7 @@ ArrowLink.defaultProps = {
   $isCaps: false,
   customAs: null,
   href: null,
+  rel: null,
   onClick: null,
   to: null,
   type: 'button',
