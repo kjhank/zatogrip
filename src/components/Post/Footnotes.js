@@ -19,7 +19,10 @@ const renderFootnotes = content => {
           const isLink = footnote.startsWith('http');
           const item = isLink ?
             (
-              <ExternalLink href={footnote} rel="noreferrer nofollow">
+              <ExternalLink
+                href={footnote}
+                rel="noreferrer nofollow"
+              >
                 {footnote}
               </ExternalLink>
             ) :

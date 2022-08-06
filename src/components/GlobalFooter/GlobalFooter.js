@@ -87,7 +87,7 @@ export const GlobalFooter = ({
                 <ExternalLink
                   href={link.url}
                   key={link.title}
-                  rel={`noreferrer nofollow`}
+                  rel="noreferrer nofollow"
                 >
                   {link.title}
                 </ExternalLink>
