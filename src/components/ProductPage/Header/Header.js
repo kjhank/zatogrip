@@ -87,7 +87,7 @@ export const Header = ({
               <ArrowLink
                 href={link.url}
                 key={link.title}
-                rel="noreferrer"
+                rel="noreferrer nofollow"
                 target="_blank"
               >
                 {link.title}
