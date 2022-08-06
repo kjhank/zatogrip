@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 export const ExternalLink = ({
-  children, href, rel='noreferrer', ...props
+  children, href, rel = 'noreferrer', ...props
 }) => (
   <a
     href={href}
@@ -21,4 +21,8 @@ ExternalLink.propTypes = {
   ]).isRequired,
   href: PropTypes.string.isRequired,
   rel: PropTypes.string,
+};
+
+ExternalLink.defaultProps = {
+  rel: 'noreferrer'
 };
