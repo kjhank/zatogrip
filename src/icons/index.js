@@ -13,3 +13,4 @@ export { default as TileBg } from './TileBg';
 export { default as Burger } from './Burger';
 export { default as Hand } from './Hand';
 export { default as Play } from './Play';
+export { default as UkrFlag } from './UkrFlag';

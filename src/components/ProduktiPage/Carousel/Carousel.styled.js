@@ -1,22 +1,19 @@
 /* stylelint-disable no-descending-specificity */
 import styled from 'styled-components';
 import { rgba } from 'polished';
-import { Link } from 'gatsby';
 
 import { queries } from '@utils/rwd';
-import {
-  ArrowLink, WPImage,
-} from '@components';
+import { WPImage } from '@components';
+import { commonStyle as arrowStyle } from '@components/ArrowLink/ArrowLink.styled';
 
 export const Section = styled.section`
   position: relative;
   z-index: 2;
-  margin: min(85px, 4.427083vw);
+  margin-block: 0 min(85px, 4.427083vw);
 `;
 
 export const Header = styled.header`
   display: flex;
-  flex-wrap: wrap;
   justify-content: space-between;
   align-items: flex-end;
 
@@ -41,9 +38,10 @@ export const Navigation = styled.nav`
 `;
 
 export const Intro = styled.p`
-  width: 60%;
   margin-top: ${({ theme }) => theme.getMin(23)};
-  font-size: clamp(14px, 1.25vw, 24px);
+  color: ${({ theme }) => theme.getColor('alt')};
+  font-weight: 600;
+  font-size: clamp(14px, 16px + 0.4vw, 24px);
   white-space: pre-wrap;
 
   @media ${queries.xs} {
@@ -54,8 +52,12 @@ export const Intro = styled.p`
   }
 `;
 
-export const PostsWrapper = styled.div`
+export const FilesWrapper = styled.div`
   padding-top: ${({ theme }) => theme.getMin(47)};
+
+  ul.swiper-wrapper {
+    padding-top: 1em;
+  }
 
   li.swiper-slide {
     height: auto;
@@ -66,29 +68,48 @@ export const PostsWrapper = styled.div`
   }
 `;
 
-export const SinglePost = styled.article`
-  height: 100%;
+export const SingleFile = styled.article`
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  aspect-ratio: 1/1;
+  transition: ${({ theme }) => theme.getTransitions(['box-shadow'])};
+
+  @media ${queries.xs} {
+    flex-shrink: 0;
+  }
+
+  @media ${queries.xtiny} {
+    width: 100%;
+    height: 100%;
+  }
 
   > div {
     display: flex;
     flex-shrink: 0;
     flex-direction: column;
-    align-items: flex-start;
-    height: 100%;
+    justify-content: flex-end;
+    align-items: center;
+    width: 90%;
+    height: 90%;
+    box-shadow: ${rgba('#000', 0.25)} 0 0 22px;
+    border-radius: ${({ theme }) => theme.getRadius('small')};
+    background-color: #fff;
 
-      > a:last-child {
-        &:hover {
-          background-size: 150%;
+    > a:last-child {
+      &:hover {
+        background-size: 150%;
 
-          ::before {
-            filter: brightness(1.2);
-          }
+        ::before {
+          filter: brightness(1.2);
+        }
 
-          > svg {
-            transform: translateX(50%);
-          }
+        > svg {
+          transform: translateX(50%);
         }
       }
+    }
   }
 
   @media ${queries.xs} {
@@ -96,12 +117,7 @@ export const SinglePost = styled.article`
   }
 `;
 
-export const PostCover = styled(WPImage)`
-  overflow: hidden;
-  width: 100%;
-  aspect-ratio: 447/370;
-  border-radius: ${({ theme }) => theme.getRadius('small')};
-
+export const Image = styled(WPImage)`
   > img {
     width: 100%;
     height: 100%;
@@ -109,7 +125,7 @@ export const PostCover = styled(WPImage)`
   }
 `;
 
-export const PostTitle = styled.h3`
+export const Name = styled.h3`
   margin: min(39px, 2.03125vw) 0 min(24px, 1.25vw);
   color: ${({ theme }) => theme.getColor('alt')};
   font-weight: bold;
@@ -122,55 +138,16 @@ export const PostTitle = styled.h3`
   }
 `;
 
-export const Excerpt = styled.p`
-  margin-bottom: min(1.666667vw, 32px);
-  color: ${({ theme }) => theme.getColor('main')};
-  font-size: clamp(10px, 1.145833vw, 20px);
-
-  @media ${queries.xs} {
-    font-size: clamp(20px, 2.083333vw, 40px);
-  }
-`;
-
-export const Arrow = styled(ArrowLink)`
+export const Arrow = styled.a`
+  ${arrowStyle}
   margin-top: auto;
   font-size: clamp(10px, 0.729167vw, 16px);
+  font-family: sans-serif;
 
   @media ${queries.xs} {
     margin: auto auto 0;
     padding: ${({ theme }) => `${theme.getMax(12)} ${theme.getMax(24)}`};
     font-size: clamp(14px, 1.25vw, 24px);
-  }
-`;
-
-export const AllPostsLink = styled(Link)`
-  filter: none;
-  border: 2px solid ${({ theme }) => theme.getColor('alt')};
-  border-radius: ${({ theme }) => theme.getRadius('small')};
-  padding: min(16px, 0.833333vw) min(36px, 1.875vw);
-  background-color: #fff;
-  color: ${({ theme }) => theme.getColor('alt')};
-  font-size: clamp(9px, 0.78125vw, 15px);
-  font-family: ${({ theme }) => theme.getFont('heading')};
-  transition: ${({ theme }) => theme.getTransitions([
-    'filter',
-    'transform',
-  ])};
-
-  :hover {
-    filter: drop-shadow(0 4px 4px ${rgba('#000', 0.25)});
-    transform: scale(1.05);
-  }
-
-  @media ${queries.l} {
-    order: 1;
-  }
-
-  @media ${queries.s} {
-    margin: auto;
-    padding: 0.5em 2em;
-    font-size: min(16px, 4vw);
-    text-align: center;
   }
 `;
 

@@ -16,6 +16,7 @@ const templates = {
   post: path.resolve('./src/templates/PostPage.js'),
   posts: path.resolve('./src/templates/PostsPage.js'),
   product: path.resolve('./src/templates/ProductPage.js'),
+  produkti: path.resolve('./src/templates/ProduktiPage.js'),
 };
 
 const paths = {
@@ -23,6 +24,7 @@ const paths = {
   home: '/',
   notFound: '/404/',
   posts: '/strefa-rodzica/',
+  produkti: '/pro-produkti/',
 };
 
 const slugs = {
@@ -30,6 +32,7 @@ const slugs = {
   home: 'strona-glowna',
   notFound: '404',
   posts: 'strefa-rodzica',
+  produkti: 'pro-produkti',
 };
 
 const types = {
@@ -42,6 +45,10 @@ const getTemplate = ({
 }) => {
   if (slug === slugs.home) {
     return templates.home;
+  }
+
+  if (slug === slugs.produkti) {
+    return templates.produkti;
   }
 
   if (slug.includes(slugs.notFound)) {
@@ -101,6 +108,20 @@ const getContext = async (pageData, settings, globals, { acf: { carousel } }, al
       yoast: yoast_head_json,
     },
   };
+
+  if (slug === slugs.produkti) {
+    return {
+      ...globalContext,
+      data: acf,
+      metadata: {
+        ...globalContext.metadata,
+        globals: {
+          ...globalContext.metadata.globals,
+          language: 'uk_UA',
+        },
+      },
+    };
+  }
 
   if (slug === slugs.home) {
     return {
@@ -172,10 +193,18 @@ exports.createPages = async ({
       Object.keys(sources).map(async source => {
         const isOptions = source.includes('acf/');
         const url = `${process.env.GATSBY_BACKEND_URL}/${sources[source]}${isOptions ? '' : '?per_page=100&acf_format=standard'}`;
-        const headers = new fetch.Headers();
+        // const headers = new fetch.Headers();
         const AUTH_STRING = `${process.env.BACKEND_USER}:${process.env.BACKEND_USER_PASS}`;
 
-        headers.set('Authorization', `Basic ${Buffer.from(AUTH_STRING).toString('base64')}`);
+        // console.log(AUTH_STRING);
+
+        // headers.set('Authorization', `Basic ${Buffer.from(AUTH_STRING).toString('base64')}`);
+
+        // console.log(headers);
+
+        const headers = {
+          Authorization: `Basic ${Buffer.from(AUTH_STRING, 'binary').toString('base64')}`,
+        };
 
         const response = await fetch(url, { headers });
         const data = await response.json();

@@ -5,7 +5,7 @@ import { ExternalLink as ExLink } from '@components';
 
 import { queries } from '@utils/rwd';
 
-const commonStyle = css`
+export const commonStyle = css`
   position: relative;
   z-index: 1;
   overflow: hidden;

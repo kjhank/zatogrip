@@ -1,39 +1,37 @@
-# Gatsby starter with Styled Components and linters
+# Zatogrip 1.1.0
 
-Gatsby starter with stylelint and eslint configs and using styled-components. Mainly for my personal projects.
-
-## Includes:
-
-* `GlobalStyle` component with a CSS reset
-* `gatsby-plugin-react-svg` with a basic config to remove fixed dimensions
-* `polished` for SASS-like functions in Styled Components,
-* `gatsby-plugin-alias-imports` for import aliases like `@components`, `@pages` etc.
-* polyfill for smooth JS scroll, until it's supported in Safari
-* some basic breakpoints for RWD
-
+## Gatsby SSG site pulling data from Wordpress' REST API
 
 ## Quick-start 🏎:
 
 1. ### Clone the repo 👯:
 
 	```sh
-	git clone git@github.com:kjhank/gatsby-styled-components.git
+	git clone git@github.com:kjhank/zatogrip.git
 	```
 
-2. ### Install everything
+2. ### Set up environment variables as per .env.example:
+
+* `GATSBY_BACKEND_URL` - URL of the REST API (including version number, without the trailing slash), usually `https://foo.bar/api/v2`
+* `BACKEND_USER` - WP user with permissions to get global page data from the API
+* `BACKEND_USER_PASS` - their password
+* `GA_ID` - Google Analytics ID, optional
+* `GTM_ID` - Google tag manager ID, optional
+
+3. ### Install everything
 
 	```sh
-	yarn install
+	yarn
 	```
 
-3. ### Start your development environment: 💻
+4. ### Start your development environment: 💻
 
 	```sh
-	cd gatsby-styled-components
+	cd zatogrip
 	yarn dev
 	```
 
-	Now you can navigate to `http://localhost:8000` in your browser and view the basic layout.
+	Now you can navigate to `http://localhost:8000` in your browser and view the page.
 
 4. ### Start coding! 👩‍💻
 

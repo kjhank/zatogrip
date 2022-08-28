@@ -42,7 +42,7 @@ const theme = {
   fonts: {
     alt: 'Montserrat, sans-serif',
     default: 'Proxima Nova, sans-serif',
-    heading: 'Swis721BdRndEU, serif',
+    heading: 'Swis721BdRndEU, sans-serif',
   },
   getColor: variant => theme.colors[variant],
   getFont: (variant = 'default') => theme.fonts[variant],

@@ -2,7 +2,7 @@
   "name": "zatogrip",
   "private": true,
   "description": "2022 Zatogrip page with SSG",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "author": "Krzysztof Hankiewicz @kjhank <kjhank@gmail.com>",
   "dependencies": {
     "babel-plugin-styled-components": "^1.13.3",
