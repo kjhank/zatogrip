@@ -44,7 +44,7 @@ export const AdditionalFilesSection = styled.section`
   z-index: 1;
 
   @media ${queries.s} {
-    margin-bottom: min(200px, 50vw);
+    margin-block: min(100px, 25vw) min(200px, 50vw);
   }
 `;
 
@@ -91,6 +91,12 @@ export const Image = styled(WPImage)`
   border-radius: ${({ theme }) => theme.getRadius('small')};
   padding: min(3.75vw, 4.5rem) min(2.34375vw, 2.8125rem);
   background-color: #fff;
+
+  @media ${queries.s} {
+    margin-bottom: 5%;
+    padding: 15%;
+  }
+
 `;
 
 export const Arrow = styled.a`

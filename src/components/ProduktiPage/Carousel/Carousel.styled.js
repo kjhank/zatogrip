@@ -135,7 +135,6 @@ export const Image = styled(WPImage)`
     max-height: 80%;
     margin-bottom: 5%;
   }
-
 `;
 
 export const Name = styled.h3`
