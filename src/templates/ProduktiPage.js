@@ -8,6 +8,7 @@ const ProduktiPage = ({ pageContext }) => (
     additionalFiles={pageContext.data.additionalFiles}
     background={pageContext.data.background}
     backgroundPortrait={pageContext.data.backgroundPortrait}
+    ctxSize={JSON.stringify(pageContext).length}
     downloadText={pageContext.data.linkText}
     files={pageContext.data.filesCarousel}
     header={pageContext.data.header}

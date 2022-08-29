@@ -128,8 +128,14 @@ export const Image = styled(WPImage)`
   > img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
   }
+
+  @media ${queries.s} {
+    max-height: 80%;
+    margin-bottom: 5%;
+  }
+
 `;
 
 export const Name = styled.h3`
@@ -139,6 +145,10 @@ export const Name = styled.h3`
   font-size: clamp(12px, 1.145833vw, 22px);
   font-family: ${({ theme }) => theme.getFont('alt')};
   text-transform: uppercase;
+
+  @media ${queries.s} {
+    margin-block: 1em;
+  }
 
   @media ${queries.xs} {
     font-size: clamp(24px, 2.5vw, 48px);
