@@ -20,6 +20,11 @@ export const Header = styled.header`
   > h2 {
     width: 100%;
   }
+
+  @media ${queries.s} {
+    flex-direction: column;
+    padding-inline: 10%;
+  }
 `;
 
 export const Navigation = styled.nav`
@@ -33,6 +38,7 @@ export const Navigation = styled.nav`
   }
 
   @media ${queries.s} {
+    justify-content: space-between;
     width: 100%;
   }
 `;
@@ -44,11 +50,12 @@ export const Intro = styled.p`
   font-size: clamp(14px, 16px + 0.4vw, 24px);
   white-space: pre-wrap;
 
-  @media ${queries.xs} {
+  @media ${queries.s} {
     width: 100%;
     margin: 1em 0 2em;
     font-weight: normal;
     font-size: max(5vw, 18px);
+    text-align: center;
   }
 `;
 
@@ -57,14 +64,14 @@ export const FilesWrapper = styled.div`
 
   ul.swiper-wrapper {
     padding-top: 1em;
+
+    @media ${queries.s} {
+      padding-top: 3em;
+    }
   }
 
   li.swiper-slide {
     height: auto;
-  }
-
-  @media ${queries.s} {
-    margin-top: 3em;
   }
 `;
 
@@ -178,33 +185,5 @@ export const ScrollButton = styled.button.attrs({ type: 'button' })`
 
   @media ${queries.l} {
     order: ${({ isFlipped }) => (isFlipped ? 0 : 2)}
-  }
-
-  @media ${queries.xs} {
-    display: none;
-  }
-`;
-
-export const MobileNav = styled.nav`
-  display: none;
-
-  @media ${queries.xs} {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 90%;
-    margin: 2em auto;
-    color: ${({ theme }) => theme.getColor('alt')};
-
-    > svg {
-      fill: currentColor;
-    }
-
-    > button {
-      display: block;
-
-      path {
-      stroke-width: 3px;}
-    }
   }
 `;

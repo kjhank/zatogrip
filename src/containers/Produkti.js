@@ -9,6 +9,7 @@ import {
 export const Produkti = ({
   additionalFiles,
   background,
+  backgroundPortrait,
   downloadText,
   files,
   header,
@@ -28,6 +29,7 @@ export const Produkti = ({
     <Body
       additionalFiles={additionalFiles}
       background={background}
+      backgroundPortrait={backgroundPortrait}
       downloadText={downloadText}
       files={files}
     />

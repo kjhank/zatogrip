@@ -4,17 +4,21 @@ import sanitize from 'sanitize-html';
 
 import { Container } from '@components';
 import {
-  ContentWrapper, Cover, Heading, IntroWrapper, Wrapper,
+  ContentWrapper, Cover, CoverPortrait, Heading, IntroWrapper, Wrapper,
 } from './Header.styled';
 
 export const Header = ({
   background,
-  // backgroundPortrait, // TODO: get this from designers
+  backgroundPortrait,
   headings, intro, introHeading,
 }) => (
   <Wrapper>
     <Cover
       image={background}
+      isLazy={false}
+    />
+    <CoverPortrait
+      image={backgroundPortrait}
       isLazy={false}
     />
     <ContentWrapper>
@@ -40,7 +44,7 @@ export const Header = ({
 
 Header.propTypes = {
   background: PropTypes.shape({}).isRequired,
-  // backgroundPortrait: PropTypes.shape({}).isRequired,
+  backgroundPortrait: PropTypes.shape({}).isRequired,
   headings: PropTypes.arrayOf(PropTypes.string).isRequired,
   intro: PropTypes.string.isRequired,
   introHeading: PropTypes.string.isRequired,

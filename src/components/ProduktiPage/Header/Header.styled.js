@@ -62,6 +62,19 @@ export const Cover = styled(WPImage)`
   }
 `;
 
+export const CoverPortrait = styled(WPImage)`
+  display: none;
+
+  @media ${queries.s} {
+    display: block;
+    margin-top: min(100px, 15vw);
+
+    > img {
+      width: 100%;
+    }
+  }
+`;
+
 export const ContentWrapper = styled.div`
   position: relative;
   display: flex;
@@ -77,6 +90,7 @@ export const ContentWrapper = styled.div`
   }
 
   @media ${queries.s} {
+    left: 0;
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -109,6 +123,11 @@ export const Heading = styled.h1`
   > svg {
     display: none;
   }
+
+  @media ${queries.s} {
+    margin-top: -1em;
+    padding-block-start: 0;
+  }
   `;
 
 export const IntroWrapper = styled.div`
@@ -125,6 +144,14 @@ export const IntroWrapper = styled.div`
   > p {
     font-weight: 600;
     font-size: clamp(14px, 1.25vw, 24px);
+  }
+
+  @media ${queries.s} {
+    padding-inline-end: 0;
+
+    > h2 {
+      text-align: center;
+    }
   }
 `;
 

@@ -8,6 +8,7 @@ import {
   AdditionalFilesSection,
   Arrow,
   Background,
+  BackgroundPortrait,
   FileList,
   Heading,
   Image,
@@ -16,7 +17,7 @@ import {
 } from './Body.styled';
 
 export const Body = ({
-  additionalFiles, background, downloadText, files,
+  additionalFiles, background, backgroundPortrait, downloadText, files,
 }) => (
   <Wrapper>
     <Carousel
@@ -46,6 +47,7 @@ export const Body = ({
       </AdditionalFilesSection>
     </Container>
     <Background image={background} />
+    <BackgroundPortrait image={backgroundPortrait} />
   </Wrapper>
 );
 
@@ -55,6 +57,7 @@ Body.propTypes = {
     heading: PropTypes.string,
   }).isRequired,
   background: PropTypes.shape({}).isRequired,
+  backgroundPortrait: PropTypes.shape({}).isRequired,
   downloadText: PropTypes.string.isRequired,
   files: PropTypes.shape({
     caption: PropTypes.string,

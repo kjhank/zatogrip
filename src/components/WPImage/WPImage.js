@@ -13,9 +13,8 @@ export const WPImage = ({
       srcSet={image?.url}
       type={`image/${image?.subtype}`}
     />
-    {/* eslint-disable-next-line jsx-a11y/img-redundant-alt */}
     <img
-      alt={image?.alt}
+      alt={image?.alt ?? ''}
       height={image?.height}
       loading={isLazy ? 'lazy' : 'eager'}
       src={image?.url}

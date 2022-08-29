@@ -16,11 +16,36 @@ export const Background = styled(WPImage)`
   top: 30%;
   z-index: 0;
   pointer-events: none;
+
+  @media ${queries.s} {
+    display: none
+  }
+`;
+
+export const BackgroundPortrait = styled(WPImage)`
+  display: none;
+
+  @media ${queries.s} {
+    position: absolute;
+    top: 0;
+    z-index: 0;
+    display: block;
+    width: 100%;
+    pointer-events: none;
+
+    > img {
+      width: 100%;
+    }
+  }
 `;
 
 export const AdditionalFilesSection = styled.section`
   position: relative;
   z-index: 1;
+
+  @media ${queries.s} {
+    margin-bottom: min(200px, 50vw);
+  }
 `;
 
 export const Heading = styled.h2`
@@ -54,6 +79,10 @@ export const SingleFile = styled.li`
 
   :only-child {
     width: calc(33% - 76px);
+
+    @media ${queries.s} {
+      width: 100%;
+    }
   }
 `;
 
