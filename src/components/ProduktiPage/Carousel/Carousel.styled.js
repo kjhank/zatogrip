@@ -92,7 +92,7 @@ export const SingleFile = styled.article`
     height: 100%;
   }
 
-  > div {
+  > a:first-of-type {
     display: flex;
     flex-shrink: 0;
     flex-direction: column;

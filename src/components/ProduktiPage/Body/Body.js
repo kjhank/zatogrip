@@ -12,6 +12,7 @@ import {
   FileList,
   Heading,
   Image,
+  ImageLink,
   SingleFile,
   Wrapper,
 } from './Body.styled';
@@ -31,7 +32,14 @@ export const Body = ({
         <FileList>
           {additionalFiles.files.map(({ file }) => (
             <SingleFile key={file.name}>
-              <Image image={file.image} />
+              <ImageLink
+                download
+                href={file.download.url}
+                rel="noreferrer"
+                target="_blank"
+              >
+                <Image image={file.image} />
+              </ImageLink>
               <Arrow
                 download
                 href={file.download.url}

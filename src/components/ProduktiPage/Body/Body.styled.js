@@ -86,7 +86,7 @@ export const SingleFile = styled.li`
   }
 `;
 
-export const Image = styled(WPImage)`
+export const ImageLink = styled.a`
   box-shadow: ${rgba('#000', 0.25)} 0 0 22px;
   border-radius: ${({ theme }) => theme.getRadius('small')};
   padding: min(3.75vw, 4.5rem) min(2.34375vw, 2.8125rem);
@@ -96,8 +96,9 @@ export const Image = styled(WPImage)`
     margin-bottom: 5%;
     padding: 15%;
   }
-
 `;
+
+export const Image = styled(WPImage)``;
 
 export const Arrow = styled.a`
   ${arrowStyle}

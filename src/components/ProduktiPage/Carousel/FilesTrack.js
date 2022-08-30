@@ -53,10 +53,22 @@ export const FilesTrack = ({
           tag="li"
         >
           <SingleFile>
-            <div>
+            <a
+              href={file.download.url}
+              rel="noreferrer"
+              target="_blank"
+            >
               {file.image && <Image image={file.image} />}
-            </div>
-            <Name>{file.name}</Name>
+            </a>
+            <a
+              href={file.download.url}
+              rel="noreferrer"
+              target="_blank"
+            >
+              <Name>
+                {file.name}
+              </Name>
+            </a>
             <Arrow
               as="a"
               href={file.download.url}
