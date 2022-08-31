@@ -19,8 +19,9 @@ import {
 
 export const FilesTrack = ({
   clickText,
-  innerRef,
   files,
+  handleChange,
+  innerRef,
   swiperRef,
 }) => (
   <FilesWrapper ref={innerRef}>
@@ -37,7 +38,7 @@ export const FilesTrack = ({
           spaceBetween: 76,
         },
       }}
-      initialSlide={1}
+      onSlideChange={handleChange}
       onSwiper={instance => {
         const ref = swiperRef;
 
@@ -88,6 +89,7 @@ export const FilesTrack = ({
 FilesTrack.propTypes = {
   clickText: PropTypes.string.isRequired,
   files: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
+  handleChange: PropTypes.func.isRequired,
   innerRef: PropTypes.shape({}).isRequired,
   swiperRef: PropTypes.shape({}).isRequired,
 };

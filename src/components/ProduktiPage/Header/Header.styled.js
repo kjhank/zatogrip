@@ -9,11 +9,10 @@ export const Wrapper = styled.header`
   flex-direction: column;
   justify-content: space-between;
   height: min(100vh, 56.25vw);
-  padding-bottom: ${({ theme }) => theme.getMin(150)};
 
   > div {
     :last-child {
-      height: 15%;
+      height: auto;
     }
   }
 

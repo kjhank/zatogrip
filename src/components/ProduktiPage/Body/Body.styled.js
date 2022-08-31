@@ -9,6 +9,7 @@ import { commonStyle as arrowStyle } from '@components/ArrowLink/ArrowLink.style
 export const Wrapper = styled.div`
   position: relative;
   margin-bottom: ${({ theme }) => theme.getMin(200)};
+  padding-top: ${({ theme }) => theme.getMin(150)};
 `;
 
 export const Background = styled(WPImage)`

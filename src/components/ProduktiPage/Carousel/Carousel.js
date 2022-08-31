@@ -22,7 +22,7 @@ export const Carousel = ({
   const [
     scrollPosition,
     setScrollPosition,
-  ] = useState(null);
+  ] = useState('start');
 
   const handleClick = direction => {
     const { current: swiperInstance } = swiperRef;
@@ -33,9 +33,21 @@ export const Carousel = ({
       swiperInstance.slidePrev();
     }
 
-    if (swiperInstance.isBeginning) {
+    // if (swiperInstance.isBeginning) {
+    //   setScrollPosition('start');
+    // } else if (swiperInstance.isEnd) {
+    //   setScrollPosition('end');
+    // } else {
+    //   setScrollPosition(null);
+    // }
+  };
+
+  const handleChange = ({
+    isBeginning, isEnd,
+  }) => {
+    if (isBeginning) {
       setScrollPosition('start');
-    } else if (swiperInstance.isEnd) {
+    } else if (isEnd) {
       setScrollPosition('end');
     } else {
       setScrollPosition(null);
@@ -68,8 +80,8 @@ export const Carousel = ({
         <FilesTrack
           clickText={downloadText}
           files={items}
+          handleChange={handleChange}
           innerRef={filesRef}
-          intro={intro}
           swiperRef={swiperRef}
         />
       </Container>
