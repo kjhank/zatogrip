@@ -4,7 +4,7 @@ import { Link as HomeLink } from 'gatsby';
 
 import { Container } from '@components';
 import {
-  Burger, HeaderLogo, X,
+  Burger, HeaderLogo, UkrFlag, X,
 } from '@icons';
 import {
   Link, ProductName as Name, Navigation, NavToggle, ScrollButton, StyledHeader, SubNav,
@@ -33,7 +33,6 @@ export const GlobalHeader = ({
       >
         <Burger />
         <X />
-        {/* <span>X</span> */}
       </NavToggle>
       <Navigation isHidden={!isNavigationOpen}>
         <ul>
@@ -100,6 +99,7 @@ export const GlobalHeader = ({
                       ))}
                     </SubNav>
                   )}
+                  {item?.hasUkrFlag && <UkrFlag />}
                 </li>
               ));
           })}

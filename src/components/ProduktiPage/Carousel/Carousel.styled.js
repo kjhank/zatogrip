@@ -1,27 +1,29 @@
 /* stylelint-disable no-descending-specificity */
 import styled from 'styled-components';
 import { rgba } from 'polished';
-import { Link } from 'gatsby';
 
 import { queries } from '@utils/rwd';
-import {
-  ArrowLink, WPImage,
-} from '@components';
+import { WPImage } from '@components';
+import { commonStyle as arrowStyle } from '@components/ArrowLink/ArrowLink.styled';
 
 export const Section = styled.section`
   position: relative;
   z-index: 2;
-  margin: min(85px, 4.427083vw);
+  margin-block: 0 min(85px, 4.427083vw);
 `;
 
 export const Header = styled.header`
   display: flex;
-  flex-wrap: wrap;
   justify-content: space-between;
   align-items: flex-end;
 
   > h2 {
     width: 100%;
+  }
+
+  @media ${queries.s} {
+    flex-direction: column;
+    padding-inline: 10%;
   }
 `;
 
@@ -36,59 +38,85 @@ export const Navigation = styled.nav`
   }
 
   @media ${queries.s} {
+    justify-content: space-between;
     width: 100%;
   }
 `;
 
 export const Intro = styled.p`
-  width: 60%;
   margin-top: ${({ theme }) => theme.getMin(23)};
-  font-size: clamp(14px, 1.25vw, 24px);
+  color: ${({ theme }) => theme.getColor('alt')};
+  font-weight: 600;
+  font-size: clamp(14px, 16px + 0.4vw, 24px);
   white-space: pre-wrap;
 
-  @media ${queries.xs} {
+  @media ${queries.s} {
     width: 100%;
     margin: 1em 0 2em;
     font-weight: normal;
     font-size: max(5vw, 18px);
+    text-align: center;
   }
 `;
 
-export const PostsWrapper = styled.div`
+export const FilesWrapper = styled.div`
   padding-top: ${({ theme }) => theme.getMin(47)};
+
+  ul.swiper-wrapper {
+    padding-top: 1em;
+
+    @media ${queries.s} {
+      padding-top: 3em;
+    }
+  }
 
   li.swiper-slide {
     height: auto;
   }
-
-  @media ${queries.s} {
-    margin-top: 3em;
-  }
 `;
 
-export const SinglePost = styled.article`
-  height: 100%;
+export const SingleFile = styled.article`
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  aspect-ratio: 1/1;
+  transition: ${({ theme }) => theme.getTransitions(['box-shadow'])};
 
-  > div {
+  @media ${queries.xs} {
+    flex-shrink: 0;
+  }
+
+  @media ${queries.xtiny} {
+    width: 100%;
+    height: 100%;
+  }
+
+  > a:first-of-type {
     display: flex;
     flex-shrink: 0;
     flex-direction: column;
-    align-items: flex-start;
-    height: 100%;
+    justify-content: flex-end;
+    align-items: center;
+    width: 90%;
+    height: 90%;
+    box-shadow: ${rgba('#000', 0.25)} 0 0 22px;
+    border-radius: ${({ theme }) => theme.getRadius('small')};
+    background-color: #fff;
 
-      > a:last-child {
-        &:hover {
-          background-size: 150%;
+    > a:last-child {
+      &:hover {
+        background-size: 150%;
 
-          ::before {
-            filter: brightness(1.2);
-          }
+        ::before {
+          filter: brightness(1.2);
+        }
 
-          > svg {
-            transform: translateX(50%);
-          }
+        > svg {
+          transform: translateX(50%);
         }
       }
+    }
   }
 
   @media ${queries.xs} {
@@ -96,20 +124,20 @@ export const SinglePost = styled.article`
   }
 `;
 
-export const PostCover = styled(WPImage)`
-  overflow: hidden;
-  width: 100%;
-  aspect-ratio: 447/370;
-  border-radius: ${({ theme }) => theme.getRadius('small')};
-
+export const Image = styled(WPImage)`
   > img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
+  }
+
+  @media ${queries.s} {
+    max-height: 80%;
+    margin-bottom: 5%;
   }
 `;
 
-export const PostTitle = styled.h3`
+export const Name = styled.h3`
   margin: min(39px, 2.03125vw) 0 min(24px, 1.25vw);
   color: ${({ theme }) => theme.getColor('alt')};
   font-weight: bold;
@@ -117,60 +145,25 @@ export const PostTitle = styled.h3`
   font-family: ${({ theme }) => theme.getFont('alt')};
   text-transform: uppercase;
 
+  @media ${queries.s} {
+    margin-block: 1em;
+  }
+
   @media ${queries.xs} {
     font-size: clamp(24px, 2.5vw, 48px);
   }
 `;
 
-export const Excerpt = styled.p`
-  margin-bottom: min(1.666667vw, 32px);
-  color: ${({ theme }) => theme.getColor('main')};
-  font-size: clamp(10px, 1.145833vw, 20px);
-
-  @media ${queries.xs} {
-    font-size: clamp(20px, 2.083333vw, 40px);
-  }
-`;
-
-export const Arrow = styled(ArrowLink)`
+export const Arrow = styled.a`
+  ${arrowStyle}
   margin-top: auto;
   font-size: clamp(10px, 0.729167vw, 16px);
+  font-family: sans-serif;
 
   @media ${queries.xs} {
     margin: auto auto 0;
     padding: ${({ theme }) => `${theme.getMax(12)} ${theme.getMax(24)}`};
     font-size: clamp(14px, 1.25vw, 24px);
-  }
-`;
-
-export const AllPostsLink = styled(Link)`
-  filter: none;
-  border: 2px solid ${({ theme }) => theme.getColor('alt')};
-  border-radius: ${({ theme }) => theme.getRadius('small')};
-  padding: min(16px, 0.833333vw) min(36px, 1.875vw);
-  background-color: #fff;
-  color: ${({ theme }) => theme.getColor('alt')};
-  font-size: clamp(9px, 0.78125vw, 15px);
-  font-family: ${({ theme }) => theme.getFont('heading')};
-  transition: ${({ theme }) => theme.getTransitions([
-    'filter',
-    'transform',
-  ])};
-
-  :hover {
-    filter: drop-shadow(0 4px 4px ${rgba('#000', 0.25)});
-    transform: scale(1.05);
-  }
-
-  @media ${queries.l} {
-    order: 1;
-  }
-
-  @media ${queries.s} {
-    margin: auto;
-    padding: 0.5em 2em;
-    font-size: min(16px, 4vw);
-    text-align: center;
   }
 `;
 
@@ -201,33 +194,5 @@ export const ScrollButton = styled.button.attrs({ type: 'button' })`
 
   @media ${queries.l} {
     order: ${({ isFlipped }) => (isFlipped ? 0 : 2)}
-  }
-
-  @media ${queries.xs} {
-    display: none;
-  }
-`;
-
-export const MobileNav = styled.nav`
-  display: none;
-
-  @media ${queries.xs} {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 90%;
-    margin: 2em auto;
-    color: ${({ theme }) => theme.getColor('alt')};
-
-    > svg {
-      fill: currentColor;
-    }
-
-    > button {
-      display: block;
-
-      path {
-      stroke-width: 3px;}
-    }
   }
 `;

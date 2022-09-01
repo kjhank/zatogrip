@@ -4,3 +4,4 @@ export { Product } from './Product';
 export { Posts } from './Posts';
 export { Contact } from './Contact';
 export { NotFoundContainer } from './NotFoundContainer';
+export { Produkti } from './Produkti';
