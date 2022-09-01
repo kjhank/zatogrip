@@ -37,6 +37,12 @@ export const topNavigation = [
     type: 'link',
     url: '/kontakt/',
   },
+  {
+    hasUkrFlag: true,
+    text: 'Про продукти ',
+    type: 'link',
+    url: '/pro-produkti/',
+  },
 ];
 
 export const SCROLL_DEBOUNCE = 300;

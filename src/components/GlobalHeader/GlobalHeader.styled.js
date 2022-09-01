@@ -107,8 +107,20 @@ export const Navigation = styled.nav`
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    gap: clamp(10px, 4.010417vw, 77px);
+    gap: clamp(10px, 1.51vw + 1rem, 45px);
     list-style-type: none;
+    text-align: center;
+
+    > li {
+      display: flex;
+      align-items: center;
+      gap: 0.75em;
+
+      svg {
+        width: auto;
+        height: 1em;
+      }
+    }
 
     @media ${queries.s} {
       flex-direction: column;
@@ -118,6 +130,10 @@ export const Navigation = styled.nav`
         flex-direction: column;
         justify-content: center;
         align-items: center;
+
+        :last-child {
+          flex-direction: row;
+        }
       }
     }
   }
@@ -128,7 +144,8 @@ const commonNavStyle = css`
   padding: 0;
   background-color: transparent;
   color: ${({ theme }) => theme.colors.alt};
-  font-size: clamp(12px, 1.09375vw, 21vw);
+  font-weight: 600;
+  font-size: clamp(10px, 1.09375vw, 21px);
   font-family: ${({ theme }) => theme.getFont('heading')};
   text-transform: uppercase;
   cursor: pointer;
