@@ -8,7 +8,7 @@ export const Wrapper = styled.header`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: min(100vh, 56.25vw);
+  height: min(105.1vh, 60vw);
 
   > div {
     :last-child {
@@ -40,7 +40,7 @@ export const Cover = styled(WPImage)`
 
   > img {
     width: 100%;
-    height: 100%;
+    height: auto;
     max-height: unset;
     object-fit: contain;
     object-position: top left;
@@ -80,7 +80,7 @@ export const ContentWrapper = styled.div`
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
-  width: 60%;
+  width: 55%;
   height: 100%;
   margin-left: auto;
 
@@ -103,7 +103,7 @@ export const Heading = styled.h1`
   width: 100%;
   padding-block-start: ${({ theme }) => theme.getMin(155)};
   color: ${({ theme }) => theme.colors.alt};
-  font-size: clamp(36px, 3.90625vw, 75px);
+  font-size: clamp(55px, 5.42vw + 1rem, 110px);
   font-family: ${({ theme }) => theme.getFont('heading')};
   line-height: 1;
 
