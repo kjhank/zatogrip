@@ -69,10 +69,6 @@ export const FilesWrapper = styled.div`
       padding-top: 3em;
     }
   }
-
-  li.swiper-slide {
-    height: auto;
-  }
 `;
 
 export const SingleFile = styled.article`
