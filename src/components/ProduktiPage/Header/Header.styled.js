@@ -127,7 +127,11 @@ export const Heading = styled.h1`
     margin-top: -1em;
     padding-block-start: 0;
   }
-  `;
+
+  @media ${queries.xxsplus} {
+    margin-top: 0;
+  }
+`;
 
 export const IntroWrapper = styled.div`
   position: relative;
@@ -138,11 +142,27 @@ export const IntroWrapper = styled.div`
     color: ${({ theme }) => theme.colors.alt};
     font-weight: 500;
     font-size: clamp(36px, 3.90625vw, 75px);
+
+    @media ${queries.l} {
+      font-size: 32px;
+    }
+
+    @media ${queries.m} {
+      font-size: 28px;
+    }
   }
 
   > p {
     font-weight: 600;
     font-size: clamp(14px, 1.25vw, 24px);
+
+    @media ${queries.l} {
+      font-size: 12px;
+    }
+
+    @media ${queries.m} {
+      font-size: 10px;
+    }
   }
 
   @media ${queries.s} {
