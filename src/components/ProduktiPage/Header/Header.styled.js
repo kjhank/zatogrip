@@ -8,7 +8,7 @@ export const Wrapper = styled.header`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: min(105.1vh, 60vw);
+  height: 60vw;
 
   > div {
     :last-child {
@@ -167,9 +167,10 @@ export const IntroWrapper = styled.div`
 
   @media ${queries.s} {
     padding-inline-end: 0;
+    text-align: center;
 
-    > h2 {
-      text-align: center;
+    > p {
+      font-size: clamp(14px, 1.25vw, 24px);
     }
   }
 `;
