@@ -84,7 +84,7 @@ export const GlobalHeader = ({
                   </Link>
                   {item?.hasSubmenu && (
                     <SubNav>
-                      {products.map(product => (
+                      {products?.map(product => (
                         <Link
                           key={product.colorSlug.label}
                           to={`/${product.product.post_name}/`}
