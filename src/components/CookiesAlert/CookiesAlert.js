@@ -21,9 +21,9 @@ export const CookiesAlert = ({
 }) => (
   <Wrapper isVisible={isVisible}>
     <SectionHeading>
-      {content.heading}
+      {content?.heading}
     </SectionHeading>
-    <Text dangerouslySetInnerHTML={{ __html: sanitize(content.message, sanitizeConfig) }} />
+    <Text dangerouslySetInnerHTML={{ __html: sanitize(content?.message, sanitizeConfig) }} />
     <ArrowLink onClick={confirmCookies}>{content?.confirmText}</ArrowLink>
   </Wrapper>
 );

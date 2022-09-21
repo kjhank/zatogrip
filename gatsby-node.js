@@ -24,7 +24,7 @@ const paths = {
   home: '/',
   notFound: '/404/',
   posts: '/strefa-rodzica/',
-  produkti: '/pro-produkti/',
+  produkti: '/ua/',
 };
 
 const slugs = {
@@ -73,6 +73,10 @@ const getTemplate = ({
 const getPath = ({ slug }) => {
   if (slug === slugs.home) {
     return paths.home;
+  }
+
+  if (slug === slugs.produkti) {
+    return paths.produkti;
   }
 
   if (slug.includes(slugs.notFound)) {
