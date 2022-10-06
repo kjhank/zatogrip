@@ -55,6 +55,9 @@ export const Footnotes = ({ items }) => (
 );
 
 Footnotes.propTypes = {
-  items: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
+  items: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.shape({})),
+    PropTypes.bool,
+  ]).isRequired,
 };
 

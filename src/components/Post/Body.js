@@ -23,6 +23,9 @@ export const Body = ({
 
 Body.propTypes = {
   body: PropTypes.string.isRequired,
-  footnotes: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
+  footnotes: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.shape({})),
+    PropTypes.bool,
+  ]).isRequired,
 };
 
