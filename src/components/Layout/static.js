@@ -41,7 +41,7 @@ export const topNavigation = [
     hasUkrFlag: true,
     text: 'Про продукти ',
     type: 'link',
-    url: '/pro-produkti/',
+    url: '/ua/',
   },
 ];
 

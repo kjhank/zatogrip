@@ -22,7 +22,10 @@ PostPage.propTypes = {
     }),
     body: PropTypes.string,
     cover: PropTypes.shape({}),
-    footnotes: PropTypes.arrayOf(PropTypes.shape({})),
+    footnotes: PropTypes.oneOfType([
+      PropTypes.arrayOf(PropTypes.shape({})),
+      PropTypes.bool,
+    ]).isRequired,
     metadata: PropTypes.shape({
       title: PropTypes.string,
     }),

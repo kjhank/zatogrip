@@ -165,18 +165,20 @@ const getContext = async (pageData, settings, globals, { acf: { carousel } }, al
     return pageContext;
   }
 
-  const relatedPosts = acf?.articles?.articles.map(({ article }) => {
-    const { ID } = article;
+  const relatedPosts = acf?.articles?.articles ?
+    acf?.articles?.articles?.map(({ article }) => {
+      const { ID } = article;
 
-    const { acf: acfData } = allPosts?.find(post => post.id === ID) ?? { acf: {} };
+      const { acf: acfData } = allPosts?.find(post => post.id === ID) ?? { acf: {} };
 
-    return {
-      ...article,
-      cover: acfData?.cover,
-      excerpt: acfData?.excerpt,
-      thumbnail: acfData?.homeThumb,
-    };
-  });
+      return {
+        ...article,
+        cover: acfData?.cover,
+        excerpt: acfData?.excerpt,
+        thumbnail: acfData?.homeThumb,
+      };
+    }) :
+    [];
 
   return {
     ...globalContext,

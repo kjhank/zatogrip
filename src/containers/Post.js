@@ -29,7 +29,10 @@ export const Post = ({
 Post.propTypes = {
   body: PropTypes.string.isRequired,
   cover: PropTypes.shape({}).isRequired,
-  footnotes: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
+  footnotes: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.shape({})),
+    PropTypes.bool,
+  ]).isRequired,
   relatedPosts: PropTypes.shape({
     articles: PropTypes.arrayOf(PropTypes.shape({})),
     heading: PropTypes.string,

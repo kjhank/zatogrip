@@ -47,8 +47,8 @@ export const SinglePost = styled.li`
 
   @media ${queries.xtiny} {
     & + & {
-    margin-top: 48px;
-  }
+      margin-top: 48px;
+    }
   }
 `;
 
