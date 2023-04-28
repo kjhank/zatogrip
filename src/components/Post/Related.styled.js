@@ -17,7 +17,7 @@ export const RelatedContent = styled.aside`
   }
 `;
 
-export const Heading = styled.h1`
+export const Heading = styled.p`
   width: 100%;
   padding: ${({ theme }) => theme.getMin(75)} 0 ${({ theme }) => theme.getMin(97)};
   background-color: #fff;
@@ -95,5 +95,15 @@ export const PostCover = styled(WPImage)`
     width: 100%;
     height: 100%;
     object-fit: cover;
+  }
+`;
+
+export const MoreText = styled(ArrowLink)`
+  margin-top: auto;
+  font-size: clamp(10px, 0.729167vw, 16px);
+
+  @media ${queries.xs} {
+    padding: ${({ theme }) => `${theme.getMax(12)} ${theme.getMax(24)}`};
+    font-size: min(3vw, 16px);
   }
 `;

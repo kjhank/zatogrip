@@ -1,12 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import sanitize from 'sanitize-html';
-
-import { SectionHeading } from '@components/styled';
 import { ArrowLink } from '@components';
 
 import {
-  Text, Wrapper,
+  CookieHeading, Text, Wrapper,
 } from './CookiesAlert.styled';
 
 const sanitizeConfig = {
@@ -20,9 +18,9 @@ export const CookiesAlert = ({
   content, confirmCookies, isVisible,
 }) => (
   <Wrapper isVisible={isVisible}>
-    <SectionHeading>
+    <CookieHeading>
       {content?.heading}
-    </SectionHeading>
+    </CookieHeading>
     <Text dangerouslySetInnerHTML={{ __html: sanitize(content?.message, sanitizeConfig) }} />
     <ArrowLink onClick={confirmCookies}>{content?.confirmText}</ArrowLink>
   </Wrapper>

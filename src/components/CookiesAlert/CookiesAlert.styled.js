@@ -38,3 +38,22 @@ export const Text = styled.article`
     text-align: center;
   }
 `;
+
+export const CookieHeading = styled.p`
+  color: ${({ theme }) => theme.colors.alt};
+  font-size: clamp(28px, 2.916667vw, 56px);
+  font-family: ${({ theme }) => theme.getFont('heading')};
+  text-align: center;
+
+  @media ${queries.xs} {
+    font-size: min(72px, 10vw);
+  }
+
+  @media ${queries.tiny} {
+    font-size: min(12vw, 36px);
+  }
+
+  @media ${queries.xtiny} {
+    font-size: 32px;
+  }
+`;

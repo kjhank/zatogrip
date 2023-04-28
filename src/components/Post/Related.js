@@ -1,10 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import sanitize from 'sanitize-html';
+import { Link } from 'gatsby';
 
 import { Container } from '@components';
 import {
-  Excerpt, Heading, PostCover, PostLink, PostsList, PostTitle, RelatedContent, SinglePost,
+  Excerpt, Heading, MoreText, PostCover, PostsList, PostTitle, RelatedContent, SinglePost,
 } from './Related.styled';
 
 const sanitizeConfig = { allowedTags: [] };
@@ -22,17 +23,22 @@ export const Related = ({
               {articles?.map(article => (
                 <SinglePost key={article.post_name}>
                   {article?.thumbnail && <PostCover image={article.thumbnail} />}
-                  <PostTitle
-                    dangerouslySetInnerHTML={{
-                      __html: sanitize(
-                        article.post_title, sanitizeConfig
-                      ),
-                    }}
-                  />
+                  <Link to={`/${article.post_name}`}>
+                    <PostTitle
+                      dangerouslySetInnerHTML={{
+                        __html: sanitize(
+                          article.post_title, sanitizeConfig
+                        ),
+                      }}
+                    />
+                  </Link>
                   {article?.excerpt && <Excerpt>{article.excerpt}</Excerpt>}
-                  <PostLink to={`/${article.post_name}`}>
-                    Czytaj więcej
-                  </PostLink>
+                  <Link
+                    rel="nofollow"
+                    to={`/${article.post_name}`}
+                  >
+                    <MoreText>Czytaj więcej</MoreText>
+                  </Link>
                 </SinglePost>
               ))}
             </PostsList>
