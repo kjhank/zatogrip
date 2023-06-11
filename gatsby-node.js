@@ -17,6 +17,7 @@ const templates = {
   posts: path.resolve('./src/templates/PostsPage.js'),
   product: path.resolve('./src/templates/ProductPage.js'),
   produkti: path.resolve('./src/templates/ProduktiPage.js'),
+  reprints: path.resolve('./src/templates/ReprintsPage.js'),
 };
 
 const paths = {
@@ -33,6 +34,7 @@ const slugs = {
   notFound: '404',
   posts: 'strefa-rodzica',
   produkti: 'pro-produkti',
+  reprints: 'reprinty',
 };
 
 const types = {
@@ -45,6 +47,10 @@ const getTemplate = ({
 }) => {
   if (slug === slugs.home) {
     return templates.home;
+  }
+
+  if (slug === slugs.reprints) {
+    return templates.reprints;
   }
 
   if (slug === slugs.produkti) {
@@ -133,6 +139,13 @@ const getContext = async (pageData, settings, globals, { acf: { carousel } }, al
       data: acf,
     };
   }
+
+  // if (slug === slugs.reprints) {
+  //   return {
+  //     ...globalContext,
+  //     data: acf,
+  //   };
+  // }
 
   if (type === types.page) {
     const pageContext = hasCarousel ?

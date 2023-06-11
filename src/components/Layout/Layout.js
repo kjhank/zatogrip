@@ -98,9 +98,9 @@ const Layout = ({
 
   const handleScroll = ({ current: element }) => {
     const scrollOffset =
-    element.getBoundingClientRect().top +
-    window.scrollY -
-    (isMobile ? 100 : 0);
+      element.getBoundingClientRect().top +
+      window.scrollY -
+      (isMobile ? 100 : 0);
 
     const scrollConfig = {
       behavior: 'smooth',
