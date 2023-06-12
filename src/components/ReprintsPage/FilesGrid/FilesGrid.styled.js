@@ -11,6 +11,10 @@ export const Grid = styled.ul`
     grid-template: auto / 1fr;
     margin-block: min(200px, 50vw) min(300px, 75vw);
   }
+
+  @media ${queries.xxs} {
+    margin-block-start: min(100px, 25vw);
+  }
 `;
 
 export const File = styled.li`
