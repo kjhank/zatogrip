@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { WPImage } from '@components';
 import { queries } from '@utils/rwd';
+import { commonStyle as arrowStyle } from '@components/ArrowLink/ArrowLink.styled';
 
 export const Grid = styled.ul`
   display: grid;
@@ -28,12 +29,14 @@ export const File = styled.li`
   }
 
   > a {
+    ${arrowStyle};
     gap: 4em;
-    padding-block: ${({ theme }) => theme.getMin(17)};
-    font-size: clamp(9px, 0.78125vw, 15px);
+    font-size: clamp(10px, 0.729167vw, 16px);
 
     @media ${queries.s} {
-      padding-block: 1em;
+      gap: unset;
+      padding: ${({ theme }) => `${theme.getMax(12)} ${theme.getMax(24)}`};
+      font-size: clamp(14px, 1.25vw, 24px);
     }
   }
 `;
