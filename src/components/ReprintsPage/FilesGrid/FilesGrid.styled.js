@@ -30,11 +30,9 @@ export const File = styled.li`
 
   > a {
     ${arrowStyle};
-    gap: 4em;
     font-size: clamp(10px, 0.729167vw, 16px);
 
     @media ${queries.s} {
-      gap: unset;
       padding: ${({ theme }) => `${theme.getMax(12)} ${theme.getMax(24)}`};
       font-size: clamp(14px, 1.25vw, 24px);
     }
