@@ -35,7 +35,7 @@ export const GlobalHeader = ({
         <X />
       </NavToggle>
       <Navigation isHidden={!isNavigationOpen}>
-        <ul>
+        <menu>
           {navItems.map(item => {
             const isHighlighted = item?.url?.includes(slug) ||
             (item?.highlightType?.includes('products') && (slug?.startsWith('zatogrip') || slug?.startsWith('tabletki'))) ||
@@ -53,7 +53,7 @@ export const GlobalHeader = ({
                   </ScrollButton>
                   {item?.hasSubmenu && (
                     <SubNav>
-                      {products.map(product => (
+                      {products?.map(product => (
                         <Link
                           key={product.colorSlug.label}
                           to={`/${product.product.post_name}/`}
@@ -103,7 +103,7 @@ export const GlobalHeader = ({
                 </li>
               ));
           })}
-        </ul>
+        </menu>
       </Navigation>
     </Container>
   </StyledHeader>

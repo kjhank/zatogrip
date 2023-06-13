@@ -3,21 +3,17 @@ import PropTypes from 'prop-types';
 
 import { Produkti } from '@containers';
 
-const ProduktiPage = ({ pageContext }) => {
-  console.log(pageContext);
-
-  return (
-    <Produkti
-      additionalFiles={pageContext.data.additionalFiles}
-      background={pageContext.data.background}
-      backgroundPortrait={pageContext.data.backgroundPortrait}
-      ctxSize={JSON.stringify(pageContext).length}
-      downloadText={pageContext.data.linkText}
-      files={pageContext.data.filesCarousel}
-      header={pageContext.data.header}
-    />
-  );
-};
+const ProduktiPage = ({ pageContext }) => (
+  <Produkti
+    additionalFiles={pageContext.data.additionalFiles}
+    background={pageContext.data.background}
+    backgroundPortrait={pageContext.data.backgroundPortrait}
+    ctxSize={JSON.stringify(pageContext).length}
+    downloadText={pageContext.data.linkText}
+    files={pageContext.data.filesCarousel}
+    header={pageContext.data.header}
+  />
+);
 
 ProduktiPage.propTypes = {
   pageContext: PropTypes.shape({

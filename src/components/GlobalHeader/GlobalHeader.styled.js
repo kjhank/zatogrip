@@ -103,7 +103,7 @@ export const Navigation = styled.nav`
     transform: ${({ isHidden }) => (isHidden ? 'translate(-50%, -100%)' : 'translate(-50%, 0)')};
   }
 
-  > ul {
+  > menu {
     display: flex;
     justify-content: flex-end;
     align-items: center;
