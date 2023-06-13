@@ -1,9 +1,11 @@
 import styled, { css } from 'styled-components';
 
 import { queries } from '@utils/rwd';
+import { WPImage } from './WPImage/WPImage';
 
 export const Main = styled.main`
   background-color: #fff;
+  isolation: isolate;
 `;
 
 export const arrowLinkStyles = css`
@@ -21,10 +23,7 @@ export const arrowLinkStyles = css`
   ::before {
     content: '';
     position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
+    inset: 0;
     z-index: -1;
     width: 100%;
     height: 100%;
@@ -71,4 +70,38 @@ export const SectionHeading = styled.h2`
   @media ${queries.xtiny} {
     font-size: 32px;
   }
+`;
+
+export const Background = styled(WPImage)`
+  position: absolute;
+  inset-block-start: 30%;
+  z-index: -1;
+  pointer-events: none;
+
+  @media ${queries.s} {
+    display: none
+  }
+`;
+
+export const BackgroundPortrait = styled(WPImage)`
+  display: none;
+
+  @media ${queries.s} {
+    position: absolute;
+    inset-block-start: 0;
+    z-index: -1;
+    display: block;
+    width: 100%;
+    pointer-events: none;
+
+    > img {
+      width: 100%;
+    }
+  }
+`;
+
+export const StaticWrapper = styled.div`
+  position: relative;
+  margin-block-end: ${({ theme }) => theme.getMin(200)};
+  padding-block-start: ${({ theme }) => theme.getMin(150)};
 `;

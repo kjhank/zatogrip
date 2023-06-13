@@ -65,8 +65,8 @@ ArrowLink.propTypes = {
   ]).isRequired,
   customAs: PropTypes.string,
   href: PropTypes.string,
-  rel: PropTypes.string,
   onClick: PropTypes.func,
+  rel: PropTypes.string,
   to: PropTypes.string,
   type: PropTypes.string,
 };
@@ -76,8 +76,8 @@ ArrowLink.defaultProps = {
   $isCaps: false,
   customAs: null,
   href: null,
+  onClick: () => {},
   rel: null,
-  onClick: null,
   to: null,
   type: 'button',
 };

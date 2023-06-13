@@ -121,4 +121,3 @@ Header.propTypes = {
   list: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
   pageSlug: PropTypes.string.isRequired,
 };
-
