@@ -36,14 +36,20 @@ export const Label = styled.label`
 export const Checkbox = styled.input.attrs({ type: 'checkbox' })`
   appearance: none;
   flex-shrink: 0;
-  aspect-ratio: 1;
   width: ${({ theme }) => theme.getMin(27)};
+  height: ${({ theme }) => theme.getMin(27)};
   border-radius: ${({ theme }) => theme.getMin(4)};
   background-color: #fff;
 
   @media ${queries.s} {
     width: 2em;
+    height: 2em;
     border-radius: 0.25em;
+  }
+
+  @supports(aspect-ratio: 1) {
+    aspect-ratio: 1;
+    height: unset;
   }
 `;
 

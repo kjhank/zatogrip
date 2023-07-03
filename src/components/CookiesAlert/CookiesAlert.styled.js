@@ -38,3 +38,4 @@ export const Text = styled.article`
     text-align: center;
   }
 `;
+

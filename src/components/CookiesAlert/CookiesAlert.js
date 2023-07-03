@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import sanitize from 'sanitize-html';
-
 import { SectionHeading } from '@components/styled';
 import { ArrowLink } from '@components';
 
@@ -20,7 +19,7 @@ export const CookiesAlert = ({
   content, confirmCookies, isVisible,
 }) => (
   <Wrapper isVisible={isVisible}>
-    <SectionHeading>
+    <SectionHeading as="p">
       {content?.heading}
     </SectionHeading>
     <Text dangerouslySetInnerHTML={{ __html: sanitize(content?.message, sanitizeConfig) }} />

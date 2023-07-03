@@ -16,10 +16,15 @@ export const PostsGrid = ({
       <Grid>
         {posts.map(post => (
           <Item key={post.slug}>
+            <Image image={post.cover} />
             <Link to={`/${post.slug}/`}>
-              <Image image={post.cover} />
               <Title dangerouslySetInnerHTML={{ __html: sanitize(post.title) }} />
-              <Excerpt>{post.excerpt}</Excerpt>
+            </Link>
+            <Excerpt>{post.excerpt}</Excerpt>
+            <Link
+              rel="nofollow"
+              to={`/${post.slug}/`}
+            >
               <MoreText customAs="div">{linkText}</MoreText>
             </Link>
           </Item>
