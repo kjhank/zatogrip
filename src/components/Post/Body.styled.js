@@ -32,6 +32,9 @@ export const Content = styled.article`
   h2 {
     ${contentHeading};
   }
+  h3{
+    ${contentHeading};
+  }
 
   p + h2,
   p + p {
@@ -61,6 +64,16 @@ export const Content = styled.article`
 
   @media ${queries.xtiny} {
     font-size: 18px;
+  }
+  
+  a{
+    text-decoration: underline;
+  }
+  strong{
+    font-weight: bold;
+  }
+  img{
+    border-radius: 25px;
   }
 `;
 
