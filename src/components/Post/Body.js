@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import sanitize from 'sanitize-html';
 
 import { Container } from '@components';
 import {
@@ -13,7 +12,7 @@ export const Body = ({
 }) => (
   <Wrapper>
     <Container>
-      <Content dangerouslySetInnerHTML={{ __html: sanitize(body) }} />
+      <Content dangerouslySetInnerHTML={{ __html: body }} />
       <Footnotes
         items={footnotes}
       />
