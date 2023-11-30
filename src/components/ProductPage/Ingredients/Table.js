@@ -8,10 +8,10 @@ import {
 export const Table = ({
   body, head,
 }) => (
-  <StyledTable isNarrow={head.length < 3}>
+  <StyledTable isNarrow={head?.length < 3}>
     <Head>
       <Row>
-        {head.map(item => (
+        {head?.map(item => (
           <HeadCell
             isUppercase={item.isCapitalized}
             key={item.text}
@@ -22,9 +22,9 @@ export const Table = ({
       </Row>
     </Head>
     <Body>
-      {body.map(({ row }) => (
+      {body?.map(({ row }) => (
         <Row key={JSON.stringify(row)}>
-          {row.map(item => (
+          {row?.map(item => (
             <Cell
               isLighter={item.isLighter}
               key={JSON.stringify(item)}

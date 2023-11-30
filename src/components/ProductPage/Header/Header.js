@@ -83,7 +83,7 @@ export const Header = ({
       <Container>
         <ContentWrapper>
           <LinksWrapper>
-            {links.map(({ link }) => (
+            {links?.map(({ link }) => (
               <ArrowLink
                 href={link.url}
                 key={link.title}
@@ -96,7 +96,7 @@ export const Header = ({
           </LinksWrapper>
           <Footnotes>
             <ol>
-              {footnotes.map(({ footnote }) => <li key={footnote}>{footnote}</li>)}
+              {footnotes?.map(({ footnote }) => <li key={footnote}>{footnote}</li>)}
             </ol>
           </Footnotes>
         </ContentWrapper>

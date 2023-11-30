@@ -18,14 +18,14 @@ export const Ingredients = ({
       <SectionHeading>{heading}</SectionHeading>
       <Intro>{intro}</Intro>
       <Table
-        body={table.body}
-        head={table.head}
+        body={table?.body}
+        head={table?.head}
       />
       <IconsGrid icons={icons} />
-      {footnotes.length && (
+      {footnotes?.length && (
       <Footnotes>
         <ul>
-          {footnotes.map(({ footnote }) => <li key={footnote}>{footnote}</li>)}
+          {footnotes?.map(({ footnote }) => <li key={footnote}>{footnote}</li>)}
         </ul>
       </Footnotes>
       )}
