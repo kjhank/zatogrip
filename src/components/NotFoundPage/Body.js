@@ -21,7 +21,7 @@ export const Body = ({
     <Container>
       <Code>{code}</Code>
       <Label>{label}</Label>
-      <Link to={link?.url}>{link.title}</Link>
+      <Link to={link?.url}>{link?.title}</Link>
     </Container>
   </Wrapper>
 );
