@@ -1,5 +1,3 @@
-export const COOKIES_LS_KEY = 'cookies-agreed';
-
 export const topNavigation = [
   {
     section: 'usps',
