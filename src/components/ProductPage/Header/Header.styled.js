@@ -255,7 +255,7 @@ export const Box = styled(WPImage)`
   z-index: 1;
   width: ${({
     theme, image,
-  }) => theme.getMin(image.width / 2)};
+  }) => theme.getMin(image?.width / 2)};
   max-width: unset;
   max-height: unset;
 

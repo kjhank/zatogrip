@@ -16,35 +16,35 @@ export const Product = ({
 }) => (
   <Main>
     <Header
-      background={header.background}
-      backgroundPortrait={header.backgroundPortrait}
-      box={header.box}
-      boxPortrait={header.boxPortrait}
-      description={header.description}
-      footnotes={header.footnotes}
-      hasPortraitBox={header.hasPortraitBox}
-      heading={header.heading}
-      links={header.links}
-      list={header.list}
+      background={header?.background}
+      backgroundPortrait={header?.backgroundPortrait}
+      box={header?.box}
+      boxPortrait={header?.boxPortrait}
+      description={header?.description}
+      footnotes={header?.footnotes}
+      hasPortraitBox={header?.hasPortraitBox}
+      heading={header?.heading}
+      links={header?.links}
+      list={header?.list}
       pageSlug={slug}
     />
     <Serving
-      amount={serving.value}
-      badge={serving.image}
-      description={serving.description}
-      heading={serving.heading}
+      amount={serving?.value}
+      badge={serving?.image}
+      description={serving?.description}
+      heading={serving?.heading}
       pageSlug={slug}
     />
     <Ingredients
-      footnotes={ingredients.footnotes}
-      heading={ingredients.heading}
-      icons={ingredients.icons}
-      intro={ingredients.intro}
-      table={ingredients.table}
+      footnotes={ingredients?.footnotes}
+      heading={ingredients?.heading}
+      icons={ingredients?.icons}
+      intro={ingredients?.intro}
+      table={ingredients?.table}
     />
     <Warnings
-      heading={warnings.heading}
-      list={warnings.list}
+      heading={warnings?.heading}
+      list={warnings?.list}
     />
   </Main>
 );

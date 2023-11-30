@@ -13,7 +13,7 @@ const sanitizeConfig = {
 
 export const BulletList = ({ items }) => (
   <List>
-    {items.map(({ item }) => (
+    {items?.map(({ item }) => (
       <Item key={item}>
         <Bullet>
           <Arrow />
