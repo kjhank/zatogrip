@@ -120,7 +120,7 @@ const Layout = ({
   return (
     <Theme>
       <Seo data={seoData} />
-      <GlobalStyle />
+      <GlobalStyle shouldScroll />
       <GlobalHeader
         handleMouse={handleMouseOver}
         handleScroll={handleScroll}
