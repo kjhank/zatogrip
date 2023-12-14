@@ -7,7 +7,7 @@ import smoothscroll from 'smoothscroll-polyfill';
 import { Theme } from '@theme/main';
 import { GlobalStyle } from '@utils';
 import {
-  GlobalFooter, GlobalHeader, ProductsMenu,
+  CookiesAlert, GlobalFooter, GlobalHeader, ProductsMenu,
 } from '@components';
 
 import '../../../static/fonts/stylesheet.css';
@@ -16,13 +16,20 @@ import {
   debounceFunction, isBrowser, isMobile,
 } from '@utils/helpers';
 import { Seo } from './Seo';
-import { topNavigation } from './static';
+import {
+  COOKIES_LS_KEY, topNavigation,
+} from './static';
 
 const SCROLL_DEBOUNCE_DELAY = 50;
 
 const Layout = ({
   children, location, pageContext, path,
 }) => {
+  const [
+    isCookiesAlertOpen,
+    setCookiesAlertOpen,
+  ] = useState(false);
+
   const [
     isHeaderVisible,
     setHeaderVisible,
@@ -41,6 +48,17 @@ const Layout = ({
   useEffect(() => {
     smoothscroll.polyfill();
   }, []);
+
+  useEffect(() => {
+    const hasUserAgreed = localStorage.getItem(COOKIES_LS_KEY);
+
+    setCookiesAlertOpen(!hasUserAgreed);
+  }, []);
+
+  const confirmCookies = () => {
+    localStorage.setItem(COOKIES_LS_KEY, true);
+    setCookiesAlertOpen(false);
+  };
 
   const seoData = {
     ...pageContext?.metadata?.yoast,
@@ -120,7 +138,7 @@ const Layout = ({
   return (
     <Theme>
       <Seo data={seoData} />
-      <GlobalStyle shouldScroll />
+      <GlobalStyle shouldScroll={!isCookiesAlertOpen} />
       <GlobalHeader
         handleMouse={handleMouseOver}
         handleScroll={handleScroll}
@@ -143,6 +161,11 @@ const Layout = ({
         carousel={pageContext.carousel}
         content={pageContext?.globals?.acf}
         hasCarousel={pageContext?.hasCarousel}
+      />
+      <CookiesAlert
+        confirmCookies={confirmCookies}
+        content={pageContext?.cookies}
+        isVisible={isCookiesAlertOpen}
       />
     </Theme>
   );
