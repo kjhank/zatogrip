@@ -11,6 +11,7 @@ const endpoints = {
 
 const templates = {
   contact: path.resolve('./src/templates/ContactPage.js'),
+  generic: path.resolve('./src/templates/GenericPage.js'),
   home: path.resolve('./src/templates/HomePage.js'),
   notFound: path.resolve('./src/templates/NotFoundPage.js'),
   post: path.resolve('./src/templates/PostPage.js'),
@@ -42,6 +43,12 @@ const types = {
   post: 'post',
 };
 
+const staticSlugs = [
+  'oswiadczenie-o-ochronie-prywatnosci-eu',
+  'polityka-plikow-cookies-eu',
+  'tmp',
+];
+
 const getTemplate = ({
   slug, type,
 }) => {
@@ -55,6 +62,10 @@ const getTemplate = ({
 
   if (slug === slugs.produkti) {
     return templates.produkti;
+  }
+
+  if (staticSlugs.includes(slug)) {
+    return templates.generic;
   }
 
   if (slug.includes(slugs.notFound)) {
@@ -140,13 +151,6 @@ const getContext = async (pageData, settings, globals, { acf: { carousel } }, al
     };
   }
 
-  // if (slug === slugs.reprints) {
-  //   return {
-  //     ...globalContext,
-  //     data: acf,
-  //   };
-  // }
-
   if (type === types.page) {
     const pageContext = hasCarousel ?
       {
@@ -172,6 +176,27 @@ const getContext = async (pageData, settings, globals, { acf: { carousel } }, al
       return {
         ...pageContext,
         posts,
+      };
+    }
+
+    if (staticSlugs.includes(slug)) {
+      const body = pageData.content.rendered.replaceAll('//zatogrip.lekam.pl', '//zatogrip.pl');
+
+      const complianzExternalDivStart = '<div id="cmplz-document" class="cmplz-document cookie-statement cmplz-document-eu">';
+
+      if (body.includes(complianzExternalDivStart)) {
+        const closingDivIndex = body.lastIndexOf('</div>');
+
+        return {
+          ...pageContext,
+          body: body.replace(complianzExternalDivStart, '').substring(0, closingDivIndex),
+          raw: body,
+        };
+      }
+
+      return {
+        ...pageContext,
+        body,
       };
     }
 

@@ -15,6 +15,7 @@ import '../../../static/fonts/stylesheet.css';
 import {
   debounceFunction, isBrowser, isMobile,
 } from '@utils/helpers';
+import { Helmet } from 'react-helmet';
 import { Seo } from './Seo';
 import { topNavigation } from './static';
 
@@ -119,6 +120,12 @@ const Layout = ({
 
   return (
     <Theme>
+      <Helmet>
+        <link
+          href="https://zatogrip.lekam.pl/wp-content/plugins/complianz-gdpr-premium/assets/css/document.min.css?ver=1701654851"
+          rel="stylesheet"
+        />
+      </Helmet>
       <Seo data={seoData} />
       <GlobalStyle shouldScroll />
       <GlobalHeader
