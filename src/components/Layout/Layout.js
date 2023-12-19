@@ -118,14 +118,14 @@ const Layout = ({
     setHeaderVisible(true);
   }, [location]);
 
-  // useEffect(() => {
-  //   const scriptNode = document.createElement('script');
+  useEffect(() => {
+    const scriptNode = document.createElement('script');
 
-  //   scriptNode.type = 'text/javascript';
-  //   scriptNode.src = 'https://zatogrip.lekam.pl/wp-content/uploads/complianz/js/complianz-headless.min.js';
+    scriptNode.type = 'text/javascript';
+    scriptNode.src = 'https://zatogrip.lekam.pl/wp-content/uploads/complianz/js/complianz-headless.min.js';
 
-  //   document.body.appendChild((scriptNode));
-  // }, []);
+    document.body.appendChild((scriptNode));
+  }, []);
 
   return (
     <Theme>
@@ -181,6 +181,9 @@ Layout.propTypes = {
   }).isRequired,
   pageContext: PropTypes.shape({
     carousel: PropTypes.shape({}),
+    cmplz: PropTypes.shape({
+      html: PropTypes.string,
+    }),
     cookies: PropTypes.shape({}),
     globals: PropTypes.shape({
       acf: PropTypes.shape({
