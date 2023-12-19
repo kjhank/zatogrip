@@ -164,7 +164,7 @@ const Layout = ({
         content={pageContext?.globals?.acf}
         hasCarousel={pageContext?.hasCarousel}
       />
-      <div dangerouslySetInnerHTML={{ __html: pageContext?.cmplz.html }} />
+      <div dangerouslySetInnerHTML={{ __html: pageContext?.cmplz?.html }} />
     </Theme>
   );
 };
