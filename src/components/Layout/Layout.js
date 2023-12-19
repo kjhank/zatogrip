@@ -118,11 +118,24 @@ const Layout = ({
     setHeaderVisible(true);
   }, [location]);
 
+  // useEffect(() => {
+  //   const scriptNode = document.createElement('script');
+
+  //   scriptNode.type = 'text/javascript';
+  //   scriptNode.src = 'https://zatogrip.lekam.pl/wp-content/uploads/complianz/js/complianz-headless.min.js';
+
+  //   document.body.appendChild((scriptNode));
+  // }, []);
+
   return (
     <Theme>
       <Helmet>
         <link
           href="https://zatogrip.lekam.pl/wp-content/plugins/complianz-gdpr-premium/assets/css/document.min.css?ver=1701654851"
+          rel="stylesheet"
+        />
+        <link
+          href="https://zatogrip.lekam.pl/wp-content/uploads/complianz/css/banner-preview-1-optin.css"
           rel="stylesheet"
         />
       </Helmet>
@@ -151,6 +164,7 @@ const Layout = ({
         content={pageContext?.globals?.acf}
         hasCarousel={pageContext?.hasCarousel}
       />
+      <div dangerouslySetInnerHTML={{ __html: pageContext?.cmplz.html }} />
     </Theme>
   );
 };
