@@ -82,10 +82,12 @@ export const TilesSection = ({
   return (
     <Section ref={innerRef}>
       <Container>
+        {arrowText && (
         <ArrowTextWrapper>
           <ArrowText>{arrowText}</ArrowText>
           <Arrow />
         </ArrowTextWrapper>
+        )}
         <SectionHeading>{heading}</SectionHeading>
         <TilesGrid>
           {tiles?.map((tile, index) => (
