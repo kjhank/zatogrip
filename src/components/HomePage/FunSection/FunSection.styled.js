@@ -21,7 +21,7 @@ export const Section = styled.section`
   }
 
   @media ${queries.xs} {
-    margin-bottom: max(200px, 10vw);
+    /* margin-bottom: max(100px, 5vw); */
   }
 `;
 

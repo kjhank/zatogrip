@@ -43,6 +43,7 @@ const theme = {
     alt: 'Montserrat, sans-serif',
     default: 'Proxima Nova, sans-serif',
     heading: 'Swis721BdRndEU, sans-serif',
+    hero: '\'Rounded Mplus 1c\', sans-serif',
   },
   getColor: variant => theme.colors[variant],
   getFont: (variant = 'default') => theme.fonts[variant],

@@ -10,6 +10,7 @@ import {
   Envelope, EnvelopeWithAt, ManufacturerLogo, Phone, Pills,
 } from '@icons';
 
+import { Footnotes } from '@components/styled';
 import { Carousel } from './Carousel/Carousel';
 
 import {
@@ -33,7 +34,7 @@ const sanitizeConfig = {
 };
 
 export const GlobalFooter = ({
-  carousel, content, hasCarousel,
+  carousel, content, footnotes, hasCarousel,
 }) => (
   <Footer>
     {hasCarousel && <Carousel content={carousel} />}
@@ -77,6 +78,14 @@ export const GlobalFooter = ({
           </ul>
         </Contact>
       </Contacts>
+      {footnotes && (
+      <Footnotes
+        as="p"
+        className="global-footnotes"
+      >
+        {footnotes}
+      </Footnotes>
+      )}
       <Bottom>
         <ManufacturerLogo />
         <Legal>
@@ -130,10 +139,12 @@ GlobalFooter.propTypes = {
       url: PropTypes.string,
     }),
   }).isRequired,
+  footnotes: PropTypes.string,
   hasCarousel: PropTypes.bool,
 };
 
 GlobalFooter.defaultProps = {
   carousel: null,
+  footnotes: null,
   hasCarousel: false,
 };

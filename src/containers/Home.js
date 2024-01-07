@@ -7,10 +7,13 @@ import {
 import { Main } from '@components/styled';
 
 export const Home = ({
-  fun, hero, navItems, posts, products, tiles, video,
+  fun, headerHeight, hero, navItems, posts, products, tiles, video,
 }) => (
   <Main>
-    <HeroSection content={hero} />
+    <HeroSection
+      content={hero}
+      headerHeight={headerHeight}
+    />
     <TilesSection
       content={tiles}
       innerRef={navItems.find(({ section }) => section === 'usps').innerRef}
@@ -35,6 +38,7 @@ export const Home = ({
 
 Home.propTypes = {
   fun: PropTypes.shape({}).isRequired,
+  headerHeight: PropTypes.string.isRequired,
   hero: PropTypes.shape({}).isRequired,
   navItems: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
   posts: PropTypes.shape({}).isRequired,
