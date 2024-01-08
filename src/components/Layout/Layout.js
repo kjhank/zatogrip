@@ -48,7 +48,7 @@ const Layout = ({
   const [
     headerHeight,
     setHeaderHeight,
-  ] = useState('0px');
+  ] = useState('75px');
 
   useEffect(() => {
     smoothscroll.polyfill();
