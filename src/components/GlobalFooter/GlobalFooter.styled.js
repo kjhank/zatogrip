@@ -9,6 +9,14 @@ export const Footer = styled.footer`
   z-index: 2;
   background-color: #fff;
   font-family: ${({ theme }) => theme.getFont('alt')};
+
+  .global-footnotes {
+    white-space: pre-line;
+
+    @media ${queries.xs} {
+      margin-block-start: 2em;
+    }
+  }
 `;
 
 export const Contacts = styled.ul`
@@ -43,7 +51,7 @@ export const Contacts = styled.ul`
     border-radius: ${({ theme }) => theme.getRadius('medium')};
     padding: 4em 2em;
     font-size: clamp(14px, 1.458333vw, 28px);
-    transform: translateY(-35%);
+    transform: unset;
   }
 
   @media ${queries.tiny} {
@@ -139,12 +147,11 @@ export const Bottom = styled.section`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 5% 0;
-  transform: translateY(-50%);
+  padding: 2% 0;
 
   @media ${queries.xs} {
     flex-direction: column;
-    margin-top: -30%;
+    /* margin-top: -30%; */
     transform: unset;
 
     > svg {

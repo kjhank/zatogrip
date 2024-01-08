@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { Home } from '@containers';
 
 const HomePage = ({
+  headerHeight,
   navItems, pageContext: {
     data, posts,
   }, pageContext,
@@ -11,6 +12,7 @@ const HomePage = ({
   <Home
     ctxSize={JSON.stringify(pageContext).length}
     fun={data.funSection}
+    headerHeight={headerHeight}
     hero={data.hero}
     navItems={navItems}
     posts={{
@@ -27,6 +29,7 @@ const HomePage = ({
 );
 
 HomePage.propTypes = {
+  headerHeight: PropTypes.string,
   navItems: PropTypes.arrayOf(PropTypes.shape({})),
   pageContext: PropTypes.shape({
     data: PropTypes.shape({
@@ -44,6 +47,7 @@ HomePage.propTypes = {
 };
 
 HomePage.defaultProps = {
+  headerHeight: '0px',
   navItems: null,
 };
 
