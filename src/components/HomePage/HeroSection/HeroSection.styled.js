@@ -18,8 +18,11 @@ export const Section = styled.section`
     margin-top: 3em;
 
     > div {
+      position: absolute;
+      inset: 0;
       display: flex;
       flex-direction: column;
+      justify-content: flex-end;
       align-items: center;
     }
   }
@@ -27,15 +30,51 @@ export const Section = styled.section`
 
 export const Heading = styled.h2`
   position: absolute;
-  top: ${({ theme }) => theme.getMin(154)};
-  right: 12%;
+  inset-block-start: ${({ insetBlockStart }) => `calc(${insetBlockStart} + 0.25em)`};
+  inset-inline-end: 0;
   order: 1;
-  font-size: clamp(40px, 5.729167vw, 120px);
-  line-height: 0.8;
-  text-align: center;
+  width: 44%;
+  color: #92d955;
+  font-weight: bold;
+  font-size: clamp(28px, 4.0104169vw, 84px);
+  font-family: ${({ theme }) => theme.fonts.hero};
+  line-height: 1;
+  text-align: left;
+  text-transform: uppercase;
+  white-space: pre;
 
-  > strong {
-    color: ${({ theme }) => theme.colors.accent};
+  > svg {
+    width: auto;
+    height: 1.2em;
+  }
+
+  .logo-zato {
+    fill: #fcfcfc;
+
+    @media ${queries.xs} {
+      fill: unset;
+    }
+  }
+
+  .logo-subtitle {
+    display: none;
+  }
+
+  .heading {
+    &--subtitle {
+      line-height: 0.8;
+      letter-spacing: -3px;
+    }
+
+    &--small {
+      color: #fcfcfc;
+      font-weight: 400;
+      font-size: 0.4em;
+
+      @media ${queries.xs} {
+        color: #030303;
+      }
+    }
   }
 
   @media ${queries.s} {
@@ -46,7 +85,9 @@ export const Heading = styled.h2`
   @media ${queries.xs} {
     position: static;
     width: 100%;
-    font-size: clamp(80px, 7.8125vw, 150px);
+    padding-block-end: 20%;
+    padding-inline-start: 2%;
+    font-size: clamp(40px, 3.90625vw, 75px);
   }
 
   @media ${queries.xtiny} {

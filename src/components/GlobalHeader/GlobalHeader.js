@@ -10,7 +10,7 @@ import {
   Link, ProductName as Name, Navigation, NavToggle, ScrollButton, StyledHeader, SubNav,
 } from './GlobalHeader.styled';
 
-export const GlobalHeader = ({
+export const GlobalHeader = React.forwardRef(({
   handleScroll,
   handleMouse,
   hasLinks,
@@ -21,8 +21,11 @@ export const GlobalHeader = ({
   products,
   slug,
   type,
-}) => (
-  <StyledHeader isHidden={isHidden}>
+}, ref) => (
+  <StyledHeader
+    isHidden={isHidden}
+    ref={ref}
+  >
     <Container>
       <HomeLink to="/">
         <HeaderLogo />
@@ -107,7 +110,8 @@ export const GlobalHeader = ({
       </Navigation>
     </Container>
   </StyledHeader>
-);
+));
+
 GlobalHeader.propTypes = {
   handleMouse: PropTypes.func.isRequired,
   handleScroll: PropTypes.func.isRequired,

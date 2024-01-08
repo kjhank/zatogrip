@@ -45,6 +45,11 @@ const Layout = ({
     setNavigationOpen,
   ] = useState(false);
 
+  const [
+    headerHeight,
+    setHeaderHeight,
+  ] = useState('0px');
+
   useEffect(() => {
     smoothscroll.polyfill();
   }, []);
@@ -76,6 +81,7 @@ const Layout = ({
   });
 
   const pageScrollRef = useRef(isBrowser ? window.scrollY : 0);
+  const headerRef = useRef(null);
 
   useEffect(() => {
     const scrollHandler = () => {
@@ -119,6 +125,15 @@ const Layout = ({
   };
 
   useEffect(() => {
+    if (headerRef?.current) {
+      const heightInPx = `${Math.ceil(headerRef?.current?.getBoundingClientRect()
+        .height ?? 0)}px`;
+
+      setHeaderHeight(heightInPx);
+    }
+  }, [headerRef]);
+
+  useEffect(() => {
     if (location?.state?.scrollTarget) {
       const { state: { scrollTarget } } = location;
 
@@ -148,6 +163,7 @@ const Layout = ({
         navItems={navItems}
         onToggleClick={() => setNavigationOpen(current => !current)}
         products={pageContext?.globals?.acf?.products}
+        ref={headerRef}
         slug={pageContext?.metadata?.slug}
         type={pageContext?.metadata?.type}
       />
@@ -156,10 +172,14 @@ const Layout = ({
         isVisible={isSubmenuVisible}
         products={pageContext?.globals?.acf?.products}
       />
-      {cloneElement(children, { navItems })}
+      {cloneElement(children, {
+        headerHeight,
+        navItems,
+      })}
       <GlobalFooter
         carousel={pageContext.carousel}
         content={pageContext?.globals?.acf}
+        footnotes={pageContext?.data?.footerFootnotes}
         hasCarousel={pageContext?.hasCarousel}
       />
       <CookiesAlert
@@ -184,6 +204,9 @@ Layout.propTypes = {
   pageContext: PropTypes.shape({
     carousel: PropTypes.shape({}),
     cookies: PropTypes.shape({}),
+    data: PropTypes.shape({
+      footerFootnotes: PropTypes.string,
+    }),
     globals: PropTypes.shape({
       acf: PropTypes.shape({
         products: PropTypes.arrayOf(PropTypes.shape({})),

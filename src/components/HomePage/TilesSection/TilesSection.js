@@ -10,12 +10,8 @@ import {
   Hand, LongArrow,
 } from '@icons';
 import { Container } from '@components';
-import { SectionHeading } from '@components/HomePage/styled';
+import { Footnotes } from '@components/styled';
 import {
-  Arrow,
-  ArrowText,
-  ArrowTextWrapper,
-  Footnotes,
   MobileNav,
   MobileTiles,
   ScrollButton,
@@ -26,7 +22,7 @@ import { Tile } from './Tile';
 
 export const TilesSection = ({
   content: {
-    arrowText, clickText, closeText, footnotes, heading, tiles,
+    clickText, closeText, footnotes, tiles,
   },
   innerRef,
 }) => {
@@ -82,13 +78,6 @@ export const TilesSection = ({
   return (
     <Section ref={innerRef}>
       <Container>
-        {arrowText && (
-        <ArrowTextWrapper>
-          <ArrowText>{arrowText}</ArrowText>
-          <Arrow />
-        </ArrowTextWrapper>
-        )}
-        <SectionHeading>{heading}</SectionHeading>
         <TilesGrid>
           {tiles?.map((tile, index) => (
             <Tile
@@ -178,7 +167,6 @@ TilesSection.propTypes = {
     clickText: PropTypes.string,
     closeText: PropTypes.string,
     footnotes: PropTypes.arrayOf(PropTypes.shape({})),
-    heading: PropTypes.string,
     tiles: PropTypes.arrayOf(PropTypes.shape({
       relatedFootnotes: PropTypes.oneOfType([
         PropTypes.string,

@@ -105,3 +105,32 @@ export const StaticWrapper = styled.div`
   margin-block-end: ${({ theme }) => theme.getMin(200)};
   padding-block-start: ${({ theme }) => theme.getMin(150)};
 `;
+
+export const Footnotes = styled.footer`
+  position: relative;
+  z-index: 1;
+  font-size: clamp(8px, 0.625vw, 12px);
+  font-family: ${({ theme }) => theme.getFont('alt')};
+
+  > ol {
+    position: absolute;
+    padding-right: 40%;
+    list-style-position: inside;
+
+    > li {
+      display: inline;
+
+      > span {
+        color: ${({ theme }) => theme.getColor('alt')};
+      }
+    }
+  }
+
+  @media ${queries.xs} {
+    > ol {
+      top: 100%;
+      padding-right: 0;
+      text-align: center;
+    }
+  }
+`;
