@@ -17,13 +17,20 @@ import {
 } from '@utils/helpers';
 import { Helmet } from 'react-helmet';
 import { Seo } from './Seo';
-import { topNavigation } from './static';
+import {
+  COOKIES_LS_KEY, topNavigation,
+} from './static';
 
 const SCROLL_DEBOUNCE_DELAY = 50;
 
 const Layout = ({
   children, location, pageContext, path,
 }) => {
+  const [
+    isCookiesAlertOpen,
+    setCookiesAlertOpen,
+  ] = useState(false);
+
   const [
     isHeaderVisible,
     setHeaderVisible,
@@ -39,8 +46,19 @@ const Layout = ({
     setNavigationOpen,
   ] = useState(false);
 
+  const [
+    headerHeight,
+    setHeaderHeight,
+  ] = useState('75px');
+
   useEffect(() => {
     smoothscroll.polyfill();
+  }, []);
+
+  useEffect(() => {
+    const hasUserAgreed = localStorage.getItem(COOKIES_LS_KEY);
+
+    setCookiesAlertOpen(!hasUserAgreed);
   }, []);
 
   const seoData = {
@@ -59,6 +77,7 @@ const Layout = ({
   });
 
   const pageScrollRef = useRef(isBrowser ? window.scrollY : 0);
+  const headerRef = useRef(null);
 
   useEffect(() => {
     const scrollHandler = () => {
@@ -102,6 +121,15 @@ const Layout = ({
   };
 
   useEffect(() => {
+    if (headerRef?.current) {
+      const heightInPx = `${Math.ceil(headerRef?.current?.getBoundingClientRect()
+        .height ?? 0)}px`;
+
+      setHeaderHeight(heightInPx);
+    }
+  }, [headerRef]);
+
+  useEffect(() => {
     if (location?.state?.scrollTarget) {
       const { state: { scrollTarget } } = location;
 
@@ -135,12 +163,12 @@ const Layout = ({
           rel="stylesheet"
         />
         <link
-          href="https://zatogrip.lekam.pl/wp-content/uploads/complianz/css/banner-preview-1-optin.css"
+          href="https://zatogrip.lekam.pl/wp-content/uploads/complianz/css/banner-1-optin.css"
           rel="stylesheet"
         />
       </Helmet>
       <Seo data={seoData} />
-      <GlobalStyle shouldScroll />
+      <GlobalStyle shouldScroll={!isCookiesAlertOpen} />
       <GlobalHeader
         handleMouse={handleMouseOver}
         handleScroll={handleScroll}
@@ -150,6 +178,7 @@ const Layout = ({
         navItems={navItems}
         onToggleClick={() => setNavigationOpen(current => !current)}
         products={pageContext?.globals?.acf?.products}
+        ref={headerRef}
         slug={pageContext?.metadata?.slug}
         type={pageContext?.metadata?.type}
       />
@@ -158,10 +187,14 @@ const Layout = ({
         isVisible={isSubmenuVisible}
         products={pageContext?.globals?.acf?.products}
       />
-      {cloneElement(children, { navItems })}
+      {cloneElement(children, {
+        headerHeight,
+        navItems,
+      })}
       <GlobalFooter
         carousel={pageContext.carousel}
         content={pageContext?.globals?.acf}
+        footnotes={pageContext?.data?.footerFootnotes}
         hasCarousel={pageContext?.hasCarousel}
       />
       <div dangerouslySetInnerHTML={{ __html: pageContext?.cmplz?.html }} />
@@ -185,6 +218,9 @@ Layout.propTypes = {
       html: PropTypes.string,
     }),
     cookies: PropTypes.shape({}),
+    data: PropTypes.shape({
+      footerFootnotes: PropTypes.string,
+    }),
     globals: PropTypes.shape({
       acf: PropTypes.shape({
         products: PropTypes.arrayOf(PropTypes.shape({})),

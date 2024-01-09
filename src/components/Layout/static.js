@@ -1,7 +1,9 @@
+export const COOKIES_LS_KEY = 'cookies-agreed';
+
 export const topNavigation = [
   {
     section: 'usps',
-    text: 'Właśnie za to',
+    text: 'Dlaczego Zatogrip',
     type: 'scroll',
   },
   {
@@ -11,7 +13,7 @@ export const topNavigation = [
       'products',
     ],
     section: 'products',
-    text: 'Za te produkty',
+    text: 'Produkty',
     type: 'scroll',
   },
   {
@@ -20,13 +22,13 @@ export const topNavigation = [
       'posts',
     ],
     section: 'support',
-    text: 'Za to wsparcie',
+    text: 'Wiedza i porady',
     type: 'scroll',
     url: '/strefa-rodzica/',
   },
   {
     section: 'fun',
-    text: 'I zabawę',
+    text: 'Zabawa',
     type: 'scroll',
   },
   {

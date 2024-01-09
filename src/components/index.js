@@ -1,3 +1,4 @@
+export { CookiesAlert } from './CookiesAlert/CookiesAlert';
 export { ExternalLink } from './ExternalLink/ExternalLink';
 export { WPImage } from './WPImage/WPImage';
 export { ArrowLink } from './ArrowLink/ArrowLink';
