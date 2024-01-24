@@ -48,7 +48,7 @@ export const Heading = styled.h2`
     height: 1.2em;
   }
 
-  .logo-zato {
+  .zato-logo-st0 {
     fill: #fcfcfc;
 
     @media ${queries.xs} {
