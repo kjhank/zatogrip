@@ -4,5 +4,6 @@ export { Product } from './Product';
 export { Posts } from './Posts';
 export { Contact } from './Contact';
 export { NotFoundContainer } from './NotFoundContainer';
+export { GenericContainer } from './GenericContainer';
 export { Produkti } from './Produkti';
 export { Reprints } from './Reprints';
