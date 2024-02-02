@@ -17,20 +17,15 @@ import {
 } from '@utils/helpers';
 import { Helmet } from 'react-helmet';
 import { Seo } from './Seo';
-import {
-  COOKIES_LS_KEY, topNavigation,
-} from './static';
+import { topNavigation } from './static';
 
 const SCROLL_DEBOUNCE_DELAY = 50;
+
+const { GATSBY_ONETRUST_ID } = process.env;
 
 const Layout = ({
   children, location, pageContext, path,
 }) => {
-  const [
-    isCookiesAlertOpen,
-    setCookiesAlertOpen,
-  ] = useState(false);
-
   const [
     isHeaderVisible,
     setHeaderVisible,
@@ -53,12 +48,6 @@ const Layout = ({
 
   useEffect(() => {
     smoothscroll.polyfill();
-  }, []);
-
-  useEffect(() => {
-    const hasUserAgreed = localStorage.getItem(COOKIES_LS_KEY);
-
-    setCookiesAlertOpen(!hasUserAgreed);
   }, []);
 
   const seoData = {
@@ -150,9 +139,15 @@ const Layout = ({
     const scriptNode = document.createElement('script');
 
     scriptNode.type = 'text/javascript';
-    scriptNode.src = 'https://zatogrip.lekam.pl/wp-content/uploads/complianz/js/complianz-headless.min.js';
+    scriptNode.src = 'https://cdn.cookielaw.org/scripttemplates/otSDKStub.js';
+    scriptNode.setAttribute('data-document-language', 'true');
+    scriptNode.setAttribute('charset', 'utf-8');
+    scriptNode.setAttribute('data-domain-script', GATSBY_ONETRUST_ID);
 
-    document.body.appendChild((scriptNode));
+    document.head.appendChild(scriptNode);
+
+    // eslint-disable-next-line no-unused-vars
+    function OptanonWrapper() { }
   }, []);
 
   return (
@@ -162,13 +157,9 @@ const Layout = ({
           href="https://zatogrip.lekam.pl/wp-content/plugins/complianz-gdpr-premium/assets/css/document.min.css?ver=1701654851"
           rel="stylesheet"
         />
-        <link
-          href="https://zatogrip.lekam.pl/wp-content/uploads/complianz/css/banner-1-optin.css"
-          rel="stylesheet"
-        />
       </Helmet>
       <Seo data={seoData} />
-      <GlobalStyle shouldScroll={!isCookiesAlertOpen} />
+      <GlobalStyle shouldScroll />
       <GlobalHeader
         handleMouse={handleMouseOver}
         handleScroll={handleScroll}
@@ -191,14 +182,22 @@ const Layout = ({
         headerHeight,
         navItems,
       })}
+      <button
+        className="ot-sdk-show-settings"
+        id="ot-sdk-btn"
+        type="button"
+      >
+        Cookie Settings
+      </button>
+      <div id="ot-sdk-cookie-policy" />
       <GlobalFooter
         carousel={pageContext.carousel}
         content={pageContext?.globals?.acf}
         footnotes={pageContext?.data?.footerFootnotes}
         hasCarousel={pageContext?.hasCarousel}
       />
-      <div dangerouslySetInnerHTML={{ __html: pageContext?.cmplz?.html }} />
     </Theme>
+
   );
 };
 
@@ -214,9 +213,6 @@ Layout.propTypes = {
   }).isRequired,
   pageContext: PropTypes.shape({
     carousel: PropTypes.shape({}),
-    cmplz: PropTypes.shape({
-      html: PropTypes.string,
-    }),
     cookies: PropTypes.shape({}),
     data: PropTypes.shape({
       footerFootnotes: PropTypes.string,

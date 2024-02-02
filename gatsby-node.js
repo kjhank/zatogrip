@@ -7,7 +7,6 @@ const endpoints = {
   pages: 'wp/v2/pages/',
   posts: 'wp/v2/posts/',
   settings: 'wp/v2/settings/',
-  cmplz: 'twentytwentytwo/v1/banner-code',
 };
 
 const templates = {
@@ -104,7 +103,7 @@ const getPath = ({ slug }) => {
   return `/${slug}`;
 };
 
-const getContext = async (pageData, settings, globals, { acf: { carousel } }, allPosts, cmplz) => {
+const getContext = async (pageData, settings, globals, { acf: { carousel } }, allPosts) => {
   // TODO: reduce pageContext sizes
   const {
     acf, slug, title, type, yoast_head_json,
@@ -113,7 +112,6 @@ const getContext = async (pageData, settings, globals, { acf: { carousel } }, al
   const { hasCarousel } = acf;
 
   const globalContext = {
-    cmplz,
     cookies: {
       confirmText: globals?.acf?.confirmText,
       heading: globals?.acf?.heading,
@@ -261,16 +259,16 @@ exports.createPages = async ({
     pages,
     posts,
     settings,
-    cmplz,
+    // cmplz,
   ] = await getApiData(endpoints);
 
   pages.forEach(async page => {
     const context = page.slug === slugs.home ?
       {
-        ...await getContext(page, settings, globals, carousel, posts, cmplz),
+        ...await getContext(page, settings, globals, carousel, posts),
         posts,
       } :
-      await getContext(page, settings, globals, carousel, posts, cmplz);
+      await getContext(page, settings, globals, carousel, posts);
 
     const pageData = {
       component: getTemplate(page),
