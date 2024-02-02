@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 export const StyledHeader = styled.header`
   position: relative;
-  height: 100vh;
+  height: ${({ isCompact }) => (isCompact ? '30vh' : '100vh')};
 
   > div {
     display: flex;
