@@ -15,7 +15,6 @@ import '../../../static/fonts/stylesheet.css';
 import {
   debounceFunction, isBrowser, isMobile,
 } from '@utils/helpers';
-import { Helmet } from 'react-helmet';
 import { Seo } from './Seo';
 import { topNavigation } from './static';
 
@@ -152,12 +151,6 @@ const Layout = ({
 
   return (
     <Theme>
-      <Helmet>
-        <link
-          href="https://zatogrip.lekam.pl/wp-content/plugins/complianz-gdpr-premium/assets/css/document.min.css?ver=1701654851"
-          rel="stylesheet"
-        />
-      </Helmet>
       <Seo data={seoData} />
       <GlobalStyle shouldScroll />
       <GlobalHeader
@@ -182,6 +175,12 @@ const Layout = ({
         headerHeight,
         navItems,
       })}
+      <GlobalFooter
+        carousel={pageContext.carousel}
+        content={pageContext?.globals?.acf}
+        footnotes={pageContext?.data?.footerFootnotes}
+        hasCarousel={pageContext?.hasCarousel}
+      />
       <button
         className="ot-sdk-show-settings"
         id="ot-sdk-btn"
@@ -189,13 +188,6 @@ const Layout = ({
       >
         Cookie Settings
       </button>
-      <div id="ot-sdk-cookie-policy" />
-      <GlobalFooter
-        carousel={pageContext.carousel}
-        content={pageContext?.globals?.acf}
-        footnotes={pageContext?.data?.footerFootnotes}
-        hasCarousel={pageContext?.hasCarousel}
-      />
     </Theme>
 
   );
