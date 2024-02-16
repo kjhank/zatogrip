@@ -181,15 +181,7 @@ const Layout = ({
         footnotes={pageContext?.data?.footerFootnotes}
         hasCarousel={pageContext?.hasCarousel}
       />
-      <button
-        className="ot-sdk-show-settings"
-        id="ot-sdk-btn"
-        type="button"
-      >
-        Cookie Settings
-      </button>
     </Theme>
-
   );
 };
 
