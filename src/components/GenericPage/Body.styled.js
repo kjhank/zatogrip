@@ -51,6 +51,8 @@ export const PortraitBackground = styled(Background)`
 `;
 
 export const Content = styled.article`
+  width: min(100ch, 80%);
+  margin-block-end: 4em;
   background-color: #fff;
 
   > * {

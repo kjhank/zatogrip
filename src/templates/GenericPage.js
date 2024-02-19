@@ -3,12 +3,17 @@ import PropTypes from 'prop-types';
 
 import { GenericContainer } from '@containers';
 
-const GenericPage = ({ pageContext }) => (
-  <GenericContainer
-    body={pageContext.body}
-    content={pageContext?.data}
-    title={pageContext?.metadata?.title}
-  />
+const GenericPage = ({
+  pageContext, path,
+}) => (
+  <>
+    <GenericContainer
+      body={pageContext.body}
+      content={pageContext?.data}
+      path={path}
+      title={pageContext?.metadata?.title}
+    />
+  </>
 );
 
 export default GenericPage;
@@ -21,4 +26,5 @@ GenericPage.propTypes = {
       title: PropTypes.string,
     }),
   }).isRequired,
+  path: PropTypes.string.isRequired,
 };
