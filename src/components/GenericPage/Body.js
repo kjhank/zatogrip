@@ -61,39 +61,44 @@ const sanitizeConfig = {
 };
 
 export const Body = ({
-  background, body, portraitBackground, title,
-}) => {
-  console.log(body);
-
-  return (
-    <Wrapper>
-      <StyledHeader isCompact>
-        <Background
-          image={background}
-          isLazy={false}
-        />
-        <PortraitBackground
-          image={portraitBackground}
-          isLazy={false}
-        />
-        <Container>
-          <Title dangerouslySetInnerHTML={{ __html: sanitize(title) }} />
-        </Container>
-      </StyledHeader>
+  background, body, path, portraitBackground, title,
+}) => (
+  <Wrapper>
+    <StyledHeader isCompact>
+      <Background
+        image={background}
+        isLazy={false}
+      />
+      <PortraitBackground
+        image={portraitBackground}
+        isLazy={false}
+      />
       <Container>
-        <Content
-          className="cmplz-document cookie-statement cmplz-document-eu"
-          dangerouslySetInnerHTML={{ __html: sanitize(body, sanitizeConfig) }}
-          id="cmplz-document"
-        />
+        <Title dangerouslySetInnerHTML={{ __html: sanitize(title) }} />
       </Container>
-    </Wrapper>
-  );
-};
+    </StyledHeader>
+    <Container>
+      {path === '/polityka-plikow-cookies-eu' ?
+        (
+          <Content className="cookies-policy">
+            <div id="ot-sdk-cookie-policy" />
+          </Content>
+        ) :
+        (
+          <Content
+            className="cmplz-document cookie-statement cmplz-document-eu"
+            dangerouslySetInnerHTML={{ __html: sanitize(body, sanitizeConfig) }}
+            id="cmplz-document"
+          />
+        )}
+    </Container>
+  </Wrapper>
+);
 
 Body.propTypes = {
   background: PropTypes.shape({}).isRequired,
   body: PropTypes.string,
+  path: PropTypes.string.isRequired,
   portraitBackground: PropTypes.shape({}).isRequired,
   title: PropTypes.string,
 };

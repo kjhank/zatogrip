@@ -6,12 +6,13 @@ import { Main } from '@components/styled';
 import { Body } from '@components/GenericPage/Body';
 
 export const GenericContainer = ({
-  body, content, title,
+  body, content, path, title,
 }) => (
   <Main>
     <Body
       background={content.backgroundImage}
       body={body}
+      path={path}
       portraitBackground={content.backgroundImagePortrait}
       title={title}
     />
@@ -27,6 +28,7 @@ GenericContainer.propTypes = {
     errorLabel: PropTypes.string,
     link: PropTypes.shape({}),
   }).isRequired,
+  path: PropTypes.string.isRequired,
   title: PropTypes.string,
 };
 
