@@ -15,7 +15,7 @@ export const Wrapper = styled.header`
 
   @media ${queries.s} {
     height: auto;
-    padding-bottom: 3em;
+    padding-block-end: 3em;
     ${({ theme }) => theme.getSectionBorder()};
 
     > div {
@@ -28,7 +28,7 @@ export const Wrapper = styled.header`
 
 export const Cover = styled(WPImage)`
   position: absolute;
-  top: 0;
+  inset-block-start: 0;
   z-index: 0;
   width: 100%;
   max-width: unset;
@@ -66,7 +66,7 @@ export const ContentWrapper = styled.div`
   align-items: flex-start;
   width: 60%;
   height: 100%;
-  margin-left: auto;
+  margin-inline-start: auto;
 
   @media ${queries.l} {
     width: 50%;
@@ -82,7 +82,7 @@ export const ContentWrapper = styled.div`
 export const TopWrapper = styled.div`
   position: relative;
   height: 85%;
-  padding-top: ${({ theme }) => theme.getMin(110)};
+  padding-block-start: ${({ theme }) => theme.getMin(110)};
 
   ${ContentWrapper} {
     display: flex;
@@ -92,18 +92,18 @@ export const TopWrapper = styled.div`
     gap: min(3em, 4vw);
 
     > ul {
-      margin-bottom: 1em;
-      padding-right: 5%;
+      margin-block-end: 1em;
+      padding-inline-end: 5%;
       font-family: ${({ theme }) => theme.getFont('heading')};
     }
 
     @media ${queries.s} {
       align-items: center;
       width: 100%;
-      margin-top: -80%;
+      margin-block-start: -80%;
 
       &.variant--tabletki-zatogrip-forte {
-        margin-top: -50%;
+        margin-block-start: -50%;
       }
 
       > ul {
@@ -140,7 +140,7 @@ export const Heading = styled.h1`
     width: min(45vw, 175px);
     height: min(45vw, 175px);
     aspect-ratio: 1/1;
-    margin-top: -10%;
+    margin-block-start: -10%;
     border-radius: 999px;
     padding: min(24px, 1.25vw);
     background-color: ${({
@@ -158,13 +158,17 @@ export const Heading = styled.h1`
 
     > svg {
       position: absolute;
-      top: 50%;
-      left: 50%;
+      inset-block-start: 50%;
+      inset-inline-start: 50%;
       z-index: 0;
       display: block;
       width: 115%;
       height: auto;
       transform: translate(-50%, -50%);
+    }
+
+    &.variant--zatogrip-md-gardlo-spray {
+      font-size: min(7vw, 33.6px);
     }
   }
 `;
@@ -173,7 +177,7 @@ export const Description = styled.div`
   font-size: clamp(14px, 1.25vw, 24px);
 
   p + p {
-    margin-top: 0.8em;
+    margin-block-start: 0.8em;
     line-height: 1.2;
   }
 
@@ -209,7 +213,7 @@ export const LinksWrapper = styled.nav`
   display: flex;
   align-items: center;
   gap: min(28px, 1.458333vw);
-  margin-top: min(24px, 4.479167vw);
+  margin-block-start: min(24px, 4.479167vw);
   font-size: clamp(10px, 1.041667vw, 20px);
 
   > a {
@@ -219,7 +223,7 @@ export const LinksWrapper = styled.nav`
   @media ${queries.s} {
     justify-content: space-between;
     width: 100%;
-    margin-bottom: 2em;
+    margin-block-end: 2em;
 
     > a {
       padding: ${({ theme }) => `${theme.getMax(12)} ${theme.getMax(24)}`};
@@ -245,7 +249,7 @@ export const LinksWrapper = styled.nav`
 
   @media ${queries.xtiny} {
     > a:not(:first-of-type) {
-      margin-top: 2em;
+      margin-block-start: 2em;
     }
   }
 `;
@@ -267,28 +271,34 @@ export const Box = styled(WPImage)`
 
   &.variant {
     &--zatogrip-mini {
-      top: calc(100% - 25vh);
-      right: ${({ theme }) => `calc(100% + ${theme.getMin(150)})`};
+      inset-block-start: calc(100% - 25vh);
+      inset-inline-end: ${({ theme }) => `calc(100% + ${theme.getMin(150)})`};
     }
 
     &--zatogrip-baby {
-      top: calc(100% - 25vh);
-      right: ${({ theme }) => `calc(100% + ${theme.getMin(200)})`};
+      inset-block-start: calc(100% - 25vh);
+      inset-inline-end: ${({ theme }) => `calc(100% + ${theme.getMin(200)})`};
     }
 
     &--zatogrip-kids {
-      top: calc(100% - 25vh);
-      right: ${({ theme }) => `calc(100% + ${theme.getMin(175)})`};
+      inset-block-start: calc(100% - 25vh);
+      inset-inline-end: ${({ theme }) => `calc(100% + ${theme.getMin(175)})`};
     }
 
     &--zatogrip-junior {
-      top: calc(100% - 25vh);
-      right: ${({ theme }) => `calc(100% + ${theme.getMin(192)})`};
+      inset-block-start: calc(100% - 25vh);
+      inset-inline-end: ${({ theme }) => `calc(100% + ${theme.getMin(192)})`};
     }
 
     &--tabletki-zatogrip-forte {
-      top: calc(100% - 20vh);
-      right: ${({ theme }) => `calc(100% + ${theme.getMin(150)})`};
+      inset-block-start: calc(100% - 20vh);
+      inset-inline-end: ${({ theme }) => `calc(100% + ${theme.getMin(150)})`};
+    }
+
+    &--zatogrip-md-gardlo-spray {
+      inset-block-start: calc(100% - 30vh);
+      inset-inline-end: ${({ theme }) => `calc(100% + ${theme.getMin(200)})`};
+      inline-size: ${({ theme }) => theme.getMin(400)};
     }
   }
 
@@ -299,7 +309,7 @@ export const Box = styled(WPImage)`
 
     &.variant {
       &--zatogrip-kids {
-        margin-top: -20%;
+        margin-block-start: -20%;
       }
     }
   }
@@ -320,6 +330,12 @@ export const BoxPortrait = styled(WPImage)`
 
   @media ${queries.s} {
     display: block;
+  }
+
+  &.variant {
+    &--zatogrip-md-gardlo-spray-portrait {
+      margin-block-start: max(-100px, -33.33vw);
+    }
   }
 `;
 

@@ -17,17 +17,21 @@ export const Ingredients = ({
     <Container>
       <SectionHeading>{heading}</SectionHeading>
       <Intro>{intro}</Intro>
-      <Table
-        body={table?.body}
-        head={table?.head}
-      />
+      {table?.hastable ?
+        (
+          <Table
+            body={table?.body}
+            head={table?.head}
+          />
+        ) :
+        null}
       <IconsGrid icons={icons} />
       {footnotes?.length && (
-      <Footnotes>
-        <ul>
-          {footnotes?.map(({ footnote }) => <li key={footnote}>{footnote}</li>)}
-        </ul>
-      </Footnotes>
+        <Footnotes>
+          <ul>
+            {footnotes?.map(({ footnote }) => <li key={footnote}>{footnote}</li>)}
+          </ul>
+        </Footnotes>
       )}
     </Container>
   </Section>
@@ -39,11 +43,21 @@ Ingredients.propTypes = {
     PropTypes.bool,
   ]),
   heading: PropTypes.string.isRequired,
-  icons: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
+  icons: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.shape({})),
+    PropTypes.bool,
+  ]).isRequired,
   intro: PropTypes.string.isRequired,
   table: PropTypes.shape({
-    body: PropTypes.arrayOf(PropTypes.shape({})),
-    head: PropTypes.arrayOf(PropTypes.shape({})),
+    body: PropTypes.oneOfType([
+      PropTypes.arrayOf(PropTypes.shape({})),
+      PropTypes.bool,
+    ]),
+    hastable: PropTypes.bool,
+    head: PropTypes.oneOfType([
+      PropTypes.arrayOf(PropTypes.shape({})),
+      PropTypes.bool,
+    ]),
   }).isRequired,
 };
 

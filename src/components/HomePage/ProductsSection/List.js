@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import {
   Arrow, Ellipses,
 } from '@icons';
+import { NewBadge } from '@components/styled';
 
 import {
   ArrowWrapper,
@@ -18,32 +19,37 @@ import {
 export const List = ({ products }) => (
   <ProductsList>
     <ProductGroup>
-      {products?.filter(({ group }) => group === 'first')?.map(product => (
-        <Product
-          className={`variant--${product.color}`}
-          key={product.linkText}
-        >
-          <Package
+      {products?.filter(({ group }) => group === 'first')?.map(product => {
+        const { isnew: isNew } = product;
+
+        return (
+          <Product
             className={`variant--${product.color}`}
-            image={product.image}
-          />
-          <PackagePortrait
-            className={`variant--${product.color}`}
-            image={product.imageMobile}
-          />
-          <ProductLink
-            to={`/${product.product.post_name}`}
-            variant={product.color}
+            key={product.linkText}
           >
-            <Ellipses />
-            <span>{product.linkText}</span>
-            {' '}
-            <ArrowWrapper>
-              <Arrow />
-            </ArrowWrapper>
-          </ProductLink>
-        </Product>
-      ))}
+            {isNew ? <NewBadge>Nowość</NewBadge> : null}
+            <Package
+              className={`variant--${product.color}`}
+              image={product.image}
+            />
+            <PackagePortrait
+              className={`variant--${product.color}`}
+              image={product.imageMobile}
+            />
+            <ProductLink
+              to={`/${product.product.post_name}`}
+              variant={product.color}
+            >
+              <Ellipses />
+              <span>{product.linkText}</span>
+              {' '}
+              <ArrowWrapper>
+                <Arrow />
+              </ArrowWrapper>
+            </ProductLink>
+          </Product>
+        );
+      })}
     </ProductGroup>
     <ProductGroup>
       {products?.filter(({ group }) => group === 'second')?.map(product => (

@@ -61,6 +61,14 @@ export const Badge = styled(WPImage)`
   }) => theme.getMin((image.width / 2) * 0.85)};
   }
 
+  &.zatogrip-md-gardlo-spray {
+    width: ${({ theme }) => theme.getMin(200)};
+
+    @media ${queries.s} {
+      width: 50vw;
+    }
+  }
+
   @media ${queries.xs} {
     width: ${({ image }) => `min(${image.width / 2}px, 85%)`};
 

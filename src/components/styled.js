@@ -134,3 +134,22 @@ export const Footnotes = styled.footer`
     }
   }
 `;
+
+export const NewBadge = styled.span.attrs({ className: 'new-badge' })`
+  display: grid;
+  place-items: center;
+  border: ${({ theme }) => `${theme.getMin(2)} solid ${theme.getColor('alt')}`};
+  border-radius: ${({ theme }) => theme.getRadius('small')};
+  padding: ${({ theme }) => theme.getMin(5)} ${({ theme }) => theme.getMin(10)};
+  background-color: #fff;
+  color: ${({ theme }) => theme.getColor('accent')};
+  font-weight: 700;
+  font-size: clamp(8px, 0.625vw, 12px);
+  font-family: ${({ theme }) => theme.getFont('heading')};
+  text-transform: uppercase;
+
+  @media ${queries.xs} {
+    border-width: min(2px, 0.7vw);
+    padding: min(5px, 1.7vw) min(10px, 3.4vw);
+  }
+`;

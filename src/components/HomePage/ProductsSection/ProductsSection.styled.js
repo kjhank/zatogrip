@@ -214,15 +214,32 @@ export const Product = styled.article`
     align-items: center;
     width: 100%;
     height: 100%;
+
+    &.variant--spray {
+      a {
+        font-size: min(7vw, 33.6px);
+      }
+    }
   }
 
-@media ${queries.xtiny} {
+  @media ${queries.xtiny} {
     :not(:first-child) {
       margin-top: 64px;
 
       @supports (gap: max(50px, 10vh)) {
         margin-top: 0;
       }
+    }
+  }
+
+  > .new-badge {
+    position: absolute;
+    inset: 100% auto auto 50%;
+    z-index: 1;
+    translate: -50% 50%;
+
+    @media ${queries.xs} {
+      font-size: min(4vw, 20px);
     }
   }
 `;
@@ -296,6 +313,10 @@ export const Package = styled(WPImage)`
     &--forte {
       bottom: 50%;
       transform: translateX(-50%);
+    }
+
+    &--spray {
+      transform: translateX(-55%);
     }
   }
 `;

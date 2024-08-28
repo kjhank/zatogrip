@@ -109,7 +109,9 @@ const getContext = async (pageData, settings, globals, { acf: { carousel } }, al
     acf, slug, title, type, yoast_head_json,
   } = pageData;
 
-  const { hasCarousel } = acf;
+  const {
+    hasCarousel, haslegal, legaltext,
+  } = acf;
 
   const globalContext = {
     cookies: {
@@ -118,6 +120,8 @@ const getContext = async (pageData, settings, globals, { acf: { carousel } }, al
       message: globals?.acf?.message,
     },
     globals,
+    hasLegal: haslegal,
+    legalText: legaltext,
     metadata: {
       globals: {
         language: settings.language,

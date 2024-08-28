@@ -10,6 +10,7 @@ const ProductPage = ({ pageContext }) => (
     ingredients={pageContext?.data?.ingredients}
     serving={pageContext?.data?.servingSection}
     slug={pageContext?.metadata?.slug}
+    usage={pageContext?.data?.usage}
     warnings={pageContext?.data?.warnings}
   />
 );
@@ -20,6 +21,7 @@ ProductPage.propTypes = {
       header: PropTypes.shape({}),
       ingredients: PropTypes.shape({}),
       servingSection: PropTypes.shape({}),
+      usage: PropTypes.shape({}),
       warnings: PropTypes.shape({}),
     }),
     metadata: PropTypes.shape({

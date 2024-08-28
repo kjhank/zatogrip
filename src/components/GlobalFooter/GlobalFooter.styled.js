@@ -149,6 +149,17 @@ export const Bottom = styled.section`
   align-items: center;
   padding: 2% 0;
 
+  &.global-legal {
+    min-block-size: 10vh;
+    font-size: clamp(20px, 2.083333vw, 40px);
+    text-align: start;
+    text-wrap: balance;
+
+    @media ${queries.xs} {
+      font-size: min(50px, 8vw);
+    }
+  }
+
   @media ${queries.xs} {
     flex-direction: column;
     /* margin-top: -30%; */

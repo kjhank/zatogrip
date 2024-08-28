@@ -34,7 +34,7 @@ const sanitizeConfig = {
 };
 
 export const GlobalFooter = ({
-  carousel, content, footnotes, hasCarousel,
+  carousel, content, footnotes, hasCarousel, hasLegal, legalText,
 }) => (
   <Footer>
     {hasCarousel && <Carousel content={carousel} />}
@@ -79,14 +79,25 @@ export const GlobalFooter = ({
         </Contact>
       </Contacts>
       {footnotes && (
-      <Footnotes
-        as="p"
-        className="global-footnotes"
-      >
-        {footnotes}
-      </Footnotes>
+        <Footnotes
+          as="p"
+          className="global-footnotes"
+        >
+          {footnotes}
+        </Footnotes>
       )}
-      <Bottom>
+      {hasLegal ?
+        (
+          <Bottom
+            as="div"
+            className="global-legal"
+
+          >
+            <p dangerouslySetInnerHTML={{ __html: sanitize(legalText, sanitizeConfig) }} />
+          </Bottom>
+        ) :
+        null}
+      <Bottom as="div">
         <ManufacturerLogo />
         <Legal>
           {content?.legal.copyright}
@@ -141,10 +152,14 @@ GlobalFooter.propTypes = {
   }).isRequired,
   footnotes: PropTypes.string,
   hasCarousel: PropTypes.bool,
+  hasLegal: PropTypes.bool,
+  legalText: PropTypes.string,
 };
 
 GlobalFooter.defaultProps = {
   carousel: null,
   footnotes: null,
   hasCarousel: false,
+  hasLegal: false,
+  legalText: null,
 };

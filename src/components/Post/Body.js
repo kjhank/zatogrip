@@ -8,12 +8,14 @@ import {
 } from './Body.styled';
 import { Footnotes } from './Footnotes';
 
+import { postSanitizeConfig } from './Post.utils';
+
 export const Body = ({
   body, footnotes,
 }) => (
   <Wrapper>
     <Container>
-      <Content dangerouslySetInnerHTML={{ __html: sanitize(body) }} />
+      <Content dangerouslySetInnerHTML={{ __html: sanitize(body, postSanitizeConfig) }} />
       <Footnotes
         items={footnotes}
       />
