@@ -35,18 +35,12 @@ export const Product = ({
       description={serving?.description}
       heading={serving?.heading}
       pageSlug={slug}
+      secondValue={serving?.second_value}
     />
-    {/* usage */}
     {usage?.isvisible ?
       (
         <Ingredients
           heading={usage?.heading}
-          // icons={[
-          //   {
-          //     hasBadges: true,
-          //     row: [usage?.image],
-          //   },
-          // ]}
           intro={usage?.description}
           slug={slug}
         />
@@ -119,6 +113,7 @@ Product.propTypes = {
       PropTypes.bool,
       PropTypes.shape({}),
     ]),
+    second_value: PropTypes.string,
     value: PropTypes.string,
   }).isRequired,
   slug: PropTypes.string.isRequired,

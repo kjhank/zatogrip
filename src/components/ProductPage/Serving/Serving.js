@@ -18,12 +18,13 @@ const sanitizeConfig = {
 };
 
 export const Serving = ({
-  amount, badge, description, heading, pageSlug,
+  amount, badge, description, heading, pageSlug, secondValue,
 }) => (
   <Wrapper>
     <Container>
       {heading && <SectionHeading>{heading}</SectionHeading>}
       {amount && <Amount>{amount.split(',').join(',\n')}</Amount>}
+      {secondValue && <Amount>{secondValue.split(',').join(',\n')}</Amount>}
       {badge && (
         <Badge
           className={pageSlug}
@@ -46,8 +47,10 @@ Serving.propTypes = {
   description: PropTypes.string.isRequired,
   heading: PropTypes.string.isRequired,
   pageSlug: PropTypes.string.isRequired,
+  secondValue: PropTypes.string,
 };
 
 Serving.defaultProps = {
   badge: null,
+  secondValue: null,
 };

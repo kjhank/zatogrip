@@ -39,6 +39,8 @@ export const Amount = styled.p`
   color: ${({ theme }) => theme.getColor('accent')};
   font-size: clamp(20px, 2.083333vw, 40px);
   font-family: ${({ theme }) => theme.getFont('heading')};
+  text-wrap: balance;
+  text-align: center;
 
   @media ${queries.xs} {
     width: 100%;
