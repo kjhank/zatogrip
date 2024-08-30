@@ -42,7 +42,6 @@ export const Intro = styled.div`
     flex-direction: column;
     align-items: flex-start;
     gap: min(1.25em, 1.3vw);
-    /* color: ${({ theme }) => theme.colors.gradient.from}; */
     font-size: clamp(16px, 1.354167vw, 26px);
     font-family: ${({ theme }) => theme.getFont()};
 
@@ -55,6 +54,7 @@ export const Intro = styled.div`
       display: inline-flex;
       align-items: baseline;
       gap: min(1em, 1.5625vw);
+      text-align: start;
 
       > span {
         white-space: pre-line;
