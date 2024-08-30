@@ -48,6 +48,7 @@ export const Product = ({
           //   },
           // ]}
           intro={usage?.description}
+          slug={slug}
         />
       ) :
       null}

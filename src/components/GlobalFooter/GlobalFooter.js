@@ -30,6 +30,8 @@ const sanitizeConfig = {
   allowedTags: [
     'a',
     'br',
+    'p',
+    'strong',
   ],
 };
 
@@ -88,13 +90,14 @@ export const GlobalFooter = ({
       )}
       {hasLegal ?
         (
-          <Bottom
-            as="div"
-            className="global-legal"
-
-          >
-            <p dangerouslySetInnerHTML={{ __html: sanitize(legalText, sanitizeConfig) }} />
-          </Bottom>
+          <>
+            <hr />
+            <Bottom
+              as="div"
+              className="global-legal"
+              dangerouslySetInnerHTML={{ __html: sanitize(legalText, sanitizeConfig) }}
+            />
+          </>
         ) :
         null}
       <Bottom as="div">

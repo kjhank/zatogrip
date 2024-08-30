@@ -29,10 +29,10 @@ export const ProductsMenu = ({
               {isNew ? <NewBadge>Nowość</NewBadge> : null}
               <Link to={`/${product.product.post_name}/`}>
                 <Image
-                  className={`submenu-variant--${product.colorSlug.value}`}
+                  className={`submenu-variant--${product.colorSlug.value.toLowerCase()}`}
                   image={product.image}
                 />
-                <Name variant={product.colorSlug.value}>
+                <Name variant={product.colorSlug.value.toLowerCase()}>
                   ZATO
                   <strong>GRIP</strong>
                   <br />
