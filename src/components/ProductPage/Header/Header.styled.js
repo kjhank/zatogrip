@@ -5,22 +5,22 @@ import { queries } from '@utils/rwd';
 
 export const Wrapper = styled.header`
   position: relative;
-  height: min(100vh, 56.25vw);
+  block-size: min(100vh, 56.25vw);
 
   > div {
     :last-child {
-      height: 15%;
+      block-size: 15%;
     }
   }
 
   @media ${queries.s} {
-    height: auto;
+    block-size: auto;
     padding-block-end: 3em;
     ${({ theme }) => theme.getSectionBorder()};
 
     > div {
       :last-child {
-        height: auto;
+        block-size: auto;
       }
     }
   }
@@ -30,25 +30,25 @@ export const Cover = styled(WPImage)`
   position: absolute;
   inset-block-start: 0;
   z-index: 0;
-  width: 100%;
-  max-width: unset;
-  height: 100%;
-  max-height: unset;
+  inline-size: 100%;
+  max-inline-size: unset;
+  block-size: 100%;
+  max-block-size: unset;
 
   > img {
-    width: 100%;
-    height: 100%;
-    max-height: unset;
+    inline-size: 100%;
+    block-size: 100%;
+    max-block-size: unset;
     object-fit: contain;
     object-position: top left;
   }
 
   @media ${queries.l} {
-    max-height: unset;
+    max-block-size: unset;
 
     > img {
-      height: 100%;
-      max-height: unset;
+      block-size: 100%;
+      max-block-size: unset;
       object-fit: cover;
     }
   }
@@ -64,24 +64,24 @@ export const ContentWrapper = styled.div`
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
-  width: 60%;
-  height: 100%;
+  inline-size: 60%;
+  block-size: 100%;
   margin-inline-start: auto;
 
   @media ${queries.l} {
-    width: 50%;
+    inline-size: 50%;
   }
 
   @media ${queries.s} {
     display: flex;
     flex-direction: column;
-    width: 100%;
+    inline-size: 100%;
   }
 `;
 
 export const TopWrapper = styled.div`
   position: relative;
-  height: 85%;
+  block-size: 85%;
   padding-block-start: ${({ theme }) => theme.getMin(110)};
 
   ${ContentWrapper} {
@@ -99,7 +99,7 @@ export const TopWrapper = styled.div`
 
     @media ${queries.s} {
       align-items: center;
-      width: 100%;
+      inline-size: 100%;
       margin-block-start: -80%;
 
       &.variant--tabletki-zatogrip-forte {
@@ -119,13 +119,13 @@ export const TopWrapper = styled.div`
   }
 
   @media ${queries.s} {
-    height: 100%;
+    block-size: 100%;
   }
 `;
 
 export const Heading = styled.h1`
   color: ${({ theme }) => theme.colors.alt};
-  font-size: clamp(36px, 3.90625vw, 75px);
+  font-size: clamp(28.8px, 3.125vw, 60px);
   font-family: ${({ theme }) => theme.getFont('heading')};
 
   > svg {
@@ -137,8 +137,8 @@ export const Heading = styled.h1`
     z-index: 1;
     display: grid;
     place-items: center;
-    width: min(45vw, 175px);
-    height: min(45vw, 175px);
+    inline-size: min(45vw, 175px);
+    block-size: min(45vw, 175px);
     aspect-ratio: 1/1;
     margin-block-start: -10%;
     border-radius: 999px;
@@ -153,7 +153,7 @@ export const Heading = styled.h1`
     text-align: center;
 
     > span {
-      width: 75%;
+      inline-size: 75%;
     }
 
     > svg {
@@ -162,8 +162,8 @@ export const Heading = styled.h1`
       inset-inline-start: 50%;
       z-index: 0;
       display: block;
-      width: 115%;
-      height: auto;
+      inline-size: 115%;
+      block-size: auto;
       transform: translate(-50%, -50%);
     }
 
@@ -222,7 +222,7 @@ export const LinksWrapper = styled.nav`
 
   @media ${queries.s} {
     justify-content: space-between;
-    width: 100%;
+    inline-size: 100%;
     margin-block-end: 2em;
 
     > a {
@@ -237,7 +237,7 @@ export const LinksWrapper = styled.nav`
     padding: 0 20%;
 
     > a {
-      width: 100%;
+      inline-size: 100%;
       padding: ${({ theme }) => `${theme.getMax(12)} ${theme.getMax(24)}`};
       font-size: clamp(18px, 1.875vw, 36px);
     }
@@ -257,46 +257,46 @@ export const LinksWrapper = styled.nav`
 export const Box = styled(WPImage)`
   position: absolute;
   z-index: 1;
-  width: ${({
+  inline-size: ${({
     theme, image,
   }) => theme.getMin(image?.width / 2)};
-  max-width: unset;
-  max-height: unset;
+  max-inline-size: unset;
+  max-block-size: unset;
 
   > img {
-    width: 100%;
-    max-width: unset;
-    max-height: unset;
+    inline-size: 100%;
+    max-inline-size: unset;
+    max-block-size: unset;
   }
 
   &.variant {
     &--zatogrip-mini {
-      inset-block-start: calc(100% - 25vh);
+      inset-block-start: calc(100% - 15vw);
       inset-inline-end: ${({ theme }) => `calc(100% + ${theme.getMin(150)})`};
     }
 
     &--zatogrip-baby {
-      inset-block-start: calc(100% - 25vh);
+      inset-block-start: calc(100% - 15vw);
       inset-inline-end: ${({ theme }) => `calc(100% + ${theme.getMin(200)})`};
     }
 
     &--zatogrip-kids {
-      inset-block-start: calc(100% - 25vh);
+      inset-block-start: calc(100% - 15vw);
       inset-inline-end: ${({ theme }) => `calc(100% + ${theme.getMin(175)})`};
     }
 
     &--zatogrip-junior {
-      inset-block-start: calc(100% - 25vh);
+      inset-block-start: calc(100% - 15vw);
       inset-inline-end: ${({ theme }) => `calc(100% + ${theme.getMin(192)})`};
     }
 
     &--tabletki-zatogrip-forte {
-      inset-block-start: calc(100% - 20vh);
+      inset-block-start: calc(100% - 12vw);
       inset-inline-end: ${({ theme }) => `calc(100% + ${theme.getMin(150)})`};
     }
 
     &--zatogrip-md-gardlo-spray {
-      inset-block-start: calc(100% - 30vh);
+      inset-block-start: calc(100% - 18vw);
       inset-inline-end: ${({ theme }) => `calc(100% + ${theme.getMin(200)})`};
       inline-size: ${({ theme }) => theme.getMin(400)};
     }
@@ -305,7 +305,7 @@ export const Box = styled(WPImage)`
   @media ${queries.s} {
     position: static;
     display: ${({ $isShownInPortrait }) => ($isShownInPortrait ? 'block' : 'none')};
-    width: 100%;
+    inline-size: 100%;
 
     &.variant {
       &--zatogrip-kids {
@@ -317,15 +317,15 @@ export const Box = styled(WPImage)`
 
 export const BoxPortrait = styled(WPImage)`
   display: none;
-  width: 100%;
-  max-width: unset;
-  height: auto;
-  max-height: unset;
+  inline-size: 100%;
+  max-inline-size: unset;
+  block-size: auto;
+  max-block-size: unset;
 
   > img {
-    width: 100%;
-    max-width: unset;
-    max-height: unset;
+    inline-size: 100%;
+    max-inline-size: unset;
+    max-block-size: unset;
   }
 
   @media ${queries.s} {
@@ -360,7 +360,7 @@ export const CoverPortrait = styled(WPImage)`
     display: block;
 
     > img {
-      width: 100%;
+      inline-size: 100%;
     }
   }
 `;
