@@ -59,6 +59,10 @@ export const StyledHeader = styled.header`
       > svg {
         width: auto;
         height: 100%;
+
+        .logo-subtitle {
+          display: none;
+        }
       }
 
     :hover {
