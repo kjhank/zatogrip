@@ -155,6 +155,10 @@ export const Bottom = styled.section`
   align-items: center;
   padding: 2% 0;
 
+  p {
+    text-wrap: balance;
+  }
+
   strong {
     font-weight: 700;
   }
@@ -169,12 +173,16 @@ export const Bottom = styled.section`
     text-wrap: balance;
 
     @media ${queries.xs} {
-      font-size: min(50px, 8vw);
+      font-size: min(25px, 4vw);
     }
 
     > p:last-child {
       font-size: clamp(20px, 2.083333vw, 40px);
       text-align: center;
+
+      @media ${queries.xs} {
+        font-size: min(50px, 8vw);
+      }
     }
   }
 

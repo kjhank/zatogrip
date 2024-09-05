@@ -296,9 +296,9 @@ export const Box = styled(WPImage)`
     }
 
     &--zatogrip-md-gardlo-spray {
-      inset-block-start: calc(100% - 18vw);
-      inset-inline-end: ${({ theme }) => `calc(100% + ${theme.getMin(200)})`};
-      inline-size: ${({ theme }) => theme.getMin(400)};
+      inset-block-start: calc(100% - 15vw);
+      inset-inline-end: ${({ theme }) => `calc(100% + ${theme.getMin(250)})`};
+      inline-size: ${({ theme }) => theme.getMin(300)};
     }
   }
 
