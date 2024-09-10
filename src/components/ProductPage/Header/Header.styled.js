@@ -5,7 +5,7 @@ import { queries } from '@utils/rwd';
 
 export const Wrapper = styled.header`
   position: relative;
-  block-size: min(100vh, 56.25vw);
+  /* block-size: min(100vh, 56.25vw); */
 
   > div {
     :last-child {
@@ -207,7 +207,7 @@ export const Description = styled.div`
   }
 `;
 
-export const LinksWrapper = styled.nav`
+export const LinksWrapper = styled.div`
   position: relative;
   z-index: 1;
   display: flex;
@@ -218,6 +218,8 @@ export const LinksWrapper = styled.nav`
 
   > a {
     border-radius: ${({ theme }) => theme.getRadius('large')};
+    line-height: 1;
+    text-align: center;
   }
 
   @media ${queries.s} {
@@ -340,6 +342,7 @@ export const BoxPortrait = styled(WPImage)`
 `;
 
 export const Footnotes = styled.footer`
+  margin-block-start: 1em;
   font-size: clamp(6px, 0.520833vw, 10px);
 
   ol {
