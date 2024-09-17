@@ -166,9 +166,8 @@ export const Bottom = styled.section`
   &.global-legal {
     display: flex;
     flex-direction: column;
-    gap: min(29px, 1.5vw);
     min-block-size: 10vh;
-    font-size: min(10px, 0.520833vw);
+    font-size: clamp(12px, 0.833333vw, 16px);
     text-align: center;
     text-wrap: balance;
 
@@ -177,11 +176,17 @@ export const Bottom = styled.section`
     }
 
     > p:last-child {
-      font-size: clamp(20px, 2.083333vw, 40px);
+      margin-block-start: min(29px, 1.5vw);
+      padding: 0.5em 1em;
+      background-color: ${({ theme }) => theme.getColor('alt')};
+      color: #fff;
+      font-size: clamp(24px, 2.5vw, 48px);
+      line-height: 0.8;
       text-align: center;
+      text-wrap: balance;
 
       @media ${queries.xs} {
-        font-size: min(50px, 8vw);
+        font-size: min(60px, 9.6vw);
       }
     }
   }

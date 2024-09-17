@@ -92,15 +92,17 @@ export const ArrowWrapper = styled.div`
   }
 
   @media ${queries.s} {
-    right: -10%;
-    bottom: -10%;
+    right: -25%;
+    bottom: -25%;
     width: ${({ theme }) => theme.getMin(50)};
     height: ${({ theme }) => theme.getMin(50)};
   }
 
   @media ${queries.xs} {
-    width: max(15vw, 65px);
-    height: max(15vw, 65px);
+    right: -20%;
+    bottom: -20%;
+    width: max(12vw, 52px);
+    height: max(12vw, 52px);
 
     > svg {
       width: 50%;
@@ -164,7 +166,7 @@ export const ProductLink = styled(Link)`
   @media ${queries.xs} {
     width: min(45vw, 175px);
     height: min(45vw, 175px);
-    font-size: max(10vw, 48px);
+    font-size: max(8vw, 38px);
   }
 
   @media ${queries.xtiny} {

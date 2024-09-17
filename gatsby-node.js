@@ -263,14 +263,17 @@ exports.createPages = async ({
     pages,
     posts,
     settings,
-    // cmplz,
   ] = await getApiData(endpoints);
 
   pages.forEach(async page => {
     const context = page.slug === slugs.home ?
       {
         ...await getContext(page, settings, globals, carousel, posts),
-        posts,
+        posts: posts.map(post => ({
+          acf: post.acf,
+          slug: post.slug,
+          title: post.title,
+        })),
       } :
       await getContext(page, settings, globals, carousel, posts);
 
