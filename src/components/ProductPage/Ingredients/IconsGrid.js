@@ -7,7 +7,7 @@ import {
 
 export const IconsGrid = ({ icons }) => (
   <List>
-    {icons?.map(({
+    {icons?.length && icons?.map(({
       hasBadges, row,
     }) => (
       <Row key={JSON.stringify(row)}>
@@ -42,5 +42,8 @@ export const IconsGrid = ({ icons }) => (
 );
 
 IconsGrid.propTypes = {
-  icons: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
+  icons: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.shape({})),
+    PropTypes.bool,
+  ]).isRequired,
 };

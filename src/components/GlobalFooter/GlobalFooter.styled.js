@@ -17,6 +17,12 @@ export const Footer = styled.footer`
       margin-block-start: 2em;
     }
   }
+
+  hr {
+    inline-size: 66.6%;
+    margin: 2% auto 0;
+    border: 1px solid ${({ theme }) => theme.getColor('alt')};
+  }
 `;
 
 export const Contacts = styled.ul`
@@ -149,9 +155,44 @@ export const Bottom = styled.section`
   align-items: center;
   padding: 2% 0;
 
+  p {
+    text-wrap: balance;
+  }
+
+  strong {
+    font-weight: 700;
+  }
+
+  &.global-legal {
+    display: flex;
+    flex-direction: column;
+    min-block-size: 10vh;
+    font-size: clamp(12px, 0.833333vw, 16px);
+    text-align: center;
+    text-wrap: balance;
+
+    @media ${queries.xs} {
+      font-size: min(25px, 4vw);
+    }
+
+    > p:last-child {
+      margin-block-start: min(29px, 1.5vw);
+      padding: 0.2em 1em;
+      background-color: ${({ theme }) => theme.getColor('alt')};
+      color: #fff;
+      font-size: clamp(24px, 2.5vw, 48px);
+      line-height: 1.2;
+      text-align: center;
+      text-wrap: balance;
+
+      @media ${queries.xs} {
+        font-size: min(60px, 9.6vw);
+      }
+    }
+  }
+
   @media ${queries.xs} {
     flex-direction: column;
-    /* margin-top: -30%; */
     transform: unset;
 
     > svg {

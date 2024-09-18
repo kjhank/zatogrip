@@ -12,6 +12,7 @@ export const Product = ({
   ingredients,
   serving,
   slug,
+  usage,
   warnings,
 }) => (
   <Main>
@@ -34,7 +35,17 @@ export const Product = ({
       description={serving?.description}
       heading={serving?.heading}
       pageSlug={slug}
+      secondValue={serving?.second_value}
     />
+    {usage?.isvisible ?
+      (
+        <Ingredients
+          heading={usage?.heading}
+          intro={usage?.description}
+          slug={slug}
+        />
+      ) :
+      null}
     <Ingredients
       footnotes={ingredients?.footnotes}
       heading={ingredients?.heading}
@@ -59,10 +70,16 @@ Product.propTypes = {
       PropTypes.bool,
     ]),
     description: PropTypes.string,
-    footnotes: PropTypes.arrayOf(PropTypes.shape({})),
+    footnotes: PropTypes.oneOfType([
+      PropTypes.arrayOf(PropTypes.shape({})),
+      PropTypes.bool,
+    ]).isRequired,
     hasPortraitBox: PropTypes.bool,
     heading: PropTypes.string,
-    links: PropTypes.arrayOf(PropTypes.shape({})),
+    links: PropTypes.oneOfType([
+      PropTypes.arrayOf(PropTypes.shape({})),
+      PropTypes.bool,
+    ]),
     list: PropTypes.arrayOf(PropTypes.shape({})),
   }).isRequired,
   ingredients: PropTypes.shape({
@@ -71,9 +88,23 @@ Product.propTypes = {
       PropTypes.arrayOf(PropTypes.shape({})),
     ]),
     heading: PropTypes.string,
-    icons: PropTypes.arrayOf(PropTypes.shape({})),
+
+    icons: PropTypes.oneOfType([
+      PropTypes.arrayOf(PropTypes.shape({})),
+      PropTypes.bool,
+    ]).isRequired,
     intro: PropTypes.string,
-    table: PropTypes.shape({}),
+    table: PropTypes.shape({
+      body: PropTypes.oneOfType([
+        PropTypes.arrayOf(PropTypes.shape({})),
+        PropTypes.bool,
+      ]),
+      hastable: PropTypes.bool,
+      head: PropTypes.oneOfType([
+        PropTypes.arrayOf(PropTypes.shape({})),
+        PropTypes.bool,
+      ]),
+    }).isRequired,
   }).isRequired,
   serving: PropTypes.shape({
     description: PropTypes.string,
@@ -82,9 +113,19 @@ Product.propTypes = {
       PropTypes.bool,
       PropTypes.shape({}),
     ]),
+    second_value: PropTypes.string,
     value: PropTypes.string,
   }).isRequired,
   slug: PropTypes.string.isRequired,
+  usage: PropTypes.shape({
+    description: PropTypes.string,
+    heading: PropTypes.string,
+    image: PropTypes.oneOfType([
+      PropTypes.bool,
+      PropTypes.shape({}),
+    ]),
+    isvisible: PropTypes.bool,
+  }).isRequired,
   warnings: PropTypes.shape({
     heading: PropTypes.string,
     list: PropTypes.arrayOf(PropTypes.shape({})),

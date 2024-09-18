@@ -24,6 +24,7 @@ export const Item = styled.li`
 
   > span {
     white-space: pre-line;
+    text-wrap: balance;
   }
 
   @media ${queries.xtiny} {

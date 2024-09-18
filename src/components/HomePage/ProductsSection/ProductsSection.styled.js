@@ -92,15 +92,17 @@ export const ArrowWrapper = styled.div`
   }
 
   @media ${queries.s} {
-    right: -10%;
-    bottom: -10%;
+    right: -25%;
+    bottom: -25%;
     width: ${({ theme }) => theme.getMin(50)};
     height: ${({ theme }) => theme.getMin(50)};
   }
 
   @media ${queries.xs} {
-    width: max(15vw, 65px);
-    height: max(15vw, 65px);
+    right: -20%;
+    bottom: -20%;
+    width: max(12vw, 52px);
+    height: max(12vw, 52px);
 
     > svg {
       width: 50%;
@@ -164,7 +166,7 @@ export const ProductLink = styled(Link)`
   @media ${queries.xs} {
     width: min(45vw, 175px);
     height: min(45vw, 175px);
-    font-size: max(10vw, 48px);
+    font-size: max(8vw, 38px);
   }
 
   @media ${queries.xtiny} {
@@ -214,15 +216,32 @@ export const Product = styled.article`
     align-items: center;
     width: 100%;
     height: 100%;
+
+    &.variant--spray {
+      a {
+        font-size: min(7vw, 33.6px);
+      }
+    }
   }
 
-@media ${queries.xtiny} {
+  @media ${queries.xtiny} {
     :not(:first-child) {
       margin-top: 64px;
 
       @supports (gap: max(50px, 10vh)) {
         margin-top: 0;
       }
+    }
+  }
+
+  > .new-badge {
+    position: absolute;
+    inset: 100% auto auto 50%;
+    z-index: 1;
+    translate: -50% 50%;
+
+    @media ${queries.xs} {
+      font-size: min(4vw, 20px);
     }
   }
 `;
@@ -296,6 +315,10 @@ export const Package = styled(WPImage)`
     &--forte {
       bottom: 50%;
       transform: translateX(-50%);
+    }
+
+    &--spray {
+      transform: translateX(-55%);
     }
   }
 `;

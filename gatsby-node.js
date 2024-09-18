@@ -109,7 +109,9 @@ const getContext = async (pageData, settings, globals, { acf: { carousel } }, al
     acf, slug, title, type, yoast_head_json,
   } = pageData;
 
-  const { hasCarousel } = acf;
+  const {
+    hasCarousel, haslegal, legaltext,
+  } = acf;
 
   const globalContext = {
     cookies: {
@@ -118,6 +120,8 @@ const getContext = async (pageData, settings, globals, { acf: { carousel } }, al
       message: globals?.acf?.message,
     },
     globals,
+    hasLegal: haslegal,
+    legalText: legaltext,
     metadata: {
       globals: {
         language: settings.language,
@@ -259,14 +263,17 @@ exports.createPages = async ({
     pages,
     posts,
     settings,
-    // cmplz,
   ] = await getApiData(endpoints);
 
   pages.forEach(async page => {
     const context = page.slug === slugs.home ?
       {
         ...await getContext(page, settings, globals, carousel, posts),
-        posts,
+        posts: posts.map(post => ({
+          acf: post.acf,
+          slug: post.slug,
+          title: post.title,
+        })),
       } :
       await getContext(page, settings, globals, carousel, posts);
 
