@@ -177,11 +177,11 @@ export const Bottom = styled.section`
 
     > p:last-child {
       margin-block-start: min(29px, 1.5vw);
-      padding: 0.5em 1em;
+      padding: 0.2em 1em;
       background-color: ${({ theme }) => theme.getColor('alt')};
       color: #fff;
       font-size: clamp(24px, 2.5vw, 48px);
-      line-height: 0.8;
+      line-height: 1.2;
       text-align: center;
       text-wrap: balance;
 
