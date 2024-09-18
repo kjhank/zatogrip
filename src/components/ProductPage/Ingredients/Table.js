@@ -39,7 +39,13 @@ export const Table = ({
 );
 
 Table.propTypes = {
-  body: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
-  head: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
+  body: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.shape({})),
+    PropTypes.bool,
+  ]).isRequired,
+  head: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.shape({})),
+    PropTypes.bool,
+  ]).isRequired,
 };
 

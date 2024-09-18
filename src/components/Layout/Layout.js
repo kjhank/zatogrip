@@ -180,6 +180,8 @@ const Layout = ({
         content={pageContext?.globals?.acf}
         footnotes={pageContext?.data?.footerFootnotes}
         hasCarousel={pageContext?.hasCarousel}
+        hasLegal={pageContext?.hasLegal}
+        legalText={pageContext?.legalText}
       />
     </Theme>
   );
@@ -207,6 +209,8 @@ Layout.propTypes = {
       }),
     }),
     hasCarousel: PropTypes.bool,
+    hasLegal: PropTypes.bool,
+    legalText: PropTypes.string,
     metadata: PropTypes.shape({
       globals: PropTypes.shape({
         language: PropTypes.string,

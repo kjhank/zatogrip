@@ -2,7 +2,7 @@ import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyle = createGlobalStyle`
   html {
-    overflow: auto;
+    overflow: ${({ shouldScroll }) => (shouldScroll ? 'auto' : 'hidden')};
     box-sizing: border-box;
   }
 
@@ -118,10 +118,6 @@ export const GlobalStyle = createGlobalStyle`
     display: block;
   }
 
-  html {
-    overflow: ${({ shouldScroll }) => (shouldScroll ? 'auto' : 'hidden')}
-  }
-
   body {
     overflow: hidden;
     max-width: min(1920px, 100vw);
@@ -227,5 +223,9 @@ export const GlobalStyle = createGlobalStyle`
       animation-iteration-count: 1 !important;
       scroll-behavior: auto !important;
     }
+  }
+
+  #onetrust-consent-sdk {
+    display: ${process.env.NODE_ENV === 'development' && 'none'};
   }
 `;

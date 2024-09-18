@@ -5,22 +5,22 @@ import { queries } from '@utils/rwd';
 
 export const Wrapper = styled.header`
   position: relative;
-  height: min(100vh, 56.25vw);
+  /* block-size: min(100vh, 56.25vw); */
 
   > div {
     :last-child {
-      height: 15%;
+      block-size: 15%;
     }
   }
 
   @media ${queries.s} {
-    height: auto;
-    padding-bottom: 3em;
+    block-size: auto;
+    padding-block-end: 3em;
     ${({ theme }) => theme.getSectionBorder()};
 
     > div {
       :last-child {
-        height: auto;
+        block-size: auto;
       }
     }
   }
@@ -28,27 +28,27 @@ export const Wrapper = styled.header`
 
 export const Cover = styled(WPImage)`
   position: absolute;
-  top: 0;
+  inset-block-start: 0;
   z-index: 0;
-  width: 100%;
-  max-width: unset;
-  height: 100%;
-  max-height: unset;
+  inline-size: 100%;
+  max-inline-size: unset;
+  block-size: 100%;
+  max-block-size: unset;
 
   > img {
-    width: 100%;
-    height: 100%;
-    max-height: unset;
+    inline-size: 100%;
+    block-size: 100%;
+    max-block-size: unset;
     object-fit: contain;
     object-position: top left;
   }
 
   @media ${queries.l} {
-    max-height: unset;
+    max-block-size: unset;
 
     > img {
-      height: 100%;
-      max-height: unset;
+      block-size: 100%;
+      max-block-size: unset;
       object-fit: cover;
     }
   }
@@ -64,25 +64,25 @@ export const ContentWrapper = styled.div`
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
-  width: 60%;
-  height: 100%;
-  margin-left: auto;
+  inline-size: 60%;
+  block-size: 100%;
+  margin-inline-start: auto;
 
   @media ${queries.l} {
-    width: 50%;
+    inline-size: 50%;
   }
 
   @media ${queries.s} {
     display: flex;
     flex-direction: column;
-    width: 100%;
+    inline-size: 100%;
   }
 `;
 
 export const TopWrapper = styled.div`
   position: relative;
-  height: 85%;
-  padding-top: ${({ theme }) => theme.getMin(110)};
+  block-size: 85%;
+  padding-block-start: ${({ theme }) => theme.getMin(110)};
 
   ${ContentWrapper} {
     display: flex;
@@ -92,18 +92,18 @@ export const TopWrapper = styled.div`
     gap: min(3em, 4vw);
 
     > ul {
-      margin-bottom: 1em;
-      padding-right: 5%;
+      margin-block-end: 1em;
+      padding-inline-end: 5%;
       font-family: ${({ theme }) => theme.getFont('heading')};
     }
 
     @media ${queries.s} {
       align-items: center;
-      width: 100%;
-      margin-top: -80%;
+      inline-size: 100%;
+      margin-block-start: -80%;
 
       &.variant--tabletki-zatogrip-forte {
-        margin-top: -50%;
+        margin-block-start: -50%;
       }
 
       > ul {
@@ -119,13 +119,13 @@ export const TopWrapper = styled.div`
   }
 
   @media ${queries.s} {
-    height: 100%;
+    block-size: 100%;
   }
 `;
 
 export const Heading = styled.h1`
   color: ${({ theme }) => theme.colors.alt};
-  font-size: clamp(36px, 3.90625vw, 75px);
+  font-size: clamp(28.8px, 3.125vw, 60px);
   font-family: ${({ theme }) => theme.getFont('heading')};
 
   > svg {
@@ -137,10 +137,10 @@ export const Heading = styled.h1`
     z-index: 1;
     display: grid;
     place-items: center;
-    width: min(45vw, 175px);
-    height: min(45vw, 175px);
+    inline-size: min(45vw, 175px);
+    block-size: min(45vw, 175px);
     aspect-ratio: 1/1;
-    margin-top: -10%;
+    margin-block-start: -10%;
     border-radius: 999px;
     padding: min(24px, 1.25vw);
     background-color: ${({
@@ -153,18 +153,22 @@ export const Heading = styled.h1`
     text-align: center;
 
     > span {
-      width: 75%;
+      inline-size: 75%;
     }
 
     > svg {
       position: absolute;
-      top: 50%;
-      left: 50%;
+      inset-block-start: 50%;
+      inset-inline-start: 50%;
       z-index: 0;
       display: block;
-      width: 115%;
-      height: auto;
+      inline-size: 115%;
+      block-size: auto;
       transform: translate(-50%, -50%);
+    }
+
+    &.variant--zatogrip-md-gardlo-spray {
+      font-size: min(7vw, 33.6px);
     }
   }
 `;
@@ -173,7 +177,7 @@ export const Description = styled.div`
   font-size: clamp(14px, 1.25vw, 24px);
 
   p + p {
-    margin-top: 0.8em;
+    margin-block-start: 0.8em;
     line-height: 1.2;
   }
 
@@ -203,23 +207,25 @@ export const Description = styled.div`
   }
 `;
 
-export const LinksWrapper = styled.nav`
+export const LinksWrapper = styled.div`
   position: relative;
   z-index: 1;
   display: flex;
   align-items: center;
   gap: min(28px, 1.458333vw);
-  margin-top: min(24px, 4.479167vw);
+  margin-block-start: min(24px, 4.479167vw);
   font-size: clamp(10px, 1.041667vw, 20px);
 
   > a {
     border-radius: ${({ theme }) => theme.getRadius('large')};
+    line-height: 1;
+    text-align: center;
   }
 
   @media ${queries.s} {
     justify-content: space-between;
-    width: 100%;
-    margin-bottom: 2em;
+    inline-size: 100%;
+    margin-block-end: 2em;
 
     > a {
       padding: ${({ theme }) => `${theme.getMax(12)} ${theme.getMax(24)}`};
@@ -233,7 +239,7 @@ export const LinksWrapper = styled.nav`
     padding: 0 20%;
 
     > a {
-      width: 100%;
+      inline-size: 100%;
       padding: ${({ theme }) => `${theme.getMax(12)} ${theme.getMax(24)}`};
       font-size: clamp(18px, 1.875vw, 36px);
     }
@@ -245,7 +251,7 @@ export const LinksWrapper = styled.nav`
 
   @media ${queries.xtiny} {
     > a:not(:first-of-type) {
-      margin-top: 2em;
+      margin-block-start: 2em;
     }
   }
 `;
@@ -253,53 +259,59 @@ export const LinksWrapper = styled.nav`
 export const Box = styled(WPImage)`
   position: absolute;
   z-index: 1;
-  width: ${({
+  inline-size: ${({
     theme, image,
   }) => theme.getMin(image?.width / 2)};
-  max-width: unset;
-  max-height: unset;
+  max-inline-size: unset;
+  max-block-size: unset;
 
   > img {
-    width: 100%;
-    max-width: unset;
-    max-height: unset;
+    inline-size: 100%;
+    max-inline-size: unset;
+    max-block-size: unset;
   }
 
   &.variant {
     &--zatogrip-mini {
-      top: calc(100% - 25vh);
-      right: ${({ theme }) => `calc(100% + ${theme.getMin(150)})`};
+      inset-block-start: calc(100% - 15vw);
+      inset-inline-end: ${({ theme }) => `calc(100% + ${theme.getMin(150)})`};
     }
 
     &--zatogrip-baby {
-      top: calc(100% - 25vh);
-      right: ${({ theme }) => `calc(100% + ${theme.getMin(200)})`};
+      inset-block-start: calc(100% - 15vw);
+      inset-inline-end: ${({ theme }) => `calc(100% + ${theme.getMin(200)})`};
     }
 
     &--zatogrip-kids {
-      top: calc(100% - 25vh);
-      right: ${({ theme }) => `calc(100% + ${theme.getMin(175)})`};
+      inset-block-start: calc(100% - 15vw);
+      inset-inline-end: ${({ theme }) => `calc(100% + ${theme.getMin(175)})`};
     }
 
     &--zatogrip-junior {
-      top: calc(100% - 25vh);
-      right: ${({ theme }) => `calc(100% + ${theme.getMin(192)})`};
+      inset-block-start: calc(100% - 15vw);
+      inset-inline-end: ${({ theme }) => `calc(100% + ${theme.getMin(192)})`};
     }
 
     &--tabletki-zatogrip-forte {
-      top: calc(100% - 20vh);
-      right: ${({ theme }) => `calc(100% + ${theme.getMin(150)})`};
+      inset-block-start: calc(100% - 12vw);
+      inset-inline-end: ${({ theme }) => `calc(100% + ${theme.getMin(150)})`};
+    }
+
+    &--zatogrip-md-gardlo-spray {
+      inset-block-start: calc(100% - 15vw);
+      inset-inline-end: ${({ theme }) => `calc(100% + ${theme.getMin(250)})`};
+      inline-size: ${({ theme }) => theme.getMin(300)};
     }
   }
 
   @media ${queries.s} {
     position: static;
     display: ${({ $isShownInPortrait }) => ($isShownInPortrait ? 'block' : 'none')};
-    width: 100%;
+    inline-size: 100%;
 
     &.variant {
       &--zatogrip-kids {
-        margin-top: -20%;
+        margin-block-start: -20%;
       }
     }
   }
@@ -307,23 +319,30 @@ export const Box = styled(WPImage)`
 
 export const BoxPortrait = styled(WPImage)`
   display: none;
-  width: 100%;
-  max-width: unset;
-  height: auto;
-  max-height: unset;
+  inline-size: 100%;
+  max-inline-size: unset;
+  block-size: auto;
+  max-block-size: unset;
 
   > img {
-    width: 100%;
-    max-width: unset;
-    max-height: unset;
+    inline-size: 100%;
+    max-inline-size: unset;
+    max-block-size: unset;
   }
 
   @media ${queries.s} {
     display: block;
   }
+
+  &.variant {
+    &--zatogrip-md-gardlo-spray-portrait {
+      margin-block-start: max(-100px, -33.33vw);
+    }
+  }
 `;
 
 export const Footnotes = styled.footer`
+  margin-block-start: 1em;
   font-size: clamp(6px, 0.520833vw, 10px);
 
   ol {
@@ -344,7 +363,7 @@ export const CoverPortrait = styled(WPImage)`
     display: block;
 
     > img {
-      width: 100%;
+      inline-size: 100%;
     }
   }
 `;

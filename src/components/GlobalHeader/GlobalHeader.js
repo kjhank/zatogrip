@@ -38,11 +38,11 @@ export const GlobalHeader = React.forwardRef(({
         <X />
       </NavToggle>
       <Navigation isHidden={!isNavigationOpen}>
-        <menu>
+        <ul>
           {navItems.map(item => {
             const isHighlighted = item?.url?.includes(slug) ||
-            (item?.highlightType?.includes('products') && (slug?.startsWith('zatogrip') || slug?.startsWith('tabletki'))) ||
-            (type === 'post' && item?.highlightType?.includes('post'));
+              (item?.highlightType?.includes('products') && (slug?.startsWith('zatogrip') || slug?.startsWith('tabletki'))) ||
+              (type === 'post' && item?.highlightType?.includes('post'));
 
             return (item.type === 'scroll' && !hasLinks ?
               (
@@ -106,7 +106,7 @@ export const GlobalHeader = React.forwardRef(({
                 </li>
               ));
           })}
-        </menu>
+        </ul>
       </Navigation>
     </Container>
   </StyledHeader>

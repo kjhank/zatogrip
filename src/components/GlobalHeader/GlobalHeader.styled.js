@@ -59,6 +59,10 @@ export const StyledHeader = styled.header`
       > svg {
         width: auto;
         height: 100%;
+
+        .logo-subtitle {
+          display: none;
+        }
       }
 
     :hover {
@@ -103,7 +107,7 @@ export const Navigation = styled.nav`
     transform: ${({ isHidden }) => (isHidden ? 'translate(-50%, -100%)' : 'translate(-50%, 0)')};
   }
 
-  > menu {
+  > ul {
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -217,6 +221,7 @@ export const ProductsList = styled.ul`
 `;
 
 export const SingleProduct = styled.li`
+  position: relative;
   display: flex;
   align-items: flex-end;
   height: 100%;
@@ -224,6 +229,13 @@ export const SingleProduct = styled.li`
 
   :last-child {
     margin-left: ${({ theme }) => theme.getMin(109 - 66)};
+  }
+
+  > .new-badge {
+    position: absolute;
+    inset: 50% auto auto 0;
+    rotate: -90deg;
+    z-index: 1;
   }
 `;
 
@@ -246,27 +258,32 @@ export const ProductImage = styled(WPImage)`
   &.submenu-variant {
     &--mini {
       left: 50%;
-      transform: translateX(-50%)
+      transform: translateX(-50%);
     }
 
     &--baby {
       left: 50%;
-      transform: translateX(-50%)
+      transform: translateX(-50%);
     }
 
     &--kids {
       left: 50%;
-      transform: translateX(-50%)
+      transform: translateX(-50%);
     }
 
     &--junior {
       left: 50%;
-      transform: translateX(-50%)
+      transform: translateX(-50%);
     }
 
     &--forte {
       left: 50%;
-      transform: translateX(-50%)
+      transform: translateX(-50%);
+    }
+
+    &--spray {
+      left: 50%;
+      transform: translateX(-50%);
     }
   }
 `;
@@ -287,6 +304,7 @@ export const ProductLink = styled(GenericLink)`
 export const ProductName = styled.h2`
   color: ${({ theme }) => theme.getColor('alt')};
   font-family: ${({ theme }) => theme.getFont('heading')};
+  text-align: center;
 
   > strong {
     color: ${({ theme }) => theme.getColor('accent')};

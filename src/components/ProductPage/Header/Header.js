@@ -69,7 +69,10 @@ export const Header = ({
               isLazy={false}
             />
             )}
-            <Heading variant={variant}>
+            <Heading
+              className={`variant--${pageSlug}`}
+              variant={variant}
+            >
               <span>{heading}</span>
               <Ellipses />
             </Heading>
@@ -83,7 +86,7 @@ export const Header = ({
       <Container>
         <ContentWrapper>
           <LinksWrapper>
-            {links?.map(({ link }) => (
+            {links?.length && links?.map(({ link }) => (
               <ArrowLink
                 href={link.url}
                 key={link.title}
@@ -96,7 +99,8 @@ export const Header = ({
           </LinksWrapper>
           <Footnotes>
             <ol>
-              {footnotes?.map(({ footnote }) => <li key={footnote}>{footnote}</li>)}
+              {footnotes?.length &&
+              footnotes?.map(({ footnote }) => <li key={footnote}>{footnote}</li>)}
             </ol>
           </Footnotes>
         </ContentWrapper>
@@ -114,10 +118,16 @@ Header.propTypes = {
     PropTypes.bool,
   ]).isRequired,
   description: PropTypes.string.isRequired,
-  footnotes: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
+  footnotes: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.shape({})),
+    PropTypes.bool,
+  ]).isRequired,
   hasPortraitBox: PropTypes.bool.isRequired,
   heading: PropTypes.string.isRequired,
-  links: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
+  links: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.shape({})),
+    PropTypes.bool,
+  ]).isRequired,
   list: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
   pageSlug: PropTypes.string.isRequired,
 };
