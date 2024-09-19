@@ -20,7 +20,7 @@ import { topNavigation } from './static';
 
 const SCROLL_DEBOUNCE_DELAY = 50;
 
-const { GATSBY_ONETRUST_ID } = process.env;
+const onetrustID = process.env.GATSBY_ONETRUST_ID;
 
 const Layout = ({
   children, location, pageContext, path,
@@ -141,7 +141,7 @@ const Layout = ({
     scriptNode.src = 'https://cdn.cookielaw.org/scripttemplates/otSDKStub.js';
     scriptNode.setAttribute('data-document-language', 'true');
     scriptNode.setAttribute('charset', 'utf-8');
-    scriptNode.setAttribute('data-domain-script', GATSBY_ONETRUST_ID);
+    scriptNode.setAttribute('data-domain-script', onetrustID);
 
     document.head.appendChild(scriptNode);
 
