@@ -212,12 +212,13 @@ export const ProductsMenuWrapper = styled.nav`
 `;
 
 export const ProductsList = styled.ul`
+  inline-size: min(800px, 60%);
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-evenly;
   align-items: flex-end;
   gap: ${({ theme }) => theme.getMin(66)};
+  margin-inline: auto;
   height: 100%;
-  padding-right: ${({ theme }) => theme.getMin(445 - 140)};
 `;
 
 export const SingleProduct = styled.li`
@@ -233,9 +234,10 @@ export const SingleProduct = styled.li`
 
   > .new-badge {
     position: absolute;
-    inset: 50% auto auto 0;
+    inset: auto auto 30% 0;
     rotate: -90deg;
     z-index: 1;
+    transform-origin: left bottom;
   }
 `;
 
