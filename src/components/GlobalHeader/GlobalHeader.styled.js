@@ -212,7 +212,7 @@ export const ProductsMenuWrapper = styled.nav`
 `;
 
 export const ProductsList = styled.ul`
-  inline-size: min(800px, 60%);
+  inline-size: min(1000px, 65%);
   display: flex;
   justify-content: space-evenly;
   align-items: flex-end;
