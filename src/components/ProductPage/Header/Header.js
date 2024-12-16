@@ -27,6 +27,7 @@ const sanitizeConfig = {
     'em',
     'i',
     'p',
+    'sup',
   ],
 };
 
@@ -100,7 +101,12 @@ export const Header = ({
           <Footnotes>
             <ol>
               {footnotes?.length &&
-              footnotes?.map(({ footnote }) => <li key={footnote}>{footnote}</li>)}
+              footnotes?.map(({ footnote }) => (
+                <li
+                  dangerouslySetInnerHTML={{ __html: sanitize(footnote, sanitizeConfig) }}
+                  key={footnote}
+                />
+              ))}
             </ol>
           </Footnotes>
         </ContentWrapper>

@@ -287,7 +287,8 @@ export const Box = styled(WPImage)`
       inset-inline-end: ${({ theme }) => `calc(100% + ${theme.getMin(175)})`};
     }
 
-    &--zatogrip-junior {
+    &--zatogrip-junior,
+    &--zatogrip-noc-3 {
       inset-block-start: calc(100% - 15vw);
       inset-inline-end: ${({ theme }) => `calc(100% + ${theme.getMin(192)})`};
     }

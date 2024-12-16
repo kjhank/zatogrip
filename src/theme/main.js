@@ -37,6 +37,7 @@ const theme = {
       junior: '#005b30',
       kids: '#008134',
       mini: '#82b41b',
+      night: '#4d2b77',
       spray: '#33696d',
     },
   },

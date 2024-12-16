@@ -215,7 +215,8 @@ export const ProductsList = styled.ul`
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;
-  gap: ${({ theme }) => theme.getMin(66)};
+  gap: ${({ theme }) => theme.getMin(40)};
+  margin-inline: auto;
   height: 100%;
   padding-right: ${({ theme }) => theme.getMin(445 - 140)};
 `;
@@ -281,7 +282,8 @@ export const ProductImage = styled(WPImage)`
       transform: translateX(-50%);
     }
 
-    &--spray {
+    &--spray,
+    &--night {
       left: 50%;
       transform: translateX(-50%);
     }

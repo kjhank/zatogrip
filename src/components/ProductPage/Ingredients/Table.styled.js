@@ -63,4 +63,8 @@ export const Cell = styled.td`
     border-radius: ${({ theme }) => theme.getRadius('tiny')};
     padding: 1em 0.5em;
   }
+
+  i {
+    font-style: italic;
+  }
 `;
