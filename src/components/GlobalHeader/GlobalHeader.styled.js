@@ -215,10 +215,10 @@ export const ProductsList = styled.ul`
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;
-  gap: ${({ theme }) => theme.getMin(40)};
+  gap: ${({ theme }) => theme.getMin(20)};
   margin-inline: auto;
   height: 100%;
-  padding-right: ${({ theme }) => theme.getMin(445 - 140)};
+  padding-right: ${({ theme }) => theme.getMin(150)};
 `;
 
 export const SingleProduct = styled.li`
