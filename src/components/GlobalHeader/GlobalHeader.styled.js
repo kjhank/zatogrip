@@ -213,12 +213,10 @@ export const ProductsMenuWrapper = styled.nav`
 
 export const ProductsList = styled.ul`
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   align-items: flex-end;
-  gap: ${({ theme }) => theme.getMin(20)};
   margin-inline: auto;
   height: 100%;
-  padding-right: ${({ theme }) => theme.getMin(150)};
 `;
 
 export const SingleProduct = styled.li`
@@ -227,6 +225,10 @@ export const SingleProduct = styled.li`
   align-items: flex-end;
   height: 100%;
   font-size: clamp(8px, 0.833333vw, 16px);
+
+  &:not(:first-child, :last-child) {
+    margin-inline: -2%;
+  }
 
   :last-child {
     margin-left: ${({ theme }) => theme.getMin(109 - 66)};
@@ -237,6 +239,14 @@ export const SingleProduct = styled.li`
     inset: 50% auto auto 0;
     rotate: -90deg;
     z-index: 1;
+  }
+
+  &.night {
+    margin-inline: 2% -2%;
+
+    & > .new-badge {
+      inset-inline-start: -27%;
+    }
   }
 `;
 
@@ -307,6 +317,8 @@ export const ProductName = styled.h2`
   color: ${({ theme }) => theme.getColor('alt')};
   font-family: ${({ theme }) => theme.getFont('heading')};
   text-align: center;
+  max-inline-size: 70%;
+  margin-inline: auto;
 
   > strong {
     color: ${({ theme }) => theme.getColor('accent')};

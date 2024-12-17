@@ -45,7 +45,7 @@ export const Header = ({
   pageSlug,
 }) => {
   const splitSlug = pageSlug.split('-');
-  const variant = splitSlug.at(-1);
+  const variant = splitSlug.at(-1) === '3' ? 'night' : splitSlug.at(-1);
 
   return (
     <Wrapper>

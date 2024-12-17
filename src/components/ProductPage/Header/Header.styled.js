@@ -147,7 +147,7 @@ export const Heading = styled.h1`
     theme, variant,
   }) => theme.colors.products[variant]};
     color: #fff;
-    font-size: min(10vw, 48px);
+    font-size: min(6vw, 28px);
     font-family: ${({ theme }) => theme.getFont('heading')};
     line-height: 1;
     text-align: center;
@@ -354,6 +354,10 @@ export const Footnotes = styled.footer`
     order: 0;
     font-size: min(16px, 3vw);
     text-align: left;
+  }
+
+  i {
+    font-style: italic;
   }
 `;
 
