@@ -16,6 +16,7 @@ export const Wrapper = styled.section`
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-block-end: min(67px, 3.489583vw);
     ${({ theme }) => theme.getSectionBorder()};
 
     @media ${queries.xs} {
@@ -89,7 +90,7 @@ export const Badge = styled(WPImage)`
 `;
 
 export const Description = styled.p`
-  margin: min(47px, 2.447917vw) 0 min(67px, 3.489583vw);
+  margin-block: min(47px, 2.447917vw) 0;
   font-size: clamp(14px, 1.25vw, 24px);
   text-align: center;
   white-space: break-spaces;
