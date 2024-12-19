@@ -212,6 +212,7 @@ export const ProductsMenuWrapper = styled.nav`
 `;
 
 export const ProductsList = styled.ul`
+  inline-size: min(1000px, 65%);
   display: flex;
   justify-content: center;
   align-items: flex-end;
@@ -236,9 +237,10 @@ export const SingleProduct = styled.li`
 
   > .new-badge {
     position: absolute;
-    inset: 50% auto auto 0;
+    inset: auto auto 30% 0;
     rotate: -90deg;
     z-index: 1;
+    transform-origin: left bottom;
   }
 
   &.night {
