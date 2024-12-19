@@ -251,7 +251,7 @@ export const ProductsList = styled.ul`
   display: flex;
   justify-content: flex-start;
   align-items: flex-end;
-  gap: ${({ theme }) => theme.getMin(240)};
+  gap: ${({ theme }) => theme.getMin(140)};
   width: 100%;
   height: ${({ theme }) => theme.getMin(529)};
   padding-left: ${({ theme }) => theme.getMin(50)};

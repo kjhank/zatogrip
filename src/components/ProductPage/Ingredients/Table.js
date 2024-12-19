@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import sanitize from 'sanitize-html';
 
 import {
   Body, Cell, Head, HeadCell, Row, StyledTable,
@@ -29,7 +30,8 @@ export const Table = ({
               isLighter={item.isLighter}
               key={JSON.stringify(item)}
             >
-              {item.cell}
+              <span dangerouslySetInnerHTML={{ __html: sanitize(item.cell, { allowedTags: ['i'] }) }} />
+              {/* {item.cell} */}
             </Cell>
           ))}
         </Row>

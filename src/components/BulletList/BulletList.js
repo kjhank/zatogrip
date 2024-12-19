@@ -8,7 +8,10 @@ import {
 } from './BulletList.styled';
 
 const sanitizeConfig = {
-  allowedTags: ['br'],
+  allowedTags: [
+    'br',
+    'sup',
+  ],
 };
 
 export const BulletList = ({ items }) => (
