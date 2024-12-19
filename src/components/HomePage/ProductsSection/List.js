@@ -52,32 +52,37 @@ export const List = ({ products }) => (
       })}
     </ProductGroup>
     <ProductGroup>
-      {products?.filter(({ group }) => group === 'second')?.map(product => (
-        <Product
-          className={`variant--${product.color}`}
-          key={product.linkText}
-        >
-          <Package
+      {products?.filter(({ group }) => group === 'second')?.map(product => {
+        const { isnew: isNew } = product;
+
+        return (
+          <Product
             className={`variant--${product.color}`}
-            image={product.image}
-          />
-          <PackagePortrait
-            className={`variant--${product.color}`}
-            image={product.imageMobile}
-          />
-          <ProductLink
-            to={`/${product.product.post_name}`}
-            variant={product.color}
+            key={product.linkText}
           >
-            <Ellipses />
-            <span>{product.linkText}</span>
-            {' '}
-            <ArrowWrapper>
-              <Arrow />
-            </ArrowWrapper>
-          </ProductLink>
-        </Product>
-      ))}
+            {isNew ? <NewBadge>Nowość</NewBadge> : null}
+            <Package
+              className={`variant--${product.color}`}
+              image={product.image}
+            />
+            <PackagePortrait
+              className={`variant--${product.color}`}
+              image={product.imageMobile}
+            />
+            <ProductLink
+              to={`/${product.product.post_name}`}
+              variant={product.color}
+            >
+              <Ellipses />
+              <span>{product.linkText}</span>
+              {' '}
+              <ArrowWrapper>
+                <Arrow />
+              </ArrowWrapper>
+            </ProductLink>
+          </Product>
+        );
+      })}
     </ProductGroup>
     <ProductGroup>
       {products?.filter(({ group }) => group === 'third')?.map(product => (

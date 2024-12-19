@@ -25,7 +25,10 @@ export const ProductsMenu = ({
           const { isnew: isNew } = product;
 
           return (
-            <Product key={product.product.ID}>
+            <Product
+              className={product.colorSlug.value.toLowerCase()}
+              key={product.product.ID}
+            >
               {isNew ? <NewBadge>Nowość</NewBadge> : null}
               <Link to={`/${product.product.post_name}/`}>
                 <Image
