@@ -30,7 +30,10 @@ export const ProductsMenu = ({
               key={product.product.ID}
             >
               {isNew ? <NewBadge>Nowość</NewBadge> : null}
-              <Link to={`/${product.product.post_name}/`}>
+              <Link
+                $width={product.image.width}
+                to={`/${product.product.post_name}/`}
+              >
                 <Image
                   className={`submenu-variant--${product.colorSlug.value.toLowerCase()}`}
                   image={product.image}
