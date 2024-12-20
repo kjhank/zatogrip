@@ -212,7 +212,6 @@ export const ProductsMenuWrapper = styled.nav`
 `;
 
 export const ProductsList = styled.ul`
-  inline-size: min(1000px, 65%);
   display: flex;
   justify-content: center;
   align-items: flex-end;
@@ -223,6 +222,7 @@ export const ProductsList = styled.ul`
 export const SingleProduct = styled.li`
   position: relative;
   display: flex;
+  flex-shrink: 0;
   align-items: flex-end;
   height: 100%;
   font-size: clamp(8px, 0.833333vw, 16px);
@@ -237,18 +237,13 @@ export const SingleProduct = styled.li`
 
   > .new-badge {
     position: absolute;
-    inset: auto auto 30% 0;
+    inset: 50% auto auto -20%;
     rotate: -90deg;
     z-index: 1;
-    transform-origin: left bottom;
   }
 
   &.night {
     margin-inline: 2% -2%;
-
-    & > .new-badge {
-      inset-inline-start: -27%;
-    }
   }
 `;
 
@@ -306,6 +301,10 @@ export const ProductLink = styled(GenericLink)`
   position: relative;
   display: flex;
   align-items: flex-end;
+  width: ${({
+    $width, theme,
+  }) => theme.getMin($width / 2)};
+
   height: 100%;
 
   :hover {
