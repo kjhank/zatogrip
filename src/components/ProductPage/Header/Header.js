@@ -91,7 +91,7 @@ export const Header = ({
               <ArrowLink
                 href={link.url}
                 key={link.title}
-                rel="noreferrer nofollow"
+                {...(link.title.includes('E-Melissa') ? {} : { rel: 'noreferrer nofollow' })}
                 target="_blank"
               >
                 {link.title}
