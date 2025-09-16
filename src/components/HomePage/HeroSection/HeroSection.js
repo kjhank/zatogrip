@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { Container } from '@components';
-import { HeaderLogo } from '@icons';
 import sanitize from 'sanitize-html';
 import {
   Background, Heading, PortraitBackground, Section,
@@ -23,7 +22,6 @@ export const HeroSection = ({
     />
     <Container>
       <Heading insetBlockStart={headerHeight}>
-        <HeaderLogo />
         <br />
         {content?.heading ?
           (
