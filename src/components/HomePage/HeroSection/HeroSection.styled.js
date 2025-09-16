@@ -34,6 +34,7 @@ export const Heading = styled.h2`
   inset-inline-end: 0;
   order: 1;
   width: 44%;
+  margin-block-start: 1em;
   color: #92d955;
   font-weight: bold;
   font-size: clamp(28px, 4.0104169vw, 84px);
@@ -65,6 +66,7 @@ export const Heading = styled.h2`
       line-height: 0.8;
       letter-spacing: -3px;
       white-space: normal;
+      color: ${({ theme }) => theme.colors.alt};
     }
 
     &--small {
