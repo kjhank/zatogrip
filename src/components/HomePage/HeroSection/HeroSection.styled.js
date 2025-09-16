@@ -64,12 +64,14 @@ export const Heading = styled.h2`
     &--subtitle {
       line-height: 0.8;
       letter-spacing: -3px;
+      white-space: normal;
     }
 
     &--small {
       color: #fcfcfc;
       font-weight: 400;
       font-size: 0.4em;
+      white-space: normal;
 
       @media ${queries.xs} {
         color: #030303;

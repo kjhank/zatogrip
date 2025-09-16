@@ -3,11 +3,10 @@ import PropTypes from 'prop-types';
 
 import { Container } from '@components';
 import { HeaderLogo } from '@icons';
+import sanitize from 'sanitize-html';
 import {
   Background, Heading, PortraitBackground, Section,
 } from './HeroSection.styled';
-
-import { TripleBrag } from './TripleBrag';
 
 export const HeroSection = ({
   content, headerHeight,
@@ -26,19 +25,30 @@ export const HeroSection = ({
       <Heading insetBlockStart={headerHeight}>
         <HeaderLogo />
         <br />
-        <span className="heading--subtitle">
-          wspiera trening
-          <br />
-          odporności
-          <sup>*</sup>
-        </span>
-        <p className="heading--small">
-          Wirusy i bakterie
-          <br />
-          dzieciom niestraszne
-        </p>
+        {content?.heading ?
+          (
+            <span
+              className="heading--subtitle"
+              dangerouslySetInnerHTML={{
+                __html: sanitize(content.heading, {
+                  allowedTags: [
+                    'br',
+                    'sup',
+                  ],
+                }),
+              }}
+            />
+          ) :
+          null}
+        {content?.smallcopy ?
+          (
+            <p
+              className="heading--small"
+              dangerouslySetInnerHTML={{ __html: sanitize(content.smallcopy, { allowedTags: ['br'] }) }}
+            />
+          ) :
+          null}
       </Heading>
-      <TripleBrag />
     </Container>
   </Section>
 );
@@ -49,7 +59,7 @@ HeroSection.propTypes = {
     backgroundPortraitImage: PropTypes.shape({}),
     bottomText: PropTypes.string,
     heading: PropTypes.string,
+    smallcopy: PropTypes.string,
   }).isRequired,
   headerHeight: PropTypes.string.isRequired,
 };
-
