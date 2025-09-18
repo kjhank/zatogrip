@@ -66,7 +66,10 @@ export const Heading = styled.h2`
       line-height: 0.8;
       letter-spacing: -3px;
       white-space: normal;
-      color: ${({ theme }) => theme.colors.alt};
+
+      &:not(:where(.copy, .alt, .accent, .dim, .highlight, .light, .main, .player, .header, .baby, .forte, .junior, .kids, .mini, .night, .spray)) {
+        color: ${({ theme }) => theme.colors.alt};
+      }
     }
 
     &--small {

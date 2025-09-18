@@ -29,8 +29,10 @@ export const HeroSection = ({
               className="heading--subtitle"
               dangerouslySetInnerHTML={{
                 __html: sanitize(content.heading, {
+                  allowedAttributes: { span: ['class'] },
                   allowedTags: [
                     'br',
+                    'span',
                     'sup',
                   ],
                 }),

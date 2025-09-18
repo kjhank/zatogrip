@@ -228,4 +228,68 @@ export const GlobalStyle = createGlobalStyle`
   #onetrust-consent-sdk {
     display: ${process.env.NODE_ENV === 'development' && 'none'};
   }
+
+  .copy {
+    color: ${({ theme }) => theme.colors.copy}
+  }
+
+  .alt {
+    color: ${({ theme }) => theme.colors.alt};
+  }
+
+  .accent {
+    color: ${({ theme }) => theme.colors.accent};
+  }
+
+  .dim {
+    color: ${({ theme }) => theme.colors.dim};
+  }
+
+  .highlight {
+    color: ${({ theme }) => theme.colors.highlight};
+  }
+
+  .light {
+    color: ${({ theme }) => theme.colors.link};
+  }
+
+  .main {
+    color: ${({ theme }) => theme.colors.main};
+  }
+
+  .player {
+    color: ${({ theme }) => theme.colors.player};
+  }
+
+  .header {
+    color: ${({ theme }) => theme.colors.products.header};
+  }
+
+  .baby {
+    color: ${({ theme }) => theme.colors.products.baby};
+  }
+
+  .forte {
+    color: ${({ theme }) => theme.colors.products.forte};
+  }
+
+  .junior {
+    color: ${({ theme }) => theme.colors.products.junior};
+  }
+
+  .kids {
+    color: ${({ theme }) => theme.colors.products.kids};
+  }
+
+  .mini {
+    color: ${({ theme }) => theme.colors.products.mini};
+  }
+
+  .night {
+    color: ${({ theme }) => theme.colors.products.night};
+  }
+
+  .spray {
+    color: ${({ theme }) => theme.colors.products.spray};
+  }
 `;
