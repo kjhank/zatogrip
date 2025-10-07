@@ -77,6 +77,23 @@ export const ContentWrapper = styled.div`
     flex-direction: column;
     inline-size: 100%;
   }
+
+  > h1:has(.new-badge) {
+    > span {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5em;
+    }
+
+    .new-badge {
+      border-radius: 100px;
+      padding: ${({ theme }) => theme.getMin(10)} ${({ theme }) => theme.getMin(27)};
+      background-color: ${({ theme }) => theme.colors.accent};
+      color: #fff;
+      font-size: 0.45em;
+      line-height: 1;
+    }
+  }
 `;
 
 export const TopWrapper = styled.div`
@@ -121,6 +138,7 @@ export const TopWrapper = styled.div`
   @media ${queries.s} {
     block-size: 100%;
   }
+
 `;
 
 export const Heading = styled.h1`
@@ -272,6 +290,12 @@ export const Box = styled(WPImage)`
   }
 
   &.variant {
+    &--zatogrip-plus {
+      inset-block-start: calc(100% - 12vw);
+      inset-inline-end: ${({ theme }) => `calc(100% + ${theme.getMin(280)})`};
+      inline-size: ${({ theme }) => theme.getMin(300)};
+    }
+
     &--zatogrip-mini {
       inset-block-start: calc(100% - 15vw);
       inset-inline-end: ${({ theme }) => `calc(100% + ${theme.getMin(150)})`};

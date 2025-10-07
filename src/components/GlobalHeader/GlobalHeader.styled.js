@@ -213,7 +213,7 @@ export const ProductsMenuWrapper = styled.nav`
 
 export const ProductsList = styled.ul`
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: flex-end;
   margin-inline: auto;
   height: 100%;
@@ -237,13 +237,9 @@ export const SingleProduct = styled.li`
 
   > .new-badge {
     position: absolute;
-    inset: 50% auto auto -20%;
+    inset: 50% auto auto -6%;
     rotate: -90deg;
     z-index: 1;
-  }
-
-  &.night {
-    margin-inline: 2% -2%;
   }
 `;
 
@@ -290,6 +286,7 @@ export const ProductImage = styled(WPImage)`
     }
 
     &--spray,
+    &--plus,
     &--night {
       left: 50%;
       transform: translateX(-50%);
@@ -304,7 +301,6 @@ export const ProductLink = styled(GenericLink)`
   width: ${({
     $width, theme,
   }) => theme.getMin($width / 2)};
-
   height: 100%;
 
   :hover {
@@ -395,4 +391,3 @@ export const SubNav = styled.nav`
     margin-top: unset;
   }
 `;
-
