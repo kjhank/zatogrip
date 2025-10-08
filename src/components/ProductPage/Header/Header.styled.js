@@ -83,6 +83,10 @@ export const ContentWrapper = styled.div`
       display: inline-flex;
       align-items: center;
       gap: 0.5em;
+
+      @media ${queries.s} {
+        flex-direction: column;
+      }
     }
 
     .new-badge {
@@ -92,6 +96,11 @@ export const ContentWrapper = styled.div`
       color: #fff;
       font-size: 0.45em;
       line-height: 1;
+
+      @media ${queries.s} {
+        padding: 0.5em;
+        font-size: 0.6em;
+      }
     }
   }
 `;
