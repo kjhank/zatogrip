@@ -294,6 +294,10 @@ export const Box = styled(WPImage)`
       inset-block-start: calc(100% - 12vw);
       inset-inline-end: ${({ theme }) => `calc(100% + ${theme.getMin(280)})`};
       inline-size: ${({ theme }) => theme.getMin(300)};
+
+      @media ${queries.s} {
+        inline-size: 100%;
+      }
     }
 
     &--zatogrip-mini {
