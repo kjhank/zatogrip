@@ -74,7 +74,14 @@ export const Header = ({
               className={`variant--${pageSlug}`}
               variant={variant}
             >
-              <span>{heading}</span>
+              <span
+                dangerouslySetInnerHTML={{
+                  __html: sanitize(heading, {
+                    allowedAttributes: { span: ['class'] },
+                    allowedTags: ['span'],
+                  }),
+                }}
+              />
               <Ellipses />
             </Heading>
             <Description
