@@ -59,6 +59,7 @@ export const Ingredients = ({
             <Table
               body={table?.body}
               head={table?.head}
+              table_footer={table?.table_footer}
             />
           ) :
           null}
@@ -95,6 +96,10 @@ Ingredients.propTypes = {
     hastable: PropTypes.bool,
     head: PropTypes.oneOfType([
       PropTypes.arrayOf(PropTypes.shape({})),
+      PropTypes.bool,
+    ]),
+    table_footer: PropTypes.oneOfType([
+      PropTypes.string,
       PropTypes.bool,
     ]),
   }).isRequired,

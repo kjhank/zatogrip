@@ -2,43 +2,57 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import sanitize from 'sanitize-html';
 
-import {
-  Body, Cell, Head, HeadCell, Row, StyledTable,
-} from './Table.styled';
+import * as styled from './Table.styled';
 
 export const Table = ({
-  body, head,
-}) => (
-  <StyledTable isNarrow={head?.length < 3}>
-    <Head>
-      <Row>
-        {head?.map(item => (
-          <HeadCell
-            isUppercase={item.isCapitalized}
-            key={item.text}
-          >
-            {item.text}
-          </HeadCell>
-        ))}
-      </Row>
-    </Head>
-    <Body>
-      {body?.map(({ row }) => (
-        <Row key={JSON.stringify(row)}>
-          {row?.map(item => (
-            <Cell
-              isLighter={item.isLighter}
-              key={JSON.stringify(item)}
+  body, head, table_footer,
+}) => {
+  const cols = head?.length;
+
+  console.log(cols);
+
+  return (
+    <styled.StyledTable isNarrow={cols < 3}>
+      <styled.Head>
+        <styled.Row>
+          {head?.map(item => (
+            <styled.HeadCell
+              isUppercase={item.isCapitalized}
+              key={item.text}
             >
-              <span dangerouslySetInnerHTML={{ __html: sanitize(item.cell, { allowedTags: ['i'] }) }} />
-              {/* {item.cell} */}
-            </Cell>
+              {item.text}
+            </styled.HeadCell>
           ))}
-        </Row>
-      ))}
-    </Body>
-  </StyledTable>
-);
+        </styled.Row>
+      </styled.Head>
+      <styled.Body>
+        {body?.map(({ row }) => (
+          <styled.Row key={JSON.stringify(row)}>
+            {row?.map(item => (
+              <styled.Cell
+                isLighter={item.isLighter}
+                key={JSON.stringify(item)}
+              >
+                <span dangerouslySetInnerHTML={{ __html: sanitize(item.cell, { allowedTags: ['i'] }) }} />
+              </styled.Cell>
+            ))}
+          </styled.Row>
+        ))}
+      </styled.Body>
+      {table_footer ?
+        (
+          <styled.Footer>
+            <styled.Row>
+              <styled.Cell colSpan={cols}>
+                {table_footer}
+              </styled.Cell>
+            </styled.Row>
+          </styled.Footer>
+        ) :
+        null}
+    </styled.StyledTable>
+  );
+};
 
 Table.propTypes = {
   body: PropTypes.oneOfType([
@@ -49,5 +63,8 @@ Table.propTypes = {
     PropTypes.arrayOf(PropTypes.shape({})),
     PropTypes.bool,
   ]).isRequired,
+  table_footer: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.bool,
+  ]).isRequired,
 };
-
