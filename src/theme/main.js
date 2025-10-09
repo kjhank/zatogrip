@@ -38,6 +38,7 @@ const theme = {
       kids: '#008134',
       mini: '#82b41b',
       night: '#4d2b77',
+      plus: '#317337',
       spray: '#33696d',
     },
   },

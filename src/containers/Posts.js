@@ -26,9 +26,9 @@ export const Posts = ({
 
 Posts.propTypes = {
   cover: PropTypes.shape({}).isRequired,
+  coverPortrait: PropTypes.shape({}).isRequired,
   heading: PropTypes.string.isRequired,
   intro: PropTypes.string.isRequired,
   postLinkText: PropTypes.string.isRequired,
   posts: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
 };
-

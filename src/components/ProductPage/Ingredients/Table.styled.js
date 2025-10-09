@@ -68,3 +68,11 @@ export const Cell = styled.td`
     font-style: italic;
   }
 `;
+
+export const Footer = styled.tfoot`
+  ${Cell} {
+    background-color: initial;
+    font-weight: normal;
+    font-size: clamp(8px, 0.625vw, 12px);
+  }
+`;

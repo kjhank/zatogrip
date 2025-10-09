@@ -178,7 +178,7 @@ export const ProductGroup = styled.li`
   display: flex;
   justify-content: center;
   align-items: flex-end;
-  gap: ${({ theme }) => theme.getMin(100)};
+  gap: ${({ theme }) => theme.getMin(80)};
 
   :last-child {
     margin-left: ${({ theme }) => theme.getMin(150)};
@@ -251,7 +251,7 @@ export const ProductsList = styled.ul`
   display: flex;
   justify-content: flex-start;
   align-items: flex-end;
-  gap: ${({ theme }) => theme.getMin(140)};
+  gap: ${({ theme }) => theme.getMin(80)};
   width: 100%;
   height: ${({ theme }) => theme.getMin(529)};
   padding-left: ${({ theme }) => theme.getMin(50)};
@@ -292,7 +292,7 @@ export const Package = styled(WPImage)`
   left: 50%;
   width: ${({
     image, theme,
-  }) => theme.getMin(Math.round(image.width / 2))};
+  }) => theme.getMin(Math.round(image.width / 2.5))};
   max-width: unset;
   max-height: unset;
   transform: translateX(-40%);
